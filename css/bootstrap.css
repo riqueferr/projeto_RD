@@ -89,8 +89,8 @@ abbr[data-original-title] {
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
-  cursor: help;
-  border-bottom: 0;
+  cursor: default;
+  border-bottom: none;
   -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
 }
