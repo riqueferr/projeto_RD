@@ -199,7 +199,22 @@ label {
 
 
 
+/* Tela Inicial */
 
+.box_img{
+  height: 150px; 
+  background-color: #29754E;
+}
+
+.box_img:hover{
+  background-color: #1a5e3b;
+}
+
+div div div div img{
+  margin-top: 8%;
+  height: 110px;
+  width: 110px;
+}
 
 
 
