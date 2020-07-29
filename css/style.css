@@ -171,8 +171,21 @@ abbr {
   margin-left: 40px;
 }
 
+.botaoConfirmar:hover {
+  background-color: #174d31;
+  color: #fff;
+  margin-left: 40px;
+  border: 1px solid #29754e;
+}
+
 .botaoCancelar {
   background-color: #989898;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.botaoCancelar:hover {
+  background-color: #5e5e5e;
   color: #fff;
   margin-left: 10px;
 }
@@ -316,8 +329,12 @@ table {
   border-radius: 5px;
   height: 170px;
   margin-bottom: 10px;
-  border: 1px solid #c8d3cd;
+  border: 1px solid #f0f0f0;
 } 
+
+.centralizarMenu {
+  justify-content: space-around;
+}
 
 /* .teste {
   border-radius: 5px;
