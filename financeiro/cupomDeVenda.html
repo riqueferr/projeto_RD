@@ -186,16 +186,18 @@
 
                         <br>
                         <div class="container">
-                            <h2>Cupons de Venda</h2>
+                            <h2>Documento Fiscal</h2>
                         </div>
                         
                         <br><br>
 
                         <div class="container">
+
+                            <!-- INPUTS PARA RETORNAR VALORES DA NOTA FISCAL -->
                             <form>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                      <label for="inputEmail4">ID Cupom</label>
+                                      <label for="inputEmail4">ID NF</label>
                                       <input type="email" class="form-control" id="inputEmail4" placeholder="ID Cupom" disabled>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -203,22 +205,50 @@
                                       <input type="password" class="form-control" id="inputPassword4" placeholder="Cliente" disabled>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="inputPassword4">Data de Compra</label>
-                                        <input type="password" class="form-control" id="inputPassword4" placeholder=" ___/___/___" disabled>
+                                        <label for="inputPassword4">Fornecedor</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder=" Fornecedor" disabled>
                                     </div>
                                   </div>
                                   <div class="form-row">
                                     <div class="form-group col-md-4">
-                                      <label for="inputEmail4">ID Loja</label>
-                                      <input type="email" class="form-control" id="inputEmail4" placeholder="ID Loja" disabled>
+                                      <label for="inputEmail4">ID Filial</label>
+                                      <input type="email" class="form-control" id="inputEmail4" placeholder="ID FIlial" disabled>
                                     </div>
                                     <div class="form-group col-md-4">
-                                      <label for="inputPassword4">Loja</label>
+                                      <label for="inputPassword4">Filial</label>
                                       <input type="password" class="form-control" id="inputPassword4" placeholder="Raia Osasco" disabled>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="inputPassword4">Filial</label>
-                                        <input type="password" class="form-control" id="inputPassword4" placeholder="05478" disabled>
+                                        <label for="inputPassword4">Número NF</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="45784" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                      <label for="inputEmail4">Data Emissão</label>
+                                      <input type="email" class="form-control" id="inputEmail4" placeholder="___/___/___" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                      <label for="inputPassword4">Data Entrada</label>
+                                      <input type="password" class="form-control" id="inputPassword4" placeholder="___/___/___" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPassword4">Número Série</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="45784567865465" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                      <label for="inputEmail4">Status NF</label>
+                                      <input type="email" class="form-control" id="inputEmail4" placeholder="Concluído" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                      <label for="inputPassword4">Tipo de NF</label>
+                                      <input type="password" class="form-control" id="inputPassword4" placeholder="Venda" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPassword4">Chave de Acesso</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="45486 454456 545665 45665" disabled>
                                     </div>
                                   </div>
                                   <div class="form-row">
@@ -250,7 +280,7 @@
                             <div class="navbar navbar-light bg-light justify-content-center">
                                     <form class="form-row">
                                         <div class="form-group col-md-3">
-                                            <label for="inputPassword4">ID Cupom</label>
+                                            <label for="inputPassword4">ID NF</label>
                                             <input class="form-control mr-sm-4" type="search" placeholder="00" aria-label="Search">
                                         </div>
                                         <div class="form-group col-md-3">
@@ -258,7 +288,7 @@
                                             <input class="form-control mr-sm-4" type="search" placeholder="00000" aria-label="Search">
                                         </div>
                                         <div class="form-group col-md-3">
-                                            <label for="inlineFormInputName">Data de compra</label>
+                                            <label for="inlineFormInputName">Data de entrada</label>
                                             <input type="date" class="form-control mr-sm-4" placeholder="___/___/___" aria-label="Search">
                                         </div>
                                         <div style="margin-top: 2.7%" class="form-group col-md-3">
@@ -274,60 +304,59 @@
                             <table class="table table-striped">
                                 <thead>
                                   <tr>
-                                    <th scope="col">ID Cupom</th>
-                                    <th scope="col">Data de Compra</th>
-                                    <th scope="col">ID Loja</th>
-                                    <th scope="col">Loja</th>
+                                    <th scope="col">ID NF</th>
+                                    <th scope="col">Data de Entrada</th>
                                     <th scope="col">Filial</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Valor Total</th>
                                     <th scope="col">Ações</th>
-                                    <th scope="col"></th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   <tr>
                                     <th scope="row">01</th>
                                     <td>10/10/2020</td>
-                                    <th scope="row">4578</th>
-                                    <td>Raia Osasco</td>
-                                    <td>05478</td>
-                                    <td><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i> Detalhes</button></td>
-                                    <td><button type="button" class="btn btn-secondary"><i class="fa fa-trash"></i> Excluir</button></td>
+                                    <th scope="row">Paulista</th>
+                                    <td>Venda</td>
+                                    <td>R$ 560,98</td>
+                                    <td><abbr title="Detalhes"><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i></button></abbr>&nbsp;
+                                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></button></abbr></td>
                                   </tr>
                                   <tr>
                                     <th scope="row">01</th>
                                     <td>10/10/2020</td>
-                                    <th scope="row">4578</th>
-                                    <td>Raia Osasco</td>
-                                    <td>05478</td>
-                                    <td><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i> Detalhes</button></td>
-                                    <td><button type="button" class="btn btn-secondary"><i class="fa fa-trash"></i> Excluir</button></td>
+                                    <th scope="row">Paulista</th>
+                                    <td>Venda</td>
+                                    <td>R$ 560,98</td>
+                                    <td><abbr title="Detalhes"><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i></button></abbr>&nbsp;
+                                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></button></abbr></td>
                                   </tr>
                                   <tr>
                                     <th scope="row">01</th>
                                     <td>10/10/2020</td>
-                                    <th scope="row">4578</th>
-                                    <td>Raia Osasco</td>
-                                    <td>05478</td>
-                                    <td><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i> Detalhes</button></td>
-                                    <td><button type="button" class="btn btn-secondary"><i class="fa fa-trash"></i> Excluir</button></td>
+                                    <th scope="row">Paulista</th>
+                                    <td>Venda</td>
+                                    <td>R$ 560,98</td>
+                                    <td><abbr title="Detalhes"><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i></button></abbr>&nbsp;
+                                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></button></abbr></td>
                                   </tr>
                                   <tr>
                                     <th scope="row">01</th>
                                     <td>10/10/2020</td>
-                                    <th scope="row">4578</th>
-                                    <td>Raia Osasco</td>
-                                    <td>05478</td>
-                                    <td><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i> Detalhes</button></td>
-                                    <td><button type="button" class="btn btn-secondary"><i class="fa fa-trash"></i> Excluir</button></td>
+                                    <th scope="row">Paulista</th>
+                                    <td>Venda</td>
+                                    <td>R$ 560,98</td>
+                                    <td><abbr title="Detalhes"><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i></button></abbr>&nbsp;
+                                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></button></abbr></td>
                                   </tr>
                                   <tr>
                                     <th scope="row">01</th>
                                     <td>10/10/2020</td>
-                                    <th scope="row">4578</th>
-                                    <td>Raia Osasco</td>
-                                    <td>05478</td>
-                                    <td><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i> Detalhes</button></td>
-                                    <td><button type="button" class="btn btn-secondary"><i class="fa fa-trash"></i> Excluir</button></td>
+                                    <th scope="row">Paulista</th>
+                                    <td>Venda</td>
+                                    <td>R$ 560,98</td>
+                                    <td><abbr title="Detalhes"><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i></button></abbr>&nbsp;
+                                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></button></abbr></td>
                                   </tr>
             
                                 </tbody>
@@ -336,6 +365,27 @@
                     </div>
                     <br>
                 </div>
+
+                <!-- Modal Excluir-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Confirmação de exclusão</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Deseja realmente excluir o registro selecionado ?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                          <button type="button" class="btn btn-danger">Salvar mudanças</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                 <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
                 <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
@@ -353,6 +403,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+	integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+	crossorigin="anonymous"></script>
 </body>
 
 </html>
