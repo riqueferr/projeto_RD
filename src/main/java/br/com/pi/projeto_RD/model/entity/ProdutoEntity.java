@@ -4,6 +4,7 @@ package br.com.pi.projeto_RD.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_PRODUTO")
@@ -44,5 +45,9 @@ public class ProdutoEntity {
 
     @Column(name = "ID_IMAGEM")
     private Integer id_imagem;
+
+//    @OneToMany
+//    @JoinColumn(name = "ID_STATUS_PRODUTO")
+//    private List<StatusProdutoEntity> status;
 
 }
