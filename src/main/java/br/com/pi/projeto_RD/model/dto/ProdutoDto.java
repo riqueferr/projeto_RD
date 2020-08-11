@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,6 +13,7 @@ public class ProdutoDto {
 
     private Integer codigo;
     private Integer status_produto;
+//    List<StatusProdutoDTO> status;
     private Integer categoria;
     private Integer tipo_produto;
     private String nm_fantasia;
