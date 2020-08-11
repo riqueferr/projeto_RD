@@ -19,5 +19,4 @@ public class StatusProdutoEntity implements Serializable {
     @Column(name = "DS_STATUS_PRODUTO")
     private String dsStatusProduto;
 
-
 }
