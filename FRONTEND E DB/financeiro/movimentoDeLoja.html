@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel='stylesheet' href='../css/style_Pedro.css'>
+    <title>Movimento De Loja</title>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <header>
+            <div
+                class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm marginBottom">
+                <h5 class="my-0 mr-md-auto font-weight-normal">
+                    <a href="../loginInicial/telaInicial.html"><img src="../images/Logo RD White 1.png"></a>
+                </h5>
+                <nav class="my-2 my-md-0 mr-md-3">
+                    <a class="p-2 text-white">Bem-Vindo,</a>
+                    <a class="p-2 text-white" href="#">Adminstrador</a>
+                </nav>
+                <a class="btn btn-outline-primary centralizar" href="../loginInicial/Login.html">Sair</a>
+            </div>
+        </header>
+
+        <div class='row'>
+            <div class='col-md-3'>
+                <nav>
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <h6
+                                class="sidebar-heading d-flex justify-content-center align-items-center px-3 paddingzin ">
+                                <span>FINANCEIRO</span>
+                                <a class="d-flex align-items-center text-muted" href="#">
+                                </a>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="dashboard.html">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-graph-up"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h1v16H0V0zm1 15h15v1H1v-1z" />
+                                        <path fill-rule="evenodd"
+                                            d="M14.39 4.312L10.041 9.75 7 6.707l-3.646 3.647-.708-.708L7 5.293 9.959 8.25l3.65-4.563.781.624z" />
+                                        <path fill-rule="evenodd"
+                                            d="M10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4h-3.5a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                    Dashboard <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="relatorioGerencial.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-file-text">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                    Relatório Gerencial
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link sideBarSelectTouch" href="movimentoDeLoja.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-shopping-cart">
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+                                        </path>
+                                    </svg>
+                                    Movimento de Loja
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cupomDeVenda.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-layers">
+                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                    Cupom de Venda
+                                </a>
+                            </li>
+                            <h6
+                                class="sidebar-heading d-flex justify-content-center align-items-center px-3 paddingzin marginTop">
+                                <span>ABASTECIMENTO</span>
+                                <a class="d-flex align-items-center text-muted" href="#">
+                                </a>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Dashboard</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Cadastro de Fornecedor</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Cadastro de Produto</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Entrada de Produto</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Transferência de Produto</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Relatório de Produtos</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Relatório de Estoque</abbr>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class='col-md-9'>
+                <div class='row'>
+                    <h4>MOVIMENTO DE LOJA</h4>
+                </div>
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+
+
+                <main>
+                    <div class="container">
+                        <div class='row marginTopMain semMarginRightMain'>
+                            <div class='col-md-12 justify-content-center'>
+                                <div
+                                    class="d-flex align-items-center justify-content p-2 text-white-50 bg-purple rounded shadow-sm">
+                                    <div class="lh-100">
+                                        <h6 class="border-bottom-flex1 border-gray pb-2 mb-3 text-white lh-100">Data
+                                        </h6>
+                                    </div>
+                                    <div class="lh-100">
+                                        <h6 class="border-bottom-flex2 border-gray pb-2 mb-3 text-white lh-100">Nome
+                                            Filial
+                                        </h6>
+                                    </div>
+                                    <div class="lh-100">
+                                        <h6 class="border-bottom-flex3 border-gray pb-2 mb-3 text-white lh-100">Código
+                                            Filial</h6>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class='row marginTopMain semMarginRightMain fundo-bloco1 centralizarTexto'>
+
+                                <div class='col-md-4' style='padding-top: 23px;'>
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="example-date-input" class="col-2 col-form-label"></label>
+                                            <div class="col-8">
+                                                <input class="form-control" type="date" value="2020-07-24"
+                                                    id="example-date-input">
+                                            </div>
+                                        </div>
+
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputFilial"></label>
+                                    <input type="text" class="form-control" id="inputFilial">
+                                </div>
+                                <div class='col-md-4'>
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1"></label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Status 1 </option>
+                                            <option>Status 2</option>
+                                            <option>Status 3</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class='row marginTopMain semMarginRightMain fundo-bloco1 centralizarTexto'>
+
+                                <div class='col-md-4'>
+
+
+
+                                </div>
+                                <div class='col-md-4'>
+
+                                </div>
+                                <div class='col-md-4'>
+                                    <button type="submit" class="btn btn-default botaoConfirmar">Confirmar</button>
+                                    <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                        <br>
+
+                        <div class='row marginTabela' style='text-align: center'>
+                            <table class="table">
+                                <thead class="thead-default tituloTabela">
+                                    <tr>
+                                        <th scope="col">Filial</th>
+                                        <th scope="col">Nome da Filial</th>
+                                        <th scope="col">Total Dinheiro</th>
+                                        <th scope="col">Total Cheque</th>
+                                        <th scope="col">Caixa de Loja</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">0006</th>
+                                        <td>Conjunto Nacional</td>
+                                        <td>R$ 2.234.543,76</td>
+                                        <td>R$ 34.543,76</td>
+                                        <td>R$ 2.269.087,52</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">0078</th>
+                                        <td>Padre João Manuel</td>
+                                        <td>R$ 1.754.234,54</td>
+                                        <td>R$ 14.234,54</td>
+                                        <td>R$ 1.768.469,08</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">0628</th>
+                                        <td>Cerqueira Cesar E</td>
+                                        <td>R$ 874.124,97</td>
+                                        <td>R$ 4.574,82</td>
+                                        <td>R$ 78.699,79</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        </main>
+        <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+        <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+        <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+        <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+        <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+        <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+        <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+        <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+        <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+    </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
