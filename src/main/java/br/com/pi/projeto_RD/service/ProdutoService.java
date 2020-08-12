@@ -72,6 +72,7 @@ public class ProdutoService {
 
         pEntity.setCodigo(dto.getCodigo());
         pEntity.setNm_fantasia(dto.getNm_fantasia());
+//        pEntity.setCategoria(categoriaRepository.getOne(dto.getId_categoria()));
 
         pEntity.setNm_fabricante(dto.getNm_fabricante());
         pEntity.setVl_unidade(dto.getVl_unidade());

@@ -17,6 +17,7 @@ public class ProdutoDto {
     private Integer codigo;
     private String nm_fantasia;
     private String statusProduto;
+//    private Long id_categoria;
     private String categoria;
     private String sub_categoria;
     private String tipo_produto;
