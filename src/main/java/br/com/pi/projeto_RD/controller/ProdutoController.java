@@ -1,6 +1,7 @@
 package br.com.pi.projeto_RD.controller;
 
 import br.com.pi.projeto_RD.model.dto.ProdutoDto;
+import br.com.pi.projeto_RD.repository.ProdutoRepository;
 import br.com.pi.projeto_RD.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +11,19 @@ import org.springframework.web.bind.annotation.*;
 public class ProdutoController {
 
     @Autowired
+    ProdutoRepository repository;
+
+    @Autowired
     private ProdutoService service;
+
+//    @GetMapping("/produtos")
+//    public ResponseEntity<Object> listarTodas(){
+//        return ResponseEntity.ok().body(repository.findAll());
+//    }
 
     @GetMapping("/produtos")
     public ResponseEntity buscarTodas() {
-        return ResponseEntity.ok().body(service.buscarTodas());
+        return ResponseEntity.ok().body(service.listarTodas());
     }
 
     @GetMapping("/produtos/{codigo}")
@@ -31,7 +40,6 @@ public class ProdutoController {
 
     @PutMapping("/produtos")
     public ResponseEntity atualizar(@RequestBody ProdutoDto dto) {
-
         service.atualizar(dto);
         return ResponseEntity.ok().body(dto);
     }

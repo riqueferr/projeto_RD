@@ -3,7 +3,10 @@ package br.com.pi.projeto_RD.service;
 
 
 import br.com.pi.projeto_RD.model.dto.ProdutoDto;
+import br.com.pi.projeto_RD.model.dto.StatusProdutoDTO;
 import br.com.pi.projeto_RD.model.entity.ProdutoEntity;
+import br.com.pi.projeto_RD.model.entity.StatusProdutoEntity;
+import br.com.pi.projeto_RD.repository.CategoriaRepository;
 import br.com.pi.projeto_RD.repository.ProdutoRepository;
 import br.com.pi.projeto_RD.service.bo.ProdutoBO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +24,40 @@ public class ProdutoService {
     @Autowired
     private ProdutoBO produtoBO;
 
-    public List<ProdutoDto> buscarTodas() {
+//    public List<ProdutoDto> buscarTodas() {
 
-        List<ProdutoDto> listDTO = new ArrayList<>();
-        for (ProdutoEntity entity : repository.findAll()) {
-            ProdutoDto dto = produtoBO.parseToDTO(entity);
-            listDTO.add(dto);
+//        List<ProdutoDto> listDTO = new ArrayList<>();
+//        for (ProdutoEntity entity : repository.findAll()) {
+//            ProdutoDto dto = produtoBO.parseToDTO(entity);
+//            listDTO.add(dto);
+//        }
+//        return listDTO;
+//    }
+
+    public List<ProdutoDto> listarTodas() {
+
+
+        List<ProdutoDto> listaDTO = new ArrayList<>();
+        List<ProdutoEntity> listaEntity = repository.findAll();
+        for (ProdutoEntity p : listaEntity) {
+            ProdutoDto dto = new ProdutoDto();
+            dto.setCodigo(p.getCodigo());
+            dto.setNm_fantasia(p.getNm_fantasia());
+            dto.setStatusProduto(p.getStatus().getDsStatusProduto());
+            dto.setCategoria(p.getCategoria().getDsCategoria());
+            dto.setSub_categoria(p.getCategoria().getSubCategoria().getDsSubCategoria());
+            dto.setTipo_produto(p.getTipo_produto().getDsTipoProduto());
+            dto.setNm_fabricante(p.getNm_fabricante());
+            dto.setVl_unidade(p.getVl_unidade());
+            dto.setDs_altura(p.getDs_altura());
+            dto.setDs_peso(p.getDs_peso());
+            dto.setDs_largura(p.getDs_largura());
+            dto.setId_imagem(p.getId_imagem());
+
+            listaDTO.add(dto);
         }
-        return listDTO;
+
+        return listaDTO;
     }
 
     public ProdutoDto buscarPorId(Integer codigo){

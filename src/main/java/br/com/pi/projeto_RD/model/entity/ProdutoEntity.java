@@ -4,6 +4,7 @@ package br.com.pi.projeto_RD.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_PRODUTO")
@@ -15,17 +16,20 @@ public class ProdutoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
 
-    @Column(name = "ID_STATUS_PRODUTO")
-    private Integer status_produto;
-
-    @Column(name = "ID_CATEGORIA")
-    private Integer categoria;
-
-    @Column(name = "ID_TIPO_PRODUTO")
-    private Integer tipo_produto;
-
     @Column(name = "NM_FANTASIA")
     private String nm_fantasia;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_STATUS_PRODUTO")
+    private StatusProdutoEntity status;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_CATEGORIA")
+    private CategoriaEntity categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_TIPO_PRODUTO")
+    private TipoProdutoEntity tipo_produto;
 
     @Column(name = "NM_FABRICANTE")
     private String nm_fabricante;
@@ -44,5 +48,7 @@ public class ProdutoEntity {
 
     @Column(name = "ID_IMAGEM")
     private Integer id_imagem;
+
+
 
 }
