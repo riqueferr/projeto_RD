@@ -19,9 +19,6 @@ public class CategoriaEntity implements Serializable {
     @Column(name = "DS_CATEGORIA")
     private String dsCategoria;
 
-//    @Column(name = "ID_SUB_CATEGORIA")
-//    private Long idSubCategoria;
-
     @OneToOne
     @JoinColumn(name = "ID_SUB_CATEGORIA")
     private SubCategoriaEntity subCategoria;

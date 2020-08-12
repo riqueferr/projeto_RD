@@ -16,40 +16,39 @@ public class ProdutoController {
     @Autowired
     private ProdutoService service;
 
+//    @GetMapping("/produtos")
+//    public ResponseEntity<Object> listarTodas(){
+//        return ResponseEntity.ok().body(repository.findAll());
+//    }
+
     @GetMapping("/produtos")
-    public ResponseEntity<Object> listarTodas(){
-        return ResponseEntity.ok().body(repository.findAll());
+    public ResponseEntity buscarTodas() {
+        return ResponseEntity.ok().body(service.listarTodas());
     }
 
-//    @GetMapping("/produtos")
-//    public ResponseEntity buscarTodas() {
-//        return ResponseEntity.ok().body(service.buscarTodas());
-//    }
+    @GetMapping("/produtos/{codigo}")
+    public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
 
-//    @GetMapping("/produtos/{codigo}")
-//    public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
-//
-//        return ResponseEntity.ok().body(service.buscarPorId(codigo));
-//    }
-//
-//    @PostMapping("/produtos")
-//    public ResponseEntity inserir(@RequestBody ProdutoDto dto) {
-//        service.inserir(dto);
-//        return ResponseEntity.ok().body(dto);
-//    }
-//
-//    @PutMapping("/produtos")
-//    public ResponseEntity atualizar(@RequestBody ProdutoDto dto) {
-//
-//        service.atualizar(dto);
-//        return ResponseEntity.ok().body(dto);
-//    }
-//
-//    @DeleteMapping("/produtos/{codigo}")
-//    public ResponseEntity excluirPorId(@PathVariable("codigo") Integer codigo) {
-//        ProdutoDto dto = service.excluirPorId(codigo);
-//        return ResponseEntity.ok().body(dto);
-//    }
+        return ResponseEntity.ok().body(service.buscarPorId(codigo));
+    }
+
+    @PostMapping("/produtos")
+    public ResponseEntity inserir(@RequestBody ProdutoDto dto) {
+        service.inserir(dto);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    @PutMapping("/produtos")
+    public ResponseEntity atualizar(@RequestBody ProdutoDto dto) {
+        service.atualizar(dto);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    @DeleteMapping("/produtos/{codigo}")
+    public ResponseEntity excluirPorId(@PathVariable("codigo") Integer codigo) {
+        ProdutoDto dto = service.excluirPorId(codigo);
+        return ResponseEntity.ok().body(dto);
+    }
 
 
 }
