@@ -37,7 +37,7 @@ public class FornecedorEntity {
     private String nr_telefone;
 
     @Column(name = "FK_TIPO_FORNECEDOR")
-    private TipoFornecedorEntity fk_tipo_fornecedor;
+    private Integer fk_tipo_fornecedor;
 
 
 }
