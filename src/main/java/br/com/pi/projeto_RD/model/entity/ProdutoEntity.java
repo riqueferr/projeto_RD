@@ -19,15 +19,15 @@ public class ProdutoEntity {
     @Column(name = "NM_FANTASIA")
     private String nm_fantasia;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID_STATUS_PRODUTO")
     private StatusProdutoEntity status;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID_CATEGORIA")
     private CategoriaEntity categoria;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID_TIPO_PRODUTO")
     private TipoProdutoEntity tipo_produto;
 
