@@ -22,6 +22,9 @@ public class ProdutoService {
     private ProdutoRepository repository;
 
     @Autowired
+    private CategoriaRepository categoriaRepository;
+
+    @Autowired
     private ProdutoBO produtoBO;
 
 //    public List<ProdutoDto> buscarTodas() {
@@ -64,11 +67,28 @@ public class ProdutoService {
         return produtoBO.parseToDTO(repository.getOne(codigo));
     }
 
-    public void inserir(ProdutoDto dto) {
-        ProdutoEntity entity = produtoBO.parseToEntity(dto, null);
-        if(entity.getNm_fantasia() != null)
-            repository.save(entity);
+    public ProdutoEntity inserir(ProdutoDto dto) {
+        ProdutoEntity pEntity = new ProdutoEntity();
+
+        pEntity.setCodigo(dto.getCodigo());
+        pEntity.setNm_fantasia(dto.getNm_fantasia());
+
+        pEntity.setNm_fabricante(dto.getNm_fabricante());
+        pEntity.setVl_unidade(dto.getVl_unidade());
+        pEntity.setDs_altura(dto.getDs_altura());
+        pEntity.setDs_peso(dto.getDs_peso());
+        pEntity.setDs_largura(dto.getDs_largura());
+        pEntity.setId_imagem(dto.getId_imagem());
+
+        return repository.save(pEntity);
+
     }
+
+//    public void inserir(ProdutoDto dto) {
+//        ProdutoEntity entity = produtoBO.parseToEntity(dto, null);
+//        if(entity.getNm_fantasia() != null)
+//            repository.save(entity);
+//    }
 
     public void atualizar(ProdutoDto dto) {
 

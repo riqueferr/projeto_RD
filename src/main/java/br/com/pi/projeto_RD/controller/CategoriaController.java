@@ -17,4 +17,5 @@ public class CategoriaController {
         return ResponseEntity.ok().body(repository.findAll());
     }
 
+
 }
