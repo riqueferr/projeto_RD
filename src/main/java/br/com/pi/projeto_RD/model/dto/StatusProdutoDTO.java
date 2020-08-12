@@ -7,7 +7,8 @@ import javax.persistence.Column;
 @Data
 public class StatusProdutoDTO {
 
-    @Column(name = "DS_STATUS_PRODUTO")
+    private Long idStatusProduto;
+
     private String dsStatusProduto;
 
 }

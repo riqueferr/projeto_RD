@@ -22,7 +22,7 @@ public class CategoriaEntity implements Serializable {
 //    @Column(name = "ID_SUB_CATEGORIA")
 //    private Long idSubCategoria;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "ID_SUB_CATEGORIA")
     private SubCategoriaEntity subCategoria;
 

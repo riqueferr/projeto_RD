@@ -16,17 +16,20 @@ public class ProdutoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
 
-    @Column(name = "ID_STATUS_PRODUTO")
-    private Integer status_produto;
-
-    @Column(name = "ID_CATEGORIA")
-    private Integer categoria;
-
-    @Column(name = "ID_TIPO_PRODUTO")
-    private Integer tipo_produto;
-
     @Column(name = "NM_FANTASIA")
     private String nm_fantasia;
+
+    @OneToOne
+    @JoinColumn(name = "ID_STATUS_PRODUTO")
+    private StatusProdutoEntity status;
+
+    @OneToOne
+    @JoinColumn(name = "ID_CATEGORIA")
+    private CategoriaEntity categoria;
+
+    @OneToOne
+    @JoinColumn(name = "ID_TIPO_PRODUTO")
+    private TipoProdutoEntity tipo_produto;
 
     @Column(name = "NM_FABRICANTE")
     private String nm_fabricante;
@@ -46,8 +49,6 @@ public class ProdutoEntity {
     @Column(name = "ID_IMAGEM")
     private Integer id_imagem;
 
-//    @OneToMany
-//    @JoinColumn(name = "ID_STATUS_PRODUTO")
-//    private List<StatusProdutoEntity> status;
+
 
 }
