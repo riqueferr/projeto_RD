@@ -4,6 +4,7 @@ import br.com.pi.projeto_RD.model.dto.ProdutoDto;
 import br.com.pi.projeto_RD.model.entity.ProdutoEntity;
 import br.com.pi.projeto_RD.repository.ProdutoRepository;
 import br.com.pi.projeto_RD.service.ProdutoService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,11 +25,13 @@ public class ProdutoController {
 //    }
 
     @GetMapping("/produtos")
+    @ApiOperation(value = "Listar todas os produtos")
     public ResponseEntity buscarTodas() {
         return ResponseEntity.ok().body(service.listarTodas());
     }
 
     @GetMapping("/produtos/{codigo}")
+    @ApiOperation(value = "Listar todas os produtos por id")
     public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
 
         return ResponseEntity.ok().body(service.buscarPorId(codigo));

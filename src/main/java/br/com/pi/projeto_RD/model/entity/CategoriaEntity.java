@@ -19,7 +19,7 @@ public class CategoriaEntity implements Serializable {
     @Column(name = "DS_CATEGORIA")
     private String dsCategoria;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID_SUB_CATEGORIA")
     private SubCategoriaEntity subCategoria;
 
