@@ -12,19 +12,17 @@ import java.util.Date;
 public class ResultData<T> {
 
     private Integer status;
-
     private String mensagem;
-
     private T retorno;
 
     private Date dtTimestampErro = new Date();
 
-    public ResultData(Integer status, String mensagem){
+    public ResultData(Integer status, String mensagem) {
         this.status = status;
         this.mensagem = mensagem;
     }
 
-    public ResultData(Integer status, String mensagem, T retorno){
+    public ResultData(Integer status, String mensagem, T retorno) {
         this(status, mensagem);
         this.retorno = retorno;
     }

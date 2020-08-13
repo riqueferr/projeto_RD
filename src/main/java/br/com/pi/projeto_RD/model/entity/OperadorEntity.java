@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_OPERADOR")
@@ -32,6 +33,13 @@ public class OperadorEntity implements Serializable {
 
     @Column(name = "PW_OPERADOR")
     private String pw_operador;
+
+    @ManyToMany
+    @JoinTable(name = "TB_OPERADOR_PERFIL",
+            joinColumns = @JoinColumn(name = "ID_OPERADOR"),
+            inverseJoinColumns = @JoinColumn(name = "ID_PERFIL")
+    )
+    private List<PerfilEntity> perfil;
 
 
 }
