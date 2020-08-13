@@ -50,5 +50,4 @@ public class ProdutoEntity {
     private Integer id_imagem;
 
 
-
 }
