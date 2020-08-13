@@ -1,19 +1,21 @@
 package br.com.pi.projeto_RD.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CollectionId;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "TB_FORNECEDOR")
 @Data
-public class FornecedorEntity {
+public class FornecedorEntity implements Serializable {
 
     @Id
     @Column(name = "CD_FORNECEDOR")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer cd_fornecedor;
+    private Long cd_fornecedor;
 
     @Column(name = "NR_CNPJ")
     private String nr_cnpj;
@@ -36,8 +38,12 @@ public class FornecedorEntity {
     @Column(name = "NR_TELEFONE")
     private String nr_telefone;
 
-    @Column(name = "FK_TIPO_FORNECEDOR")
-    private Integer fk_tipo_fornecedor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_TIPO_FORNECEDOR")
+    @JsonIgnore
+    @Id
+    //private Integer fk_tipo_fornecedor;
+    private TipoFornecedorEntity fk_tipo_fornecedor;
 
 
 }
