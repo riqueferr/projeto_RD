@@ -28,6 +28,7 @@ public class FornecedorService {
 //        for (FornecedorEntity entity : fornecedorEntity){
 //            FornecedorDTO dto
 //        }
+        return null;
     }
 
 

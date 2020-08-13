@@ -12,7 +12,7 @@ public class FornecedorDTO {
 
     private Long cd_fornecedor;
     private String nr_cnpj;
-    private String nm_fantasia;
+   // private String nm_fantasia;
     private String nm_razao_social;
     private String ds_denominacao;
     private String nr_inscricao;
