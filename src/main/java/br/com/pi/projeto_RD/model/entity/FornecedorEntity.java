@@ -20,8 +20,8 @@ public class FornecedorEntity implements Serializable {
     @Column(name = "NR_CNPJ")
     private String nr_cnpj;
 
-    @Column(name = "NM_FANTASIA")
-    private String nm_fantasia;
+//    @Column(name = "NM_FANTASIA")
+//    private String nm_fantasia;
 
     @Column(name = "NM_RAZAO_SOCIAL")
     private String nm_razao_social;
@@ -39,12 +39,12 @@ public class FornecedorEntity implements Serializable {
     private String nr_telefone;
   
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_TIPO_FORNECEDOR")
-    @JsonIgnore
-    @Id
+    @ManyToOne
+    @JoinColumn(name = "FK_TIPO_FORNECEDOR")
+    //@JsonIgnore
     //private Integer fk_tipo_fornecedor;
     private TipoFornecedorEntity fk_tipo_fornecedor;
+    //(fetch = FetchType.LAZY)
 
 
 
