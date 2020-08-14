@@ -18,4 +18,6 @@ public class OperadorController {
         return ResponseEntity.ok().body(repository.findAll());
     }
 
+
+
 }
