@@ -18,5 +18,5 @@ public class FornecedorDTO {
     private String nr_inscricao;
     private String ds_email;
     private String nr_telefone;
-    //private TipoFornecedorEntity fk_tipo_fornecedor;
+    private TipoFornecedorEntity fk_tipo_fornecedor;
 }

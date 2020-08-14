@@ -15,6 +15,5 @@ public class TipoFornecedorDTO implements Serializable {
 
     private Long id_tipo_fornecedor;
     private String ds_tipo_fornecedor;
-    private List<FornecedorEntity> tipo_fornecedor;
 
 }

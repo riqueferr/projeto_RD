@@ -4,6 +4,7 @@ import br.com.pi.projeto_RD.model.dto.FornecedorDTO;
 import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
 import br.com.pi.projeto_RD.repository.FornecedorRepository;
 import br.com.pi.projeto_RD.repository.TipoFornecedorRepository;
+import br.com.pi.projeto_RD.service.bo.FornecedorBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,18 +21,53 @@ public class FornecedorService {
     @Autowired
     private TipoFornecedorRepository tipoFornecedorRepository;
 
+    @Autowired
+    private FornecedorBO fornecedorBO;
+
+
     public List<FornecedorDTO> buscarTodos(){
         List<FornecedorEntity> fornecedorEntity = repository.findAll();
         List<FornecedorDTO> fornecedorDTO = new ArrayList<>();
 
-          // TODO: 12/08/2020
-//        for (FornecedorEntity entity : fornecedorEntity){
-//            FornecedorDTO dto
-//        }
-        return null;
+
+        for (FornecedorEntity entity : fornecedorEntity){
+            FornecedorDTO dto = fornecedorBO.parseToDTO(entity);
+            fornecedorDTO.add(dto);
+        }
+        return fornecedorDTO;
     }
 
+    public FornecedorDTO buscarPorId(Long cd_fornecedor){
+        return fornecedorBO.parseToDTO(repository.getOne(cd_fornecedor));
+    }
 
+    public void atualizar(FornecedorDTO dto) {
+
+        FornecedorEntity entity = repository.getOne(dto.getCd_fornecedor()); // select * from tb_loja where codigo = 16
+        if(entity != null){
+            entity = fornecedorBO.parseToEntity(dto, entity);
+            repository.save(entity); // update tb_loja set nome = 'Osasco C', logomarca = 'drogasil', cidade = 'Osasco' where codigo = 13;
+        }
+
+    }
+
+    public void inserir(FornecedorDTO dto) {
+        FornecedorEntity entity = fornecedorBO.parseToEntity(dto, null);
+        if(entity.getNm_razao_social() != null)
+            repository.save(entity);
+    }
+
+    public FornecedorDTO excluirPorId(Long cd_fornecedor){
+        FornecedorEntity entity = repository.getOne(cd_fornecedor);
+        FornecedorDTO dto = new FornecedorDTO();
+
+        if(entity != null) {
+            dto = fornecedorBO.parseToDTO(entity);
+            repository.delete(entity);
+        }
+
+        return dto;
+    }
 
 
 }

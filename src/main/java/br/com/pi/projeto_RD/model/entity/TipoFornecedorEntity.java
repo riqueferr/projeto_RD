@@ -14,9 +14,9 @@ import java.util.List;
 public class TipoFornecedorEntity implements Serializable {
 
     @Id
-    @Column(name = "ID_TIPO_FORNECEDOR")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
+    @Column(name = "ID_TIPO_FORNECEDOR")
+    //@JsonIgnore
     private Long id_tipo_fornecedor;
 
     @Column(name = "DS_TIPO_FORNECEDOR")
