@@ -1,5 +1,6 @@
 package br.com.pi.projeto_RD.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class CategoriaEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_CATEGORIA")
+//    @JsonIgnore
     private Long idCategoria;
 
     @Column(name = "DS_CATEGORIA")

@@ -19,10 +19,6 @@ public class ProdutoController {
     @Autowired
     private ProdutoService service;
 
-//    @GetMapping("/produtos")
-//    public ResponseEntity<Object> listarTodas(){
-//        return ResponseEntity.ok().body(repository.findAll());
-//    }
 
     @GetMapping("/produtos")
     @ApiOperation(value = "Listar todas os produtos")
@@ -33,42 +29,38 @@ public class ProdutoController {
     @GetMapping("/produtos/{codigo}")
     @ApiOperation(value = "Listar todas os produtos por id")
     public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
-
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
-//    @PostMapping("/produtos")
-//    public ResponseEntity inserir(@RequestBody ProdutoDto dto) {
-//        service.inserir(dto);
-//        return ResponseEntity.ok().body(dto);
-//    }
-
     @PutMapping("/produtos")
-    public ResponseEntity atualizar(@RequestBody ProdutoDto dto) {
+    @ApiOperation(value = "Listar produto selecionado")
+    public ResponseEntity atualizar(@RequestBody ProdutoDto dto) throws Exception {
         service.atualizar(dto);
         return ResponseEntity.ok().body(dto);
     }
 
     @DeleteMapping("/produtos/{codigo}")
+    @ApiOperation(value = "Excluir produto por ID")
     public ResponseEntity excluirPorId(@PathVariable("codigo") Integer codigo) {
         ProdutoDto dto = service.excluirPorId(codigo);
         return ResponseEntity.ok().body(dto);
     }
 
     @PostMapping("/produtos")
+    @ApiOperation(value = "Salvar produtos")
     public ResponseEntity<Object> salvarProdutos(@RequestBody ProdutoDto produtoDto) {
         ResultData resultData = null;
-        if (produtoDto.getCodigo() == null)
-            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Código Produto não informado!");
-        else if (produtoDto.getCategoria() == null)
+        if (produtoDto.getNm_fantasia() == null)
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Nome fantasia não informado!");
+        else if (produtoDto.getCategoria().getDsCategoria() == null)
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Código categoria não informado!");
 
         if (resultData != null)
             return ResponseEntity.badRequest().body(resultData);
         else {
             try {
-                ProdutoEntity produtoEntity = service.inserir(produtoDto);
-                resultData = new ResultData<ProdutoEntity>(HttpStatus.OK.value(), "Produto registrada com sucesso!", produtoEntity);
+                service.inserir(produtoDto);
+                resultData = new ResultData<ProdutoEntity>(HttpStatus.OK.value(), "Produto registrada com sucesso!");
                 return ResponseEntity.status(HttpStatus.CREATED).body(resultData);
             } catch (Exception e) {
                 resultData = new ResultData(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Ocorreu um erro ao registrar Produto", e.getMessage());
