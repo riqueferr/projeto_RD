@@ -33,7 +33,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/produtos")
-    @ApiOperation(value = "Listar produto selecionado")
+    @ApiOperation(value = "Atualizar produto selecionado")
     public ResponseEntity atualizar(@RequestBody ProdutoDto dto) throws Exception {
         service.atualizar(dto);
         return ResponseEntity.ok().body(dto);
