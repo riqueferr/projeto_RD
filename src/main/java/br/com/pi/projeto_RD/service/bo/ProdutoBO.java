@@ -1,7 +1,10 @@
 package br.com.pi.projeto_RD.service.bo;
 
 
-import br.com.pi.projeto_RD.model.dto.ProdutoDto;
+import br.com.pi.projeto_RD.model.dto.*;
+import br.com.pi.projeto_RD.model.entity.EnderecoEntity;
+import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
+import br.com.pi.projeto_RD.model.entity.PerfilEntity;
 import br.com.pi.projeto_RD.model.entity.ProdutoEntity;
 import br.com.pi.projeto_RD.repository.CategoriaRepository;
 import br.com.pi.projeto_RD.repository.ProdutoRepository;
@@ -9,6 +12,9 @@ import br.com.pi.projeto_RD.repository.StatusRepository;
 import br.com.pi.projeto_RD.repository.TipoProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class ProdutoBO {
@@ -43,6 +49,20 @@ public class ProdutoBO {
         dto.setDs_largura(p.getDs_largura());
         dto.setId_imagem(p.getId_imagem());
 
+        List<FornecedorProdutoDTO> fornecedor = new ArrayList<>();
+
+        for (FornecedorEntity item : p.getFornecedor()) {
+            FornecedorProdutoDTO fDTO = new FornecedorProdutoDTO();
+            fDTO.setCd_fornecedor(item.getCd_fornecedor());
+            fDTO.setNm_razao_social(item.getNm_razao_social());
+            fDTO.setNr_cnpj(item.getNr_cnpj());
+            fDTO.setDs_denominacao(item.getDs_denominacao());
+
+            fornecedor.add(fDTO);
+        }
+
+        dto.setFornecedor(fornecedor);
+
         return dto;
     }
 
@@ -64,6 +84,21 @@ public class ProdutoBO {
         pEntity.setDs_peso(dto.getDs_peso());
         pEntity.setDs_largura(dto.getDs_largura());
         pEntity.setId_imagem(dto.getId_imagem());
+
+        List<FornecedorEntity> itemsEntity = new ArrayList<>();
+
+        for (FornecedorProdutoDTO itemDTO : dto.getFornecedor()) {
+            FornecedorEntity fEntity = new FornecedorEntity();
+
+            fEntity.setCd_fornecedor(itemDTO.getCd_fornecedor());
+            fEntity.setNm_razao_social(itemDTO.getNm_razao_social());
+            fEntity.setNr_cnpj(itemDTO.getNr_cnpj());
+            fEntity.setDs_denominacao(itemDTO.getDs_denominacao());
+
+            itemsEntity.add(fEntity);
+        }
+
+        pEntity.setFornecedor(itemsEntity);
 
         return pEntity;
     }

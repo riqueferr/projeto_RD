@@ -1,6 +1,7 @@
 package br.com.pi.projeto_RD.model.dto;
 
 import br.com.pi.projeto_RD.model.entity.CategoriaEntity;
+import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
 import br.com.pi.projeto_RD.model.entity.StatusProdutoEntity;
 import br.com.pi.projeto_RD.model.entity.TipoProdutoEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,5 +27,7 @@ public class ProdutoDto {
     private String ds_peso;
     private String ds_largura;
     private Integer id_imagem;
+
+    private List<FornecedorProdutoDTO> fornecedor;
 
 }
