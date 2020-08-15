@@ -43,10 +43,10 @@ public class FornecedorService {
 
     public void atualizar(FornecedorDTO dto) {
 
-        FornecedorEntity entity = repository.getOne(dto.getCd_fornecedor()); // select * from tb_loja where codigo = 16
+        FornecedorEntity entity = repository.getOne(dto.getCd_fornecedor());
         if(entity != null){
             entity = fornecedorBO.parseToEntity(dto, entity);
-            repository.save(entity); // update tb_loja set nome = 'Osasco C', logomarca = 'drogasil', cidade = 'Osasco' where codigo = 13;
+            repository.save(entity);
         }
 
     }
