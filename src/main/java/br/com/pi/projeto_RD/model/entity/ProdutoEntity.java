@@ -56,5 +56,4 @@ public class ProdutoEntity {
     )
     private List<FornecedorEntity> fornecedor;
 
-
 }

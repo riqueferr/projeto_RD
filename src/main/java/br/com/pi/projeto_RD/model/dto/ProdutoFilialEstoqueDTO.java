@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class ProdutoFilialEstoqueDTO {
-    private Integer fk_filial;
+    private Integer fk_filial; //private Filial filial;
     private ProdutoEntity fk_produto;
     private Integer qt_estoque;
     private Integer qt_empenho;

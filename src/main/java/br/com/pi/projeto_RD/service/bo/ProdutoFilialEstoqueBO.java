@@ -30,5 +30,6 @@ public class ProdutoFilialEstoqueBO {
         entity.setQt_empenho(dto.getQt_empenho());
 
         return entity;
+
     }
 }
