@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="TB_FILIAL")
+@Table(name = "TB_FILIAL")
 @Data
 public class FilialEntity {
 
@@ -25,11 +25,15 @@ public class FilialEntity {
     @Column(name = "NR_TELEFONE")
     private String nr_telefone;
 
-    @ManyToMany
-    @JoinTable(name = "TB_PRODUTO_FILIAL_ESTOQUE",
-            joinColumns = @JoinColumn(name = "ID_FILIAL"),
-            inverseJoinColumns = @JoinColumn(name = "CD_PRODUTO")
-    )
-    private List<ProdutoEntity> produtos;
+    @OneToMany
+    @JoinColumn(name = "CD_FILIAL")
+    private List<ProdutoFilialEstoqueEntity> produtos;
+
+//    @ManyToMany
+//    @JoinTable(name = "TB_PRODUTO_FILIAL_ESTOQUE",
+//            joinColumns = @JoinColumn(name = "ID_FILIAL"),
+//            inverseJoinColumns = @JoinColumn(name = "CD_PRODUTO")
+//    )
+//    private List<ProdutoEntity> produtos;
 
 }

@@ -1,23 +1,28 @@
 package br.com.pi.projeto_RD.model.dto;
 
 import br.com.pi.projeto_RD.model.entity.CategoriaEntity;
+import br.com.pi.projeto_RD.model.entity.ProdutoFilialEstoqueEntity;
 import br.com.pi.projeto_RD.model.entity.StatusProdutoEntity;
 import br.com.pi.projeto_RD.model.entity.TipoProdutoEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class ProdutoFilialDTO {
 
-    private Integer codigo;
+//    private Integer codigo;
     private String nm_fantasia;
     private String statusProduto;
     private double vl_unidade;
     private String categoria;
     private String tipoProduto;
-    private int qt_produto;
+    private int quantidade;
+    private int qt_empenho;
+    private int qt_base;
 
 }

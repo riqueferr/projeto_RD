@@ -17,6 +17,6 @@ public class FilialDTO {
     private String nm_filial;
     private String nr_cpnj;
     private String nr_telefone;
-    private List<ProdutoFilialDTO> produtos;
+    private List<ProdutoFilialDTO> produto;
 
 }

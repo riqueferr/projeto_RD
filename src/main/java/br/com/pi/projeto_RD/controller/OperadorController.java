@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OperadorController {
 
     @Autowired
-    OperadorRepository repository;
+    private OperadorRepository repository;
 
     @Autowired
     private OperadorService service;
