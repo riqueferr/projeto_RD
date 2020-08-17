@@ -32,19 +32,22 @@ public class FilialBO {
 
         List<ProdutoFilialDTO> produto = new ArrayList<>();
 
-        for (ProdutoEntity item : f.getProdutos()) {
+        for (ProdutoFilialEstoqueEntity item : f.getProdutos()) {
             ProdutoFilialDTO eDTO = new ProdutoFilialDTO();
 
-            eDTO.setCodigo(item.getCodigo());
-            eDTO.setNm_fantasia(item.getNm_fantasia());
-            eDTO.setStatusProduto(item.getStatus().getDsStatusProduto());
-            eDTO.setCategoria(item.getCategoria().getDsCategoria());
-            eDTO.setTipoProduto(item.getTipo_produto().getDsTipoProduto());
-            eDTO.setVl_unidade(item.getVl_unidade());
+//            eDTO.setCodigo(item.getProduto().getCodigo());
+            eDTO.setNm_fantasia(item.getProduto().getNm_fantasia());
+            eDTO.setStatusProduto(item.getProduto().getStatus().getDsStatusProduto());
+            eDTO.setCategoria(item.getProduto().getCategoria().getDsCategoria());
+            eDTO.setTipoProduto(item.getProduto().getTipo_produto().getDsTipoProduto());
+            eDTO.setVl_unidade(item.getProduto().getVl_unidade());
+            eDTO.setQuantidade(item.getQt_estoque());
+            eDTO.setQt_empenho(item.getQt_empenho());
+            eDTO.setQt_base(item.getQt_base());
 
             produto.add(eDTO);
         }
-        dto.setProdutos(produto);
+        dto.setProduto(produto);
         return dto;
     }
 }

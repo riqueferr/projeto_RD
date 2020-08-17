@@ -49,8 +49,10 @@ public class ProdutoEntity {
     @Column(name = "ID_IMAGEM")
     private Integer id_imagem;
 
+
     @ManyToMany
-    @JoinTable(name = "TB_FORNECEDOR_PRODUTO",
+    @JoinTable(
+            name = "TB_FORNECEDOR_PRODUTO",
             joinColumns = @JoinColumn(name = "CD_PRODUTO"),
             inverseJoinColumns = @JoinColumn(name = "ID_FORNECEDOR")
     )
