@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel='stylesheet' href='../css/style.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cupom De Venda</title>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <header>
+            <div
+                class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm marginBottom">
+                <h5 class="my-0 mr-md-auto font-weight-normal">
+                    <a href="../loginInicial/telaInicial.html"><img src="../images/Logo RD White 1.png"></a>
+                </h5>
+                <nav class="my-2 my-md-0 mr-md-3">
+                    <a class="p-2 text-white">Bem-Vindo,</a>
+                    <a class="p-2 text-white" href="#">Adminstrador</a>
+                </nav>
+                <a class="btn btn-outline-primary centralizar" href="../loginInicial/Login.html">Sair</a>
+            </div>
+        </header>
+
+        <div class='row'>
+            <div class='col-md-3'>
+                <nav>
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <h6
+                                class="sidebar-heading d-flex justify-content-center align-items-center px-3 paddingzin ">
+                                <span>FINANCEIRO</span>
+                                <a class="d-flex align-items-center text-muted" href="#">
+                                </a>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="dashboard.html">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-graph-up"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h1v16H0V0zm1 15h15v1H1v-1z" />
+                                        <path fill-rule="evenodd"
+                                            d="M14.39 4.312L10.041 9.75 7 6.707l-3.646 3.647-.708-.708L7 5.293 9.959 8.25l3.65-4.563.781.624z" />
+                                        <path fill-rule="evenodd"
+                                            d="M10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4h-3.5a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                    Dashboard <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="relatorioGerencial.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-file-text">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                    Relatório Gerencial
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="movimentoDeLoja.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-shopping-cart">
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+                                        </path>
+                                    </svg>
+                                    Movimento de Loja
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link sideBarSelectTouch" href="cupomDeVenda.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-layers">
+                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                    Cupom de Venda
+                                </a>
+                            </li>
+                            <h6
+                                class="sidebar-heading d-flex justify-content-center align-items-center px-3 paddingzin marginTop">
+                                <span>ABASTECIMENTO</span>
+                                <a class="d-flex align-items-center text-muted" href="#">
+                                </a>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Dashboard</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Cadastro de Fornecedor</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Cadastro de Produto</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Entrada de Produto</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Transferência de Produto</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Relatório de Produtos</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Relatório de Estoque</abbr>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class='col-md-9'>
+                
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+
+
+                <div class='row marginTopMain semMarginRightMain'>
+                    <div class='col-md-12'>
+
+                        <br>
+                        <div class="container">
+                            <h2>Documento Fiscal</h2>
+                        </div>
+                        
+                        <br><br>
+
+                        <div class="container">
+
+                            <!-- INPUTS PARA RETORNAR VALORES DA NOTA FISCAL -->
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                      <label for="inputEmail4">ID NF</label>
+                                      <input type="email" class="form-control" id="inputEmail4" placeholder="ID Cupom" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                      <label for="inputPassword4">Cliente</label>
+                                      <input type="password" class="form-control" id="inputPassword4" placeholder="Cliente" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPassword4">Fornecedor</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder=" Fornecedor" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                      <label for="inputEmail4">ID Filial</label>
+                                      <input type="email" class="form-control" id="inputEmail4" placeholder="ID FIlial" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                      <label for="inputPassword4">Filial</label>
+                                      <input type="password" class="form-control" id="inputPassword4" placeholder="Raia Osasco" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPassword4">Número NF</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="45784" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                      <label for="inputEmail4">Data Emissão</label>
+                                      <input type="email" class="form-control" id="inputEmail4" placeholder="___/___/___" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                      <label for="inputPassword4">Data Entrada</label>
+                                      <input type="password" class="form-control" id="inputPassword4" placeholder="___/___/___" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPassword4">Número Série</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="45784567865465" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                      <label for="inputEmail4">Status NF</label>
+                                      <input type="email" class="form-control" id="inputEmail4" placeholder="Concluído" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                      <label for="inputPassword4">Tipo de NF</label>
+                                      <input type="password" class="form-control" id="inputPassword4" placeholder="Venda" disabled>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPassword4">Chave de Acesso</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="45486 454456 545665 45665" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                      <label for="inputEmail4">Forma de Pagamento</label>
+                                      <input type="email" class="form-control" id="inputEmail4" placeholder="Cartão de Crédito" disabled >
+                                    </div>
+                                    <div class="form-group col-md-4" >
+                                      <label for="disabledSelect">Itens</label>
+                                      <select id="disabledSelect" class="form-control" >
+                                        <option>Nuridrink Max 1 Un x R$ 109,00</option>
+                                        <option>Estomazil 3 Un x R$ 6,00</option>
+                                        <option>Epocler 2 Un x R$ 5,08</option>
+                                        <option>Engov 6 Un x R$ 34,50</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                      <label for="inputPassword4">Valor total</label>
+                                      <input type="password" class="form-control" id="inputPassword4" placeholder="R$ 100,00" disabled>
+                                    </div>
+                                  </div>
+                              </form>
+                        
+                    
+                    
+                        
+                        <br><br>
+                        <div class="container">
+                            <div class="navbar navbar-light bg-light justify-content-center">
+                                    <form class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="inputPassword4">ID NF</label>
+                                            <input class="form-control mr-sm-4" type="search" placeholder="00" aria-label="Search">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="inputPassword4">Filial</label>
+                                            <input class="form-control mr-sm-4" type="search" placeholder="00000" aria-label="Search">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="inlineFormInputName">Data de entrada</label>
+                                            <input type="date" class="form-control mr-sm-4" placeholder="___/___/___" aria-label="Search">
+                                        </div>
+                                        <div style="margin-top: 2.7%" class="form-group col-md-3">
+                                        <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-4" type="submit"><i class="fa fa-search"></i> Pesquisar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                        </div>
+                    
+                        <br><br>
+                        <div class="container">
+                          <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">ID NF</th>
+                                    <th scope="col">Data de Entrada</th>
+                                    <th scope="col">Filial</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Valor Total</th>
+                                    <th scope="col">Ações</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">01</th>
+                                    <td>10/10/2020</td>
+                                    <th scope="row">Paulista</th>
+                                    <td>Venda</td>
+                                    <td>R$ 560,98</td>
+                                    <td><abbr title="Detalhes"><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i></button></abbr>&nbsp;
+                                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></button></abbr></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">01</th>
+                                    <td>10/10/2020</td>
+                                    <th scope="row">Paulista</th>
+                                    <td>Venda</td>
+                                    <td>R$ 560,98</td>
+                                    <td><abbr title="Detalhes"><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i></button></abbr>&nbsp;
+                                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></button></abbr></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">01</th>
+                                    <td>10/10/2020</td>
+                                    <th scope="row">Paulista</th>
+                                    <td>Venda</td>
+                                    <td>R$ 560,98</td>
+                                    <td><abbr title="Detalhes"><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i></button></abbr>&nbsp;
+                                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></button></abbr></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">01</th>
+                                    <td>10/10/2020</td>
+                                    <th scope="row">Paulista</th>
+                                    <td>Venda</td>
+                                    <td>R$ 560,98</td>
+                                    <td><abbr title="Detalhes"><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i></button></abbr>&nbsp;
+                                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></button></abbr></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">01</th>
+                                    <td>10/10/2020</td>
+                                    <th scope="row">Paulista</th>
+                                    <td>Venda</td>
+                                    <td>R$ 560,98</td>
+                                    <td><abbr title="Detalhes"><button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i></button></abbr>&nbsp;
+                                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></button></abbr></td>
+                                  </tr>
+            
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+                <!-- Modal Excluir-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Confirmação de exclusão</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Deseja realmente excluir o registro selecionado ?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                          <button type="button" class="btn btn-danger">Salvar mudanças</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+	integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+	crossorigin="anonymous"></script>
+</body>
+
+</html>

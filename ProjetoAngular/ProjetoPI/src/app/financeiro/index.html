@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel='stylesheet' href='../css/style.css'>
+    <title>Prototipo P.I.</title>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <header>
+            <div
+                class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm marginBottom">
+                <h5 class="my-0 mr-md-auto font-weight-normal">
+                    <a href="../loginInicial/telaInicial.html"><img src="../images/Logo RD White 1.png"></a>
+                </h5>
+                <nav class="my-2 my-md-0 mr-md-3">
+                    <a class="p-2 text-white">Bem-Vindo,</a>
+                    <a class="p-2 text-white" href="#">Adminstrador</a>
+                </nav>
+                <a class="btn btn-outline-primary centralizar" href="../loginInicial/Login.html">Sair</a>
+            </div>
+        </header>
+
+        <div class='row'>
+            <div class='col-md-3'>
+                <nav>
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <h6
+                                class="sidebar-heading d-flex justify-content-center align-items-center px-3 paddingzin ">
+                                <span>FINANCEIRO</span>
+                                <a class="d-flex align-items-center text-muted" href="#">
+                                </a>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-graph-up"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h1v16H0V0zm1 15h15v1H1v-1z" />
+                                        <path fill-rule="evenodd"
+                                            d="M14.39 4.312L10.041 9.75 7 6.707l-3.646 3.647-.708-.708L7 5.293 9.959 8.25l3.65-4.563.781.624z" />
+                                        <path fill-rule="evenodd"
+                                            d="M10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4h-3.5a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                    Dashboard <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-file-text">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                    Relatórios Gerenciais
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-shopping-cart">
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+                                        </path>
+                                    </svg>
+                                    Movimento de Loja
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-layers">
+                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                    Cupom de Venda
+                                </a>
+                            </li>
+                            <h6
+                                class="sidebar-heading d-flex justify-content-center align-items-center px-3 paddingzin marginTop">
+                                <span>ABASTECIMENTO</span>
+                                <a class="d-flex align-items-center text-muted" href="#">
+                                </a>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Dashboard</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    Cadastro de Fornecedor
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    Cadastro de Produto
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    Entrada de Produto
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    Transferência de Produto
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    Relatório de Produtos
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    Relatório de Estoque
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class='col-md-9'>
+                <div class='row'>
+                    <h4>RELATÓRIO GERENCIAL</h4>
+                </div>
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+
+
+                <div class='row marginTopMain semMarginRightMain'>
+                    <div class='col-md-12 teste'>
+                        <div class="container-fluid">
+                            <form>
+                                <!-- inicio primeira linha -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputCodProd"> Codigo Produto </label>
+                                        <select id="inputCodProd" class="form-control">
+                                            <option selected>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputNomeProd">Nome Produto</label>
+                                        <input type="text" class="form-control" id="inputNomePRod"
+                                            placeholder="Nome do Produto">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputDescricao"> Descrição </label>
+                                        <input type="text" class="form-control" id="inputDescricao"
+                                            placeholder="Descrição">
+                                    </div>
+                                </div>
+                                <!-- fim primeira linha -->
+
+                                <!-- inicio segunda linha -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
+                                        <label for="inputNomeFant"> Nome Fantasia </label>
+                                        <input id="inputNomeFant" class="form-control" placeholder="Nome Fantasia">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputFornecedor">Fornecedor</label>
+                                        <input type="text" class="form-control" id="inputFornecedor"
+                                            placeholder="Nome do Fornecedor">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputData"> Vencimento </label>
+                                        <input type="date" value="2021-12-31" class="form-control" id="inputData">
+                                    </div>
+                                </div>
+                                <!-- fim segunda linha -->
+
+                                <!-- inicio da terceira linha -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
+                                        <label for="inputlote"> Lote </label>
+                                        <input id="inputlote" class="form-control" placeholder="Lote">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputQtd">Quantidade</label>
+                                        <input type="number" min="0" class="form-control" id="inputQtd" placeholder="0">
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="inputValorUni"> Valor Uni. </label>
+                                        <input id="inputValorUni" class="form-control" placeholder="R$:100,00">
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="inputValor"> Valor Total </label>
+                                        <input id="inputValor" class="form-control" placeholder="R$:100,00">
+                                    </div>
+                                </div>
+                                <!-- fim da terceira linha -->
+
+                                <!-- inicio da quanrta linha -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
+                                        <label for="inputalt">Altura</label>
+                                        <input id="inputalt" class="form-control" placeholder="12 cm">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputLargura">Largura</label>
+                                        <input type="text" class="form-control" id="inputLargura" placeholder="12 cm">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPeso">Peso</label>
+                                        <input id="inputPeso" class="form-control" placeholder="300g">
+                                    </div>
+                                    <!-- fim da quanrta linha -->
+                            </form>
+                        </div>
+                        <!-- Botões-->
+                        <button type="submit" style="float:right" class="btn btn-success" id="Salvar">Salvar</button>
+                        <!-- Botões-->
+
+
+
+                        <!-- inicio do box de pesquisa  -->
+                        <table id="tabela" class="table table-hover">
+                            <thead class="Busca">
+                                <tr>
+                                    <th>Nome Produto</th>
+                                    <th>Cod PRoduto</th>
+                                    <th>Fornecedor</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Dorflex</th>
+                                    <td>123</td>
+                                    <td>Sanofi</td>
+                                    <td>Indicado para alívio da dor associada a contraturas musculares.</td>
+                                </tr>
+                                <tr>
+                                    <th>Creme Facial Nutritivo</th>
+                                    <td>456</td>
+                                    <td>Nivea</td>
+                                    <td>Creme Facial Nivea Nutritivo foi desenvolvido para promover uma nutrição
+                                        intensa.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- fim do box de pesquisa -->
+                    </div>
+                </div>
+
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

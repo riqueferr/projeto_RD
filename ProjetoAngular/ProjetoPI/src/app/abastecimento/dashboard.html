@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel='stylesheet' href='../css/style.css'>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <header>
+            <div
+                class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm marginBottom">
+                <h5 class="my-0 mr-md-auto font-weight-normal">
+                    <a href="../loginInicial/telaInicial.html"><img src="../images/Logo RD White 1.png"></a>
+                </h5>
+                <nav class="my-2 my-md-0 mr-md-3">
+                    <a class="p-2 text-white">Bem-Vindo,</a>
+                    <a class="p-2 text-white" href="#">Adminstrador</a>
+                </nav>
+                <a class="btn btn-outline-primary centralizar" href="../loginInicial/Login.html">Sair</a>
+            </div>
+        </header>
+
+        <div class='row'>
+            <div class='col-md-3'>
+                <nav>
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <h6
+                                class="sidebar-heading d-flex justify-content-center align-items-center px-3 paddingzin ">
+                                <span>FINANCEIRO</span>
+                                <a class="d-flex align-items-center text-muted" href="#">
+                                </a>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link active bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Dashboard <span
+                                            class="sr-only">(current)</span></abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Relatório Gerencial</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Movimento de Loja</abbr>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bloqueioDeFuncao" href="#">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-lock"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                    </svg>
+                                    <abbr title="Acesso não permitido">Cupom de Venda</abbr>
+                                </a>
+                            </li>
+                            <h6
+                                class="sidebar-heading d-flex justify-content-center align-items-center px-3 paddingzin marginTop">
+                                <span>ABASTECIMENTO</span>
+                                <a class="d-flex align-items-center text-muted" href="#">
+                                </a>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link sideBarSelectTouch" href="dashboard.html">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-clipboard-data"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                        <path fill-rule="evenodd"
+                                            d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                                        <path
+                                            d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z" />
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cadastroDeFornecedor.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-users">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                    Cadastro de Fornecedor
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cadastroDeProduto.html">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-bag-plus"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z" />
+                                        <path
+                                            d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z" />
+                                        <path fill-rule="evenodd"
+                                            d="M8 7.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+                                        <path fill-rule="evenodd"
+                                            d="M7.5 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-2z" />
+                                    </svg>
+                                    Cadastro de Produto
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="entradaDeProduto.html">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-truck"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5v7h-1v-7a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5v1A1.5 1.5 0 0 1 0 10.5v-7zM4.5 11h6v1h-6v-1z" />
+                                        <path fill-rule="evenodd"
+                                            d="M11 5h2.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5h-1v-1h1a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4.5h-1V5zm-8 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                                        <path fill-rule="evenodd"
+                                            d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                                    </svg>
+                                    Entrada de Produto
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="transferenciaDeProduto.html">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-arrow-down-up"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11 3.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z" />
+                                        <path fill-rule="evenodd"
+                                            d="M10.646 2.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L11 3.707 8.354 6.354a.5.5 0 1 1-.708-.708l3-3zm-9 7a.5.5 0 0 1 .708 0L5 12.293l2.646-2.647a.5.5 0 1 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z" />
+                                        <path fill-rule="evenodd"
+                                            d="M5 2.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V3a.5.5 0 0 1 .5-.5z" />
+                                    </svg>
+                                    Transferência de Produto
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="relatorioDeProduto.html">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-upc-scan"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
+                                        <path
+                                            d="M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z" />
+                                    </svg>
+                                    Relatório de Produto
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="relatorioDeEstoque.html">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-box-seam"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
+                                    </svg>
+                                    Relatório de Estoque
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class='col-md-9'>
+                <br>
+                <div class="container">
+                    <h2>Dashboard</h2>
+                </div>
+                <br>
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+                <!-- NÃO UTILIZAR ACIMA DESTA LINHA -->
+
+
+                <div class='row marginTopMain semMarginRightMain justify-content-around'>
+                    <div class='col-md-5 bordaDash'>
+                        <div class='row tituloQuadros'>DROGASIL</div>
+                    </div>
+                    <div class='col-md-5 bordaDash'>
+                        <div class='row tituloQuadros'>DROGASIL</div>
+                    </div>
+                </div>
+                <div class='row marginTopMain semMarginRightMain justify-content-around'>
+                    <div class='col-md-11 bordaDash'>
+                        <div class='row tituloQuadros'>PERFOMANCE</div>
+                    </div>
+                </div>
+                <div class='row marginTopMain semMarginRightMain justify-content-around'>
+                    <div class='col-md-11 bordaDash'>
+                        <div class='row tituloQuadros'>VOLUME</div>
+                    </div>
+                </div>
+
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+                <!-- NÃO UTILIZAR ABAIXO DESTA LINHA -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
