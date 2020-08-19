@@ -1,1 +1,115 @@
-<p>cadastro-de-produto works!</p>
+                <br>
+                <div class="container">
+                    <h2>Cadastro de Produto</h2>
+                </div>
+                <br>
+                <div class='container'>
+                    <div class='row marginTopMain semMarginRightMain'>
+                        <main>
+                            <div class="form-row justify-content-between">
+                                <div class="form-group col-md-3">
+                                    <label for="inputNomeFant"> Nome Fantasia </label>
+                                    <input id="inputNomeFant" class="form-control" placeholder="Nome Fantasia">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="inputFornecedor">Fornecedor</label>
+                                    <input type="text" class="form-control" id="inputFornecedor"
+                                        placeholder="Nome do Fornecedor">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="inputData"> Vencimento </label>
+                                    <input type="date" value="2021-12-31" class="form-control" id="inputData">
+                                </div>
+                            </div>
+                            <!-- fim segunda linha -->
+
+                            <!-- inicio da terceira linha -->
+                            <div class="form-row ">
+                                <div style="margin-right:122px" class="form-group col-md-3">
+                                    <label for="inputlote"> Lote </label>
+                                    <input id="inputlote" class="form-control" placeholder="Lote">
+                                </div>
+                                <div style="margin-right:122px" class="form-group col-md-3">
+                                    <label for="inputQtd">Quantidade</label>
+                                    <input type="number" min="0" class="form-control" id="inputQtd" placeholder="0">
+                                </div>
+                                <div style="margin-right:36px" class="form-group col-md-1">
+                                    <label for="inputValorUni"> Unidade </label>
+                                    <input id="inputValorUni" class="form-control" placeholder="R$100,0">
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <label for="inputValor"> Total </label>
+                                    <input id="inputValor" class="form-control" placeholder="R$100,0" readonly >
+                                </div>
+                            </div>
+                            <!-- fim da terceira linha -->
+
+                            <!-- inicio da quanrta linha -->
+                            <form>
+                            <div class="form-row justify-content-between">
+                                <div class="form-group col-md-3">
+                                    <label for="inputalt">Altura</label>
+                                    <input id="inputalt" class="form-control" placeholder="12 cm">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="inputLargura">Largura</label>
+                                    <input type="text" class="form-control" id="inputLargura" placeholder="12 cm">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="inputPeso">Peso</label>
+                                    <input id="inputPeso" class="form-control" placeholder="300g">
+                                </div>
+                                <!-- fim da quanrta linha -->
+                            </div>
+                            </form>
+
+                            <!-- Botões-->
+                            <button type="submit" class="botaoSalvar btn btn-default botaoConfirmar"
+                                id="Salvar" style='margin-left: 0px;'>Salvar</button>
+                            <button type="button" class="botaoCancelar btn btn-default botaoCancelar"
+                                id="Cancelar">Cancelar</button>
+                            <!-- Botões-->
+
+                            <form class="form-row">
+                                <div class="form-group col-md-10"> <label for="inputPassword4"> </label>
+                                    <br>
+                                    <input class="form-inline form-control mr-sm-4" type="search" placeholder="Pesquisa"
+                                        aria-label="Search"> 
+                                    </div>
+                                <div style="margin-top: 2.2%" class="form-group col-md-2">
+                                    <button class="button-inline btn btn-outline-success my-2 my-sm-0 mr-sm-4"
+                                        type="submit"><i class="fa fa-search"></i>
+                                        Pesquisar</button> </div>
+                            </form>
+
+                            <!-- inicio do box de pesquisa  -->
+                            <table id="tabela" class="table table-hover">
+                                <thead class="Busca">
+                                    <tr>
+                                        <th>Cod </th>
+                                        <th>Nome Produto</th>
+                                        <th>Fornecedor</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>123</td>
+                                        <th>Dorflex</th>
+                                        <td>Sanofi</td>
+                                        <td>Indicado para alívio da dor associada a contraturas musculares.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>456</td>
+                                        <th>Creme Facial Nutritivo</th>
+                                        <td>Nivea</td>
+                                        <td>Creme Facial Nivea Nutritivo foi desenvolvido para promover uma nutrição
+                                            intensa.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- fim do box de pesquisa -->
+                        </main>
+                </div>
+                
+
