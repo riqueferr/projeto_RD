@@ -1,7 +1,21 @@
-<!-- Header -->
 <div class='container-fluid'>
-<app-header></app-header>
 
-<!-- SideBar -->
-<app-sidebar></app-sidebar>
+    <!-- Header -->
+    <app-header></app-header>
+    
+    <div class='row'>
+        <div class='col-md-3'>
+
+            <!-- SideBar -->
+            <app-sidebar></app-sidebar>
+            
+        </div>
+        <div class='col-md-9'>
+        
+            <div class="container">
+                <!-- Rotas -->
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
 </div>
