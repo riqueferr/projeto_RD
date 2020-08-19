@@ -22,15 +22,16 @@ public class EntradaEntity {
     @Column(name = "DT_ENTRADA")
     private Date dt_entrada;
 
-    @Column(name = "ID_FORNECEDOR")
-    private Integer id_fornecedor;
+    @ManyToOne
+    @JoinColumn(name = "ID_FORNECEDOR")
+    private FornecedorEntity fornecedor;
 
-    @Column(name = "ID_FILIAL")
-    private Integer id_filial;
+    @ManyToOne
+    @JoinColumn(name = "ID_FILIAL")
+    private FilialEntity filial;
 
-    @Column(name = "ID_DOCUMENTO_FISCAL")
-    private Integer id_documento_fiscal;
+    @ManyToOne
+    @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
+    private DocumentoFiscalEntity documento_fiscal;
 
-    @Column(name = "ID_ENTRADA_LOTE")
-    private Integer id_entrada_lote;
 }
