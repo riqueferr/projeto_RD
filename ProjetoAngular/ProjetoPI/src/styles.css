@@ -308,10 +308,8 @@ table {
   overflow-y: auto;    /* Scroll vertical             */
   width:100%;
   float: left;
-  
-
-  
 }
+
  .bordaDash {
   border-radius: 5px;
   height: 170px;
