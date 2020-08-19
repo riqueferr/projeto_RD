@@ -5,6 +5,7 @@ import { DashboardComponent } from './abastecimento/dashboard/dashboard.componen
 import { CadastroDeFornecedorComponent } from './abastecimento/cadastro-de-fornecedor/cadastro-de-fornecedor.component';
 import { CadastroDeProdutoComponent } from './abastecimento/cadastro-de-produto/cadastro-de-produto.component';
 import { EntradaDeProdutoComponent } from './abastecimento/entrada-de-produto/entrada-de-produto.component';
+import { RelatorioDeEstoqueComponent } from './abastecimento/relatorio-de-estoque/relatorio-de-estoque.component';
 
 export const routes: Routes = [
     {
@@ -19,6 +20,8 @@ export const routes: Routes = [
     component: CadastroDeProdutoComponent},
     {path:'entradaDeProduto',
     component: EntradaDeProdutoComponent},
+    {path:'relatorioDeEstoque',
+    component: RelatorioDeEstoqueComponent}
 ];
 
 @NgModule({
