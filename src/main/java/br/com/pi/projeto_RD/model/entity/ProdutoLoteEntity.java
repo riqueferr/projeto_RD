@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_PRODUTO_LOTE")
@@ -25,8 +26,13 @@ public class ProdutoLoteEntity {
     @Column(name = "DT_VALIDADE")
     private Date ds_validade;
 
-    @Column(name = "ID_PRODUTO")
-    private String id_produto;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CD_PRODUTO")
+    private List<ProdutoEntity> produtoEntity;
+
+   @OneToMany(cascade = CascadeType.ALL)
+   @JoinColumn(name = "ID_ENTRADA")
+   private List<EntradaEntity> entradaEntity;
 
     @Column(name = "VL_LOTE")
     private double vl_lote;
