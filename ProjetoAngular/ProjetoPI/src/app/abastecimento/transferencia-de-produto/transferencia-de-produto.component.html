@@ -1,1 +1,117 @@
-<p>transferencia-de-produto works!</p>
+                <br>
+                <div class="container">
+                    <h2>Transferência de Produto</h2>
+                </div>
+                <br>
+                <div class="container">
+                    <div class='row marginTopMain semMarginRightMain'>
+                        <div class='col-md-12'>
+                            <form>
+                                <div class="form-row justify-content-between">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputCodFilial"> Codigo Filial </label>
+                                        <select id="inputCodFilial" class="form-control">
+                                            <option selected>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputNomeFilial">Nome Filial</label>
+                                        <input type="text" class="form-control" id="inputNomeFilial"
+                                            placeholder="Nome do Produto">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputCnpj"> CNPJ</label>
+                                        <input type="text" class="form-control" id="inputCnpj"
+                                            placeholder="12. 123. 123/1234-12">
+                                    </div>
+                                </div>
+                                <!-- Fim da primeira linha -->
+
+                                <!-- Inicio da segunda linha -->
+                                <div class="form-row justify-content-between">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputEstado"> Estado </label>
+                                        <select id="inputEstado" class="form-control">
+                                            <option selected>SP</option>
+                                            <option>RJ</option>
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputCep"> CEP </label>
+                                        <input type="text" id="inputCep" class="form-control" placeholder="12345-123">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputCidade ">Cidades</label>
+                                        <select class="form-control" id="inputCidade ">
+                                            <option> São Paulo </option>
+                                            <option> Embu das Artes </option>
+                                            <option> Osasco </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Fim da Segunda linha -->
+
+
+                                <!-- inicio da terceira linha -->
+                                <div class="form-row justify-content-between">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputBairro"> Bairro/Destrito </label>
+                                        <input type="text" class="form-control" id="inputBairro"
+                                            placeholder="Bairro/Destrito">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputNum"> Numero </label>
+                                        <input type="number" min="0" id="inputNum" class="form-control"
+                                            placeholder="123">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputComplemento"> Complemento </label>
+                                        <input type="text" id="inputComplemento" class="form-control"
+                                            placeholder="Apartamento,Condominio,Etc...">
+                                    </div>
+                                </div>
+                                <!-- Fim da Terceira linha -->
+
+                                <br>
+                                <h5 class="H">Dados do Produto</h5>
+
+                                <!--Inicio da quarta linha -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputCodProd"> Codigo Produto </label>
+                                        <select id="inputCodProd" class="form-control">
+                                            <option selected>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputNomeProd">Nome Produto</label>
+                                        <input type="text" class="form-control" id="inputNomePRod"
+                                            placeholder="Nome do Produto">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputDescricao"> Descrição </label>
+                                        <input type="text" class="form-control" id="inputDescricao"
+                                            placeholder="Descrição">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputQtd"> Quantidade </label>
+                                        <input type="number" min="0" id="inputQtd" class="form-control" placeholder="0">
+                                    </div>
+                                </div>
+                                <!-- fim da quarta linha  -->
+
+                                <!-- botões -->
+                                <button type="submit" class="botaoSalvar btn btn-default botaoConfirmar"
+                                    id="Salvar">Salvar</button>
+                                <button type="button" class="botaoCancelar btn btn-default botaoCancelar"
+                                    id="Cancelar">Cancelar</button>
+                                <!-- botões -->
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
