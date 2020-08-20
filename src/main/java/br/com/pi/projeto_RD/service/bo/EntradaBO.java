@@ -46,7 +46,7 @@ public class EntradaBO {
         dto.setId_entrada(e.getId_entrada());
         dto.setDt_entrada(date.format(e.getDt_entrada()));
         dto.setNm_filial(e.getFilial().getNm_filial());
-        dto.setId_filial(e.getFilial().getCd_filial());
+        //dto.setId_filial(e.getFilial().getCd_filial());
         dto.setId_documento_fiscal(e.getDocumento_fiscal().getId_documento());
 
         List<ProdutoLoteDTO> produto = new ArrayList<>();

@@ -17,15 +17,15 @@ public class EntradaDTO {
 
     private Integer id_entrada;
 
-    private String nm_produto;
+    //private String nm_produto;
     private List<ProdutoLoteDTO> produto;
 
     private String dt_entrada;
 
-    private Long id_fornecedor;
+    //private Long id_fornecedor;
     private String nm_fornecedor;
 
-    private Integer id_filial;
+    //private Integer id_filial;
     private String nm_filial;
 
     private Long id_documento_fiscal;
