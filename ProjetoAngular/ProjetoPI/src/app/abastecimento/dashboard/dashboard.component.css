@@ -1,0 +1,24 @@
+.marginTopMain {
+    margin-top: 0px;
+  }
+  
+  .semMarginRightMain {
+    margin-right: 0px;
+  }
+
+  .bordaDash {
+    border-radius: 5px;
+    height: 170px;
+    margin-bottom: 10px;
+    border: 1px solid #f0f0f0;
+  } 
+
+  .tituloQuadros {
+    width: 200px;
+    background-color: #29754e;
+    margin-left: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: #fff;
+    justify-content: center;
+  }
