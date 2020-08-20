@@ -1,10 +1,12 @@
 package br.com.pi.projeto_RD.model.entity;
 
 
+import br.com.pi.projeto_RD.repository.ProdutoFilialEstoqueRepository;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_ENTRADA")
@@ -16,15 +18,8 @@ public class EntradaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_entrada;
 
-    @Column(name = "NM_PRODUTO")
-    private String nm_produto;
-
     @Column(name = "DT_ENTRADA")
     private Date dt_entrada;
-
-    @ManyToOne
-    @JoinColumn(name = "ID_FORNECEDOR")
-    private FornecedorEntity fornecedor;
 
     @ManyToOne
     @JoinColumn(name = "ID_FILIAL")
@@ -33,5 +28,9 @@ public class EntradaEntity {
     @ManyToOne
     @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
     private DocumentoFiscalEntity documento_fiscal;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_ENTRADA")
+    private List<ProdutoLoteEntity> produtoLote;
 
 }

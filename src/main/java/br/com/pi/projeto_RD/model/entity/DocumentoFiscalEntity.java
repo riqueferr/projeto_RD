@@ -1,7 +1,6 @@
 package br.com.pi.projeto_RD.model.entity;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 import javax.print.attribute.standard.MediaSize;
 import java.io.Serializable;

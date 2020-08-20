@@ -25,8 +25,13 @@ public class ProdutoLoteEntity {
     @Column(name = "DT_VALIDADE")
     private Date ds_validade;
 
-    @Column(name = "ID_PRODUTO")
-    private String id_produto;
+    @ManyToOne
+    @JoinColumn(name ="CD_PRODUTO")
+    private ProdutoEntity produto;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_ENTRADA")
+    private EntradaEntity entrada;
 
     @Column(name = "VL_LOTE")
     private double vl_lote;

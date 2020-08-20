@@ -1,29 +1,56 @@
 package br.com.pi.projeto_RD.controller;
 
+import br.com.pi.projeto_RD.model.dto.EntradaDTO;
+import br.com.pi.projeto_RD.model.dto.FornecedorDTO;
+import br.com.pi.projeto_RD.model.dto.ProdutoDto;
+import br.com.pi.projeto_RD.repository.EntradaRepository;
+import br.com.pi.projeto_RD.service.EntradaService;
 import br.com.pi.projeto_RD.service.bo.EntradaBO;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class EntradaController {
 
     @Autowired
+    EntradaRepository repository;
+
+    @Autowired
     EntradaBO entradaBO;
 
-//    @GetMapping("/Entrada")
-//    //@ApiOperation
+    @Autowired
+    EntradaService entradaService;
+
+
+    //LISTAR TODOS
+    @GetMapping("/entrada")
+    public ResponseEntity buscarTodos(){
+        return ResponseEntity.ok().body(entradaService.buscarTodos());
+    }
+
+    //LISTAR UM
+    @GetMapping("/entrada/{codigo}")
+    public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo){
+        return ResponseEntity.ok().body(entradaService.buscarPorId(codigo));
+    }
+
+
+//    //REGISTRAR
+//    @PostMapping("/entrada")
+//    public ResponseEntity inserir(@RequestBody EntradaDTO dto){
+//        entradaService.inserir(dto);
 //
-//    public ResponseEntity buscarTodos(){
-//        return ResponseEntity.ok().body(entradaBO.)
+//        return ResponseEntity.ok().body(dto);
 //    }
 
 
-    @GetMapping("/Entrada/{codigo}")
-    public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo){
-        return ResponseEntity.ok().body(buscarPorId(codigo));
-    }
+    //EXCLUIR
+    @DeleteMapping("/entrada/{codigo}")
+    public ResponseEntity excluirPorId(@PathVariable("codigo") Integer codigo) {
+        EntradaDTO dto = entradaService.excluirPorId(codigo);
+        return ResponseEntity.ok().body(dto);
 
+    }
 }

@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,16 +18,16 @@ public class EntradaDTO {
     private Integer id_entrada;
 
     private String nm_produto;
+    private List<ProdutoLoteDTO> produto;
 
-    private Date dt_entrada;
+    private String dt_entrada;
 
-    private Integer id_fornecedor;
-    private FornecedorEntity fornecedor;
+    private Long id_fornecedor;
+    private String nm_fornecedor;
 
     private Integer id_filial;
-    private FilialEntity Filial;
+    private String nm_filial;
 
-    private Integer id_documento_fiscal;
-    private DocumentoFiscalEntity documento;
+    private Long id_documento_fiscal;
 
 }
