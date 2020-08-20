@@ -6,6 +6,8 @@ import { CadastroDeFornecedorComponent } from './abastecimento/cadastro-de-forne
 import { CadastroDeProdutoComponent } from './abastecimento/cadastro-de-produto/cadastro-de-produto.component';
 import { EntradaDeProdutoComponent } from './abastecimento/entrada-de-produto/entrada-de-produto.component';
 import { RelatorioDeEstoqueComponent } from './abastecimento/relatorio-de-estoque/relatorio-de-estoque.component';
+import { RelatorioDeProdutoComponent } from './abastecimento/relatorio-de-produto/relatorio-de-produto.component';
+import { TransferenciaDeProdutoComponent } from './abastecimento/transferencia-de-produto/transferencia-de-produto.component';
 
 export const routes: Routes = [
     {
@@ -21,7 +23,11 @@ export const routes: Routes = [
     {path:'entradaDeProduto',
     component: EntradaDeProdutoComponent},
     {path:'relatorioDeEstoque',
-    component: RelatorioDeEstoqueComponent}
+    component: RelatorioDeEstoqueComponent},
+    {path:'relatorioDeProduto',
+    component: RelatorioDeProdutoComponent},
+    {path:'transferenciaDeProduto',
+    component: TransferenciaDeProdutoComponent}
 ];
 
 @NgModule({
