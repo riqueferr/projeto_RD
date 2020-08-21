@@ -1,3 +1,4 @@
+import { CupomDeVendaComponent } from './financeiro/cupom-de-venda/cupom-de-venda.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -8,26 +9,38 @@ import { EntradaDeProdutoComponent } from './abastecimento/entrada-de-produto/en
 import { RelatorioDeEstoqueComponent } from './abastecimento/relatorio-de-estoque/relatorio-de-estoque.component';
 import { RelatorioDeProdutoComponent } from './abastecimento/relatorio-de-produto/relatorio-de-produto.component';
 import { TransferenciaDeProdutoComponent } from './abastecimento/transferencia-de-produto/transferencia-de-produto.component';
+import { MovimentoDeLojaComponent } from './financeiro/movimento-de-loja/movimento-de-loja.component';
+import { FinanceiroDashboardComponent } from './financeiro/financeiro-dashboard/financeiro-dashboard.component';
+import { RelatorioGerencialComponent } from './financeiro/relatorio-gerencial/relatorio-gerencial.component';
+
 
 export const routes: Routes = [
     {
         path: '',
         component: HomeComponent
     },
-    {path:'abastecimento-dashboard',
+    {path: 'abastecimento-dashboard',
     component: DashboardComponent},
-    {path: 'cadastroDeFornecedor', 
+    {path: 'cadastroDeFornecedor',
     component: CadastroDeFornecedorComponent},
-    {path:'cadastroDeProduto',
+    {path: 'cadastroDeProduto',
     component: CadastroDeProdutoComponent},
-    {path:'entradaDeProduto',
+    {path: 'entradaDeProduto',
     component: EntradaDeProdutoComponent},
-    {path:'relatorioDeEstoque',
+    {path: 'relatorioDeEstoque',
     component: RelatorioDeEstoqueComponent},
-    {path:'relatorioDeProduto',
+    {path: 'relatorioDeProduto',
     component: RelatorioDeProdutoComponent},
-    {path:'transferenciaDeProduto',
-    component: TransferenciaDeProdutoComponent}
+    {path: 'transferenciaDeProduto',
+    component: TransferenciaDeProdutoComponent},
+    {path: 'cupomDeVenda',
+    component: CupomDeVendaComponent},
+    {path: 'financeiro-dashboard',
+    component: FinanceiroDashboardComponent},
+    {path: 'movimentoDeLoja',
+    component: MovimentoDeLojaComponent},
+    {path: 'relatorioGerencial',
+    component: RelatorioGerencialComponent}
 ];
 
 @NgModule({
