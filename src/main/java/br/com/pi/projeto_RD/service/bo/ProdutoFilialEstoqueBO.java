@@ -1,11 +1,18 @@
 package br.com.pi.projeto_RD.service.bo;
 
-import br.com.pi.projeto_RD.model.dto.ProdutoFilialEstoqueDTO;
+import br.com.pi.projeto_RD.model.dto.*;
+import br.com.pi.projeto_RD.model.entity.FilialEntity;
+import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
+import br.com.pi.projeto_RD.model.entity.ProdutoEntity;
 import br.com.pi.projeto_RD.model.entity.ProdutoFilialEstoqueEntity;
+import br.com.pi.projeto_RD.repository.FilialRepository;
 import br.com.pi.projeto_RD.repository.ProdutoFilialEstoqueRepository;
 import br.com.pi.projeto_RD.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class ProdutoFilialEstoqueBO {
@@ -14,21 +21,51 @@ public class ProdutoFilialEstoqueBO {
     private ProdutoFilialEstoqueRepository repository;
 
     @Autowired
+    private FilialRepository filialRepository;
+
+    @Autowired
     private ProdutoRepository produtoRepository;
 
-    private ProdutoFilialEstoqueEntity ParseToEntity (ProdutoFilialEstoqueDTO dto, ProdutoFilialEstoqueEntity entity){
-        if(entity == null){
-            entity = new ProdutoFilialEstoqueEntity();
-        }
-        if(dto == null){
-            return entity;
-        }
-        entity.setFk_id_filial(dto.getFk_filial());
-        entity.setProduto(produtoRepository.getOne(dto.getFk_produto().getCodigo()));
-        entity.setQt_base(dto.getQt_base());
-        entity.setQt_estoque(dto.getQt_estoque());
-        entity.setQt_empenho(dto.getQt_empenho());
 
-        return entity;
+    public ProdutoFilialEstoqueDTO parseToDTO(ProdutoFilialEstoqueEntity f) {
+        ProdutoFilialEstoqueDTO dto = new ProdutoFilialEstoqueDTO();
+
+        if (f == null)
+            return dto;
+
+        dto.setCdEstoque(f.getCdEstoque());
+
+        //FILIAL
+        dto.setCd_filial(f.getFilial().getCd_filial());
+
+        //PRODUTOS
+        dto.setCodProduto(f.getProduto().getCodigo());
+
+        //ESTOQUE
+        dto.setQt_estoque(f.getQt_estoque());
+        dto.setQt_empenho(f.getQt_empenho());
+        dto.setQt_base(f.getQt_base());
+
+        return dto;
     }
+
+
+    public ProdutoFilialEstoqueEntity parseToEntity(ProdutoFilialEstoqueDTO dto, ProdutoFilialEstoqueEntity pEntity) throws Exception {
+        if (pEntity == null)
+            pEntity = new ProdutoFilialEstoqueEntity();
+
+        if (dto == null)
+            return pEntity;
+
+
+        pEntity.setCdEstoque(dto.getCdEstoque());
+        pEntity.setFilial(filialRepository.getOne(dto.getCd_filial()));
+        pEntity.setProduto(produtoRepository.getOne(dto.getCodProduto()));
+        pEntity.setQt_estoque(dto.getQt_estoque());
+        pEntity.setQt_base(dto.getQt_base());
+        pEntity.setQt_empenho(dto.getQt_empenho());
+
+        return pEntity;
+    }
+
 }

@@ -26,6 +26,7 @@ public class ProdutoLoteEntity {
     @Column(name = "DT_VALIDADE")
     private Date ds_validade;
 
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "CD_PRODUTO")
     private List<ProdutoEntity> produtoEntity;
@@ -33,6 +34,11 @@ public class ProdutoLoteEntity {
    @OneToMany(cascade = CascadeType.ALL)
    @JoinColumn(name = "ID_ENTRADA")
    private List<EntradaEntity> entradaEntity;
+=======
+    @ManyToOne
+    @JoinColumn(name ="CD_PRODUTO")
+    private ProdutoEntity produto;
+>>>>>>> 205187813d33a70577e33e76e50a6736075ec76b
 
     @Column(name = "VL_LOTE")
     private double vl_lote;
