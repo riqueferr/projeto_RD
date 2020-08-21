@@ -35,7 +35,7 @@ public class FilialBO {
         for (ProdutoFilialEstoqueEntity item : f.getProdutos()) {
             ProdutoFilialDTO eDTO = new ProdutoFilialDTO();
 
-//            eDTO.setCodigo(item.getProduto().getCodigo());
+            eDTO.setCodigo(item.getProduto().getCodigo());
             eDTO.setNm_fantasia(item.getProduto().getNm_fantasia());
             eDTO.setStatusProduto(item.getProduto().getStatus().getDsStatusProduto());
             eDTO.setCategoria(item.getProduto().getCategoria().getDsCategoria());
@@ -50,4 +50,36 @@ public class FilialBO {
         dto.setProduto(produto);
         return dto;
     }
+
+//    public FilialEntity parseToEntity(FilialDTO dto, FilialEntity fEntity) throws Exception {
+//        if (fEntity == null)
+//            fEntity = new FilialEntity();
+//
+//        if (dto == null)
+//            return fEntity;
+//
+//        fEntity.setCd_filial(dto.getCd_filial());
+//        fEntity.setNm_filial(dto.getNm_filial());
+//        fEntity.setNr_cnpj(dto.getNr_cpnj());
+//        fEntity.setNr_telefone(dto.getNr_telefone());
+//
+//
+//        List<ProdutoEntity> itemsEntity = new ArrayList<>();
+//
+//        for (ProdutoFilialDTO itemDTO : dto.getProduto()) {
+//            ProdutoEntity Entity = new ProdutoEntity();
+//
+//            Entity.setCodigo(itemDTO.getCodigo());
+//            Entity.setNm_fantasia(itemDTO.getNm_fantasia());
+//            Entity.setStatus(itemDTO.getNm_fantasia());
+//
+//
+//            itemsEntity.add(fEntity);
+//        }
+//
+//        pEntity.setFornecedor(itemsEntity);
+//
+//        return pEntity;
+//    }
+
 }

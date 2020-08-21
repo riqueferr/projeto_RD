@@ -1,5 +1,6 @@
 package br.com.pi.projeto_RD.service;
 
+import br.com.pi.projeto_RD.model.dto.EntradaDTO;
 import br.com.pi.projeto_RD.model.dto.FilialDTO;
 import br.com.pi.projeto_RD.model.dto.FornecedorDTO;
 import br.com.pi.projeto_RD.model.entity.FilialEntity;
@@ -21,15 +22,20 @@ public class FilialService {
     @Autowired
     private FilialRepository repository;
 
-    public List<FilialDTO> buscarTodos(){
+    public List<FilialDTO> buscarTodos() {
         List<FilialEntity> filialEntity = repository.findAll();
         List<FilialDTO> filialDTO = new ArrayList<>();
 
 
-        for (FilialEntity entity : filialEntity){
+        for (FilialEntity entity : filialEntity) {
             FilialDTO dto = filialBO.parseToDTO(entity);
             filialDTO.add(dto);
         }
         return filialDTO;
     }
+
+    public FilialDTO buscarPorId(Integer codigo) {
+        return filialBO.parseToDTO(repository.getOne(codigo));
+    }
+
 }

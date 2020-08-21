@@ -14,26 +14,24 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class EntradaController {
 
-    @Autowired
-    EntradaRepository repository;
 
     @Autowired
     EntradaBO entradaBO;
 
     @Autowired
-    EntradaService entradaService;
+    EntradaService service;
 
 
     //LISTAR TODOS
     @GetMapping("/entrada")
-    public ResponseEntity buscarTodos(){
-        return ResponseEntity.ok().body(entradaService.buscarTodos());
+    public ResponseEntity buscarTodos() {
+        return ResponseEntity.ok().body(service.buscarTodos());
     }
 
     //LISTAR UM
     @GetMapping("/entrada/{codigo}")
-    public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo){
-        return ResponseEntity.ok().body(entradaService.buscarPorId(codigo));
+    public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
+        return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
 
@@ -45,12 +43,12 @@ public class EntradaController {
 //        return ResponseEntity.ok().body(dto);
 //    }
 
-
     //EXCLUIR
     @DeleteMapping("/entrada/{codigo}")
     public ResponseEntity excluirPorId(@PathVariable("codigo") Integer codigo) {
-        EntradaDTO dto = entradaService.excluirPorId(codigo);
+        EntradaDTO dto = service.excluirPorId(codigo);
         return ResponseEntity.ok().body(dto);
-
     }
+
+
 }

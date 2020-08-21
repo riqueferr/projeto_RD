@@ -29,7 +29,7 @@ public class EntradaEntity {
     @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
     private DocumentoFiscalEntity documento_fiscal;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     @JoinColumn(name = "ID_ENTRADA")
     private List<ProdutoLoteEntity> produtoLote;
 

@@ -19,10 +19,10 @@ public class EntradaService {
     private EntradaBO entradaBO;
 
     @Autowired
-    private EntradaRepository entradaRepository;
+    private EntradaRepository repository;
 
     public List<EntradaDTO> buscarTodos(){
-        List<EntradaEntity> entradaEntity = entradaRepository.findAll();
+        List<EntradaEntity> entradaEntity = repository.findAll();
         List<EntradaDTO> entradaDTO = new ArrayList<>();
 
         for (EntradaEntity e : entradaEntity){
@@ -35,7 +35,7 @@ public class EntradaService {
 
 
     public EntradaDTO buscarPorId(Integer codigo){
-        return entradaBO.parseToDTO(entradaRepository.getOne(codigo));
+        return entradaBO.parseToDTO(repository.getOne(codigo));
     }
 
 
@@ -49,12 +49,12 @@ public class EntradaService {
 
 
     public EntradaDTO excluirPorId(Integer id_entrada) {
-        EntradaEntity entity = entradaRepository.getOne(id_entrada);
+        EntradaEntity entity = repository.getOne(id_entrada);
         EntradaDTO dto = new EntradaDTO();
 
         if (entity != null) {
             dto = entradaBO.parseToDTO(entity);
-            entradaRepository.delete(entity);
+            repository.delete(entity);
         }
         return dto;
     }

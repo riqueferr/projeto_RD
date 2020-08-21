@@ -42,11 +42,10 @@ public class EntradaBO {
         if(e == null)
             return dto;
 
-
         dto.setId_entrada(e.getId_entrada());
         dto.setDt_entrada(date.format(e.getDt_entrada()));
         dto.setNm_filial(e.getFilial().getNm_filial());
-        //dto.setId_filial(e.getFilial().getCd_filial());
+        dto.setId_filial(e.getFilial().getCd_filial());
         dto.setId_documento_fiscal(e.getDocumento_fiscal().getId_documento());
 
         List<ProdutoLoteDTO> produto = new ArrayList<>();
@@ -55,13 +54,17 @@ public class EntradaBO {
             ProdutoLoteDTO eDTO = new ProdutoLoteDTO();
 
             eDTO.setCd_lote(item.getId_produto_lote());
+            eDTO.setDsLote(item.getDs_lote());
+            eDTO.setDtFabricacao(date.format(item.getDt_fabricacao()));
+            eDTO.setDtValidade(date.format(item.getDs_validade()));
+
+            eDTO.setIdProduto(item.getProduto().getCodigo());
             eDTO.setNm_fantasia(item.getProduto().getNm_fantasia());
             eDTO.setId_status_produto(item.getProduto().getStatus().getIdStatusProduto());
             eDTO.setStatusProduto(item.getProduto().getStatus().getDsStatusProduto());
             eDTO.setVl_unidade(item.getProduto().getVl_unidade());
             eDTO.setCategoria(item.getProduto().getCategoria());
             eDTO.setTipoProduto(item.getProduto().getTipo_produto());
-
 
             produto.add(eDTO);
         }

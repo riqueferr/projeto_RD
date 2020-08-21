@@ -65,9 +65,4 @@ public class DocumentoFiscalEntity implements Serializable {
     @Column(name = "NR_CAIXA")
     private Long nr_caixa;
 
-
-
-
-
-
 }

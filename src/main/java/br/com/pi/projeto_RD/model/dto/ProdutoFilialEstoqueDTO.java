@@ -13,24 +13,14 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class ProdutoFilialEstoqueDTO {
+
     private Integer cdEstoque;
 
     //INFO FILIAL
-    private Integer codFilial;
-//    private String nmFilial;
-//    private String nrCNPJ;
-//    private String nrTelefone;
-    private FilialEntity filial;
+    private Integer cd_filial;
 
     //INFO PRODUTOS
     private Integer codProduto;
-    private ProdutoEntity produto;
-//    private String nomeProduto;
-//    private String statusProduto;
-//    private double vl_unidade;
-//    private String categoria;
-//    private String subCategoria;
-//    private String tipoProduto;
 
     //INFO PRODUTO FILIAL ESTOQUE
     private Integer qt_estoque;
