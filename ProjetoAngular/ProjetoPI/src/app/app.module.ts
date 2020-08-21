@@ -14,6 +14,10 @@ import { EntradaDeProdutoComponent } from './abastecimento/entrada-de-produto/en
 import { RelatorioDeEstoqueComponent } from './abastecimento/relatorio-de-estoque/relatorio-de-estoque.component';
 import { RelatorioDeProdutoComponent } from './abastecimento/relatorio-de-produto/relatorio-de-produto.component';
 import { TransferenciaDeProdutoComponent } from './abastecimento/transferencia-de-produto/transferencia-de-produto.component';
+import { CupomDeVendaComponent } from './financeiro/cupom-de-venda/cupom-de-venda.component';
+import { FinanceiroDashboardComponent } from './financeiro/financeiro-dashboard/financeiro-dashboard.component';
+import { RelatorioGerencialComponent } from './financeiro/relatorio-gerencial/relatorio-gerencial.component';
+import { MovimentoDeLojaComponent } from './financeiro/movimento-de-loja/movimento-de-loja.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { TransferenciaDeProdutoComponent } from './abastecimento/transferencia-d
     EntradaDeProdutoComponent,
     RelatorioDeEstoqueComponent,
     RelatorioDeProdutoComponent,
-    TransferenciaDeProdutoComponent
+    TransferenciaDeProdutoComponent,
+    CupomDeVendaComponent,
+    FinanceiroDashboardComponent,
+    RelatorioGerencialComponent,
+    MovimentoDeLojaComponent
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,7 @@ export class CadastroDeFornecedorComponent implements OnInit {
 
   ngOnInit(): void {
   }
- 
+
   onSubmit(it: NgForm) {
     console.log(it.value);  // { first: '', last: '' }
     console.log(it.valid);  // false
