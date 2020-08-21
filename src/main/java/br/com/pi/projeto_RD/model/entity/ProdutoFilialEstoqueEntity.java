@@ -13,14 +13,16 @@ public class ProdutoFilialEstoqueEntity implements Serializable {
 
     // MUDAR AQUI
     @Id
-    @Column(name = "ID_FILIAL")
-    private Integer fk_id_filial;
-    // MUDAR AQUI
-
+    @Column(name = "CD_ESTOQUE")
+    private Integer cdEstoque;
 
     @ManyToOne
-    @JoinColumn(name = "ID_PRODUTO")
-    private  ProdutoEntity produto;
+    @JoinColumn(name = "CD_FILIAL")
+    private FilialEntity filial;
+
+    @ManyToOne
+    @JoinColumn(name = "CD_PRODUTO")
+    private ProdutoEntity produto;
 
     @Column(name = "QT_ESTOQUE")
     private Integer qt_estoque;
@@ -30,4 +32,5 @@ public class ProdutoFilialEstoqueEntity implements Serializable {
 
     @Column(name = "QT_BASE")
     private Integer qt_base;
+
 }

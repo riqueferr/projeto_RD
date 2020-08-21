@@ -1,0 +1,61 @@
+<br>
+<div class="container">
+  <h2>Cadastro de Fornecedor</h2>
+</div>
+<br>
+<!-- <p>Form value: {{ it.value | json }}</p> -->
+<form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
+  <div class="form-row justify-content-around">
+    <div class="form-group col-md-5">
+      <label for="input1">CNPJ</label>
+      <input name="CNPJ" ngModel required #CNPJ="ngModel" class="form-control" placeholder="Insira seu CNPJ">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="input2">Razão Social</label>
+      <input name="Razao_Social" ngModel required #Razao_Social="ngModel" class="form-control" placeholder="Insira sua razão social">
+    </div>
+  </div>
+  <div class="form-row justify-content-around">
+    <div class="form-group col-md-5">
+      <label for="input5">Denominação Social</label>
+      <input name="Denominacao_Social" ngModel required #Denominacao_Social="ngModel" class="form-control" placeholder="Insira sua denominação social">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="input6">Número de Inscrição</label>
+      <input name="Numero_Inscricao" ngModel required #Numero_Inscricao="ngModel" class="form-control" placeholder="Insira seu número de inscrição">
+    </div>
+  </div>
+  <div class="form-row justify-content-around">
+    <div class="form-group col-md-11">
+      <label for="input7">Endereço</label>
+      <input name="Endereco" ngModel required #Endereco="ngModel" class="form-control" placeholder="Insira seu endereço">
+    </div>
+  </div>
+
+
+  <div class="form-row justify-content-around">
+    <div class="form-group col-md-5">
+      <label for="input12">Bairro</label>
+      <input name="Bairro" ngModel required #Bairro="ngModel" class="form-control" placeholder="Insira seu bairro">
+    </div>
+    <!--NOTA: Trocar por seletor fixo depois "Cidade" -->
+    <div class="form-group col-md-5">
+      <label for="input13">Cidade</label>
+      <input name="Cidade" ngModel required #Cidade="ngModel" class="form-control" placeholder="Insira sua cidade">
+    </div>
+  </div>
+  <div class="form-row justify-content-around">
+    <div class="form-group col-md-5">
+      <label for="input14">E-mail</label>
+      <input type="email" name="Email" ngModel required #Email="ngModel" class="form-control" placeholder="Insira um e-mail válido">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="input15">Telefone</label>
+      <input name="Telefone" ngModel required #Telefone="ngModel" class="form-control" placeholder="Insira um número de telefone">
+    </div>
+  </div>
+  <div class="form-group col-md-5">
+    <button  type="submit" class="btn btn-default botaoConfirmar">Confirmar</button>
+    <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
+  </div>
+</form>
