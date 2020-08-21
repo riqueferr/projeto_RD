@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 public class ProdutoFilialDTO {
 
-//    private Integer codigo;
+    private Integer codigo;
     private String nm_fantasia;
     private String statusProduto;
     private double vl_unidade;

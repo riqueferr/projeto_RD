@@ -1,0 +1,49 @@
+.botaoConfirmar {
+    background-color: #29754e;
+    color: #fff;
+    margin-left: 40px;
+  }
+  
+  .botaoConfirmar:hover {
+    background-color: #174d31;
+    color: #fff;
+    margin-left: 40px;
+    border: 1px solid #29754e;
+  }
+  
+  .botaoCancelar {
+    background-color: #989898;
+    color: #fff;
+    margin-left: 10px;
+  }
+  
+  .botaoCancelar:hover {
+    background-color: #5e5e5e;
+    color: #fff;
+    margin-left: 10px;
+  }
+
+  .marginTopMain {
+    margin-top: 0px;
+  }
+  
+  .semMarginRightMain {
+    margin-right: 0px;
+  }
+
+  .bordaDash {
+    border-radius: 5px;
+    height: 170px;
+    margin-bottom: 10px;
+    border: 1px solid #f0f0f0;
+  } 
+
+  .tituloQuadros {
+    width: 200px;
+    background-color: #29754e;
+    margin-left: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: #fff;
+    justify-content: center;
+  }

@@ -49,7 +49,6 @@ public class ProdutoEntity {
     @Column(name = "ID_IMAGEM")
     private Integer id_imagem;
 
-
     @ManyToMany
     @JoinTable(
             name = "TB_FORNECEDOR_PRODUTO",

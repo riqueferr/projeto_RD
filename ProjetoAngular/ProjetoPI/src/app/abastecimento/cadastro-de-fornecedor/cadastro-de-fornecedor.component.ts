@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AppData} from "../../AppData";
+import {NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-cadastro-de-fornecedor',
@@ -11,5 +14,14 @@ export class CadastroDeFornecedorComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ 
+  onSubmit(it: NgForm) {
+    console.log(it.value);  // { first: '', last: '' }
+    console.log(it.valid);  // false
+  }
+
+  title = 'app';
+  data = new AppData('');
+
 
 }
