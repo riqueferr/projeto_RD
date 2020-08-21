@@ -27,7 +27,7 @@ public class FilialController {
 
     //LISTAR POR ID
     @GetMapping("/filial/{codigo}")
-    public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
+    public ResponseEntity buscarPorId(@PathVariable("codigo") Long codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 

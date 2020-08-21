@@ -17,7 +17,7 @@ public class ProdutoFilialEstoqueDTO {
     private Integer cdEstoque;
 
     //INFO FILIAL
-    private Integer cd_filial;
+    private Long cd_filial;
 
     //INFO PRODUTOS
     private Integer codProduto;

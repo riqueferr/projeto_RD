@@ -29,10 +29,6 @@ public class ProdutoLoteEntity {
     @JoinColumn(name ="CD_PRODUTO")
     private ProdutoEntity produto;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_ENTRADA")
-    private EntradaEntity entrada;
-
     @Column(name = "VL_LOTE")
     private double vl_lote;
 

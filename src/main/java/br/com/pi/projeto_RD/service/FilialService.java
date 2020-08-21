@@ -1,10 +1,7 @@
 package br.com.pi.projeto_RD.service;
 
-import br.com.pi.projeto_RD.model.dto.EntradaDTO;
 import br.com.pi.projeto_RD.model.dto.FilialDTO;
-import br.com.pi.projeto_RD.model.dto.FornecedorDTO;
 import br.com.pi.projeto_RD.model.entity.FilialEntity;
-import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
 import br.com.pi.projeto_RD.repository.FilialRepository;
 import br.com.pi.projeto_RD.service.bo.FilialBO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +31,7 @@ public class FilialService {
         return filialDTO;
     }
 
-    public FilialDTO buscarPorId(Integer codigo) {
+    public FilialDTO buscarPorId(Long codigo) {
         return filialBO.parseToDTO(repository.getOne(codigo));
     }
 

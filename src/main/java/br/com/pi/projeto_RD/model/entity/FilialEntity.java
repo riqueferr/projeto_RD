@@ -14,7 +14,7 @@ public class FilialEntity {
     @Id
     @Column(name = "CD_FILIAL")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer cd_filial;
+    private Long cd_filial;
 
     @Column(name = "NM_FILIAL")
     private String nm_filial;
@@ -29,11 +29,5 @@ public class FilialEntity {
     @JoinColumn(name = "CD_FILIAL")
     private List<ProdutoFilialEstoqueEntity> produtos;
 
-//    @ManyToMany
-//    @JoinTable(name = "TB_PRODUTO_FILIAL_ESTOQUE",
-//            joinColumns = @JoinColumn(name = "ID_FILIAL"),
-//            inverseJoinColumns = @JoinColumn(name = "CD_PRODUTO")
-//    )
-//    private List<ProdutoEntity> produtos;
 
 }
