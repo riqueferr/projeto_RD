@@ -1,9 +1,12 @@
 .centralizar {
     padding: 0px;
   }
-  
+
   .btn-outline-primary:hover {
     background-color: #29754e;
     border-color: #ffffff;
     color: #ffffff;
+  }
+  .bg-white-green {
+    background-color: #29754E !important;
   }
