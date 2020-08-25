@@ -10,7 +10,10 @@ import java.util.List;
 @Entity
 @Table(name = "TB_PRODUTO")
 @Data
-//@NamedQuery(name = "buscarNfPorDsStatus", query = "select n from TB_PRODUTO n where n.status.DS_STATUS_PRODUTO  =:DS_STATUS_PRODUTO")
+@NamedQuery(name = "buscarNfPoridStatusProduto", query = "select n from ProdutoEntity n where n.status.idStatusProduto  =:ID_STATUS_PRODUTO")
+@NamedQuery(name = "buscarNfPordsStatusProduto", query = "select n from ProdutoEntity n where n.status.dsStatusProduto  =:DS_STATUS_PRODUTO")
+@NamedQuery(name = "buscarNfPornmProduto", query = "select n from ProdutoEntity n where n.nm_fantasia  =:NM_FANTASIA")
+//@NamedQuery(name = "buscarNfPornmFornecedor", query = "select n from ProdutoEntity n where n.fornecedor.nm_razao_social  =:NM_RAZAO_SOCIAL")
 public class ProdutoEntity implements Serializable {
 
     @Id
@@ -51,9 +54,9 @@ public class ProdutoEntity implements Serializable {
     @Column(name = "ID_IMAGEM")
     private Integer id_imagem;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CD_PRODUTO")
-    private List<ProdutoFilialEstoqueEntity> estoqueProdutos;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "CD_PRODUTO")
+//    private List<ProdutoFilialEstoqueEntity> estoqueProdutos;
 
     @ManyToMany
     @JoinTable(

@@ -35,6 +35,12 @@ public class FilialController {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
+    //LISTAR POR NOME FILIAL
+    @GetMapping("/filial/nmfilial/{nmFilial}")
+    public ResponseEntity<Object> buscarNfPornmProduto(@PathVariable("nmFilial") String nmFilial) {
+        return ResponseEntity.ok().body(service.buscarNfPornmFilial(nmFilial));
+    }
+
     //ATUALIZAR
     @PutMapping("/filial")
     public ResponseEntity atualizar(@RequestBody FilialDTO dto) throws Exception {

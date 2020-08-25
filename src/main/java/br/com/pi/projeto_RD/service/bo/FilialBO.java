@@ -87,7 +87,7 @@ public class FilialBO {
 //            Entity.getProduto().setCodigo(itemDTO.getCdProduto());
             Entity.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
 
-            Entity.setFilial(filialRepository.getOne(dto.getCd_filial()));
+//            Entity.setFilial(filialRepository.getOne(dto.getCd_filial()));
 //            Entity.getFilial().setCd_filial(itemDTO.getCdFilial());
 
             Entity.getProduto().setNm_fantasia((itemDTO.getNm_fantasia()));

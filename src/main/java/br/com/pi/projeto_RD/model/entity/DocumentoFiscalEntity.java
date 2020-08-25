@@ -1,6 +1,8 @@
 package br.com.pi.projeto_RD.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,6 +12,8 @@ import java.util.List;
 @Entity
 @Table(name = "TB_DOCUMENTO_FISCAL")
 @Data
+@NamedQuery(name = "buscarNfPorFilial", query = "select n from DocumentoFiscalEntity n where n.filial.nm_filial  =:NM_FILIAL")
+@NamedQuery(name = "buscarNfPorDataEntrada", query = "select n from DocumentoFiscalEntity n where n.dtEntrada  =:DT_ENTRADA")
 public class DocumentoFiscalEntity implements Serializable {
 
     @Id

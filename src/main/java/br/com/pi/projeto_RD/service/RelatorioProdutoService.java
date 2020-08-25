@@ -41,8 +41,16 @@ public class RelatorioProdutoService {
         return bo.parseToDTO(repository.getOne(codigo));
     }
 
-    public List<ProdutoEntity> buscarNfPorDsStatus(Long DS_STATUS_PRODUTO) {
-        return manager.createNamedQuery("buscarNfPorDsStatus", ProdutoEntity.class).setParameter("DS_STATUS_PRODUTO", DS_STATUS_PRODUTO).getResultList();
+    public List<ProdutoEntity> buscarNfPoridStatusProduto(Long idStatusProduto) {
+        return manager.createNamedQuery("buscarNfPoridStatusProduto", ProdutoEntity.class).setParameter("ID_STATUS_PRODUTO", idStatusProduto).getResultList();
+    }
+
+    public List<ProdutoEntity> buscarNfPordsStatusProduto(String dsStatusProduto) {
+        return manager.createNamedQuery("buscarNfPordsStatusProduto", ProdutoEntity.class).setParameter("DS_STATUS_PRODUTO", dsStatusProduto).getResultList();
+    }
+
+    public List<ProdutoEntity> buscarNfPornmProduto(String Nm_Fantasia){
+        return manager.createNamedQuery("buscarNfPornmProduto", ProdutoEntity.class).setParameter("NM_FANTASIA", Nm_Fantasia).getResultList();
     }
 
 }

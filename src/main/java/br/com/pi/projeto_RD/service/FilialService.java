@@ -11,6 +11,8 @@ import br.com.pi.projeto_RD.service.bo.FilialBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +24,9 @@ public class FilialService {
 
     @Autowired
     private FilialRepository repository;
+
+    @PersistenceContext
+    private EntityManager manager;
 
     public List<FilialDTO> buscarTodos() {
         List<FilialEntity> filialEntity = repository.findAll();
@@ -37,6 +42,10 @@ public class FilialService {
 
     public FilialDTO buscarPorId(Long codigo) {
         return filialBO.parseToDTO(repository.getOne(codigo));
+    }
+
+    public List<FilialEntity> buscarNfPornmFilial(String nmFilial) {
+        return manager.createNamedQuery("buscarNfPornmFilial", FilialEntity.class).setParameter("NM_FILIAL", nmFilial).getResultList();
     }
 
     public void atualizar(FilialDTO dto) throws Exception {
