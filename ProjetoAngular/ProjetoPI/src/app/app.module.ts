@@ -18,6 +18,8 @@ import { CupomDeVendaComponent } from './financeiro/cupom-de-venda/cupom-de-vend
 import { FinanceiroDashboardComponent } from './financeiro/financeiro-dashboard/financeiro-dashboard.component';
 import { RelatorioGerencialComponent } from './financeiro/relatorio-gerencial/relatorio-gerencial.component';
 import { MovimentoDeLojaComponent } from './financeiro/movimento-de-loja/movimento-de-loja.component';
+import { ListaFornecedoresComponent } from './lista-fornecedores/lista-fornecedores.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { MovimentoDeLojaComponent } from './financeiro/movimento-de-loja/movimen
     CupomDeVendaComponent,
     FinanceiroDashboardComponent,
     RelatorioGerencialComponent,
-    MovimentoDeLojaComponent
+    MovimentoDeLojaComponent,
+    ListaFornecedoresComponent
+
   ],
   imports: [
     BrowserModule,

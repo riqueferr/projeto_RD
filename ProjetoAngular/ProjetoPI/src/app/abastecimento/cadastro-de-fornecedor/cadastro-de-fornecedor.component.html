@@ -3,6 +3,7 @@
   <h2>Cadastro de Fornecedor</h2>
 </div>
 <br>
+
 <!-- <p>Form value: {{ it.value | json }}</p> -->
 <form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
   <div class="form-row justify-content-around">
@@ -12,23 +13,27 @@
     </div>
     <div class="form-group col-md-5">
       <label for="input2">Razão Social</label>
-      <input name="Razao_Social" ngModel required #Razao_Social="ngModel" class="form-control" placeholder="Insira sua razão social">
+      <input name="Razao_Social" ngModel required #Razao_Social="ngModel" class="form-control"
+        placeholder="Insira sua razão social">
     </div>
   </div>
   <div class="form-row justify-content-around">
     <div class="form-group col-md-5">
       <label for="input5">Denominação Social</label>
-      <input name="Denominacao_Social" ngModel required #Denominacao_Social="ngModel" class="form-control" placeholder="Insira sua denominação social">
+      <input name="Denominacao_Social" ngModel required #Denominacao_Social="ngModel" class="form-control"
+        placeholder="Insira sua denominação social">
     </div>
     <div class="form-group col-md-5">
       <label for="input6">Número de Inscrição</label>
-      <input name="Numero_Inscricao" ngModel required #Numero_Inscricao="ngModel" class="form-control" placeholder="Insira seu número de inscrição">
+      <input name="Numero_Inscricao" ngModel required #Numero_Inscricao="ngModel" class="form-control"
+        placeholder="Insira seu número de inscrição">
     </div>
   </div>
   <div class="form-row justify-content-around">
     <div class="form-group col-md-11">
       <label for="input7">Endereço</label>
-      <input name="Endereco" ngModel required #Endereco="ngModel" class="form-control" placeholder="Insira seu endereço">
+      <input name="Endereco" ngModel required #Endereco="ngModel" class="form-control"
+        placeholder="Insira seu endereço">
     </div>
   </div>
 
@@ -47,15 +52,19 @@
   <div class="form-row justify-content-around">
     <div class="form-group col-md-5">
       <label for="input14">E-mail</label>
-      <input type="email" name="Email" ngModel required #Email="ngModel" class="form-control" placeholder="Insira um e-mail válido">
+      <input type="email" name="Email" ngModel required #Email="ngModel" class="form-control"
+        placeholder="Insira um e-mail válido">
     </div>
     <div class="form-group col-md-5">
       <label for="input15">Telefone</label>
-      <input name="Telefone" ngModel required #Telefone="ngModel" class="form-control" placeholder="Insira um número de telefone">
+      <input name="Telefone" ngModel required #Telefone="ngModel" class="form-control"
+        placeholder="Insira um número de telefone">
     </div>
   </div>
   <div class="form-group col-md-5">
-    <button  type="submit" class="btn btn-default botaoConfirmar">Confirmar</button>
-    <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
+    <button type="submit" class="btn btn-default botaoConfirmar">Confirmar</button>
+
+    <a routerLink='/listaFornecedores'> <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
+    </a>
   </div>
 </form>
