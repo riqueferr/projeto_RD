@@ -19,6 +19,7 @@ import { FinanceiroDashboardComponent } from './financeiro/financeiro-dashboard/
 import { RelatorioGerencialComponent } from './financeiro/relatorio-gerencial/relatorio-gerencial.component';
 import { MovimentoDeLojaComponent } from './financeiro/movimento-de-loja/movimento-de-loja.component';
 import { ListaFornecedoresComponent } from './abastecimento/lista-fornecedores/lista-fornecedores.component';
+import { DetalhamentoCupomDeVendasComponent } from './financeiro/detalhamento-cupom-de-vendas/detalhamento-cupom-de-vendas.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ListaFornecedoresComponent } from './abastecimento/lista-fornecedores/l
     FinanceiroDashboardComponent,
     RelatorioGerencialComponent,
     MovimentoDeLojaComponent,
-    ListaFornecedoresComponent
+    ListaFornecedoresComponent,
+    DetalhamentoCupomDeVendasComponent
 
   ],
   imports: [

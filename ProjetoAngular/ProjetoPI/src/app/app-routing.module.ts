@@ -13,6 +13,7 @@ import { MovimentoDeLojaComponent } from './financeiro/movimento-de-loja/movimen
 import { FinanceiroDashboardComponent } from './financeiro/financeiro-dashboard/financeiro-dashboard.component';
 import { RelatorioGerencialComponent } from './financeiro/relatorio-gerencial/relatorio-gerencial.component';
 import { ListaFornecedoresComponent } from './abastecimento/lista-fornecedores/lista-fornecedores.component';
+import { DetalhamentoCupomDeVendasComponent } from './financeiro/detalhamento-cupom-de-vendas/detalhamento-cupom-de-vendas.component';
 
 
 export const routes: Routes = [
@@ -43,7 +44,9 @@ export const routes: Routes = [
     {path: 'relatorioGerencial',
     component: RelatorioGerencialComponent},
     {path: 'listaFornecedores',
-    component: ListaFornecedoresComponent}
+    component: ListaFornecedoresComponent},
+    {path: 'detalhamentoCupomDeVendas',
+    component: DetalhamentoCupomDeVendasComponent}
 ];
 
 @NgModule({
