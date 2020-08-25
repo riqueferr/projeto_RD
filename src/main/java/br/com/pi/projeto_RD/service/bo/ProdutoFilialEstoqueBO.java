@@ -40,6 +40,7 @@ public class ProdutoFilialEstoqueBO {
 
         //PRODUTOS
         dto.setCodProduto(f.getProduto().getCodigo());
+        dto.setNmProduto(f.getProduto().getNm_fantasia());
 
         //ESTOQUE
         dto.setQt_estoque(f.getQt_estoque());
@@ -57,10 +58,10 @@ public class ProdutoFilialEstoqueBO {
         if (dto == null)
             return pEntity;
 
-
         pEntity.setCdEstoque(dto.getCdEstoque());
         pEntity.setFilial(filialRepository.getOne(dto.getCd_filial()));
         pEntity.setProduto(produtoRepository.getOne(dto.getCodProduto()));
+        pEntity.getProduto().setNm_fantasia(dto.getNmProduto());
         pEntity.setQt_estoque(dto.getQt_estoque());
         pEntity.setQt_base(dto.getQt_base());
         pEntity.setQt_empenho(dto.getQt_empenho());
