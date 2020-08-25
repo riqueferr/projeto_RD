@@ -37,6 +37,7 @@ public class DocumentoFiscalDTO implements Serializable {
     private Double vl_documento_fiscal;
     private Long nr_caixa;
     private List<ItensDfDTO> itens;
+    private List<PagamentoDocDTO> pagamento;
 
 }
 

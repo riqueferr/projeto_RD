@@ -33,5 +33,4 @@ public class EnderecoEntity {
 
     @Column(name = "NM_COMPLEMENTO")
     private String nmComplemento;
-
 }
