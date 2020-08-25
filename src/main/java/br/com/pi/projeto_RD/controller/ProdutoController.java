@@ -10,6 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
+
 @RestController
 public class ProdutoController {
 
@@ -30,6 +34,11 @@ public class ProdutoController {
     @ApiOperation(value = "Listar todas os produtos por id")
     public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
+    }
+
+    @GetMapping("/produtos/nmproduto/{Nm_Fantasia}")
+    public ResponseEntity<Object> buscarNfPornmProduto(@PathVariable("Nm_Fantasia") String Nm_Fantasia) {
+        return ResponseEntity.ok().body(service.buscarNfPornmProduto(Nm_Fantasia));
     }
 
     @PutMapping("/produtos")

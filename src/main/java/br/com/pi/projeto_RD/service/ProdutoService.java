@@ -8,6 +8,8 @@ import br.com.pi.projeto_RD.service.bo.ProdutoBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +19,11 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository repository;
 
-
     @Autowired
     private ProdutoBO produtoBO;
+
+    @PersistenceContext
+    private EntityManager manager;
 
     public List<ProdutoDto> listarTodas() {
         List<ProdutoEntity> listEntity = repository.findAll();
@@ -36,6 +40,10 @@ public class ProdutoService {
 
     public ProdutoDto buscarPorId(Integer codigo) {
         return produtoBO.parseToDTO(repository.getOne(codigo));
+    }
+
+    public List<ProdutoEntity> buscarNfPornmProduto(String Nm_Fantasia) {
+        return manager.createNamedQuery("buscarNfPornmProduto", ProdutoEntity.class).setParameter("NM_FANTASIA", Nm_Fantasia).getResultList();
     }
 
     public ProdutoEntity inserir(ProdutoDto dto) throws Exception {

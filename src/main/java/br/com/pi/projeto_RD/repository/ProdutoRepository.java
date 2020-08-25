@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ProdutoRepository  extends JpaRepository<ProdutoEntity, Integer> {
-//     List<ProdutoEntity> findByNome(String nome); //select * from tb_loja where nome = ?
+
 }

@@ -16,9 +16,9 @@ public class ProdutoFilialEstoqueEntity implements Serializable {
     @Column(name = "CD_ESTOQUE")
     private Integer cdEstoque;
 
-    @ManyToOne
-    @JoinColumn(name = "CD_FILIAL")
-    private FilialEntity filial;
+//    @ManyToOne
+//    @JoinColumn(name = "CD_FILIAL")
+//    private FilialEntity filial;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CD_PRODUTO")

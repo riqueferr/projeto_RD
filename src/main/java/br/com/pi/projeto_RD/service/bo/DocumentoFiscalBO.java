@@ -12,6 +12,7 @@ import br.com.pi.projeto_RD.repository.DocumentoFiscalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class DocumentoFiscalBO {
     @Autowired
     private DocumentoFiscalRepository repository;
 
+    SimpleDateFormat SDF = new SimpleDateFormat("dd/MM/yyyy");
 
     public DocumentoFiscalDTO parseToDTO(DocumentoFiscalEntity d) {
         DocumentoFiscalDTO dto = new DocumentoFiscalDTO();
@@ -39,9 +41,13 @@ public class DocumentoFiscalBO {
         dto.setNr_chave_acesso(d.getNrChaveAcesso());
         dto.setNr_nf(d.getNrNf());
         dto.setNr_serie(d.getNrSerie());
+
+        dto.setDt_emissao(SDF.format(d.getDtEmissao()));
+//        dto.setDt_entrada(SDF.format(d.getDtEntrada()));
         dto.setDt_entrada(d.getDtEntrada());
-        dto.setDt_abertura(d.getDtAbertura());
-        dto.setDt_fechamento(d.getDtFechamento());
+        dto.setDt_abertura(SDF.format(d.getDtAbertura()));
+        dto.setDt_fechamento(SDF.format(d.getDtFechamento()));
+
         dto.setFl_nf(d.getFlNf());
         dto.setVl_documento_fiscal(d.getVlDocumentoFiscal());
         dto.setNr_caixa(d.getNrCaixa());
