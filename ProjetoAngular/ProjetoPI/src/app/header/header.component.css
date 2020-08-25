@@ -1,22 +1,22 @@
 .centralizar {
-    padding: 0px;
-  }
- 
-  .btn-outline-primary {
-    background-color: #FFFFFF !important;
-    border-color: #FFFFFF !important;
-    color: #29754E !important;
-    width:60px !important;
-    height: 28px !important;
-  }
-  .btn-outline-primary:hover {
-    background-color: #29754E !important;
-    border-color: #FFFFFF !important;
-    color: #FFFFFF !important;
-    width:60px !important;
-    height: 28px !important;
-  }
+  padding: 0px;
+}
 
-  .bg-white-green {
-    background-color: #29754E !important;
-  }
+.btn-outline-primary {
+  background-color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  color: #29754E !important;
+  width:60px !important;
+  height: 28px !important;
+}
+.btn-outline-primary:hover {
+  background-color: #29754E !important;
+  border-color: #FFFFFF !important;
+  color: #FFFFFF !important;
+  width:60px !important;
+  height: 28px !important;
+}
+
+.bg-white-green {
+  background-color: #29754E !important;
+}
