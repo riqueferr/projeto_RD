@@ -47,7 +47,7 @@ public class FilialBO {
             ProdutoFilialDTO eDTO = new ProdutoFilialDTO();
 
             eDTO.setCdEstoque(item.getProduto().getCodigo());
-//            eDTO.setCdFilial(item.getFilial().getCd_filial());
+//          eDTO.setCdFilial(item.getFilial().getCd_filial());
             eDTO.setCdProduto(item.getProduto().getCodigo());
             eDTO.setNm_fantasia(item.getProduto().getNm_fantasia());
             eDTO.setStatusProduto(item.getProduto().getStatus().getDsStatusProduto());
