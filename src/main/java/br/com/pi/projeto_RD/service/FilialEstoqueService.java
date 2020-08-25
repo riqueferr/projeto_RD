@@ -38,12 +38,10 @@ public class FilialEstoqueService {
     }
 
     public ProdutoFilialEstoqueEntity inserir(ProdutoFilialEstoqueDTO dto) throws Exception {
-
         ProdutoFilialEstoqueEntity entity = pfBO.parseToEntity(dto, null);
 
         if (entity.getQt_estoque() != null)
             repository.save(entity);
-
         return entity;
     }
 

@@ -4,12 +4,14 @@ package br.com.pi.projeto_RD.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "TB_PRODUTO")
 @Data
-public class ProdutoEntity {
+//@NamedQuery(name = "buscarNfPorDsStatus", query = "select n from TB_PRODUTO n where n.status.DS_STATUS_PRODUTO  =:DS_STATUS_PRODUTO")
+public class ProdutoEntity implements Serializable {
 
     @Id
     @Column(name = "CD_PRODUTO")
@@ -48,6 +50,10 @@ public class ProdutoEntity {
 
     @Column(name = "ID_IMAGEM")
     private Integer id_imagem;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CD_PRODUTO")
+    private List<ProdutoFilialEstoqueEntity> estoqueProdutos;
 
     @ManyToMany
     @JoinTable(

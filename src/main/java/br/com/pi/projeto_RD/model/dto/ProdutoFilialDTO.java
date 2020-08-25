@@ -1,9 +1,6 @@
 package br.com.pi.projeto_RD.model.dto;
 
-import br.com.pi.projeto_RD.model.entity.CategoriaEntity;
-import br.com.pi.projeto_RD.model.entity.ProdutoFilialEstoqueEntity;
-import br.com.pi.projeto_RD.model.entity.StatusProdutoEntity;
-import br.com.pi.projeto_RD.model.entity.TipoProdutoEntity;
+import br.com.pi.projeto_RD.model.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +12,10 @@ import java.util.List;
 @Data
 public class ProdutoFilialDTO {
 
-    private Integer codigo;
+    private Integer cdEstoque;
+//    private FilialEntity filial;
+//    private Long cdFilial;
+    private Integer cdProduto;
     private String nm_fantasia;
     private String statusProduto;
     private double vl_unidade;
@@ -23,6 +23,6 @@ public class ProdutoFilialDTO {
     private String tipoProduto;
     private int quantidade;
     private int qt_empenho;
-    private int qt_base;
+    private Integer qt_base;
 
 }

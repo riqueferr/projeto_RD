@@ -20,7 +20,7 @@ public class ProdutoFilialEstoqueEntity implements Serializable {
     @JoinColumn(name = "CD_FILIAL")
     private FilialEntity filial;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CD_PRODUTO")
     private ProdutoEntity produto;
 

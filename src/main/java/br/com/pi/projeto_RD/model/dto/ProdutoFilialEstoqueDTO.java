@@ -22,6 +22,8 @@ public class ProdutoFilialEstoqueDTO {
     //INFO PRODUTOS
     private Integer codProduto;
 
+    private String nmProduto;
+
     //INFO PRODUTO FILIAL ESTOQUE
     private Integer qt_estoque;
     private Integer qt_empenho;

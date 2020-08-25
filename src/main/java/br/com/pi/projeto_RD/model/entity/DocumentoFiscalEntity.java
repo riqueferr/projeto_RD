@@ -2,13 +2,15 @@ package br.com.pi.projeto_RD.model.entity;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
 @Table(name = "TB_DOCUMENTO_FISCAL")
 @Data
-public class DocumentoFiscalEntity{
+public class DocumentoFiscalEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,19 +19,23 @@ public class DocumentoFiscalEntity{
 
     @ManyToOne
     @JoinColumn(name = "CD_OPERACAO")//fk
-    private OperacaoEntity cdOperacao;
+    private OperacaoEntity operacao;
 
     @ManyToOne
     @JoinColumn(name = "CD_FILIAL")//fk
-    private FilialEntity cdFilial;
+    private FilialEntity filial;
+
+    @ManyToOne
+    @JoinColumn(name = "CD_FILIAL_DESTINO")//fk
+    private FilialEntity filialDestino;
 
     @ManyToOne
     @JoinColumn(name = "ID_CLIENTE")//fk
-    private ClienteEntity idCliente;
+    private ClienteEntity cliente;
 
     @ManyToOne
     @JoinColumn(name = "ID_FORNECEDOR")//fk
-    private FornecedorEntity idFornecedor;
+    private FornecedorEntity fornecedor;
 
     @Column(name = "ID_RECARGA")//fk
     private Long idRecarga;
@@ -66,5 +72,11 @@ public class DocumentoFiscalEntity{
 
     @Column(name = "NR_CAIXA")
     private Long nrCaixa;
+
+//    @OneToMany(mappedBy = "nf", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
+    private List<DocumentoItemEntity> itens;
+
 
 }

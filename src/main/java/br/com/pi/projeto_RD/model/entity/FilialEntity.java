@@ -25,7 +25,7 @@ public class FilialEntity {
     @Column(name = "NR_TELEFONE")
     private String nr_telefone;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "CD_FILIAL")
     private List<ProdutoFilialEstoqueEntity> produtos;
 
