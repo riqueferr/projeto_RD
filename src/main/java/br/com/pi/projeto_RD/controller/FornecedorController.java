@@ -39,7 +39,6 @@ public class FornecedorController {
     @PostMapping("/fornecedores")
     public ResponseEntity inserir(@RequestBody FornecedorDTO dto){
         service.inserir(dto);
-
         return ResponseEntity.ok().body(dto);
     }
 
