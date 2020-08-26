@@ -41,16 +41,16 @@ public class FornecedorEntity implements Serializable {
     private TipoFornecedorEntity fk_tipo_fornecedor;
 
 //    @ManyToMany(cascade = CascadeType.ALL)
-    @ManyToMany
-    @JoinTable(name = "TB_ENDERECO_FORNECEDOR",
-            joinColumns = @JoinColumn(name = "CD_FORNECEDOR"),
-            inverseJoinColumns = @JoinColumn(name = "ID_ENDERECO")
-    )
-    private List<EnderecoEntity> endereco;
+//    @ManyToMany
+//    @JoinTable(name = "TB_ENDERECO_FORNECEDOR",
+//            joinColumns = @JoinColumn(name = "CD_FORNECEDOR"),
+//            inverseJoinColumns = @JoinColumn(name = "ID_ENDERECO")
+//    )
+//    private List<EnderecoEntity> endereco;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "CD_FORNECEDOR")
-//    private List<EnderecoFornecedorEntity> endereco;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CD_FORNECEDOR")
+    private List<EnderecoEntity> endereco;
 
 
 }
