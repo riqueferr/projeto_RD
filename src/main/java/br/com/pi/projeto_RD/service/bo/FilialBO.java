@@ -36,7 +36,7 @@ public class FilialBO {
         if (f == null)
             return dto;
 
-        dto.setCd_filial(f.getCd_filial());
+        dto.setCd_filial(f.getCdFilial());
         dto.setNm_filial(f.getNm_filial());
         dto.setNr_cpnj(f.getNr_cnpj());
         dto.setNr_telefone(f.getNr_telefone());
@@ -47,14 +47,15 @@ public class FilialBO {
             ProdutoFilialDTO eDTO = new ProdutoFilialDTO();
 
             eDTO.setCdEstoque(item.getProduto().getCodigo());
-//            eDTO.setCdFilial(item.getFilial().getCd_filial());
             eDTO.setCdProduto(item.getProduto().getCodigo());
             eDTO.setNm_fantasia(item.getProduto().getNm_fantasia());
             eDTO.setStatusProduto(item.getProduto().getStatus().getDsStatusProduto());
             eDTO.setCategoria(item.getProduto().getCategoria().getDsCategoria());
             eDTO.setTipoProduto(item.getProduto().getTipo_produto().getDsTipoProduto());
             eDTO.setVl_unidade(item.getProduto().getVl_unidade());
-            eDTO.setQuantidade(item.getQt_estoque());
+
+            eDTO.setQuantidade(item.getQt_estoque());//////////////
+
             eDTO.setQt_empenho(item.getQt_empenho());
             eDTO.setQt_base(item.getQt_base());
 
@@ -71,7 +72,7 @@ public class FilialBO {
         if (dto == null)
             return fEntity;
 
-        fEntity.setCd_filial(dto.getCd_filial());
+        fEntity.setCdFilial(dto.getCd_filial());
         fEntity.setNm_filial(dto.getNm_filial());
         fEntity.setNr_cnpj(dto.getNr_cpnj());
         fEntity.setNr_telefone(dto.getNr_telefone());

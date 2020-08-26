@@ -30,7 +30,7 @@ public class RelatorioEstoqueBO {
         if (f == null)
             return dto;
 
-        dto.setCd_filial(f.getCd_filial());
+        dto.setCd_filial(f.getCdFilial());
         dto.setNm_filial(f.getNm_filial());
 
         List<RelatorioEstoqueProdutoDTO> produto = new ArrayList<>();

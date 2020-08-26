@@ -30,7 +30,7 @@ public class DocumentoFiscalDTO implements Serializable {
     private Long nr_nf;
     private Long nr_serie;
     private String dt_emissao;
-    private Date dt_entrada;
+    private String dt_entrada;
     private String dt_abertura;
     private String dt_fechamento;
     private Integer fl_nf;

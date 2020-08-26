@@ -18,7 +18,7 @@ public class TransferenciaController {
 
     @GetMapping("/transferencia")
     public ResponseEntity<Object> listarTodas(){
-        return ResponseEntity.ok().body(service.listarTodas());
+        return ResponseEntity.ok().body(service.buscarTodos());
     }
 
     @PostMapping("/transferencia")

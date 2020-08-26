@@ -1,24 +1,20 @@
 package br.com.pi.projeto_RD.service.bo;
 
-
 import br.com.pi.projeto_RD.model.dto.DFEntradaDTO;
+import br.com.pi.projeto_RD.model.dto.DFTransferenciaDTO;
 import br.com.pi.projeto_RD.model.dto.ItensDfDTO;
 import br.com.pi.projeto_RD.model.entity.DocumentoFiscalEntity;
 import br.com.pi.projeto_RD.model.entity.DocumentoItemEntity;
-import br.com.pi.projeto_RD.model.entity.ProdutoEntity;
 import br.com.pi.projeto_RD.model.entity.ProdutoFilialEstoqueEntity;
 import br.com.pi.projeto_RD.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class DFEntradaBO {
+public class DFTransferenciaBO {
 
     @Autowired
     private DocumentoFiscalRepository repository;
@@ -38,8 +34,8 @@ public class DFEntradaBO {
     @Autowired
     private ProdutoFilialEstoqueRepository produtoFilialEstoqueRepository;
 
-    public DFEntradaDTO parseToDTO(DocumentoFiscalEntity d) {
-        DFEntradaDTO dto = new DFEntradaDTO();
+    public DFTransferenciaDTO parseToDTO(DocumentoFiscalEntity d) {
+        DFTransferenciaDTO dto = new DFTransferenciaDTO();
 
         if (d == null)
             return dto;
@@ -51,9 +47,7 @@ public class DFEntradaBO {
         dto.setNmFilial(d.getFilial().getNm_filial());
 
         dto.setIdFilialDestino(d.getDestino().getCdFilial());
-
-        dto.setIdFornecedor(d.getFornecedor().getCd_fornecedor());
-        dto.setNmFornecedor(d.getFornecedor().getNm_razao_social());
+//        dto.setNmFilialDestino(d.getDestino().getNm_filial());
 
         dto.setChaveAcesso(d.getNrChaveAcesso());
         dto.setNrNF(d.getNrNf());
@@ -85,7 +79,7 @@ public class DFEntradaBO {
 
     }
 
-    public DocumentoFiscalEntity parseToEntity(DFEntradaDTO dto, DocumentoFiscalEntity dfEntity) throws Exception {
+    public DocumentoFiscalEntity parseToEntity(DFTransferenciaDTO dto, DocumentoFiscalEntity dfEntity) throws Exception {
         if (dfEntity == null)
             dfEntity = new DocumentoFiscalEntity();
 
@@ -94,11 +88,12 @@ public class DFEntradaBO {
 
 
         dfEntity.setOperacao(operacaoRepository.getOne(dto.getOperacao().getCdOperacao()));
+
         dfEntity.setFilial(filialRepository.getOne(dto.getIdFilial()));
 
         dfEntity.setDestino(filialRepository.getOne(dto.getIdFilialDestino()));
 
-        dfEntity.setFornecedor(fornecedorRepository.getOne(dto.getIdFornecedor()));
+
         dfEntity.setNrChaveAcesso(dto.getChaveAcesso());
         dfEntity.setNrNf(dto.getNrNF());
         dfEntity.setNrSerie(dto.getNrSerie());
@@ -117,15 +112,25 @@ public class DFEntradaBO {
             itEntity.setPcIcms(itemDTO.getPcIcms());
             itEntity.setVlIcms(itemDTO.getVlIcms());
 
+            //DECREMENTO NA FILIAL ORIGEM
             List<ProdutoFilialEstoqueEntity> estoques = produtoFilialEstoqueRepository.findByFilialCdFilialAndProdutoCodigo(dto.getIdFilial(), itemDTO.getCdProduto());
 
             if (estoques != null && estoques.size() > 0) {
                 ProdutoFilialEstoqueEntity estoque = estoques.get(0);
-                estoque.setQt_estoque(estoque.getQt_estoque() + itEntity.getQtItem());
+                estoque.setQt_estoque(estoque.getQt_estoque() - itEntity.getQtItem());
                 produtoFilialEstoqueRepository.save(estoque);
+            }
+
+            //INCREMENTO NA FILIAL DESTINO
+            List<ProdutoFilialEstoqueEntity> estoquesDestino = produtoFilialEstoqueRepository.findByFilialCdFilialAndProdutoCodigo(dto.getIdFilialDestino(), itemDTO.getCdProduto());
+
+            if (estoquesDestino != null && estoquesDestino.size() > 0) {
+                ProdutoFilialEstoqueEntity estoqueDestino = estoquesDestino.get(0);
+                estoqueDestino.setQt_estoque(estoqueDestino.getQt_estoque() + itEntity.getQtItem());
+                produtoFilialEstoqueRepository.save(estoqueDestino);
             } else {
                 ProdutoFilialEstoqueEntity estoque = new ProdutoFilialEstoqueEntity();
-                estoque.setFilial(filialRepository.getOne(dto.getIdFilial()));
+                estoque.setFilial(filialRepository.getOne(dto.getIdFilialDestino()));
                 estoque.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
                 estoque.setQt_estoque(itEntity.getQtItem());
                 produtoFilialEstoqueRepository.save(estoque);
@@ -139,6 +144,5 @@ public class DFEntradaBO {
 
         return dfEntity;
     }
-
 
 }

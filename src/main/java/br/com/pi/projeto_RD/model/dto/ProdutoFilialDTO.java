@@ -25,4 +25,6 @@ public class ProdutoFilialDTO {
     private int qt_empenho;
     private Integer qt_base;
 
+    private List<ProdutoFilialEstoqueEntity> produtoEstoque;
+
 }

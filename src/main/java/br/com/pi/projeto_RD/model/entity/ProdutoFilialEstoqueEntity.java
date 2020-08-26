@@ -1,6 +1,7 @@
 package br.com.pi.projeto_RD.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,14 +15,17 @@ public class ProdutoFilialEstoqueEntity implements Serializable {
     // MUDAR AQUI
     @Id
     @Column(name = "CD_ESTOQUE")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cdEstoque;
 
-//    @ManyToOne
-//    @JoinColumn(name = "CD_FILIAL")
-//    private FilialEntity filial;
+    @ManyToOne
+    @JoinColumn(name = "CD_FILIAL")
+    @JsonIgnore
+    private FilialEntity filial;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CD_PRODUTO")
+    @JsonIgnore
     private ProdutoEntity produto;
 
     @Column(name = "QT_ESTOQUE")

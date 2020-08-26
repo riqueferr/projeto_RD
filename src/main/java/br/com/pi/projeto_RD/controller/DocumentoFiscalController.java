@@ -35,7 +35,7 @@ public class DocumentoFiscalController {
     }
 
     //LISTAR POR NOME DA FILIAL
-    @GetMapping("/documentofiscal/nmfilial/{filial}")
+    @GetMapping("/documentofiscal/filial/{filial}")
     public ResponseEntity<Object> buscarNfPorFilial(@PathVariable("filial") String filial) {
         return ResponseEntity.ok().body(service.buscarNfPorFilial(filial));
     }

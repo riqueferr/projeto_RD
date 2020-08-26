@@ -1,5 +1,6 @@
 package br.com.pi.projeto_RD.service;
 
+import br.com.pi.projeto_RD.model.dto.DFEntradaDTO;
 import br.com.pi.projeto_RD.model.dto.DFTransferenciaDTO;
 import br.com.pi.projeto_RD.model.dto.ItensDfDTO;
 import br.com.pi.projeto_RD.model.entity.DocumentoFiscalEntity;
@@ -9,6 +10,7 @@ import br.com.pi.projeto_RD.repository.DocumentoFiscalRepository;
 import br.com.pi.projeto_RD.repository.FilialRepository;
 import br.com.pi.projeto_RD.repository.OperacaoRepository;
 import br.com.pi.projeto_RD.repository.ProdutoRepository;
+import br.com.pi.projeto_RD.service.bo.DFTransferenciaBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,92 +35,29 @@ public class DFTransferenciaService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
+    @Autowired
+    private DFTransferenciaBO bo;
+
     @PersistenceContext
     private EntityManager manager;
 
-    public List<DFTransferenciaDTO> listarTodas() {
 
-        List<DFTransferenciaDTO> listaDTO = new ArrayList<>();
-        List<DocumentoFiscalEntity> listaEntity = repository.findAll();
+    public List<DFTransferenciaDTO> buscarTodos() {
+        List<DocumentoFiscalEntity> dfEntity = repository.findAll();
+        List<DFTransferenciaDTO> transferenciaDTO = new ArrayList<>();
 
-        for (DocumentoFiscalEntity nf : listaEntity) {
-            DFTransferenciaDTO dto = new DFTransferenciaDTO();
-            dto.setIdDocumentoFiscal(nf.getIdDocumento());
-            dto.setOperacao(nf.getOperacao());
-
-            dto.setIdFilial(nf.getFilial().getCd_filial());
-            dto.setNmFilial(nf.getFilial().getNm_filial());
-
-//            dto.setIdFilialDestino(nf.getFilialDestino().getCd_filial());
-//            dto.setNmFilialDestino(nf.getFilialDestino().getNm_filial());
-
-            dto.setChaveAcesso(nf.getNrChaveAcesso());
-            dto.setNrNF(nf.getNrNf());
-            dto.setNrSerie(nf.getNrSerie());
-            dto.setDtEmissao(nf.getDtEmissao());
-            dto.setDtEntrada(nf.getDtEntrada());
-
-            List<ItensDfDTO> itens = new ArrayList<>();
-
-            for (DocumentoItemEntity item : nf.getItens()) {
-                ItensDfDTO itDTO = new ItensDfDTO();
-//                itDTO.setIdNf(item.gtIdNf());
-
-                itDTO.setCdProduto(item.getProduto().getCodigo());
-                itDTO.setNrItemDocumento(item.getNrItemDocumento());
-//                itDTO.setNmProduto(item.getProduto().getNm_fantasia());
-                itDTO.setQtItem(item.getQtItem());
-                itDTO.setVlItem(item.getVlItem());
-                itDTO.setPcIcms(item.getPcIcms());
-                itDTO.setVlIcms(item.getVlIcms());
-
-                itens.add(itDTO);
-            }
-
-            dto.setItens(itens);
-            listaDTO.add(dto);
+        for (DocumentoFiscalEntity entity : dfEntity) {
+            DFTransferenciaDTO dto = bo.parseToDTO(entity);
+            transferenciaDTO.add(dto);
         }
-
-        return listaDTO;
+        return transferenciaDTO;
     }
 
-    public DocumentoFiscalEntity inserir(DFTransferenciaDTO nfDTO) throws Exception {
-
-
-        FilialEntity filial = filialRepository.getOne(nfDTO.getIdFilial());
-        if (filial == null)
-            throw new Exception("cdFilial: " + nfDTO.getIdFilial() + " não encontrado!");
-
-        DocumentoFiscalEntity nfEntity = new DocumentoFiscalEntity();
-
-        nfEntity.setIdDocumento(nfDTO.getIdDocumentoFiscal());
-        nfEntity.setOperacao(operacaoRepository.getOne(nfDTO.getOperacao().getCdOperacao()));
-        nfEntity.setFilial(filial);
-
-        nfEntity.setNrChaveAcesso(nfDTO.getChaveAcesso());
-        nfEntity.setNrNf(nfDTO.getNrNF());
-        nfEntity.setNrSerie(nfDTO.getNrSerie());
-        nfEntity.setDtEmissao(nfDTO.getDtEmissao());
-        nfEntity.setDtEntrada(nfDTO.getDtEntrada());
-
-
-        List<DocumentoItemEntity> itemsEntity = new ArrayList<>();
-        for (ItensDfDTO itemDTO : nfDTO.getItens()) {
-            DocumentoItemEntity itEntity = new DocumentoItemEntity();
-
-            itEntity.setNrItemDocumento(itemDTO.getNrItemDocumento());
-            itEntity.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
-            itEntity.setQtItem(itemDTO.getQtItem());
-            itEntity.setVlItem(itemDTO.getVlItem());
-            itEntity.setPcIcms(itemDTO.getPcIcms());
-            itEntity.setVlIcms(itemDTO.getVlIcms());
-
-            itemsEntity.add(itEntity);
-        }
-
-        nfEntity.setItens(itemsEntity);
-
-        return repository.save(nfEntity);
+    public DocumentoFiscalEntity inserir(DFTransferenciaDTO dto) throws Exception {
+        DocumentoFiscalEntity entity = bo.parseToEntity(dto, null);
+        if (entity.getFilial() != null)
+            repository.save(entity);
+        return entity;
     }
 
 
