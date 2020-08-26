@@ -1,5 +1,6 @@
 package br.com.pi.projeto_RD.service.bo;
 
+import br.com.pi.projeto_RD.controller.ResultData;
 import br.com.pi.projeto_RD.model.dto.DFEntradaDTO;
 import br.com.pi.projeto_RD.model.dto.DFTransferenciaDTO;
 import br.com.pi.projeto_RD.model.dto.ItensDfDTO;
@@ -8,8 +9,11 @@ import br.com.pi.projeto_RD.model.entity.DocumentoItemEntity;
 import br.com.pi.projeto_RD.model.entity.ProdutoFilialEstoqueEntity;
 import br.com.pi.projeto_RD.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +38,8 @@ public class DFTransferenciaBO {
     @Autowired
     private ProdutoFilialEstoqueRepository produtoFilialEstoqueRepository;
 
+    SimpleDateFormat SDF = new SimpleDateFormat("dd/MM/yyyy");
+
     public DFTransferenciaDTO parseToDTO(DocumentoFiscalEntity d) {
         DFTransferenciaDTO dto = new DFTransferenciaDTO();
 
@@ -47,13 +53,14 @@ public class DFTransferenciaBO {
         dto.setNmFilial(d.getFilial().getNm_filial());
 
         dto.setIdFilialDestino(d.getDestino().getCdFilial());
-//        dto.setNmFilialDestino(d.getDestino().getNm_filial());
 
         dto.setChaveAcesso(d.getNrChaveAcesso());
         dto.setNrNF(d.getNrNf());
         dto.setNrSerie(d.getNrSerie());
         dto.setDtEmissao(d.getDtEmissao());
         dto.setDtEntrada(d.getDtEntrada());
+        dto.setDtAbertura(d.getDtAbertura());
+        dto.setDtFechamento(d.getDtFechamento());
         dto.setVlDocumentoFiscal(d.getVlDocumentoFiscal());
 
         List<ItensDfDTO> itens = new ArrayList<>();
@@ -88,9 +95,7 @@ public class DFTransferenciaBO {
 
 
         dfEntity.setOperacao(operacaoRepository.getOne(dto.getOperacao().getCdOperacao()));
-
         dfEntity.setFilial(filialRepository.getOne(dto.getIdFilial()));
-
         dfEntity.setDestino(filialRepository.getOne(dto.getIdFilialDestino()));
 
 
@@ -99,6 +104,8 @@ public class DFTransferenciaBO {
         dfEntity.setNrSerie(dto.getNrSerie());
         dfEntity.setDtEmissao(dto.getDtEmissao());
         dfEntity.setDtEntrada(dto.getDtEntrada());
+        dfEntity.setDtAbertura(dto.getDtAbertura());
+        dfEntity.setDtFechamento(dto.getDtFechamento());
         dfEntity.setVlDocumentoFiscal(dto.getVlDocumentoFiscal());
 
         List<DocumentoItemEntity> itemsEntity = new ArrayList<>();
@@ -112,28 +119,35 @@ public class DFTransferenciaBO {
             itEntity.setPcIcms(itemDTO.getPcIcms());
             itEntity.setVlIcms(itemDTO.getVlIcms());
 
-            //DECREMENTO NA FILIAL ORIGEM
             List<ProdutoFilialEstoqueEntity> estoques = produtoFilialEstoqueRepository.findByFilialCdFilialAndProdutoCodigo(dto.getIdFilial(), itemDTO.getCdProduto());
+            ProdutoFilialEstoqueEntity estoqueNulo = estoques.get(0);
 
-            if (estoques != null && estoques.size() > 0) {
-                ProdutoFilialEstoqueEntity estoque = estoques.get(0);
-                estoque.setQt_estoque(estoque.getQt_estoque() - itEntity.getQtItem());
-                produtoFilialEstoqueRepository.save(estoque);
-            }
-
-            //INCREMENTO NA FILIAL DESTINO
-            List<ProdutoFilialEstoqueEntity> estoquesDestino = produtoFilialEstoqueRepository.findByFilialCdFilialAndProdutoCodigo(dto.getIdFilialDestino(), itemDTO.getCdProduto());
-
-            if (estoquesDestino != null && estoquesDestino.size() > 0) {
-                ProdutoFilialEstoqueEntity estoqueDestino = estoquesDestino.get(0);
-                estoqueDestino.setQt_estoque(estoqueDestino.getQt_estoque() + itEntity.getQtItem());
-                produtoFilialEstoqueRepository.save(estoqueDestino);
+            if (estoqueNulo.getQt_estoque() <= 0) {
+//                ResultData resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Estoque menor que um!");
+                return null;
             } else {
-                ProdutoFilialEstoqueEntity estoque = new ProdutoFilialEstoqueEntity();
-                estoque.setFilial(filialRepository.getOne(dto.getIdFilialDestino()));
-                estoque.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
-                estoque.setQt_estoque(itEntity.getQtItem());
-                produtoFilialEstoqueRepository.save(estoque);
+
+                //DECREMENTO NA FILIAL ORIGEM
+                if (estoques != null && estoques.size() > 0) {
+                    ProdutoFilialEstoqueEntity estoque = estoques.get(0);
+                    estoque.setQt_estoque(estoque.getQt_estoque() - itEntity.getQtItem());
+                    produtoFilialEstoqueRepository.save(estoque);
+                }
+
+                //INCREMENTO NA FILIAL DESTINO
+                List<ProdutoFilialEstoqueEntity> estoquesDestino = produtoFilialEstoqueRepository.findByFilialCdFilialAndProdutoCodigo(dto.getIdFilialDestino(), itemDTO.getCdProduto());
+
+                if (estoquesDestino != null && estoquesDestino.size() > 0) {
+                    ProdutoFilialEstoqueEntity estoqueDestino = estoquesDestino.get(0);
+                    estoqueDestino.setQt_estoque(estoqueDestino.getQt_estoque() + itEntity.getQtItem());
+                    produtoFilialEstoqueRepository.save(estoqueDestino);
+                } else {
+                    ProdutoFilialEstoqueEntity estoque = new ProdutoFilialEstoqueEntity();
+                    estoque.setFilial(filialRepository.getOne(dto.getIdFilialDestino()));
+                    estoque.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
+                    estoque.setQt_estoque(itEntity.getQtItem());
+                    produtoFilialEstoqueRepository.save(estoque);
+                }
             }
 
             itEntity.setNf(dfEntity);

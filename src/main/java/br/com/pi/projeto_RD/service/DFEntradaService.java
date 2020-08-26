@@ -35,7 +35,7 @@ public class DFEntradaService {
     private EntityManager manager;
 
     public List<DFEntradaDTO> buscarTodos() {
-        List<DocumentoFiscalEntity> dfEntity = repository.findAll();
+        List<DocumentoFiscalEntity> dfEntity = repository.findByOperacaoDsOperacao("ENTRADA");
         List<DFEntradaDTO> entradaDTO = new ArrayList<>();
 
         for (DocumentoFiscalEntity entity : dfEntity) {
@@ -43,10 +43,6 @@ public class DFEntradaService {
             entradaDTO.add(dto);
         }
         return entradaDTO;
-    }
-
-    public List<DocumentoFiscalEntity> buscarNfPorOperacao(String operacao) {
-        return manager.createNamedQuery("buscarNfPorOperacao", DocumentoFiscalEntity.class).setParameter("DS_OPERACAO", operacao).getResultList();
     }
 
 

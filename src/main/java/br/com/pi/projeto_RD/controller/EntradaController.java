@@ -23,12 +23,6 @@ public class EntradaController {
         return ResponseEntity.ok().body(service.buscarTodos());
     }
 
-    //LISTAR POR NOME DA OPERACAO
-    @GetMapping("/entrada/operacao/{operacao}")
-    public ResponseEntity<Object> buscarNfPorOperacao(@PathVariable("operacao") String operacao) {
-        return ResponseEntity.ok().body(service.buscarNfPorOperacao(operacao));
-    }
-
     //BUSCAR POR ID
     @GetMapping("/entrada/{codigo}")
     public ResponseEntity buscarPorId(@PathVariable("codigo") Long codigo) {
