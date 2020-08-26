@@ -77,13 +77,13 @@ public class FornecedorBO {
         for (EnderecoDTO itemDTO : dto.getEndereco()) {
             EnderecoEntity fEntity = new EnderecoEntity();
 
-                fEntity.setIdEndereco(itemDTO.getIdEndereco());
-//            fEntity.setDsEndereco(itemDTO.getDsEndereco());
-//            fEntity.setNrCep(itemDTO.getNrCep());
-//            fEntity.setDsBairro(itemDTO.getDsBairro());
-//            fEntity.setDsCidade(itemDTO.getDsCidade());
-//            fEntity.setSgEstado(itemDTO.getSgEstado());
-//            fEntity.setNmComplemento(itemDTO.getNmComplemento());
+//                fEntity.setIdEndereco(itemDTO.getIdEndereco());
+            fEntity.setDsEndereco(itemDTO.getDsEndereco());
+            fEntity.setNrCep(itemDTO.getNrCep());
+            fEntity.setDsBairro(itemDTO.getDsBairro());
+            fEntity.setDsCidade(itemDTO.getDsCidade());
+            fEntity.setSgEstado(itemDTO.getSgEstado());
+            fEntity.setNmComplemento(itemDTO.getNmComplemento());
 
             itemsEndereco.add(fEntity);
         }

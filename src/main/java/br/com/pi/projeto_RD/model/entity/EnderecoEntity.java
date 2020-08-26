@@ -1,5 +1,6 @@
 package br.com.pi.projeto_RD.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,4 +34,10 @@ public class EnderecoEntity {
 
     @Column(name = "NM_COMPLEMENTO")
     private String nmComplemento;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CD_FORNECEDOR")
+    @JsonIgnore
+    private FornecedorEntity fornecedor;
+
 }
