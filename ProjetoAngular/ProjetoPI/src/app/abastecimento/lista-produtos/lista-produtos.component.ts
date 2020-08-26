@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutosService } from './shared/produtos.service';
+import { ResponseProdutos } from './shared/produtos.model';
+
 
 @Component({
   selector: 'app-lista-produtos',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaProdutosComponent implements OnInit {
 
-  constructor() { }
+  loading : boolean;
+
+  responseProdutos: ResponseProdutos[];
+
+  constructor(private produtosService: ProdutosService) { }
 
   ngOnInit(): void {
+    this.loading = true;
+    this.listarTodosProdutos();
   }
 
+  listarTodosProdutos() {
+    this.produtosService.getProdutos().subscribe(response => 
+      {
+        this.responseProdutos = response;
+        this.loading = false;
+      });
+  }
 }
