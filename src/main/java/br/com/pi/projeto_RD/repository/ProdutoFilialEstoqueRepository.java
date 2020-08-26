@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface ProdutoFilialEstoqueRepository extends JpaRepository<ProdutoFilialEstoqueEntity, Integer>{
 
+        List<ProdutoFilialEstoqueEntity> findByFilialCdFilialAndProdutoCodigo(Long cdFilial, Integer codigo);
 
 }

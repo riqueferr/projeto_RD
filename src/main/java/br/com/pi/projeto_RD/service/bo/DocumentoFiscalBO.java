@@ -30,7 +30,7 @@ public class DocumentoFiscalBO {
 
         dto.setId_documento(d.getIdDocumento());
         dto.setCd_operacao(d.getOperacao());
-        dto.setIdFilial(d.getFilial().getCd_filial());
+        dto.setIdFilial(d.getFilial().getCdFilial());
         dto.setNmFilial(d.getFilial().getNm_filial());
         dto.setId_cliente(d.getCliente());
         dto.setId_fornecedor(d.getFornecedor());
@@ -41,8 +41,7 @@ public class DocumentoFiscalBO {
         dto.setNr_serie(d.getNrSerie());
 
         dto.setDt_emissao(SDF.format(d.getDtEmissao()));
-//        dto.setDt_entrada(SDF.format(d.getDtEntrada()));
-        dto.setDt_entrada(d.getDtEntrada());
+        dto.setDt_entrada(SDF.format(d.getDtEntrada()));
         dto.setDt_abertura(SDF.format(d.getDtAbertura()));
         dto.setDt_fechamento(SDF.format(d.getDtFechamento()));
 
@@ -56,9 +55,8 @@ public class DocumentoFiscalBO {
             ItensDfDTO eDTO = new ItensDfDTO();
 
             eDTO.setNrItemDocumento(item.getNrItemDocumento());
-//            eDTO.setIdDocumentoFiscal(item.getDf().getIdDocumento());
             eDTO.setCdProduto(item.getProduto().getCodigo());
-//            eDTO.setNmProduto(item.getProduto().getNm_fantasia());
+            eDTO.setNmProduto(item.getProduto().getNm_fantasia());
             eDTO.setQtItem(item.getQtItem());
             eDTO.setVlItem(item.getVlItem());
             eDTO.setPcIcms(item.getPcIcms());

@@ -1,6 +1,7 @@
 package br.com.pi.projeto_RD.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class OperacaoEntity implements Serializable {
     private Long cdOperacao;
 
     @Column(name = "ID_TIPO_OPERACAO")
+    @JsonIgnore
     private Long idTipoOperacao;
 
     @Column(name = "DS_OPERACAO")

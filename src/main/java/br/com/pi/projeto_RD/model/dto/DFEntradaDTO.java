@@ -14,8 +14,11 @@ public class DFEntradaDTO {
 
     private Long idDocumento;
     private OperacaoEntity operacao;
+
     private Long idFilial;
     private String nmFilial;
+
+    private Long idFilialDestino;
 
     private Long idFornecedor;
     private String nmFornecedor;
@@ -28,5 +31,6 @@ public class DFEntradaDTO {
     private Double vlDocumentoFiscal;
 
     private List<ItensDfDTO> itens;
+
 
 }

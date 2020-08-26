@@ -15,7 +15,7 @@ public class FilialEntity {
     @Id
     @Column(name = "CD_FILIAL")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cd_filial;
+    private Long cdFilial;
 
     @Column(name = "NM_FILIAL")
     private String nm_filial;

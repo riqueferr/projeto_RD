@@ -4,14 +4,18 @@ import br.com.pi.projeto_RD.model.dto.DFEntradaDTO;
 import br.com.pi.projeto_RD.model.dto.ProdutoDto;
 import br.com.pi.projeto_RD.model.dto.ProdutoFilialEstoqueDTO;
 import br.com.pi.projeto_RD.model.entity.DocumentoFiscalEntity;
+import br.com.pi.projeto_RD.model.entity.FilialEntity;
 import br.com.pi.projeto_RD.model.entity.ProdutoEntity;
 import br.com.pi.projeto_RD.model.entity.ProdutoFilialEstoqueEntity;
 import br.com.pi.projeto_RD.repository.DocumentoFiscalRepository;
+import br.com.pi.projeto_RD.repository.ProdutoFilialEstoqueRepository;
 import br.com.pi.projeto_RD.service.bo.DFEntradaBO;
 import br.com.pi.projeto_RD.service.bo.ProdutoFilialEstoqueBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,10 +28,15 @@ public class DFEntradaService {
     @Autowired
     private DocumentoFiscalRepository repository;
 
+    @Autowired
+    private ProdutoFilialEstoqueRepository produtoFilialEstoqueRepository;
+
+    @PersistenceContext
+    private EntityManager manager;
+
     public List<DFEntradaDTO> buscarTodos() {
         List<DocumentoFiscalEntity> dfEntity = repository.findAll();
         List<DFEntradaDTO> entradaDTO = new ArrayList<>();
-
 
         for (DocumentoFiscalEntity entity : dfEntity) {
             DFEntradaDTO dto = bo.parseToDTO(entity);
@@ -35,6 +44,11 @@ public class DFEntradaService {
         }
         return entradaDTO;
     }
+
+    public List<DocumentoFiscalEntity> buscarNfPorOperacao(String operacao) {
+        return manager.createNamedQuery("buscarNfPorOperacao", DocumentoFiscalEntity.class).setParameter("DS_OPERACAO", operacao).getResultList();
+    }
+
 
     public DFEntradaDTO buscarPorId(Long codigo) {
         return bo.parseToDTO(repository.getOne(codigo));
@@ -54,5 +68,6 @@ public class DFEntradaService {
             repository.save(entity);
         return entity;
     }
+
 
 }
