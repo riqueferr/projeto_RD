@@ -67,11 +67,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">001</th>
-          <td>Dorflex</td>
-          <td>Sanofi</td>
-          <td>Indicado para alívio da dor associada a contraturas musculares.</td>
+        <tr *ngIf="loading">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </tr>
+        <tr *ngFor='let produtos of responseProdutos'>
+          <th scope="row"> {{ produtos.codigo }} </th>
+          <td>{{ produtos.nm_fantasia }}</td>
+          <td *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
+          <td *ngIf="!produtos.fornecedor[0]"></td>
+          <td>.</td>
           <td _ngcontent-ytp-c40="">
             <abbr _ngcontent-ytp-c40="" title="Editar">
               <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar">
