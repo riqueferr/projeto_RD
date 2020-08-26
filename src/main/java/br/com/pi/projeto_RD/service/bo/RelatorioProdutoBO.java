@@ -21,6 +21,7 @@ public class RelatorioProdutoBO {
     public RelatorioProdutoDTO parseToDTO(ProdutoEntity p) {
         RelatorioProdutoDTO dto = new RelatorioProdutoDTO();
 
+        dto.setCdProduto(p.getCodigo());
         dto.setNmProduto(p.getNm_fantasia());
         dto.setTipoProduto(p.getTipo_produto().getDsTipoProduto());
         dto.setStatusProduto(p.getStatus().getDsStatusProduto());
@@ -32,7 +33,7 @@ public class RelatorioProdutoBO {
 
         for (FornecedorEntity item : p.getFornecedor()) {
             RelatorioProdutoFornecedorDTO fDTO = new RelatorioProdutoFornecedorDTO();
-            fDTO.setCd_fornecedor(item.getCd_fornecedor());
+//            fDTO.setCd_fornecedor(item.getCd_fornecedor());
             fDTO.setNm_razao_social(item.getNm_razao_social());
 
             fornecedor.add(fDTO);

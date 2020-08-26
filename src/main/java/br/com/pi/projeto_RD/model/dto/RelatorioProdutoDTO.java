@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 public class RelatorioProdutoDTO {
 
-
+    private Integer cdProduto;
     private String nmProduto;
     private String tipoProduto;
 

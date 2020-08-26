@@ -43,7 +43,7 @@ public class DFTransferenciaService {
 
 
     public List<DFTransferenciaDTO> buscarTodos() {
-        List<DocumentoFiscalEntity> dfEntity = repository.findAll();
+        List<DocumentoFiscalEntity> dfEntity = repository.findByOperacaoDsOperacao("TRANSFERENCIA");
         List<DFTransferenciaDTO> transferenciaDTO = new ArrayList<>();
 
         for (DocumentoFiscalEntity entity : dfEntity) {
@@ -55,8 +55,9 @@ public class DFTransferenciaService {
 
     public DocumentoFiscalEntity inserir(DFTransferenciaDTO dto) throws Exception {
         DocumentoFiscalEntity entity = bo.parseToEntity(dto, null);
-        if (entity.getFilial() != null)
+        if (entity.getFilial() != null){
             repository.save(entity);
+            }
         return entity;
     }
 

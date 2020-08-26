@@ -14,7 +14,6 @@ import java.util.List;
 @Data
 @NamedQuery(name = "buscarNfPorFilial", query = "select n from DocumentoFiscalEntity n where n.filial.nm_filial  =:NM_FILIAL")
 @NamedQuery(name = "buscarNfPorDataEntrada", query = "select n from DocumentoFiscalEntity n where n.dtEntrada  =:DT_ENTRADA")
-@NamedQuery(name = "buscarNfPorOperacao", query = "select n from DocumentoFiscalEntity n where n.operacao.dsOperacao  =:DS_OPERACAO")
 public class DocumentoFiscalEntity implements Serializable {
 
     @Id
