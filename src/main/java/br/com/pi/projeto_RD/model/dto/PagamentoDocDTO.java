@@ -10,4 +10,5 @@ public class PagamentoDocDTO {
     private String dsTipoPagamento;
     private double vlPagamento;
 
+
 }

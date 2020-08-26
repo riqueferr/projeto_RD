@@ -63,7 +63,7 @@ public class FornecedorBO {
         if (dto == null)
             return f;
 
-        f.setCd_fornecedor(dto.getCd_fornecedor());
+//        f.setCd_fornecedor(dto.getCd_fornecedor());
         f.setDs_denominacao(dto.getDs_denominacao());
         f.setNr_cnpj(dto.getNr_cnpj());
         f.setNm_razao_social(dto.getNm_razao_social());
@@ -76,13 +76,14 @@ public class FornecedorBO {
 
         for (EnderecoDTO itemDTO : dto.getEndereco()) {
             EnderecoEntity fEntity = new EnderecoEntity();
-            fEntity.setIdEndereco(itemDTO.getIdEndereco());
-            fEntity.setDsEndereco(itemDTO.getDsEndereco());
-            fEntity.setNrCep(itemDTO.getNrCep());
-            fEntity.setDsBairro(itemDTO.getDsBairro());
-            fEntity.setDsCidade(itemDTO.getDsCidade());
-            fEntity.setSgEstado(itemDTO.getSgEstado());
-            fEntity.setNmComplemento(itemDTO.getNmComplemento());
+
+                fEntity.setIdEndereco(itemDTO.getIdEndereco());
+//            fEntity.setDsEndereco(itemDTO.getDsEndereco());
+//            fEntity.setNrCep(itemDTO.getNrCep());
+//            fEntity.setDsBairro(itemDTO.getDsBairro());
+//            fEntity.setDsCidade(itemDTO.getDsCidade());
+//            fEntity.setSgEstado(itemDTO.getSgEstado());
+//            fEntity.setNmComplemento(itemDTO.getNmComplemento());
 
             itemsEndereco.add(fEntity);
         }
