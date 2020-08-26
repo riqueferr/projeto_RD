@@ -49,5 +49,4 @@ public class ClienteEntity implements Serializable {
 
     @Column(name = "NR_TELEFONE2")
     private String nrTelefone2;
-
 }

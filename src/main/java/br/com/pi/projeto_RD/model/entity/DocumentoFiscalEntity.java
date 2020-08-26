@@ -83,5 +83,9 @@ public class DocumentoFiscalEntity implements Serializable {
     @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
     private List<DocumentoItemEntity> itens;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
+    private List<PagamentoDocEntity> pagamento;
+
 
 }

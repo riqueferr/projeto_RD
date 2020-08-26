@@ -12,6 +12,9 @@ import { TransferenciaDeProdutoComponent } from './abastecimento/transferencia-d
 import { MovimentoDeLojaComponent } from './financeiro/movimento-de-loja/movimento-de-loja.component';
 import { FinanceiroDashboardComponent } from './financeiro/financeiro-dashboard/financeiro-dashboard.component';
 import { RelatorioGerencialComponent } from './financeiro/relatorio-gerencial/relatorio-gerencial.component';
+import { ListaFornecedoresComponent } from './abastecimento/lista-fornecedores/lista-fornecedores.component';
+import { DetalhamentoCupomDeVendasComponent } from './financeiro/detalhamento-cupom-de-vendas/detalhamento-cupom-de-vendas.component';
+import { ListaProdutosComponent } from './abastecimento/lista-produtos/lista-produtos.component';
 
 
 export const routes: Routes = [
@@ -40,7 +43,13 @@ export const routes: Routes = [
     {path: 'movimentoDeLoja',
     component: MovimentoDeLojaComponent},
     {path: 'relatorioGerencial',
-    component: RelatorioGerencialComponent}
+    component: RelatorioGerencialComponent},
+    {path: 'listaFornecedores',
+    component: ListaFornecedoresComponent},
+    {path: 'listaProdutos',
+    component: ListaProdutosComponent},
+    {path: 'detalhamentoCupomDeVendas',
+    component: DetalhamentoCupomDeVendasComponent}
 ];
 
 @NgModule({

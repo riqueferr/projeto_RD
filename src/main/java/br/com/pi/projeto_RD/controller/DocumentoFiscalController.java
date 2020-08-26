@@ -18,7 +18,6 @@ public class DocumentoFiscalController {
     @Autowired
     DocumentoFiscalRepository repository;
 
-
     @Autowired
     private DocumentoFiscalService service;
 
