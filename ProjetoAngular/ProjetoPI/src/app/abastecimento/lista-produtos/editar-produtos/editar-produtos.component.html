@@ -1,0 +1,74 @@
+<p>editar-produtos works!</p>
+<br>
+<div class="container">
+    <h2></h2>
+</div>
+<br>
+<form #formProduto="ngForm" novalidate>
+    <div class="form-row justify-content-around">
+        <div class="form-group col-md-5">
+            <label for="nm_fantasia"> Nome Fantasia </label>
+            <input name="nm_fantasia" ngModel #nm_fantasia="ngModel" class="form-control" placeholder="Nome Fantasia"
+                [(ngModel)]='request.nm_fantasia' >
+        </div>
+        <div class="form-group col-md-5">
+            <label for="inputFabricante">Fabricante</label>
+            <input name="Fabricante" ngModel #Fabricante="ngModel" class="form-control"
+                placeholder="Nome do Fabricante">
+        </div>
+
+    </div>
+    <div class="form-row justify-content-around">
+        <div class="form-group col-md-2">
+            <label for="inputStatus">Status</label>
+            <select name="Status" class="form-control" id="Status" disabled>
+                <option value='Ativo'>Ativo</option>
+                <option value='Inativo'>Inativo</option>
+                <option value='Fora do Mix'>Fora do Mix</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputCategoria">Categoria</label>
+            <select name="Categoria" ngModel #Categoria="ngModel" class="form-control" id="Categoria">
+                <option>Perfumaria</option>
+                <option>Medicamento</option>
+                <option>Alimentício</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputTipo">Tipo</label>
+            <select name="Tipo" class="form-control" id="Tipo" disabled>
+                <option>OTC</option>
+                <option>Similar</option>
+                <option>Genérico</option>
+                <option selected>Referência</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputVL_Unidade">Valor Unitário</label>
+            <input name="VL_Unidade" ngModel #VL_Unidade="ngModel" id="inputVL_Unidade" class="form-control"
+                placeholder="R$0.00">
+        </div>
+    </div>
+
+
+    <div class="form-row justify-content-around">
+        <div class="form-group col-md-11">
+            <label for="inputDS">Descrição</label>
+            <input name="Descricao" ngModel #Descricao="ngModel" id="inputDS" class="form-control"
+                placeholder="Descreva o produto objetivamente">
+        </div>
+    </div>
+    <div class="form-row justify-content-around">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="form-group col-md-4">
+        </div>
+        <div class="form-group col-md-4">
+            <button type="submit" class="btn btn-default botaoConfirmar" (click)="update()">Confirmar</button>
+
+            <a routerLink='/listaProdutos'> <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
+            </a>
+        </div>
+    </div>
+</form>

@@ -16,4 +16,13 @@ export class ProdutosService {
     return this.http.get<ResponseProdutos[]>(this.API);
   }
 
+  getProduto(codigo: string): Observable<ResponseProdutos> {
+    const URL = `${this.API}/${codigo}`;
+    return this.http.get<ResponseProdutos>(URL);
+  }
+
+  updateProduto(codigo: string, request: Produtos): Observable<Produtos> {
+    const URL = `${this.API}/${codigo}`;
+    return this.http.put<Produtos>(URL, request);
+  }
 }

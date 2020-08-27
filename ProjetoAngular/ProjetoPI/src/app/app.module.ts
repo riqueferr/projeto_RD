@@ -22,6 +22,7 @@ import { MovimentoDeLojaComponent } from './financeiro/movimento-de-loja/movimen
 import { ListaFornecedoresComponent } from './abastecimento/lista-fornecedores/lista-fornecedores.component';
 import { DetalhamentoCupomDeVendasComponent } from './financeiro/detalhamento-cupom-de-vendas/detalhamento-cupom-de-vendas.component';
 import { ListaProdutosComponent } from './abastecimento/lista-produtos/lista-produtos.component';
+import { EditarProdutosComponent } from './abastecimento/lista-produtos/editar-produtos/editar-produtos.component';
 
 
 
@@ -44,7 +45,8 @@ import { ListaProdutosComponent } from './abastecimento/lista-produtos/lista-pro
     MovimentoDeLojaComponent,
     ListaFornecedoresComponent,
     DetalhamentoCupomDeVendasComponent,
-    ListaProdutosComponent
+    ListaProdutosComponent,
+    EditarProdutosComponent
   ],
   imports: [
     BrowserModule,
