@@ -32,16 +32,19 @@ public class RelatorioProdutoController {
     }
 
     @GetMapping("/relatorioproduto/status/{ID_STATUS_PRODUTO}")
+    @ApiOperation(value = "Listar todas os produtos por ID STATUS")
     public ResponseEntity<Object> buscarNfPoridStatusProduto(@PathVariable("ID_STATUS_PRODUTO") Long idStatusProduto) {
         return ResponseEntity.ok().body(service.buscarNfPoridStatusProduto(idStatusProduto));
     }
 
     @GetMapping("/relatorioproduto/statusProduto/{DS_STATUS_PRODUTO}")
+    @ApiOperation(value = "Listar todas os produtos por DS STATUS")
     public ResponseEntity<Object> buscarNfPordsStatusProduto(@PathVariable("DS_STATUS_PRODUTO") String dsStatusProduto) {
         return ResponseEntity.ok().body(service.buscarNfPordsStatusProduto(dsStatusProduto));
     }
 
     @GetMapping("/relatorioproduto/nmproduto/{Nm_Fantasia}")
+    @ApiOperation(value = "Listar todas os produtos por NOME PRODUTO")
     public ResponseEntity<Object> buscarNfPornmProduto(@PathVariable("Nm_Fantasia") String Nm_Fantasia) {
         return ResponseEntity.ok().body(service.buscarNfPornmProduto(Nm_Fantasia));
     }

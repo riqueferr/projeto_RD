@@ -24,6 +24,7 @@ public class FilialController {
 
     //LISTAR TODOS
     @GetMapping("/filial")
+    @ApiOperation(value = "Listar todas filiais")
     public ResponseEntity<Object> listarTodas() {
         return ResponseEntity.ok().body(service.buscarTodos());
     }
@@ -31,18 +32,21 @@ public class FilialController {
 
     //LISTAR POR ID
     @GetMapping("/filial/{codigo}")
+    @ApiOperation(value = "Listar filiais por ID")
     public ResponseEntity buscarPorId(@PathVariable("codigo") Long codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
     //LISTAR POR NOME FILIAL
     @GetMapping("/filial/nmfilial/{nmFilial}")
+    @ApiOperation(value = "Listar filiais por nome")
     public ResponseEntity<Object> buscarNfPornmProduto(@PathVariable("nmFilial") String nmFilial) {
         return ResponseEntity.ok().body(service.buscarNfPornmFilial(nmFilial));
     }
 
     //ATUALIZAR
     @PutMapping("/filial")
+    @ApiOperation(value = "Atualizar filiais")
     public ResponseEntity atualizar(@RequestBody FilialDTO dto) throws Exception {
         service.atualizar(dto);
         return ResponseEntity.ok().body(dto);
@@ -50,6 +54,7 @@ public class FilialController {
 
     //INSERIR
     @PostMapping("/filial")
+    @ApiOperation(value = "Inserir filiais")
     public ResponseEntity<Object> salvarProdutos(@RequestBody FilialDTO dto) {
         ResultData resultData = null;
         if (dto.getNm_filial() == null)

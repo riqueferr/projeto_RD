@@ -28,14 +28,14 @@ public class DocumentoFiscalBO {
         if (d == null)
             return dto;
 
-        dto.setId_documento(d.getIdDocumento());
+        dto.setIdDF(d.getIdDocumento());
         dto.setCd_operacao(d.getOperacao());
         dto.setIdFilial(d.getFilial().getCdFilial());
         dto.setNmFilial(d.getFilial().getNm_filial());
         dto.setId_cliente(d.getCliente());
         dto.setId_fornecedor(d.getFornecedor());
         dto.setId_recarga(d.getIdRecarga());
-        dto.setId_motivo(d.getIdMotivo());
+        dto.setMotivo(d.getMotivo());
         dto.setNr_chave_acesso(d.getNrChaveAcesso());
         dto.setNr_nf(d.getNrNf());
         dto.setNr_serie(d.getNrSerie());
