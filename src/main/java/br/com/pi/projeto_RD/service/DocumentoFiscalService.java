@@ -1,7 +1,9 @@
 package br.com.pi.projeto_RD.service;
 
+import br.com.pi.projeto_RD.model.dto.DFEntradaDTO;
 import br.com.pi.projeto_RD.model.dto.DocumentoFiscalDTO;
 import br.com.pi.projeto_RD.model.dto.FilialDTO;
+import br.com.pi.projeto_RD.model.dto.ProdutoDto;
 import br.com.pi.projeto_RD.model.entity.DocumentoFiscalEntity;
 import br.com.pi.projeto_RD.model.entity.ProdutoEntity;
 import br.com.pi.projeto_RD.repository.DocumentoFiscalRepository;
@@ -48,6 +50,30 @@ public class DocumentoFiscalService {
 
     public List<DocumentoFiscalEntity> buscarNfPorDataEntrada(String dtEntrada) {
         return manager.createNamedQuery("buscarNfPorDataEntrada", DocumentoFiscalEntity.class).setParameter("DT_ENTRADA", dtEntrada).getResultList();
+    }
+
+    public List<DocumentoFiscalDTO> buscarPorMotivo(String dsMotivo) {
+        List<DocumentoFiscalEntity> dfEntity = repository.findByMotivoDsMotivo(dsMotivo);
+        List<DocumentoFiscalDTO> dfDTO = new ArrayList<>();
+
+        for (DocumentoFiscalEntity entity : dfEntity) {
+            DocumentoFiscalDTO dto = bo.parseToDTO(entity);
+            dfDTO.add(dto);
+        }
+        return dfDTO;
+    }
+
+
+    public DocumentoFiscalDTO excluirPorId(Long idDF) {
+        DocumentoFiscalEntity entity = repository.getOne(idDF);
+        DocumentoFiscalDTO dto = new DocumentoFiscalDTO();
+
+        if (entity != null) {
+            dto = bo.parseToDTO(entity);
+            repository.delete(entity);
+        }
+
+        return dto;
     }
 
 }

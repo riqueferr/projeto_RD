@@ -23,23 +23,26 @@ public class ProdutoFilialEstoqueController {
 
 
     @GetMapping("/FilialEstoque")
-    @ApiOperation(value = "Listar todas os produtos")
+    @ApiOperation(value = "Listar todas os Produtos e Filiais")
     public ResponseEntity buscarTodas() {
         return ResponseEntity.ok().body(service.buscarTodos());
     }
 
     @GetMapping("/FilialEstoque/{codigo}")
+    @ApiOperation(value = "Listar filiais e produtos por ID produto")
     public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
     @PutMapping("/FilialEstoque")
+    @ApiOperation(value = "Alterar filiais produtos")
     public ResponseEntity atualizar(@RequestBody ProdutoFilialEstoqueDTO dto) throws Exception {
         service.atualizar(dto);
         return ResponseEntity.ok().body(dto);
     }
 
     @PostMapping("/FilialEstoque")
+    @ApiOperation(value = "Salvar idFilial e idProduto")
     public ResponseEntity<Object> salvarProdutos(@RequestBody ProdutoFilialEstoqueDTO dto) {
         ResultData resultData = null;
         if (dto.getCd_filial() == null)

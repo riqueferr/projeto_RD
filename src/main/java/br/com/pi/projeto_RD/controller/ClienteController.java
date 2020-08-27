@@ -17,6 +17,4 @@ public class ClienteController {
         return ResponseEntity.ok().body(repository.findAll());
     }
 
-
-
 }

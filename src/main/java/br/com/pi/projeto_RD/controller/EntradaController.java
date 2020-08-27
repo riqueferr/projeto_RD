@@ -19,18 +19,21 @@ public class EntradaController {
 
     //BUSCAR TODOS
     @GetMapping("/entrada")
+    @ApiOperation(value = "Buscar documentos fiscais por Entrada")
     public ResponseEntity buscarTodas() {
         return ResponseEntity.ok().body(service.buscarTodos());
     }
 
     //BUSCAR POR ID
     @GetMapping("/entrada/{codigo}")
+    @ApiOperation(value = "Buscar documentos fiscais por ID Entrada")
     public ResponseEntity buscarPorId(@PathVariable("codigo") Long codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
     //ATUALIZAR
     @PutMapping("/entrada")
+    @ApiOperation(value = "Atualizar documentos fiscais por ID Entrada")
     public ResponseEntity atualizar(@RequestBody DFEntradaDTO dto) throws Exception {
         service.atualizar(dto);
         return ResponseEntity.ok().body(dto);

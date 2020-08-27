@@ -17,11 +17,14 @@ public class OperacaoEntity implements Serializable {
     @Column(name = "CD_OPERACAO")
     private Long cdOperacao;
 
-    @Column(name = "ID_TIPO_OPERACAO")
-    @JsonIgnore
-    private Long idTipoOperacao;
-
     @Column(name = "DS_OPERACAO")
     private String dsOperacao;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_TIPO_OPERACAO")
+    @JsonIgnore
+    private OperacaoTipoEntity tipoOperacao;
+
+
 
 }

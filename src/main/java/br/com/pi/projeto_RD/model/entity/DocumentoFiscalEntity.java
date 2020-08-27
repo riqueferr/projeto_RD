@@ -41,11 +41,12 @@ public class DocumentoFiscalEntity implements Serializable {
     @JoinColumn(name = "ID_FORNECEDOR")//fk
     private FornecedorEntity fornecedor;
 
+    @ManyToOne
+    @JoinColumn(name = "ID_MOTIVO")//fk
+    private MotivoEntity motivo;
+
     @Column(name = "ID_RECARGA")//fk
     private Long idRecarga;
-
-    @Column(name = "ID_MOTIVO")//fk
-    private Long idMotivo;
 
     @Column(name = "NR_CHAVE_ACESSO")
     private Long nrChaveAcesso;

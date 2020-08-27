@@ -19,11 +19,13 @@ public class FornecedorController {
     private FornecedorRepository repository;
 
     @GetMapping("/fornecedores")
+    @ApiOperation(value = "Listar todos fornecedores")
     public ResponseEntity<Object> listarTodas(){
         return ResponseEntity.ok().body(repository.findAll());
     }
 
     @GetMapping("/fornecedores/{cd_fornecedor}")
+    @ApiOperation(value = "Listar fornecedores por ID")
     public ResponseEntity buscarPorId(@PathVariable("cd_fornecedor") Long cd_fornecedor){
         return ResponseEntity.ok().body(service.buscarPorId(cd_fornecedor));
     }
@@ -35,15 +37,15 @@ public class FornecedorController {
         return ResponseEntity.ok().body(dto);
     }
 
-    @ApiOperation(value = "Cadastrar fornecedor")
     @PostMapping("/fornecedores")
+    @ApiOperation(value = "Cadastrar fornecedor")
     public ResponseEntity inserir(@RequestBody FornecedorDTO dto){
         service.inserir(dto);
         return ResponseEntity.ok().body(dto);
     }
 
-    @ApiOperation(value = "Excluir fornecedor")
     @DeleteMapping("/fornecedores/{cd_fornecedor}")
+    @ApiOperation(value = "Excluir fornecedor")
     public ResponseEntity excluirPorId(@PathVariable("cd_fornecedor") Long cd_fornecedor){
         FornecedorDTO dto = service.excluirPorId(cd_fornecedor);
 

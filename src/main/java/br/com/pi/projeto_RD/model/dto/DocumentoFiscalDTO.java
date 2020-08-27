@@ -1,9 +1,6 @@
 package br.com.pi.projeto_RD.model.dto;
 
-import br.com.pi.projeto_RD.model.entity.ClienteEntity;
-import br.com.pi.projeto_RD.model.entity.FilialEntity;
-import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
-import br.com.pi.projeto_RD.model.entity.OperacaoEntity;
+import br.com.pi.projeto_RD.model.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +14,7 @@ import java.util.List;
 @Data
 public class DocumentoFiscalDTO implements Serializable {
 
-    private Long id_documento;
+    private Long idDF;
     private OperacaoEntity cd_operacao;
 //    private FilialEntity cd_filial;
     private Long idFilial;
@@ -25,7 +22,7 @@ public class DocumentoFiscalDTO implements Serializable {
     private ClienteEntity id_cliente;
     private FornecedorEntity id_fornecedor;
     private Long id_recarga;
-    private Long id_motivo;
+    private MotivoEntity motivo;
     private Long nr_chave_acesso;
     private Long nr_nf;
     private Long nr_serie;
