@@ -28,7 +28,7 @@ public class MovimentoLojaBO {
             return dto;
 
         dto.setIdFilial(d.getFilial().getCdFilial());
-        dto.setNmFilial(d.getFilial().getNm_filial());
+        dto.setNmFilial(d.getFilial().getNmFilial());
         dto.setDtEntrada(d.getDtEntrada());
 
         List<PagamentoDocDTO> pg = new ArrayList<>();

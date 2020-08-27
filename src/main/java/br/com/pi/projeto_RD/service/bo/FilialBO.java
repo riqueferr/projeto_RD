@@ -37,7 +37,7 @@ public class FilialBO {
             return dto;
 
         dto.setCd_filial(f.getCdFilial());
-        dto.setNm_filial(f.getNm_filial());
+        dto.setNm_filial(f.getNmFilial());
         dto.setNr_cpnj(f.getNr_cnpj());
         dto.setNr_telefone(f.getNr_telefone());
 
@@ -73,7 +73,7 @@ public class FilialBO {
             return fEntity;
 
         fEntity.setCdFilial(dto.getCd_filial());
-        fEntity.setNm_filial(dto.getNm_filial());
+        fEntity.setNmFilial(dto.getNm_filial());
         fEntity.setNr_cnpj(dto.getNr_cpnj());
         fEntity.setNr_telefone(dto.getNr_telefone());
 

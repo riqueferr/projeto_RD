@@ -36,77 +36,35 @@
                                 </div>
                             </form>
 
-                            <div class="row justify-content-center ">
+                            <div class="container">
                                 <table class="table table-bordeless fixarrolagem fixarrolagem-tr">
                                     <thead class="thead fixarrolagem-thead fixarrolagem-tbody" style="height:10%; overflow: hidden;">
                                         <tr>
-                                            <th scope="col" style="border: none;">Código</th>
-                                            <th scope="col" style="border: none;">Nome</th>
-                                            <th scope="col" style="border: none;">Descrição</th>
+                                            <th scope="col" style="border: none;">CD Filial</th>
+                                            <th scope="col" style="border: none;">Nome Filial</th>
+                                            <th scope="col" style="border: none;">CD Produto</th>
+                                            <th scope="col" style="border: none;">Nome Produto</th>
+                                            <th scope="col" style="border: none;">Categoria</th>
+                                            <th scope="col" style="border: none;">Tipo</th>
                                             <th scope="col" style="border: none;">Quantidade</th>
                                         </tr>
                                     </thead>
                                     <tbody class="fixarrolagem-tbody" style=" height:24.400rem !important;">
-                                        <tr>
-                                            <th scope="row">1234</th>
-                                            <td>Dorflex</td>
-                                            <td>36's Comprimidos</td>
-                                            <td>49</td>
+                                        <tr *ngIf="loading">
+                                            <div class="spinner-border" role="status">
+                                              <span class="sr-only">Loading...</span>
+                                            </div>
+                                          </tr>
+                                        <tr *ngFor='let estoques of responseEstoques'>
+                                            <th scope="row">{{ estoques.cd_filial }}</th>
+                                            <td>{{ estoques.nm_filial }}</td>
+                                            <th scope="row" *ngIf="estoques.produto[0]">{{ estoques.produto[0].cdProduto }}</th>
+                                            <td *ngIf="estoques.produto[0]">{{ estoques.produto[0].nmProduto }}</td>
+                                            <td *ngIf="estoques.produto[0]">{{ estoques.produto[0].categoria }}</td>
+                                            <td *ngIf="estoques.produto[0]">{{ estoques.produto[0].tipoProduto }}</td>
+                                            <td *ngIf="estoques.produto[0]">{{ estoques.produto[0].quantidade }}</td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">1234</th>
-                                            <td>Dorflex</td>
-                                            <td>36's Comprimidos</td>
-                                            <td>49</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1234</th>
-                                            <td>Dorflex</td>
-                                            <td>36's Comprimidos</td>
-                                            <td>49</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1234</th>
-                                            <td>Dorflex</td>
-                                            <td>36's Comprimidos</td>
-                                            <td>49</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1234</th>
-                                            <td>Dorflex</td>
-                                            <td>36's Comprimidos</td>
-                                            <td>49</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1234</th>
-                                            <td>Dorflex</td>
-                                            <td>36's Comprimidos</td>
-                                            <td>49</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1234</th>
-                                            <td>Dorflex</td>
-                                            <td>36's Comprimidos</td>
-                                            <td>49</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1234</th>
-                                            <td>Dorflex</td>
-                                            <td>36's Comprimidos</td>
-                                            <td>49</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1234</th>
-                                            <td>Dorflex</td>
-                                            <td>36's Comprimidos</td>
-                                            <td>49</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1234</th>
-                                            <td>Dorflex</td>
-                                            <td>36's Comprimidos</td>
-                                            <td>49</td>
-                                        </tr>
+                                      
                                     </tbody>
                                 </table>
                             </div>
