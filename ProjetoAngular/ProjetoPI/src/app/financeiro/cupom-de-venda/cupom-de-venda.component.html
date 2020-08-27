@@ -40,18 +40,23 @@
                 <th scope="col">ID NF</th>
                 <th scope="col">Data de Entrada</th>
                 <th scope="col">Filial</th>
-                <th scope="col">Tipo</th>
+                <th scope="col">Operação</th>
                 <th scope="col">Valor Total</th>
                 <th scope="col">Ações</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">01</th>
-                <td>10/10/2020</td>
-                <th scope="row">Paulista</th>
-                <td>Venda</td>
-                <td>R$ 560,98</td>
+              <tr *ngIf="loading">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              <tr *ngFor='let notas of responseDf'>
+                <th scope="row">{{ notas.idDF }}</th>
+                <td>{{ notas.dt_entrada }}</td>
+                <td>{{ notas.nmFilial }}</td>
+                <!-- <td *ngIf="notas.operacao[0]">{{ notas.operacao[0].dsOperacao }}</td> -->
+                <td>OPERACAO</td>
+                <td>{{ notas.vl_documento_fiscal }}</td>
                 <td><abbr title="Detalhes">
                     <a routerLink='/detalhamentoCupomDeVendas'>
                       <button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i>

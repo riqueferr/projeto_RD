@@ -97,33 +97,24 @@
                                 <thead class="thead-default tituloTabela">
                                     <tr>
                                         <th scope="col">Código</th>
-                                        <th scope="col">Fornecedor</th>
                                         <th scope="col">Nome</th>
-                                        <th scope="col">Descrição</th>
+                                        <th scope="col">Tipo</th>
+                                        <th scope="col">Fornecedor</th>
                                         <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">001</th>
-                                        <td>Johnson & Johnson</td>
-                                        <td>Suavize</td>
-                                        <td>Sabonete</td>
-                                        <td>Ativo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">002</th>
-                                        <td>Johnson & Johnson</td>
-                                        <td>Head & Shoulders</td>
-                                        <td>Shampoo</td>
-                                        <td>Inativo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">003</th>
-                                        <td>La Roche Posay</td>
-                                        <td>Effaclar Concentrado</td>
-                                        <td>Sabonete em líquido p/ rosto</td>
-                                        <td>Ativo</td>
+                                    <tr *ngIf="loading">
+                                        <div class="spinner-border" role="status">
+                                          <span class="sr-only">Loading...</span>
+                                        </div>
+                                      </tr>
+                                      <tr *ngFor='let produtos of responseRelatorioProduto'>
+                                        <th scope="row">{{ produtos.cdProduto }}</th>
+                                        <td>{{ produtos.nmProduto }}</td>
+                                        <td>{{ produtos.tipoProduto }}</td>
+                                        <td *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
+                                        <td>{{ produtos.statusProduto }}</td>
                                     </tr>
                                 </tbody>
                             </table>

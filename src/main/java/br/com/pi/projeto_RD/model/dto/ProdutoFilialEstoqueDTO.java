@@ -17,12 +17,14 @@ public class ProdutoFilialEstoqueDTO {
     private Integer cdEstoque;
 
     //INFO FILIAL
-    private Long cd_filial;
+    private Long cdFilial;
+    private String nmFilial;
 
     //INFO PRODUTOS
     private Integer codProduto;
-
     private String nmProduto;
+
+    private String categoria;
 
     //INFO PRODUTO FILIAL ESTOQUE
     private Integer qt_estoque;

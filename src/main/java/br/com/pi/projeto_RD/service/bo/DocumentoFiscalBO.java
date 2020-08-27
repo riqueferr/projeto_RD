@@ -29,7 +29,7 @@ public class DocumentoFiscalBO {
             return dto;
 
         dto.setIdDF(d.getIdDocumento());
-        dto.setCd_operacao(d.getOperacao());
+        dto.setOperacao(d.getOperacao());
         dto.setIdFilial(d.getFilial().getCdFilial());
         dto.setNmFilial(d.getFilial().getNmFilial());
         dto.setId_cliente(d.getCliente());

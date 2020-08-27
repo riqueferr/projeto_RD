@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ResponseDF } from './shared/documentofiscal.model';
+import { DocumentoFiscalService } from './shared/documentofiscal.service';
 
 @Component({
   selector: 'app-cupom-de-venda',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CupomDeVendaComponent implements OnInit {
 
-  constructor() { }
+  loading : boolean;
+
+  responseDf: ResponseDF[];
+
+  constructor(private dfService: DocumentoFiscalService) { }
 
   ngOnInit(): void {
+    this.loading = true;
+    this.listarTodosDF();
+  }
+
+  
+  listarTodosDF() {
+    this.dfService.getDocumentoFiscal().subscribe(response => 
+      {
+        this.responseDf = response;
+        this.loading = false;
+      });
   }
 
 }

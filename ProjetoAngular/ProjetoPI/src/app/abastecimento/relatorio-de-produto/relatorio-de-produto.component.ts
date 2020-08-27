@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RelatorioProdutoService } from './shared/relatorioproduto.service';
+import { ResponseRelatorioProduto } from './shared/relatorioproduto.model';
 
 @Component({
   selector: 'app-relatorio-de-produto',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RelatorioDeProdutoComponent implements OnInit {
 
-  constructor() { }
+  loading : boolean;
+
+  responseRelatorioProduto: ResponseRelatorioProduto[];
+
+  constructor(private relatorioProdutoService: RelatorioProdutoService) { }
 
   ngOnInit(): void {
+    this.loading = true;
+    this.listarTodosProdutos();
+  }
+
+  listarTodosProdutos() {
+    this.relatorioProdutoService.getRelatorioEstoque().subscribe(response => 
+      {
+        this.responseRelatorioProduto = response;
+        this.loading = false;
+      });
   }
 
 }
