@@ -1,10 +1,8 @@
 package br.com.pi.projeto_RD.service;
 
-import br.com.pi.projeto_RD.model.dto.DFEntradaDTO;
-import br.com.pi.projeto_RD.model.dto.DocumentoFiscalDTO;
-import br.com.pi.projeto_RD.model.dto.FilialDTO;
-import br.com.pi.projeto_RD.model.dto.ProdutoDto;
+import br.com.pi.projeto_RD.model.dto.*;
 import br.com.pi.projeto_RD.model.entity.DocumentoFiscalEntity;
+import br.com.pi.projeto_RD.model.entity.FilialEntity;
 import br.com.pi.projeto_RD.model.entity.ProdutoEntity;
 import br.com.pi.projeto_RD.repository.DocumentoFiscalRepository;
 import br.com.pi.projeto_RD.service.bo.DocumentoFiscalBO;
@@ -37,6 +35,32 @@ public class DocumentoFiscalService {
             DocumentoFiscalDTO dto = bo.parseToDTO(entity);
             dfDTO.add(dto);
         }
+        return dfDTO;
+    }
+
+    public List<TrocaMotivoDTO> filialMotivo() {
+
+        List<DocumentoFiscalEntity> dfEntity = repository.findByMotivoDsMotivo("TROCA");
+
+        List<TrocaMotivoDTO> dfDTO = new ArrayList<>();
+
+        double total = 0;
+
+        for (DocumentoFiscalEntity entity : dfEntity) {
+            DocumentoFiscalDTO dto = bo.parseToDTO(entity);
+            total = total + entity.getVlDocumentoFiscal();
+        }
+
+
+        for (DocumentoFiscalEntity entity : dfEntity) {
+            TrocaMotivoDTO dto = new TrocaMotivoDTO();
+
+            dto.setIdFilial(entity.getFilial().getCdFilial());
+            dto.setNmFilial(entity.getFilial().getNmFilial());
+            dto.setTotalTroca(total);
+            dfDTO.add(dto);
+        }
+
         return dfDTO;
     }
 

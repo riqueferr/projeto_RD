@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "TB_FILIAL")
 @Data
-@NamedQuery(name = "buscarNfPornmFilial", query = "select n from FilialEntity n where n.nm_filial  =:NM_FILIAL")
+@NamedQuery(name = "buscarNfPornmFilial", query = "select n from FilialEntity n where n.nmFilial  =:NM_FILIAL")
 public class FilialEntity {
 
     @Id
@@ -18,7 +18,7 @@ public class FilialEntity {
     private Long cdFilial;
 
     @Column(name = "NM_FILIAL")
-    private String nm_filial;
+    private String nmFilial;
 
     @Column(name = "NR_CNPJ")
     private String nr_cnpj;

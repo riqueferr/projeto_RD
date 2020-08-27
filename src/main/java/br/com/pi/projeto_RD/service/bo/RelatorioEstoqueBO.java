@@ -31,7 +31,7 @@ public class RelatorioEstoqueBO {
             return dto;
 
         dto.setCd_filial(f.getCdFilial());
-        dto.setNm_filial(f.getNm_filial());
+        dto.setNm_filial(f.getNmFilial());
 
         List<RelatorioEstoqueProdutoDTO> produto = new ArrayList<>();
 

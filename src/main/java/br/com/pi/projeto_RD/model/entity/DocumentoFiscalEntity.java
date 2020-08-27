@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "TB_DOCUMENTO_FISCAL")
 @Data
-@NamedQuery(name = "buscarNfPorFilial", query = "select n from DocumentoFiscalEntity n where n.filial.nm_filial  =:NM_FILIAL")
+@NamedQuery(name = "buscarNfPorFilial", query = "select n from DocumentoFiscalEntity n where n.filial.nmFilial  =:NM_FILIAL")
 @NamedQuery(name = "buscarNfPorDataEntrada", query = "select n from DocumentoFiscalEntity n where n.dtEntrada  =:DT_ENTRADA")
 public class DocumentoFiscalEntity implements Serializable {
 

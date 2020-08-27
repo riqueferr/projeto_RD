@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EstoqueService } from './shared/estoque.service';
+import { ResponseEstoque } from './shared/estoque.model';
 
 @Component({
   selector: 'app-relatorio-de-estoque',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RelatorioDeEstoqueComponent implements OnInit {
 
-  constructor() { }
+  loading : boolean;
+
+  responseEstoques: ResponseEstoque[];
+
+  constructor(private estoquesService: EstoqueService) { }
 
   ngOnInit(): void {
+    this.loading = true;
+    this.listarTodosProdutos();
+  }
+
+  listarTodosProdutos() {
+    this.estoquesService.getEstoques().subscribe(response => 
+      {
+        this.responseEstoques = response;
+        this.loading = false;
+      });
   }
 
 }

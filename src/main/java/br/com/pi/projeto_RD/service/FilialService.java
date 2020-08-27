@@ -58,7 +58,7 @@ public class FilialService {
 
     public FilialEntity inserir(FilialDTO dto) throws Exception {
         FilialEntity entity = filialBO.parseToEntity(dto, null);
-        if (entity.getNm_filial() != null)
+        if (entity.getNmFilial() != null)
             repository.save(entity);
         return entity;
     }

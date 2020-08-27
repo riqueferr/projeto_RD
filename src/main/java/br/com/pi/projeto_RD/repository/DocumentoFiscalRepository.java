@@ -14,9 +14,10 @@ import java.util.List;
 public interface DocumentoFiscalRepository extends JpaRepository<DocumentoFiscalEntity, Long> {
 
     List<DocumentoFiscalEntity> findByOperacaoDsOperacao(String operacao);
-
     List<DocumentoFiscalEntity> findByMotivoDsMotivo(String motivo);
 
-    List<PagamentoDocDTO> findByFilialCdFilialAndPagamentoIdPagamento(Long cdFilial, Long cdPagamento);
+//    List<DocumentoFiscalEntity> findByMotivoDsMotivoAndFilialNmFilial(String motivo, String filial);
+
+//    List<PagamentoDocDTO> findByFilialCdFilialAndPagamentoIdPagamento(Long cdFilial, Long cdPagamento);
 
 }
