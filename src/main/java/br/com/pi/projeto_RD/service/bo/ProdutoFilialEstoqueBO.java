@@ -36,11 +36,13 @@ public class ProdutoFilialEstoqueBO {
         dto.setCdEstoque(f.getCdEstoque());
 
         //FILIAL
-        dto.setCd_filial(f.getFilial().getCdFilial());
+        dto.setCdFilial(f.getFilial().getCdFilial());
+        dto.setNmFilial(f.getFilial().getNmFilial());
 
         //PRODUTOS
         dto.setCodProduto(f.getProduto().getCodigo());
         dto.setNmProduto(f.getProduto().getNm_fantasia());
+        dto.setCategoria(f.getProduto().getCategoria().getDsCategoria());
 
         //ESTOQUE
         dto.setQt_estoque(f.getQt_estoque());
@@ -58,7 +60,7 @@ public class ProdutoFilialEstoqueBO {
         if (dto == null)
             return pEntity;
 
-        pEntity.setFilial(filialRepository.getOne(dto.getCd_filial()));
+        pEntity.setFilial(filialRepository.getOne(dto.getCdFilial()));
         pEntity.setProduto(produtoRepository.getOne(dto.getCodProduto()));
         pEntity.getProduto().setNm_fantasia(dto.getNmProduto());
         pEntity.setQt_estoque(dto.getQt_estoque());

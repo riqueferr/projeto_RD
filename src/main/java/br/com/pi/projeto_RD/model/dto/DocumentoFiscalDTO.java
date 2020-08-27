@@ -15,7 +15,7 @@ import java.util.List;
 public class DocumentoFiscalDTO implements Serializable {
 
     private Long idDF;
-    private OperacaoEntity cd_operacao;
+    private OperacaoEntity operacao;
 //    private FilialEntity cd_filial;
     private Long idFilial;
     private String nmFilial;

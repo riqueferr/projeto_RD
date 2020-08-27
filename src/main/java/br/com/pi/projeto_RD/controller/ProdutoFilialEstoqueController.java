@@ -45,7 +45,7 @@ public class ProdutoFilialEstoqueController {
     @ApiOperation(value = "Salvar idFilial e idProduto")
     public ResponseEntity<Object> salvarProdutos(@RequestBody ProdutoFilialEstoqueDTO dto) {
         ResultData resultData = null;
-        if (dto.getCd_filial() == null)
+        if (dto.getCdFilial() == null)
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Filial não informado!");
         else if (dto.getCodProduto() == null)
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Produto não informado!");
