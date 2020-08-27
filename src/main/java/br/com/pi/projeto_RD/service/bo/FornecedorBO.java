@@ -41,6 +41,7 @@ public class FornecedorBO {
             EnderecoDTO eDTO = new EnderecoDTO();
             eDTO.setIdEndereco(item.getIdEndereco());
             eDTO.setDsEndereco(item.getDsEndereco());
+            eDTO.setNrEndereco(item.getNrEndereco());
             eDTO.setNrCep(item.getNrCep());
             eDTO.setDsBairro(item.getDsBairro());
             eDTO.setDsCidade(item.getDsCidade());
@@ -79,6 +80,7 @@ public class FornecedorBO {
 
 //                fEntity.setIdEndereco(itemDTO.getIdEndereco());
             fEntity.setDsEndereco(itemDTO.getDsEndereco());
+            fEntity.setNrEndereco(itemDTO.getNrEndereco());
             fEntity.setNrCep(itemDTO.getNrCep());
             fEntity.setDsBairro(itemDTO.getDsBairro());
             fEntity.setDsCidade(itemDTO.getDsCidade());

@@ -20,6 +20,9 @@ public class EnderecoEntity {
     @Column(name = "DS_ENDERECO")
     private String dsEndereco;
 
+    @Column(name = "NR_ENDERECO")
+    private String nrEndereco;
+
     @Column(name = "NR_CEP")
     private String nrCep;
 

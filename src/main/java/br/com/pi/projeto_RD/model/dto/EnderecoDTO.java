@@ -16,6 +16,8 @@ public class EnderecoDTO {
 
     private String dsEndereco;
 
+    private String nrEndereco;
+
     private String nrCep;
 
     private String dsBairro;
