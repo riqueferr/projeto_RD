@@ -8,43 +8,45 @@
 <form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
   <div class="form-row justify-content-around">
     <div class="form-group col-md-5">
-      <label for="inputCNPJ">CNPJ</label>
-      <input name="CNPJ" ngModel required #CNPJ="ngModel" class="form-control" placeholder="Insira seu CNPJ">
+      <label for="cnpj">CNPJ</label>
+      <input name="cnpj" ngModel required #cnpj="ngModel" class="form-control" placeholder="Insira seu CNPJ">
     </div>
     <div class="form-group col-md-5">
-      <label for="inputRazaoSocial">Razão Social</label>
-      <input name="Razao_Social" ngModel required #Razao_Social="ngModel" class="form-control"
+      <label for="razaoSocial">Razão Social</label>
+      <input name="razaoSocial" ngModel required #razaoSocial="ngModel" class="form-control"
         placeholder="Insira sua razão social">
     </div>
   </div>
   <div class="form-row justify-content-around">
     <div class="form-group col-md-5">
-      <label for="inputDenominacaoSocial">Denominação Social</label>
-      <input name="Denominacao_Social" ngModel required #Denominacao_Social="ngModel" class="form-control"
+      <label for="denominacaoSocial">Denominação Social</label>
+      <input name="denominacaoSocial" ngModel required #denominacaoSocial="ngModel" class="form-control"
         placeholder="Insira sua denominação social">
     </div>
     <div class="form-group col-md-5">
-      <label for="inputNInscricao">Número de Inscrição</label>
-      <input name="Numero_Inscricao" ngModel required #Numero_Inscricao="ngModel" class="form-control"
+      <label for="numeroInscricao">Número de Inscrição</label>
+      <input name="numeroInscricao" ngModel required #numeroInscricao="ngModel" class="form-control"
         placeholder="Insira seu número de inscrição">
     </div>
   </div>
   <div class="form-row justify-content-around">
     <div class="form-group col-2">
-      <label for="inputCEP">CEP</label>
-      <input name="Endereco" ngModel required #Endereco="ngModel" class="form-control"
-        placeholder="Apenas números">
+      <label for="cep" class="control-label">CEP</label>
+      <input type="text" class="form-control" id="cep" name="cep" ngModel required #cep="ngModel"
+        (blur)="consultaCEP($event.target.value,it)" placeholder="Apenas números">
     </div>
     <div class="form-group col-md-4">
     </div>
     <div class="form-group col-md-3">
     </div>
   </div>
-    <div class="form-row justify-content-around">
+  <div class="form-row justify-content-around">
     <div class="form-group input-group col-md-6">
-      <input name="Rua" ngModel required #Rua="ngModel" class="form-control" placeholder="Rua">
-      <input style="max-width: 70px;" name="Numero" ngModel required #Numero="ngModel" class="form-control" placeholder="Nº">
-      <input style="max-width: 135px;"name="Complemento" ngModel required #Complemento="ngModel" class="form-control" placeholder="Complemento">
+      <input name="rua" ngModel required #rua="ngModel" class="form-control" placeholder="Rua">
+      <input style="max-width: 70px;" name="numero" ngModel required #numero="ngModel" class="form-control"
+        placeholder="Nº">
+      <input style="max-width: 135px;" name="complemento" ngModel required #complemento="ngModel" class="form-control"
+        placeholder="Complemento">
     </div>
     <div class="form-group col-md-2">
     </div>
@@ -54,27 +56,27 @@
   <div class="form-row justify-content-around">
     <div class="form-group col-md-3">
       <label for="inputBairro">Bairro</label>
-      <input name="Bairro" ngModel required #Bairro="ngModel" class="form-control" placeholder="Insira seu bairro">
+      <input name="bairro" ngModel required #bairro="ngModel" class="form-control" placeholder="Insira seu bairro">
     </div>
     <div class="form-group col-md-5">
       <label for="inputCidade">Cidade</label>
-      <input name="Cidade" ngModel required #Cidade="ngModel" class="form-control" placeholder="Insira sua cidade">
+      <input name="cidade" ngModel required #cidade="ngModel" class="form-control" placeholder="Insira sua cidade">
     </div>
     <div class="form-group col-md-1">
-      <label for="inputUF">UF</label>
-    <input name="UF" ngModel required #UF="ngModel" class="form-control">
+      <label for="inputEstado">UF</label>
+      <input name="estado" ngModel required #estado="ngModel" class="form-control">
     </div>
   </div>
 
   <div class="form-row justify-content-around">
     <div class="form-group col-md-5">
       <label for="inputEmail">E-mail</label>
-      <input type="email" name="Email" ngModel required #Email="ngModel" class="form-control"
+      <input type="email" name="email" ngModel required #Email="ngModel" class="form-control"
         placeholder="Insira um e-mail válido">
     </div>
     <div class="form-group col-md-5">
-      <label for="inputTelefone">Telefone</label>
-      <input name="Telefone" ngModel required #Telefone="ngModel" class="form-control"
+      <label for="telefone">Telefone</label>
+      <input name="telefone" ngModel required #telefone="ngModel" class="form-control"
         placeholder="Insira um número de telefone">
     </div>
   </div>
@@ -83,12 +85,11 @@
     </div>
     <div class="form-group col-md-4">
     </div>
-  <div class="form-group col-md-4">
-    <button type="submit" class="btn btn-default botaoConfirmar">Confirmar</button>
+    <div class="form-group col-md-4">
+      <button type="submit" class="btn btn-default botaoConfirmar">Confirmar</button>
 
-    <a routerLink='/listaFornecedores'> <button type="reset"
-        class="btn btn-default botaoCancelar">Cancelar</button>
-    </a>
+      <a routerLink='/listaFornecedores'> <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
+      </a>
+    </div>
   </div>
-</div>
 </form>
