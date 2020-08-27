@@ -22,6 +22,8 @@ export class CadastroDeFornecedorComponent implements OnInit {
   onSubmit(it: NgForm) {
     console.log(it.value);  // { first: '', last: '' }
     console.log(it.valid);  // false
+
+    this.http.post('http://localhost:8080/abastecimento/fornecedores', JSON.stringify(it.value));
   }
 
   // tslint:disable-next-line: typedef
@@ -68,3 +70,25 @@ export class CadastroDeFornecedorComponent implements OnInit {
     });
   }
 }
+// {
+//   "nr_cnpj": "2222/0240-93",
+//   "nm_razao_social": "RaiaDrogasil SA",
+//   "ds_denominacao": "Needs",
+//   "nr_inscricao": "123412345",
+//   "ds_email": "needs.contato@rd.com.br",
+//   "nr_telefone": "(11) 3765-2376",
+//   "fk_tipo_fornecedor": {
+//       "id_tipo_fornecedor": 2,
+//       "ds_tipo_fornecedor": "Monopolista"
+//   },
+//   "endereco": [
+//       {
+//           "dsEndereco": "Av Ibirama",
+//           "nrCep": "45454",
+//           "dsBairro": "JD Iba",
+//           "dsCidade": "São Paulo",
+//           "sgEstado": "SP",
+//           "nmComplemento": "A"
+//       }
+//   ]
+// }
