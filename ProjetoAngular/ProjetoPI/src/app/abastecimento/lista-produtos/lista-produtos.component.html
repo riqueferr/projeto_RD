@@ -66,12 +66,12 @@
           <th scope="col">Utilitários</th>
         </tr>
       </thead>
+      <!-- <div class='row justify-content-center' *ngIf="loading">
+        <div class="spinner-grow text-success" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div> -->
       <tbody>
-        <tr *ngIf="loading">
-          <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-        </tr>
         <tr *ngFor='let produtos of responseProdutos'>
           <th scope="row"> {{ produtos.codigo }} </th>
           <td>{{ produtos.nm_fantasia }}</td>
@@ -80,7 +80,7 @@
           <td>.</td>
           <td _ngcontent-ytp-c40="">
             <abbr _ngcontent-ytp-c40="" title="Editar">
-              <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar">
+              <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar" [routerLink]="['/produtos/editar', produtos.codigo]">
                 <i _ngcontent-ytp-c40="" class="fa fa-pencil">
                 </i>
               </button>
@@ -96,5 +96,10 @@
         </tr>
       </tbody>
     </table>
+    <div class='row' *ngIf="loading">
+      <div class="spinner-grow text-success text-center" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   </div>
 </div>
