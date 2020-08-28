@@ -50,8 +50,6 @@ public class DFEntradaBO {
         dto.setIdFilial(d.getFilial().getCdFilial());
         dto.setNmFilial(d.getFilial().getNmFilial());
 
-        dto.setIdFilialDestino(d.getDestino().getCdFilial());
-
         dto.setIdFornecedor(d.getFornecedor().getCd_fornecedor());
         dto.setNmFornecedor(d.getFornecedor().getNm_razao_social());
 
@@ -97,9 +95,6 @@ public class DFEntradaBO {
 
         dfEntity.setOperacao(operacaoRepository.getOne(dto.getOperacao().getCdOperacao()));
         dfEntity.setFilial(filialRepository.getOne(dto.getIdFilial()));
-
-        dfEntity.setDestino(filialRepository.getOne(dto.getIdFilialDestino()));
-
         dfEntity.setFornecedor(fornecedorRepository.getOne(dto.getIdFornecedor()));
         dfEntity.setNrChaveAcesso(dto.getChaveAcesso());
         dfEntity.setNrNf(dto.getNrNF());
@@ -117,7 +112,6 @@ public class DFEntradaBO {
             itEntity.setNrItemDocumento(itemDTO.getNrItemDocumento());
             itEntity.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
             itEntity.setQtItem(itemDTO.getQtItem());
-            itEntity.setVlItem(itemDTO.getVlItem());
             itEntity.setPcIcms(itemDTO.getPcIcms());
             itEntity.setVlIcms(itemDTO.getVlIcms());
 

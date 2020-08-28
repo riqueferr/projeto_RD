@@ -54,6 +54,9 @@ public class ProdutoEntity implements Serializable {
     @Column(name = "ID_IMAGEM")
     private Integer id_imagem;
 
+    @Column(name = "DS_PRODUTO")
+    private String dsProduto;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "CD_PRODUTO")
     private List<ProdutoFilialEstoqueEntity> estoqueProdutos;
