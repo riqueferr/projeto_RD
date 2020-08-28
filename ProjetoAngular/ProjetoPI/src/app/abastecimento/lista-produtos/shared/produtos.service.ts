@@ -25,4 +25,8 @@ export class ProdutosService {
     const URL = `${this.API}`;
     return this.http.put<Produtos>(URL, request);
   }
+
+  createProduto(request: Produtos): Observable<Produtos> {
+    return this.http.post<Produtos>(this.API, request);
+}
 }
