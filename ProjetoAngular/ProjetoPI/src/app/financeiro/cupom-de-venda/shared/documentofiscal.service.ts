@@ -16,4 +16,9 @@ export class DocumentoFiscalService {
     return this.http.get<ResponseDF[]>(this.API);
   }
 
+  getDF(idDF: string): Observable<ResponseDF> {
+    const URL = `${this.API}/${idDF}`;
+    return this.http.get<ResponseDF>(URL);
+  }
+
 }

@@ -54,14 +54,15 @@
                 <th scope="row">{{ notas.idDF }}</th>
                 <td>{{ notas.dt_entrada }}</td>
                 <td>{{ notas.nmFilial }}</td>
-                <!-- <td *ngIf="notas.operacao[0]">{{ notas.operacao[0].dsOperacao }}</td> -->
-                <td>OPERACAO</td>
+                <td>{{ notas.operacao.dsOperacao }}</td>
                 <td>{{ notas.vl_documento_fiscal }}</td>
                 <td><abbr title="Detalhes">
-                    <a routerLink='/detalhamentoCupomDeVendas'>
-                      <button type="button" class="btn botaoConfirmar"><i class="fa fa-exclamation-circle"></i>
-                      </button>
-                    </a>
+                    <!-- <a routerLink='/detalhamentoCupomDeVendas'> -->
+                      <!-- <a [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]"> -->
+                      
+                      <button type="button" class="btn botaoConfirmar" [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]">
+                        <i class="fa fa-exclamation-circle"></i></button>
+                    <!-- </a> -->
                   </abbr>&nbsp;
                   <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal"
                       data-target="#exampleModal"><i class="fa fa-trash"></i></button>
