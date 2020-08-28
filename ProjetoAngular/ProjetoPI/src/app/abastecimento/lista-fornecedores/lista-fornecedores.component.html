@@ -29,15 +29,20 @@
             <th scope="col">Fornecedor</th>
             <th scope="col">CNPJ</th>
             <th scope="col">Contato</th>
-            <th scope="col">Utilitários</th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">001</th>
+            <!-- <th scope="row">001</th>
             <td>Johnson & Johnson</td>
             <td>66.666.865/0240-93</td>
-            <td>needs.contato@rd.com.br | (11) 3765-2376</td>
+            <td>needs.contato@rd.com.br | (11) 3765-2376</td> -->
+            <tr *ngFor='let fornecedor of responseFornecedores'>
+              <th scope="row"> {{ fornecedor.cd_fornecedor }} </th>
+              <td>{{ fornecedor.nm_razao_social }}</td>
+              <td>{{ fornecedor.nr_cnpj }}</td>
+              <td>{{ fornecedor.nr_telefone}}</td>
             <td _ngcontent-ytp-c40="">
               <abbr _ngcontent-ytp-c40="" title="Editar">
                 <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar">
@@ -56,6 +61,11 @@
           </tr>
         </tbody>
       </table>
+      <div class='row' *ngIf="loading">
+        <div class="spinner-grow text-success text-center" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
     </div>
   </main>
 </div>
