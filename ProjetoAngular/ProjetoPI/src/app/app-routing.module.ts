@@ -49,7 +49,7 @@ export const routes: Routes = [
     component: ListaFornecedoresComponent},
     {path: 'listaProdutos',
     component: ListaProdutosComponent},
-    {path: 'detalhamentoCupomDeVendas',
+    {path: 'detalhamentoCupomDeVendas/:idDF',
     component: DetalhamentoCupomDeVendasComponent},
     {path: 'produtos/editar/:codigo',
     component: EditarProdutosComponent}

@@ -19,8 +19,8 @@ public class DocumentoFiscalDTO implements Serializable {
 //    private FilialEntity cd_filial;
     private Long idFilial;
     private String nmFilial;
-    private ClienteEntity id_cliente;
-    private FornecedorEntity id_fornecedor;
+    private ClienteEntity cliente;
+    private FornecedorEntity fornecedor;
     private Long id_recarga;
     private MotivoEntity motivo;
     private Long nr_chave_acesso;

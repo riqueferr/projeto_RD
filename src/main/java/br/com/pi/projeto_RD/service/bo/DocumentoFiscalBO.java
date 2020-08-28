@@ -32,8 +32,8 @@ public class DocumentoFiscalBO {
         dto.setOperacao(d.getOperacao());
         dto.setIdFilial(d.getFilial().getCdFilial());
         dto.setNmFilial(d.getFilial().getNmFilial());
-        dto.setId_cliente(d.getCliente());
-        dto.setId_fornecedor(d.getFornecedor());
+        dto.setCliente(d.getCliente());
+        dto.setFornecedor(d.getFornecedor());
         dto.setId_recarga(d.getIdRecarga());
         dto.setMotivo(d.getMotivo());
         dto.setNr_chave_acesso(d.getNrChaveAcesso());
