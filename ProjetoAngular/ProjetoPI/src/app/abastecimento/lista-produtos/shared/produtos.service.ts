@@ -22,7 +22,7 @@ export class ProdutosService {
   }
 
   updateProduto(codigo: string, request: Produtos): Observable<Produtos> {
-    const URL = `${this.API}/${codigo}`;
+    const URL = `${this.API}`;
     return this.http.put<Produtos>(URL, request);
   }
 }
