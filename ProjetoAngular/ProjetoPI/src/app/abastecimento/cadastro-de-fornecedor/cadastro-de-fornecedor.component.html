@@ -52,10 +52,11 @@
   </div>
   <div class="form-row justify-content-around">
     <div class="form-group input-group col-md-6">
-      <input name="rua"  required #rua="ngModel" class="form-control"
-      placeholder="Rua" [(ngModel)]='request.endereco[0].dsEndereco'>
-      <input style="max-width: 70px;" name="numero"  required #numero="ngModel" class="form-control"
-        placeholder="Nº"[(ngModel)]='request.endereco[0].nrEndereco'>
+      
+      <input name="rua" required #rua="ngModel" class="form-control" placeholder="Rua" [(ngModel)]='request.endereco[0].dsEndereco'>
+
+      <input style="max-width: 70px;" name="numero"  required #numero="ngModel" class="form-control" placeholder="Nº"[(ngModel)]='request.endereco[0].nrEndereco'>
+
       <input style="max-width: 135px;" name="complemento" ngModel required #complemento="ngModel" class="form-control"
         placeholder="Complemento"[(ngModel)]='request.endereco[0].nmComplemento'>
     </div>

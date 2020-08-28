@@ -1,117 +1,128 @@
-                <br>
-                <div class="container">
-                    <h2>Transferência de Produto</h2>
-                </div>
-                <br>
-                <div class="container">
-                    <div class='row marginTopMain semMarginRightMain'>
-                        <div class='col-md-12'>
-                            <form>
-                                <div class="form-row justify-content-between">
-                                    <div class="form-group col-md-3">
-                                        <label for="inputCodFilial"> Codigo Filial </label>
-                                        <select id="inputCodFilial" class="form-control">
-                                            <option selected>1</option>
-                                            <option>2</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputNomeFilial">Nome Filial</label>
-                                        <input type="text" class="form-control" id="inputNomeFilial"
-                                            placeholder="Nome do Produto">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputCnpj"> CNPJ</label>
-                                        <input type="text" class="form-control" id="inputCnpj"
-                                            placeholder="12. 123. 123/1234-12">
-                                    </div>
-                                </div>
-                                <!-- Fim da primeira linha -->
-
-                                <!-- Inicio da segunda linha -->
-                                <div class="form-row justify-content-between">
-                                    <div class="form-group col-md-3">
-                                        <label for="inputEstado"> Estado </label>
-                                        <select id="inputEstado" class="form-control">
-                                            <option selected>SP</option>
-                                            <option>RJ</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputCep"> CEP </label>
-                                        <input type="text" id="inputCep" class="form-control" placeholder="12345-123">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputCidade ">Cidades</label>
-                                        <select class="form-control" id="inputCidade ">
-                                            <option> São Paulo </option>
-                                            <option> Embu das Artes </option>
-                                            <option> Osasco </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Fim da Segunda linha -->
-
-
-                                <!-- inicio da terceira linha -->
-                                <div class="form-row justify-content-between">
-                                    <div class="form-group col-md-3">
-                                        <label for="inputBairro"> Bairro/Destrito </label>
-                                        <input type="text" class="form-control" id="inputBairro"
-                                            placeholder="Bairro/Destrito">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputNum"> Numero </label>
-                                        <input type="number" min="0" id="inputNum" class="form-control"
-                                            placeholder="123">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputComplemento"> Complemento </label>
-                                        <input type="text" id="inputComplemento" class="form-control"
-                                            placeholder="Apartamento,Condominio,Etc...">
-                                    </div>
-                                </div>
-                                <!-- Fim da Terceira linha -->
-
-                                <br>
-                                <h5 class="H">Dados do Produto</h5>
-
-                                <!--Inicio da quarta linha -->
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="inputCodProd"> Codigo Produto </label>
-                                        <select id="inputCodProd" class="form-control">
-                                            <option selected>1</option>
-                                            <option>2</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputNomeProd">Nome Produto</label>
-                                        <input type="text" class="form-control" id="inputNomePRod"
-                                            placeholder="Nome do Produto">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputDescricao"> Descrição </label>
-                                        <input type="text" class="form-control" id="inputDescricao"
-                                            placeholder="Descrição">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputQtd"> Quantidade </label>
-                                        <input type="number" min="0" id="inputQtd" class="form-control" placeholder="0">
-                                    </div>
-                                </div>
-                                <!-- fim da quarta linha  -->
-
-                                <!-- botões -->
-                                <button type="submit" class="botaoSalvar btn btn-default botaoConfirmar"
-                                    id="Salvar">Salvar</button>
-                                <button type="button" class="botaoCancelar btn btn-default botaoCancelar"
-                                    id="Cancelar">Cancelar</button>
-                                <!-- botões -->
-
-                            </form>
-                        </div>
+<br>
+<div class="container">
+    <h2>Transferência de Produto</h2>
+</div>
+<br>
+<div class="container">
+<div class='row marginTopMain semMarginRightMain'>
+    <div class='container'>
+        <div class='col-md-12'>
+            <form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
+                <!-- Inicio da primeira linha-->
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputNomeproduto4">Operação</label>
+                        <input id="cdOperacao" name="cdOperacao" required #cdOperacao="ngModel" class="form-control" placeholder="Insira sua Operação"
+                        [(ngModel)]='request.operacao.cdOperacao'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputdescricao">CD Filial</label>
+                        <input id="idFilial" name="idFilial" required #idFilial="ngModel" class="form-control" placeholder="Insira a filial"
+                        [(ngModel)]='request.idFilial'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputdescricao">CD Filial Destino</label>
+                        <input id="idFilialDestino" name="idFilialDestino" required #idFilialDestino="ngModel" class="form-control" placeholder="Insira a filial destino"
+                        [(ngModel)]='request.idFilialDestino'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputdescricao">CD Fornecedor</label>
+                        <input id="idFornecedor" name="idFornecedor" required #idFornecedor="ngModel" class="form-control" placeholder="Fornecedor"
+                        [(ngModel)]='request.idFornecedor'>
                     </div>
                 </div>
+                <!-- fim da primeira linha-->
+
+                <!-- Inicio da segunda linha-->
+                <div class="form-row justify-content-between">
+                    <div class="form-group col-md-3">
+                        <label for="inputNomeFant">Chave Acesso</label>
+                        <input id="chaveAcesso" name="chaveAcesso" required #chaveAcesso="ngModel" class="form-control" placeholder="Chave de acesso"
+                        [(ngModel)]='request.chaveAcesso'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputforn">Número DF</label>
+                        <input id="nrNF" name="nrNF" required #nrNF="ngModel" class="form-control" placeholder="0000.0000.00"
+                        [(ngModel)]='request.nrNF'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputforn">Número Série</label>
+                        <input id="nrSerie" name="nrSerie" required #nrSerie="ngModel" class="form-control" placeholder="0000.0000.0000.00"
+                        [(ngModel)]='request.nrSerie'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputforn">Valor Total</label>
+                        <input id="vlDocumentoFiscal" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" class="form-control" placeholder="R$ 00.000"
+                        [(ngModel)]='request.vlDocumentoFiscal'>
+                    </div>
+                </div>
+                <!-- Fim da segunda linha-->
+
+                <!--Inicio da terceira linha -->
+                <div class="form-row justify-content-between">
+                    <div class="form-group col-md-3">
+                        <label for="inputLote">Data Emissão</label>
+                        <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="form-control" placeholder="____/___/___"
+                        [(ngModel)]='request.dtEmissao'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputCodProd">Data Entrada</label>
+                        <input id="dtEntrada" name="dtEntrada" required #dtEntrada="ngModel" class="form-control" placeholder="____/___/___"
+                        [(ngModel)]='request.dtEntrada'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputQtd">Data Abertura</label>
+                        <input id="dtAbertura" name="dtAbertura" required #dtAbertura="ngModel" class="form-control" placeholder="____/___/___"
+                        [(ngModel)]='request.dtAbertura'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputQtd">Data Fechamento</label>
+                        <input id="dtFechamento" name="dtFechamento" required #dtFechamento="ngModel" class="form-control" placeholder="____/___/___"
+                        [(ngModel)]='request.dtFechamento'>
+                    </div>
+                </div>
+                <!--Fim da terceira linha -->
+
+
+                <!-- Inicio da quarta linha -->
+                <br>
+                <h3>Itens entrada</h3>
+                <br>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputNomeproduto4">Número Item Documento</label>
+                        <input name="nrItemDocumento" required #nrItemDocumento="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].nrItemDocumento'>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputdescricao">CD Produto</label>
+                        <input name="cdProduto" required #cdProduto="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].cdProduto'>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputdescricao">Quantidade Itens</label>
+                        <input name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="Quantidade itens" [(ngModel)]='request.itens[0].qtItem'>
+                    </div>
+                </div>
+                <!-- fim da quarta linha -->
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputNomeproduto4">Porcentagem ICMS</label>
+                        <input name="pcIcms" required #pcIcms="ngModel" class="form-control" placeholder="Porcentagem ICMS" [(ngModel)]='request.itens[0].pcIcms'>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputdescricao">Valor ICMS</label>
+                        <input name="vlIcms" required #vlIcms="ngModel" class="form-control" placeholder="Valor ICMS" [(ngModel)]='request.itens[0].vlIcms'>
+                    </div>
+                </div>
+
+                <!-- botões -->
+                <button type="button" class="btn btn-default botaoConfirmar" (click)="register()">Salvar</button>
+                <button type="button" class="botaoCancelar btn btn-default botaoCancelar"
+                    id="Cancelar">Cancelar</button>
+                <!-- botões -->
+
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 

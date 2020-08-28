@@ -7,23 +7,23 @@
                 <div class='row marginTopMain semMarginRightMain'>
                     <div class='container'>
                         <div class='col-md-12'>
-                            <form>
+                            <form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
                                 <!-- Inicio da primeira linha-->
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="inputNomeproduto4">Operação</label>
-                                        <input type="text" class="form-control" id="inputNomeproduto4"
-                                            placeholder="ENTRADA">
+                                        <input id="cdOperacao" name="cdOperacao" required #cdOperacao="ngModel" class="form-control" placeholder="Insira sua Operação"
+                                        [(ngModel)]='request.operacao.cdOperacao'>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">CD Filial</label>
-                                        <input type="text" class="form-control" id="inputdescricao"
-                                            placeholder="Filial">
+                                        <input id="idFilial" name="idFilial" required #idFilial="ngModel" class="form-control" placeholder="Insira a filial"
+                                        [(ngModel)]='request.idFilial'>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">CD Fornecedor</label>
-                                        <input type="text" class="form-control" id="inputdescricao"
-                                            placeholder="Fornecedor">
+                                        <input id="idFornecedor" name="idFornecedor" required #idFornecedor="ngModel" class="form-control" placeholder="Fornecedor"
+                                        [(ngModel)]='request.idFornecedor'>
                                     </div>
                                 </div>
                                 <!-- fim da primeira linha-->
@@ -32,20 +32,23 @@
                                 <div class="form-row justify-content-between">
                                     <div class="form-group col-md-3">
                                         <label for="inputNomeFant">Chave Acesso</label>
-                                        <input type="text" class="form-control" id="inputNomeFant"
-                                            placeholder="000 000 00">
+                                        <input id="chaveAcesso" name="chaveAcesso" required #chaveAcesso="ngModel" class="form-control" placeholder="Chave de acesso"
+                                        [(ngModel)]='request.chaveAcesso'>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputforn">Número DF</label>
-                                        <input type="text" class="form-control" id="inputforn" placeholder="0000.0000.0000">
+                                        <input id="nrNF" name="nrNF" required #nrNF="ngModel" class="form-control" placeholder="0000.0000.00"
+                                        [(ngModel)]='request.nrNF'>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputforn">Número Série</label>
-                                        <input type="text" class="form-control" id="inputforn" placeholder="00.0000.000">
+                                        <input id="nrSerie" name="nrSerie" required #nrSerie="ngModel" class="form-control" placeholder="0000.0000.0000.00"
+                                        [(ngModel)]='request.nrSerie'>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputforn">Valor Total</label>
-                                        <input type="text" class="form-control" id="inputforn" placeholder="R$ 00,000">
+                                        <input id="vlDocumentoFiscal" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" class="form-control" placeholder="R$ 00.000"
+                                        [(ngModel)]='request.vlDocumentoFiscal'>
                                     </div>
                                 </div>
                                 <!-- Fim da segunda linha-->
@@ -54,19 +57,23 @@
                                 <div class="form-row justify-content-between">
                                     <div class="form-group col-md-3">
                                         <label for="inputLote">Data Emissão</label>
-                                        <input type="text" class="form-control" id="inputEmissao" placeholder="___/____/____">
+                                        <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="form-control" placeholder="____/___/___"
+                                        [(ngModel)]='request.dtEmissao'>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputCodProd">Data Entrada</label>
-                                        <input type="text" class="form-control" id="inputEntrada" placeholder="___/____/____">
+                                        <input id="dtEntrada" name="dtEntrada" required #dtEntrada="ngModel" class="form-control" placeholder="____/___/___"
+                                        [(ngModel)]='request.dtEntrada'>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputQtd">Data Abertura</label>
-                                        <input type="text" class="form-control" id="inputAbertura" placeholder="___/____/____">
+                                        <input id="dtAbertura" name="dtAbertura" required #dtAbertura="ngModel" class="form-control" placeholder="____/___/___"
+                                        [(ngModel)]='request.dtAbertura'>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputQtd">Data Fechamento</label>
-                                        <input type="text" class="form-control" id="inputFechamento" placeholder="___/____/____">
+                                        <input id="dtFechamento" name="dtFechamento" required #dtFechamento="ngModel" class="form-control" placeholder="____/___/___"
+                                        [(ngModel)]='request.dtFechamento'>
                                     </div>
                                 </div>
                                 <!--Fim da terceira linha -->
@@ -79,36 +86,31 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="inputNomeproduto4">Número Item Documento</label>
-                                        <input type="text" class="form-control" id="inputNomeproduto4"
-                                            placeholder="1">
+                                        <input name="nrItemDocumento" required #nrItemDocumento="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].nrItemDocumento'>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">CD Produto</label>
-                                        <input type="text" class="form-control" id="inputdescricao"
-                                            placeholder="000">
+                                        <input name="cdProduto" required #cdProduto="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].cdProduto'>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">Quantidade Itens</label>
-                                        <input type="text" class="form-control" id="inputdescricao"
-                                            placeholder="000">
+                                        <input name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="Quantidade itens" [(ngModel)]='request.itens[0].qtItem'>
                                     </div>
                                 </div>
                                 <!-- fim da quarta linha -->
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="inputNomeproduto4">Porcentagem ICMS</label>
-                                        <input type="text" class="form-control" id="inputNomeproduto4"
-                                            placeholder="50%">
+                                        <input name="pcIcms" required #pcIcms="ngModel" class="form-control" placeholder="Porcentagem ICMS" [(ngModel)]='request.itens[0].pcIcms'>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">Valor ICMS</label>
-                                        <input type="text" class="form-control" id="inputdescricao"
-                                            placeholder="R$ 00,00">
+                                        <input name="vlIcms" required #vlIcms="ngModel" class="form-control" placeholder="Valor ICMS" [(ngModel)]='request.itens[0].vlIcms'>
                                     </div>
                                 </div>
 
                                 <!-- botões -->
-                                <button type="submit" class="botaoSalvar btn btn-default botaoConfirmar" id="Salvar">Salvar</button>
+                                <button type="button" class="btn btn-default botaoConfirmar" (click)="register()">Salvar</button>
                                 <button type="button" class="botaoCancelar btn btn-default botaoCancelar"
                                     id="Cancelar">Cancelar</button>
                                 <!-- botões -->
