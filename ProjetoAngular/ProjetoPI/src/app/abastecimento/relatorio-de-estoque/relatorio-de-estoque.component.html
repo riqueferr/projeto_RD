@@ -59,14 +59,14 @@
                                         <tr *ngFor='let estoques of responseEstoques'>
                                             <th scope="row">{{ estoques.cdFilial }}</th>
                                             <td>{{ estoques.nmFilial }}</td>
-                                            <th scope="row">{{ estoques.codProduto }}</th>
+                                            <td> {{ estoques.codProduto }}</td>
                                             <td>{{ estoques.nmProduto }}</td>
                                             <td>{{ estoques.categoria }}</td>
                                             <td>{{ estoques.qt_estoque }}</td>
                                             <td>{{ estoques.qt_empenho }}</td>
                                             <td>{{ estoques.qt_base }}</td>
                                         </tr>
-                                      
+
                                     </tbody>
                                 </table>
                             </div>
