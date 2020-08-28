@@ -27,6 +27,7 @@ public class ProdutoDto {
     private String ds_peso;
     private String ds_largura;
     private Integer id_imagem;
+    private String dsProduto;
 
     private List<FornecedorProdutoDTO> fornecedor;
 

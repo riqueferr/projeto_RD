@@ -61,9 +61,9 @@
         <tr>
           <th scope="col">Código</th>
           <th scope="col">Nome</th>
-          <th scope="col">Fornecedor</th>
-          <th scope="col">Descrição</th>
-          <th scope="col">Utilitários</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Tipo Produto</th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
       <!-- <div class='row justify-content-center' *ngIf="loading">
@@ -75,9 +75,11 @@
         <tr *ngFor='let produtos of responseProdutos'>
           <th scope="row"> {{ produtos.codigo }} </th>
           <td>{{ produtos.nm_fantasia }}</td>
-          <td *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
-          <td *ngIf="!produtos.fornecedor[0]"></td>
-          <td>.</td>
+          <td>{{ produtos.categoria.dsCategoria }}</td>
+          <td>{{ produtos.tipo_produto.dsTipoProduto }}</td>
+          <!-- <td *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td> -->
+          <!-- <td *ngIf="!produtos.fornecedor[0]"></td> -->
+          <!-- <td>.</td> -->
           <td _ngcontent-ytp-c40="">
             <abbr _ngcontent-ytp-c40="" title="Editar">
               <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar" [routerLink]="['/produtos/editar', produtos.codigo]">
