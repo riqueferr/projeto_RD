@@ -11,7 +11,7 @@ import { ProdutosService } from '../shared/produtos.service';
 })
 export class EditarProdutosComponent implements OnInit {
 
-  @ViewChild('formProduto', {static: true}) formProduto: NgForm;
+  @ViewChild('formProduto', { static: true }) formProduto: NgForm;
 
   codigo: string;
   request: any;
@@ -27,10 +27,10 @@ export class EditarProdutosComponent implements OnInit {
     this.produtosService.getProduto(this.codigo).subscribe(response => this.request = response);
   }
 
-  update() : void {
+  update(): void {
     if (this.formProduto.form.valid) {
       this.produtosService.updateProduto(this.codigo, this.request).subscribe();
-      this.router.navigate(['/listaProdutos'])
+      this.router.navigate(['/listaProdutos']);
     }
   }
 }

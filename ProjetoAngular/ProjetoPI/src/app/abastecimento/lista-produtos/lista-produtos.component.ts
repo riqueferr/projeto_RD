@@ -10,7 +10,7 @@ import { ResponseProdutos } from './shared/produtos.model';
 })
 export class ListaProdutosComponent implements OnInit {
 
-  loading : boolean;
+  loading: boolean;
 
   responseProdutos: ResponseProdutos[];
 
@@ -22,10 +22,9 @@ export class ListaProdutosComponent implements OnInit {
   }
 
   listarTodosProdutos() {
-    this.produtosService.getProdutos().subscribe(response => 
-      {
-        this.responseProdutos = response;
-        this.loading = false;
-      });
+    this.produtosService.getProdutos().subscribe(response => {
+      this.responseProdutos = response;
+      this.loading = false;
+    });
   }
 }

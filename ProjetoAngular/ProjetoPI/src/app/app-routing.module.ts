@@ -16,6 +16,7 @@ import { ListaFornecedoresComponent } from './abastecimento/lista-fornecedores/l
 import { DetalhamentoCupomDeVendasComponent } from './financeiro/detalhamento-cupom-de-vendas/detalhamento-cupom-de-vendas.component';
 import { ListaProdutosComponent } from './abastecimento/lista-produtos/lista-produtos.component';
 import { EditarProdutosComponent } from './abastecimento/lista-produtos/editar-produtos/editar-produtos.component';
+import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/editar-fornecedores/editar-fornecedores.component';
 
 
 export const routes: Routes = [
@@ -52,7 +53,9 @@ export const routes: Routes = [
     {path: 'detalhamentoCupomDeVendas/:idDF',
     component: DetalhamentoCupomDeVendasComponent},
     {path: 'produtos/editar/:codigo',
-    component: EditarProdutosComponent}
+    component: EditarProdutosComponent},
+    {path: 'fornecedores/editar/:cd_fornecedor',
+    component: EditarFornecedoresComponent}
 ];
 
 @NgModule({
