@@ -17,6 +17,7 @@ import { DetalhamentoCupomDeVendasComponent } from './financeiro/detalhamento-cu
 import { ListaProdutosComponent } from './abastecimento/lista-produtos/lista-produtos.component';
 import { EditarProdutosComponent } from './abastecimento/lista-produtos/editar-produtos/editar-produtos.component';
 import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/editar-fornecedores/editar-fornecedores.component';
+import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-one/my-bar-chart-one.component';
 
 
 export const routes: Routes = [
@@ -55,7 +56,10 @@ export const routes: Routes = [
     {path: 'produtos/editar/:codigo',
     component: EditarProdutosComponent},
     {path: 'fornecedores/editar/:cd_fornecedor',
-    component: EditarFornecedoresComponent}
+    component: EditarFornecedoresComponent},
+    {path: 'graficoAbastecimentoDrogasil',
+    component: MyBarChartOneComponent
+    }
 ];
 
 @NgModule({

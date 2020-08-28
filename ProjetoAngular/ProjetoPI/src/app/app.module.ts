@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,7 @@ import { DetalhamentoCupomDeVendasComponent } from './financeiro/detalhamento-cu
 import { ListaProdutosComponent } from './abastecimento/lista-produtos/lista-produtos.component';
 import { EditarProdutosComponent } from './abastecimento/lista-produtos/editar-produtos/editar-produtos.component';
 import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/editar-fornecedores/editar-fornecedores.component';
+import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-one/my-bar-chart-one.component';
 
 
 
@@ -49,13 +50,15 @@ import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/
     DetalhamentoCupomDeVendasComponent,
     ListaProdutosComponent,
     EditarProdutosComponent,
-    EditarFornecedoresComponent
+    EditarFornecedoresComponent,
+    MyBarChartOneComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
