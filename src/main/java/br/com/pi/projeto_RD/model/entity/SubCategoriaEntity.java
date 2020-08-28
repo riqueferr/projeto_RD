@@ -20,4 +20,8 @@ public class SubCategoriaEntity implements Serializable {
     @Column(name = "DS_SUB_CATEGORIA")
     private String dsSubCategoria;
 
+    @ManyToOne
+    @JoinColumn(name = "ID_CATEGORIA")
+    private CategoriaEntity categoria;
+
 }

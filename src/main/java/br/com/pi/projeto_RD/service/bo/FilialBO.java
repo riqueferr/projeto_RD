@@ -50,7 +50,7 @@ public class FilialBO {
             eDTO.setCdProduto(item.getProduto().getCodigo());
             eDTO.setNm_fantasia(item.getProduto().getNm_fantasia());
             eDTO.setStatusProduto(item.getProduto().getStatus().getDsStatusProduto());
-            eDTO.setCategoria(item.getProduto().getCategoria().getDsCategoria());
+            eDTO.setSubCategoria(item.getProduto().getSubCategoria().getDsSubCategoria());
             eDTO.setTipoProduto(item.getProduto().getTipo_produto().getDsTipoProduto());
             eDTO.setVl_unidade(item.getProduto().getVl_unidade());
 
@@ -94,7 +94,7 @@ public class FilialBO {
             Entity.getProduto().setNm_fantasia((itemDTO.getNm_fantasia()));
             Entity.getProduto().getStatus().setDsStatusProduto(itemDTO.getStatusProduto());
             Entity.getProduto().setVl_unidade(itemDTO.getVl_unidade());
-            Entity.getProduto().getCategoria().setDsCategoria(itemDTO.getCategoria());
+            Entity.getProduto().getSubCategoria().setDsSubCategoria(itemDTO.getSubCategoria());
             Entity.getProduto().getTipo_produto().setDsTipoProduto(itemDTO.getTipoProduto());
             Entity.setQt_estoque(itemDTO.getQuantidade());
             Entity.setQt_empenho(itemDTO.getQt_empenho());

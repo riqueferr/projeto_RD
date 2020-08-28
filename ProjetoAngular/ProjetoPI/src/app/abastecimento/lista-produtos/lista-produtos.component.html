@@ -61,7 +61,7 @@
         <tr>
           <th scope="col">Código</th>
           <th scope="col">Nome</th>
-          <th scope="col">Categoria</th>
+          <th scope="col">SubCategoria</th>
           <th scope="col">Tipo Produto</th>
           <th scope="col">Ações</th>
         </tr>
@@ -75,7 +75,7 @@
         <tr *ngFor='let produtos of responseProdutos'>
           <th scope="row"> {{ produtos.codigo }} </th>
           <td>{{ produtos.nm_fantasia }}</td>
-          <td>{{ produtos.categoria.dsCategoria }}</td>
+          <td>{{ produtos.subCategoria.dsSubCategoria }}</td>
           <td>{{ produtos.tipo_produto.dsTipoProduto }}</td>
           <!-- <td *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td> -->
           <!-- <td *ngIf="!produtos.fornecedor[0]"></td> -->

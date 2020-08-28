@@ -6,10 +6,7 @@ import br.com.pi.projeto_RD.model.entity.EnderecoEntity;
 import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
 import br.com.pi.projeto_RD.model.entity.PerfilEntity;
 import br.com.pi.projeto_RD.model.entity.ProdutoEntity;
-import br.com.pi.projeto_RD.repository.CategoriaRepository;
-import br.com.pi.projeto_RD.repository.ProdutoRepository;
-import br.com.pi.projeto_RD.repository.StatusRepository;
-import br.com.pi.projeto_RD.repository.TipoProdutoRepository;
+import br.com.pi.projeto_RD.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +23,7 @@ public class ProdutoBO {
     private StatusRepository statusRepository;
 
     @Autowired
-    private CategoriaRepository categoriaRepository;
+    private SubCategoriaRepository subCategoriaRepository;
 
     @Autowired
     private TipoProdutoRepository tipoProdutoRepository;
@@ -40,14 +37,13 @@ public class ProdutoBO {
         dto.setCodigo(p.getCodigo());
         dto.setNm_fantasia(p.getNm_fantasia());
         dto.setStatusProduto(p.getStatus());
-        dto.setCategoria(p.getCategoria());
+        dto.setSubCategoria(p.getSubCategoria());
         dto.setTipo_produto(p.getTipo_produto());
         dto.setNm_fabricante(p.getNm_fabricante());
         dto.setVl_unidade(p.getVl_unidade());
         dto.setDs_altura(p.getDs_altura());
         dto.setDs_peso(p.getDs_peso());
         dto.setDs_largura(p.getDs_largura());
-        dto.setId_imagem(p.getId_imagem());
         dto.setDsProduto(p.getDsProduto());
 
         List<FornecedorProdutoDTO> fornecedor = new ArrayList<>();
@@ -76,14 +72,11 @@ public class ProdutoBO {
 
         pEntity.setNm_fantasia(dto.getNm_fantasia());
         pEntity.setStatus(statusRepository.getOne(dto.getStatusProduto().getIdStatusProduto()));
-        pEntity.setCategoria(categoriaRepository.getOne(dto.getCategoria().getIdCategoria()));
+        pEntity.setSubCategoria(subCategoriaRepository.getOne(dto.getSubCategoria().getIdSubCategoria()));
         pEntity.setTipo_produto(tipoProdutoRepository.getOne(dto.getTipo_produto().getIdTipoProduto()));
         pEntity.setNm_fabricante(dto.getNm_fabricante());
         pEntity.setVl_unidade(dto.getVl_unidade());
         pEntity.setDsProduto(dto.getDsProduto());
-//        pEntity.setDs_altura(dto.getDs_altura());
-//        pEntity.setDs_peso(dto.getDs_peso());
-//        pEntity.setDs_largura(dto.getDs_largura());
 
         List<FornecedorEntity> itemsEntity = new ArrayList<>();
 

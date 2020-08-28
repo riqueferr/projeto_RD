@@ -29,8 +29,8 @@ public class ProdutoEntity implements Serializable {
     private StatusProdutoEntity status;
 
     @ManyToOne
-    @JoinColumn(name = "ID_CATEGORIA")
-    private CategoriaEntity categoria;
+    @JoinColumn(name = "ID_SUB_CATEGORIA")
+    private SubCategoriaEntity subCategoria;
 
     @ManyToOne
     @JoinColumn(name = "ID_TIPO_PRODUTO")
@@ -51,8 +51,8 @@ public class ProdutoEntity implements Serializable {
     @Column(name = "DS_LARGURA")
     private String ds_largura;
 
-    @Column(name = "ID_IMAGEM")
-    private Integer id_imagem;
+//    @Column(name = "ID_IMAGEM")
+//    private Integer id_imagem;
 
     @Column(name = "DS_PRODUTO")
     private String dsProduto;

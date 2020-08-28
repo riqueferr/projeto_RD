@@ -42,7 +42,7 @@ public class ProdutoFilialEstoqueBO {
         //PRODUTOS
         dto.setCodProduto(f.getProduto().getCodigo());
         dto.setNmProduto(f.getProduto().getNm_fantasia());
-        dto.setCategoria(f.getProduto().getCategoria().getDsCategoria());
+        dto.setSubCategoria(f.getProduto().getSubCategoria().getDsSubCategoria());
 
         //ESTOQUE
         dto.setQt_estoque(f.getQt_estoque());

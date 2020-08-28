@@ -3,8 +3,8 @@ export interface Produtos {
     statusProduto: {
         idStatusProduto: number
     },
-    categoria: {
-        idCategoria: number,
+    subCategoria: {
+        idSubCategoria: number,
     },
     tipo_produto: {
         idTipoProduto: number,
