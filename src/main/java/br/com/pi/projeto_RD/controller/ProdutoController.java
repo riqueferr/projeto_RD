@@ -61,8 +61,8 @@ public class ProdutoController {
         ResultData resultData = null;
         if (produtoDto.getNm_fantasia() == null)
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Nome fantasia não informado!");
-        else if (produtoDto.getCategoria().getIdCategoria() == null)
-            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Código categoria não informado!");
+        else if (produtoDto.getSubCategoria().getIdSubCategoria() == null)
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Código SubCategoria não informado!");
 
         if (resultData != null)
             return ResponseEntity.badRequest().body(resultData);

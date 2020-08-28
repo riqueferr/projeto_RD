@@ -20,8 +20,8 @@ export class CadastroDeProdutoComponent implements OnInit {
     statusProduto: {
       idStatusProduto: null
     },
-    categoria: {
-      idCategoria: null
+    subCategoria: {
+      idSubCategoria: null
     },
     tipo_produto: {
       idTipoProduto: null

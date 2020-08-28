@@ -34,12 +34,8 @@
     </div>
     <div class="form-group col-md-3">
       <label for="inputCategoria">Categoria</label>
-      <select name="inputCategoria" ngModel #idCategoria="ngModel" class="form-control" placeholder="Categoria"
-      [(ngModel)]='request.categoria.idCategoria'>
-      <option value="1">Perfumaria</option>
-          <option value="2">Medicamento</option>
-          <option value="3">Alimentício</option>
-      </select>
+      <input name="inputCategoria" ngModel #idSubCategoria="ngModel" class="form-control" placeholder="Categoria"
+      [(ngModel)]='request.subCategoria.idSubCategoria'>
     </div>
     <div class="form-group col-md-3">
       <label for="inputTipo">Tipo</label>

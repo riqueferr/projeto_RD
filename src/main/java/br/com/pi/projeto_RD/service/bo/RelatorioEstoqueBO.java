@@ -40,7 +40,7 @@ public class RelatorioEstoqueBO {
 
             eDTO.setCdProduto(item.getProduto().getCodigo());
             eDTO.setNmProduto(item.getProduto().getNm_fantasia());
-            eDTO.setCategoria(item.getProduto().getCategoria().getDsCategoria());
+            eDTO.setSubCategoria(item.getProduto().getSubCategoria().getDsSubCategoria());
             eDTO.setTipoProduto(item.getProduto().getTipo_produto().getDsTipoProduto());
             eDTO.setQuantidade(item.getQt_estoque());
 

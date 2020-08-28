@@ -19,7 +19,7 @@ public class ProdutoFilialDTO {
     private String nm_fantasia;
     private String statusProduto;
     private double vl_unidade;
-    private String categoria;
+    private String subCategoria;
     private String tipoProduto;
     private int quantidade;
     private int qt_empenho;

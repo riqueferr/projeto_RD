@@ -7,7 +7,7 @@ public class RelatorioEstoqueProdutoDTO {
 
     private Integer cdProduto;
     private String nmProduto;
-    private String categoria;
+    private String subCategoria;
     private String tipoProduto;
     private int quantidade;
 
