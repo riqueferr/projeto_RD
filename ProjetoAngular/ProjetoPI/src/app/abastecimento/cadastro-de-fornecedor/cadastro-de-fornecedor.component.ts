@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { FornecedoresService } from './shared/fornecedores.service';
+import { Fornecedores } from './shared/fornecedores.model';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { NgForm, Form, FormGroup, FormControl } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -13,7 +16,39 @@ import { map } from 'rxjs/operators';
 })
 export class CadastroDeFornecedorComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  @ViewChild('it', { static: true }) it: NgForm;
+
+  request: Fornecedores = {
+    cd_fornecedor: null,
+    nr_cnpj: null,
+    nm_razao_social: null,
+    ds_denominacao: null,
+    nr_inscricao: null,
+    ds_email: null,
+    nr_telefone: null,
+    fk_tipo_fornecedor: {
+      id_tipo_fornecedor: null,
+      ds_tipo_fornecedor: null
+    },
+    endereco: [
+      {
+        dsEndereco: null,
+        nrEndereco: null,
+        nrCep: null,
+        dsBairro: null,
+        dsCidade: null,
+        sgEstado: null,
+        nmComplemento: null
+      }
+    ]
+
+  };
+
+  constructor(
+    private http: HttpClient,
+    private fornecedorService: FornecedoresService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -22,8 +57,6 @@ export class CadastroDeFornecedorComponent implements OnInit {
   onSubmit(it: NgForm) {
     console.log(it.value);  // { first: '', last: '' }
     console.log(it.valid);  // false
-
-    this.http.post('http://localhost:8080/abastecimento/fornecedores', JSON.stringify(it.value));
   }
 
   // tslint:disable-next-line: typedef
@@ -54,6 +87,7 @@ export class CadastroDeFornecedorComponent implements OnInit {
   populaDadosForm(dados, form) {
     form.setValue({
       cnpj: form.value.cnpj,
+      tipoFornecedor: form.value.tipoFornecedor,
       razaoSocial: form.value.razaoSocial,
       denominacaoSocial: form.value.denominacaoSocial,
       numeroInscricao: form.value.numeroInscricao,
@@ -66,29 +100,14 @@ export class CadastroDeFornecedorComponent implements OnInit {
       bairro: dados.bairro,
       cidade: dados.localidade,
       estado: dados.uf
-
     });
   }
+
+  register(): void {
+    if (this.it.form.valid) {
+      console.log(this.request);
+      this.fornecedorService.createFornecedor(this.request).subscribe();
+      this.router.navigate(['/listaFornecedores']);
+    }
+  }
 }
-// {
-//   "nr_cnpj": "2222/0240-93",
-//   "nm_razao_social": "RaiaDrogasil SA",
-//   "ds_denominacao": "Needs",
-//   "nr_inscricao": "123412345",
-//   "ds_email": "needs.contato@rd.com.br",
-//   "nr_telefone": "(11) 3765-2376",
-//   "fk_tipo_fornecedor": {
-//       "id_tipo_fornecedor": 2,
-//       "ds_tipo_fornecedor": "Monopolista"
-//   },
-//   "endereco": [
-//       {
-//           "dsEndereco": "Av Ibirama",
-//           "nrCep": "45454",
-//           "dsBairro": "JD Iba",
-//           "dsCidade": "São Paulo",
-//           "sgEstado": "SP",
-//           "nmComplemento": "A"
-//       }
-//   ]
-// }
