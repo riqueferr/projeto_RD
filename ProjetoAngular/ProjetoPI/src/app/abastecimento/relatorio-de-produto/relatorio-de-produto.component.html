@@ -110,11 +110,11 @@
                                         </div>
                                       </tr>
                                       <tr *ngFor='let produtos of responseRelatorioProduto'>
-                                        <th scope="row">{{ produtos[0].cdProduto }}</th>
-                                        <td>{{ produtos[0].nmProduto }}</td>
-                                        <td>{{ produtos[0].tipoProduto }}</td>
-                                        <td *ngIf="produtos[0].fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
-                                        <td>{{ produtos[0].statusProduto }}</td>
+                                        <th scope="row">{{ produtos.cdProduto }}</th>
+                                        <td>{{ produtos.nmProduto }}</td>
+                                        <td>{{ produtos.tipoProduto }}</td>
+                                        <td *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
+                                        <td>{{ produtos.statusProduto }}</td>
                                     </tr>
                                 </tbody>
                             </table>
