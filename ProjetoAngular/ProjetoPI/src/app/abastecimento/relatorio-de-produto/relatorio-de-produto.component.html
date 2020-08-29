@@ -111,7 +111,7 @@
                                       </tr>
                                       <tr *ngFor='let produtos of responseRelatorioProduto'>
                                         <th scope="row">{{ produtos.cdProduto }}</th>
-                                        <td>{{ produtos.nmProduto }}</td>
+                                        <td class="maxCarch">{{ produtos.nmProduto }}</td>
                                         <td>{{ produtos.tipoProduto }}</td>
                                         <td *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
                                         <td>{{ produtos.statusProduto }}</td>

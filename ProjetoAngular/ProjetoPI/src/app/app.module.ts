@@ -26,6 +26,7 @@ import { ListaProdutosComponent } from './abastecimento/lista-produtos/lista-pro
 import { EditarProdutosComponent } from './abastecimento/lista-produtos/editar-produtos/editar-produtos.component';
 import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/editar-fornecedores/editar-fornecedores.component';
 import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-one/my-bar-chart-one.component';
+import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornecedores/detalhamento-fornecedores/detalhamento-fornecedores.component';
 
 
 
@@ -51,7 +52,8 @@ import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-o
     ListaProdutosComponent,
     EditarProdutosComponent,
     EditarFornecedoresComponent,
-    MyBarChartOneComponent
+    MyBarChartOneComponent,
+    DetalhamentoFornecedoresComponent
   ],
   imports: [
     BrowserModule,

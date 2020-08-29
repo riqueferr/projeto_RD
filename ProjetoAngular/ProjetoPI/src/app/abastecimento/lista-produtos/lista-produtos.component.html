@@ -26,23 +26,14 @@
       </a>
     </form>
   </div>
-  <br>
-
-  <!-- <div class="alert alert-success" role="alert">
-    Produto Registrado com sucesso
-  </div>
-  <div class="alert alert-danger" role="alert">
-    Ocorreu um erro ao registrar o produto
-  </div> -->
-
   <div class='row' style='text-align: center'>
     <table class="table table-hover">
       <thead class="thead-default tituloTabela">
         <tr>
           <th scope="col">Código</th>
           <th scope="col">Nome</th>
-          <th scope="col">SubCategoria</th>
-          <th scope="col">Tipo Produto</th>
+          <th scope="col">Sub Categoria</th>
+          <th scope="col">Tipo</th>
           <th scope="col">Ações</th>
         </tr>
       </thead>
@@ -52,16 +43,22 @@
         </div>
       </div> -->
       <tbody>
+        <!-- <tr *ngIf="loading">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </tr> -->
         <tr *ngFor='let produtos of responseProdutos'>
           <th scope="row"> {{ produtos.codigo }} </th>
-          <td>{{ produtos.nm_fantasia }}</td>
+          <td class="maxCarch" >{{ produtos.nm_fantasia }}</td>
           <td>{{ produtos.subCategoria.dsSubCategoria }}</td>
           <td>{{ produtos.tipo_produto.dsTipoProduto }}</td>
-          <!-- <td *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td> -->
-          <!-- <td *ngIf="!produtos.fornecedor[0]"></td> -->
-          <!-- <td>.</td> -->
+          <!-- <td *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
+          <td *ngIf="!produtos.fornecedor[0]"></td>
+          <td>.</td> -->
           <td _ngcontent-ytp-c40="">
             <abbr _ngcontent-ytp-c40="" title="Editar">
+              <!-- <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar"> -->
               <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar" [routerLink]="['/produtos/editar', produtos.codigo]">
                 <i _ngcontent-ytp-c40="" class="fa fa-pencil">
                 </i>
