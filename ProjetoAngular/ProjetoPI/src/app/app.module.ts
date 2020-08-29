@@ -27,6 +27,7 @@ import { EditarProdutosComponent } from './abastecimento/lista-produtos/editar-p
 import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/editar-fornecedores/editar-fornecedores.component';
 import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-one/my-bar-chart-one.component';
 import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornecedores/detalhamento-fornecedores/detalhamento-fornecedores.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -53,7 +54,8 @@ import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornece
     EditarProdutosComponent,
     EditarFornecedoresComponent,
     MyBarChartOneComponent,
-    DetalhamentoFornecedoresComponent
+    DetalhamentoFornecedoresComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
