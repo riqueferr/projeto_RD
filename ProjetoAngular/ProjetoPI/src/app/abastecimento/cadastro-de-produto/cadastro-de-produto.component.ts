@@ -52,6 +52,7 @@ export class CadastroDeProdutoComponent implements OnInit {
       this.produtosService.createProduto(this.request).subscribe();
       this.router.navigate(["/listaProdutos"]);
     }
+    alert("Produto cadastrado com sucesso!");
 
   }
 }
