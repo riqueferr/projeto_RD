@@ -59,9 +59,7 @@ public class DFTransferenciaBO {
         dto.setNrSerie(d.getNrSerie());
         dto.setDtEmissao(d.getDtEmissao());
         dto.setDtEntrada(d.getDtEntrada());
-        dto.setDtAbertura(d.getDtAbertura());
-        dto.setDtFechamento(d.getDtFechamento());
-        dto.setVlDocumentoFiscal(d.getVlDocumentoFiscal());
+//        dto.setVlDocumentoFiscal(d.getVlDocumentoFiscal());
 
         List<ItensDfDTO> itens = new ArrayList<>();
         for (DocumentoItemEntity item : d.getItens()) {
@@ -71,11 +69,7 @@ public class DFTransferenciaBO {
 
             eDTO.setCdProduto(item.getProduto().getCodigo());
             eDTO.setNmProduto(item.getProduto().getNm_fantasia());
-
             eDTO.setQtItem(item.getQtItem());
-            eDTO.setVlItem(item.getVlItem());
-            eDTO.setPcIcms(item.getPcIcms());
-            eDTO.setVlIcms(item.getVlIcms());
 
             itens.add(eDTO);
 
@@ -104,9 +98,7 @@ public class DFTransferenciaBO {
         dfEntity.setNrSerie(dto.getNrSerie());
         dfEntity.setDtEmissao(dto.getDtEmissao());
         dfEntity.setDtEntrada(dto.getDtEntrada());
-        dfEntity.setDtAbertura(dto.getDtAbertura());
-        dfEntity.setDtFechamento(dto.getDtFechamento());
-        dfEntity.setVlDocumentoFiscal(dto.getVlDocumentoFiscal());
+//        dfEntity.setVlDocumentoFiscal(dto.getVlDocumentoFiscal());
 
         List<DocumentoItemEntity> itemsEntity = new ArrayList<>();
         for (ItensDfDTO itemDTO : dto.getItens()) {
@@ -115,9 +107,6 @@ public class DFTransferenciaBO {
             itEntity.setNrItemDocumento(itemDTO.getNrItemDocumento());
             itEntity.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
             itEntity.setQtItem(itemDTO.getQtItem());
-            itEntity.setVlItem(itemDTO.getVlItem());
-            itEntity.setPcIcms(itemDTO.getPcIcms());
-            itEntity.setVlIcms(itemDTO.getVlIcms());
 
             List<ProdutoFilialEstoqueEntity> estoques = produtoFilialEstoqueRepository.findByFilialCdFilialAndProdutoCodigo(dto.getIdFilial(), itemDTO.getCdProduto());
             ProdutoFilialEstoqueEntity estoqueNulo = estoques.get(0);

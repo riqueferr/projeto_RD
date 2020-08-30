@@ -9,8 +9,8 @@ export interface Entradas {
     nrSerie: number,
     dtEmissao: Date,
     dtEntrada: Date,
-    dtAbertura: Date,
-    dtFechamento: Date,
+    // dtAbertura: Date,
+    // dtFechamento: Date,
     vlDocumentoFiscal: number,
     itens: [
         {

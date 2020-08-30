@@ -21,25 +21,25 @@ export class EntradaDeProdutoComponent implements OnInit {
 
   request: Entradas = {
     operacao: {
-        cdOperacao: null,
+        cdOperacao: 4,
     },
-    idFilial: null,
+    idFilial: 5,
     idFornecedor: null,
-    chaveAcesso: null,
-    nrNF: null,
-    nrSerie: null,
+    chaveAcesso: 4578985,
+    nrNF: 1001091,
+    nrSerie: 45785985,
     dtEmissao: null,
     dtEntrada: null,
-    dtAbertura: null,
-    dtFechamento: null,
+    // dtAbertura: null,
+    // dtFechamento: null,
     vlDocumentoFiscal: null,
     itens: [
         {
-            nrItemDocumento: null,
+            nrItemDocumento: 1,
             cdProduto: null,
             qtItem: null,
-            pcIcms: null,
-            vlIcms: null
+            pcIcms: 2,
+            vlIcms: 20
         }
     ]
 };
@@ -63,7 +63,7 @@ export class EntradaDeProdutoComponent implements OnInit {
     if (this.it.form.valid) {
       console.log(this.request);
       this.entradaService.createEntrada(this.request).subscribe();
-      this.router.navigate(['/cupomDeVenda']);
+      this.router.navigate(['/listaEntradaProdutos']);
     }
   }
 

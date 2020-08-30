@@ -19,26 +19,20 @@ export class TransferenciaDeProdutoComponent implements OnInit {
 
   request: Transferencia = {
     operacao: {
-        cdOperacao: null,
+        cdOperacao: 2,
     },
-    idFilial: null,
-    idFornecedor: null,
+    idFilial: 5,
     idFilialDestino: null,
-    chaveAcesso: null,
-    nrNF: null,
-    nrSerie: null,
+    chaveAcesso: 5679,
+    nrNF: 410,
+    nrSerie: 4444444,
     dtEmissao: null,
     dtEntrada: null,
-    dtAbertura: null,
-    dtFechamento: null,
-    vlDocumentoFiscal: null,
     itens: [
         {
-            nrItemDocumento: null,
+            nrItemDocumento: 1,
             cdProduto: null,
             qtItem: null,
-            pcIcms: null,
-            vlIcms: null
         }
     ]
 };

@@ -26,10 +26,15 @@ public class DocumentoFiscalDTO implements Serializable {
     private Long nr_chave_acesso;
     private Long nr_nf;
     private Long nr_serie;
-    private String dt_emissao;
-    private String dt_entrada;
-    private String dt_abertura;
-    private String dt_fechamento;
+
+
+    private Date dt_emissao;
+
+//    private String dt_emissao;
+    private Date dt_entrada;
+    private Date dt_abertura;
+    private Date dt_fechamento;
+
     private Integer fl_nf;
     private Double vl_documento_fiscal;
     private Long nr_caixa;

@@ -20,6 +20,7 @@ public class DFEntradaDTO {
 
     private Long idFilialDestino;
 
+//    private List<FornecedorComprimidoDTO> itens;
     private Long idFornecedor;
     private String nmFornecedor;
 

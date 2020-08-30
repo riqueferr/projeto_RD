@@ -81,15 +81,11 @@ public class FilialBO {
         List<ProdutoFilialEstoqueEntity> itemsEntity = new ArrayList<>();
 
         for (ProdutoFilialDTO itemDTO : dto.getProduto()) {
-//            FilialEntity fEntity = new FilialEntity();
             ProdutoFilialEstoqueEntity Entity = new ProdutoFilialEstoqueEntity();
 
             Entity.setCdEstoque(itemDTO.getCdEstoque());
-//            Entity.getProduto().setCodigo(itemDTO.getCdProduto());
             Entity.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
 
-//            Entity.setFilial(filialRepository.getOne(dto.getCd_filial()));
-//            Entity.getFilial().setCd_filial(itemDTO.getCdFilial());
 
             Entity.getProduto().setNm_fantasia((itemDTO.getNm_fantasia()));
             Entity.getProduto().getStatus().setDsStatusProduto(itemDTO.getStatusProduto());

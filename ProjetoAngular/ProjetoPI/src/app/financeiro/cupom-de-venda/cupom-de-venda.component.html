@@ -52,7 +52,7 @@
                 </div>
               <tr *ngFor='let notas of responseDf'>
                 <th scope="row">{{ notas.idDF }}</th>
-                <td>{{ notas.dt_entrada }}</td>
+                <td>{{ notas.dt_entrada | date: 'dd/MM/yyyy'}}</td>
                 <td>{{ notas.nmFilial }}</td>
                 <td>{{ notas.operacao.dsOperacao }}</td>
                 <td>{{ notas.vl_documento_fiscal }}</td>

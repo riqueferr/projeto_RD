@@ -1,6 +1,6 @@
                 <br>
                 <div class="container">
-                    <h2>Entrada de Produto</h2>
+                    <h2>Recebimento de Produto</h2>
                 </div>
                 <br>
                 <div class="container">
@@ -12,13 +12,11 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="inputNomeproduto4">Operação</label>
-                                        <input id="cdOperacao" name="cdOperacao" required #cdOperacao="ngModel" class="form-control" placeholder="Insira sua Operação"
-                                        [(ngModel)]='request.operacao.cdOperacao'>
+                                        <input id="cdOperacao" name="cdOperacao" class="form-control" placeholder="ENTRADA" disabled>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="inputdescricao">CD Filial</label>
-                                        <input id="idFilial" name="idFilial" required #idFilial="ngModel" class="form-control" placeholder="Insira a filial"
-                                        [(ngModel)]='request.idFilial'>
+                                        <label for="inputdescricao">Destino Filial</label>
+                                        <input id="idFilial" name="idFilial" class="form-control" placeholder="Centro de Distribuição" disabled>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">CD Fornecedor</label>
@@ -29,64 +27,49 @@
                                 <!-- fim da primeira linha-->
 
                                 <!-- Inicio da segunda linha-->
-                                <div class="form-row justify-content-between">
-                                    <div class="form-group col-md-3">
-                                        <label for="inputNomeFant">Chave Acesso</label>
-                                        <input id="chaveAcesso" name="chaveAcesso" required #chaveAcesso="ngModel" class="form-control" placeholder="Chave de acesso"
-                                        [(ngModel)]='request.chaveAcesso'>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputforn">Número DF</label>
-                                        <input id="nrNF" name="nrNF" required #nrNF="ngModel" class="form-control" placeholder="0000.0000.00"
-                                        [(ngModel)]='request.nrNF'>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputforn">Número Série</label>
-                                        <input id="nrSerie" name="nrSerie" required #nrSerie="ngModel" class="form-control" placeholder="0000.0000.0000.00"
-                                        [(ngModel)]='request.nrSerie'>
-                                    </div>
-                                    <div class="form-group col-md-3">
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-4">
                                         <label for="inputforn">Valor Total</label>
-                                        <input id="vlDocumentoFiscal" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" class="form-control" placeholder="R$ 00.000"
+                                        <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">R$</span>
+                                          </div>
+                                        <input id="vlDocumentoFiscal" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" class="form-control" placeholder=" 00.000"
                                         [(ngModel)]='request.vlDocumentoFiscal'>
                                     </div>
-                                </div>
-                                <!-- Fim da segunda linha-->
+                                    </div>
 
-                                <!--Inicio da terceira linha -->
-                                <div class="form-row justify-content-between">
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-4">
                                         <label for="inputLote">Data Emissão</label>
                                         <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="form-control" placeholder="____/___/___"
                                         [(ngModel)]='request.dtEmissao'>
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-4">
                                         <label for="inputCodProd">Data Entrada</label>
                                         <input id="dtEntrada" name="dtEntrada" required #dtEntrada="ngModel" class="form-control" placeholder="____/___/___"
                                         [(ngModel)]='request.dtEntrada'>
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <!-- <div class="form-group col-md-3">
                                         <label for="inputQtd">Data Abertura</label>
                                         <input id="dtAbertura" name="dtAbertura" required #dtAbertura="ngModel" class="form-control" placeholder="____/___/___"
-                                        [(ngModel)]='request.dtAbertura'>
+                                        [(ngModel)]='request.dtAbertura' disabled>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputQtd">Data Fechamento</label>
                                         <input id="dtFechamento" name="dtFechamento" required #dtFechamento="ngModel" class="form-control" placeholder="____/___/___"
-                                        [(ngModel)]='request.dtFechamento'>
-                                    </div>
+                                        [(ngModel)]='request.dtFechamento' disabled>
+                                    </div> -->
                                 </div>
                                 <!--Fim da terceira linha -->
-
-
-                                <!-- Inicio da quarta linha -->
+                                <!-- ENTRADA DE PRODUTOS -->
                                 <br>
                                 <h3>Itens entrada</h3>
                                 <br>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="inputNomeproduto4">Número Item Documento</label>
-                                        <input name="nrItemDocumento" required #nrItemDocumento="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].nrItemDocumento'>
+                                        <input name="nrItemDocumento"  class="form-control" placeholder="01" disabled>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">CD Produto</label>
@@ -97,22 +80,12 @@
                                         <input name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="Quantidade itens" [(ngModel)]='request.itens[0].qtItem'>
                                     </div>
                                 </div>
-                                <!-- fim da quarta linha -->
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label for="inputNomeproduto4">Porcentagem ICMS</label>
-                                        <input name="pcIcms" required #pcIcms="ngModel" class="form-control" placeholder="Porcentagem ICMS" [(ngModel)]='request.itens[0].pcIcms'>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputdescricao">Valor ICMS</label>
-                                        <input name="vlIcms" required #vlIcms="ngModel" class="form-control" placeholder="Valor ICMS" [(ngModel)]='request.itens[0].vlIcms'>
-                                    </div>
-                                </div>
+                                
 
                                 <!-- botões -->
                                 <button type="button" class="btn btn-default botaoConfirmar" (click)="register()">Salvar</button>
-                                <button type="button" class="botaoCancelar btn btn-default botaoCancelar"
-                                    id="Cancelar">Cancelar</button>
+                                <a routerLink='/listaEntradaProdutos'> <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button></a>
+                                <br><br>
                                 <!-- botões -->
 
                             </form>
@@ -120,4 +93,6 @@
                     </div>
                 </div>
             </div>
+
+            
 

@@ -13,7 +13,6 @@ public class ItensDfDTO {
     private Integer cdProduto;
     private String nmProduto;
 
-//    private int qtEstoque;
     private Integer qtItem;
 
     private Double vlItem;

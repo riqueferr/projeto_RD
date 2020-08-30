@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+// import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -25,6 +26,8 @@ import { DetalhamentoCupomDeVendasComponent } from './financeiro/detalhamento-cu
 import { ListaProdutosComponent } from './abastecimento/lista-produtos/lista-produtos.component';
 import { EditarProdutosComponent } from './abastecimento/lista-produtos/editar-produtos/editar-produtos.component';
 import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/editar-fornecedores/editar-fornecedores.component';
+import { ListaEntradaComponent } from './abastecimento/lista-entrada/lista-entrada.component';
+
 
 
 
@@ -49,13 +52,15 @@ import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/
     DetalhamentoCupomDeVendasComponent,
     ListaProdutosComponent,
     EditarProdutosComponent,
-    EditarFornecedoresComponent
+    EditarFornecedoresComponent,
+    ListaEntradaComponent
   ],
   imports: [
     BrowserModule,
+    // ReactiveFormsModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

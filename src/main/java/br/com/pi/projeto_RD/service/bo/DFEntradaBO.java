@@ -58,8 +58,8 @@ public class DFEntradaBO {
         dto.setNrSerie(d.getNrSerie());
         dto.setDtEmissao(d.getDtEmissao());
         dto.setDtEntrada(d.getDtEntrada());
-        dto.setDtAbertura(d.getDtAbertura());
-        dto.setDtFechamento(d.getDtFechamento());
+//        dto.setDtAbertura(d.getDtAbertura());
+//        dto.setDtFechamento(d.getDtFechamento());
         dto.setVlDocumentoFiscal(d.getVlDocumentoFiscal());
 
         List<ItensDfDTO> itens = new ArrayList<>();
@@ -101,8 +101,8 @@ public class DFEntradaBO {
         dfEntity.setNrSerie(dto.getNrSerie());
         dfEntity.setDtEmissao(dto.getDtEmissao());
         dfEntity.setDtEntrada(dto.getDtEntrada());
-        dfEntity.setDtAbertura(dto.getDtAbertura());
-        dfEntity.setDtFechamento(dto.getDtFechamento());
+//        dfEntity.setDtAbertura(dto.getDtAbertura());
+//        dfEntity.setDtFechamento(dto.getDtFechamento());
         dfEntity.setVlDocumentoFiscal(dto.getVlDocumentoFiscal());
 
         List<DocumentoItemEntity> itemsEntity = new ArrayList<>();
