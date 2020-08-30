@@ -16,33 +16,33 @@ export class EditarFornecedoresComponent implements OnInit {
 
   @ViewChild('it', { static: true }) it: NgForm;
 
-  // cd_fornecedor: string;
-  // request: any;
-  request: Fornecedores = {
-    cd_fornecedor: null,
-    nr_cnpj: null,
-    nm_razao_social: null,
-    ds_denominacao: null,
-    nr_inscricao: null,
-    ds_email: null,
-    nr_telefone: null,
-    fk_tipo_fornecedor: {
-      id_tipo_fornecedor: null,
-      ds_tipo_fornecedor: null
-    },
-    endereco: [
-      {
-        dsEndereco: null,
-        nrEndereco: null,
-        nrCep: null,
-        dsBairro: null,
-        dsCidade: null,
-        sgEstado: null,
-        nmComplemento: null
-      }
-    ]
+  cd_fornecedor: string;
+  request: any;
+  // request: Fornecedores = {
+  //   cd_fornecedor: null,
+  //   nr_cnpj: null,
+  //   nm_razao_social: null,
+  //   ds_denominacao: null,
+  //   nr_inscricao: null,
+  //   ds_email: null,
+  //   nr_telefone: null,
+  //   fk_tipo_fornecedor: {
+  //     id_tipo_fornecedor: null,
+  //     ds_tipo_fornecedor: null
+  //   },
+  //   endereco: [
+  //     {
+  //       dsEndereco: null,
+  //       nrEndereco: null,
+  //       nrCep: null,
+  //       dsBairro: null,
+  //       dsCidade: null,
+  //       sgEstado: null,
+  //       nmComplemento: null
+  //     }
+  //   ]
 
-  };
+  // };
 
   constructor(
     private http: HttpClient,
