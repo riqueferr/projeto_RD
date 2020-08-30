@@ -5,49 +5,41 @@
 <br>
 
 <!-- <p>Form value: {{ it.value | json }}</p> -->
-<form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
+<form class="needs-validation" #it="ngForm" novalidate>
   <div class="form-row justify-content-around">
     <div class="form-group col-md-5">
-      <label for="nr_cnpj">CNPJ</label>
-      <input id="nr_cnpj" name="nr_cnpj" #nr_cnpj="ngModel" class="form-control" placeholder="Insira seu CNPJ"
-        [(ngModel)]='request.nr_cnpj' required>
-      <div *ngIf="nr_cnpj.errors && nr_cnpj.dirty" class="alert alert-danger">
-        <div [hidden]="!nr_cnpj.errors.required">
-          Digite o CNPJ, por favor.
-        </div>
+      <label for="cnpj">CNPJ</label>
+      <input id="nr_cnpj" name="cnpj" required #cnpj="ngModel" class="form-control" placeholder="Insira seu CNPJ"
+      [(ngModel)]='request.nr_cnpj'>
+      <div class="invalid-tooltip">
+        Insira um CNPJ válido!
       </div>
     </div>
     <div class="form-group col-md-5">
       <label for="razaoSocial">Razão Social</label>
       <input name="razaoSocial" required #razaoSocial="ngModel" class="form-control"
-        placeholder="Insira sua razão social" [(ngModel)]='request.nm_razao_social' required>
-      <div *ngIf="razaoSocial.errors && razaoSocial.dirty" class="alert alert-danger">
-        <div [hidden]="!razaoSocial.errors.required">
-          Digite a Razão Social, por favor.
+        placeholder="Insira sua razão social" [(ngModel)]='request.nm_razao_social'>
+        <div class="invalid-tooltip">
+          Insira a Razão Social!
         </div>
-      </div>
     </div>
   </div>
   <div class="form-row justify-content-around">
     <div class="form-group col-md-5">
       <label for="denominacaoSocial">Denominação Social</label>
       <input name="denominacaoSocial" required #denominacaoSocial="ngModel" class="form-control"
-        placeholder="Insira sua denominação social" [(ngModel)]='request.ds_denominacao' required>
-      <div *ngIf="denominacaoSocial.errors && denominacaoSocial.dirty" class="alert alert-danger">
-        <div [hidden]="!denominacaoSocial.errors.required">
-          Digite a Denominação Social, por favor.
+        placeholder="Insira sua denominação social" [(ngModel)]='request.ds_denominacao'>
+        <div class="invalid-tooltip">
+          Insira a Denominação Social!
         </div>
-      </div>
     </div>
     <div class="form-group col-md-5">
       <label for="numeroInscricao">Número de Inscrição</label>
       <input name="numeroInscricao" required #numeroInscricao="ngModel" class="form-control"
-        placeholder="Insira seu número de inscrição" [(ngModel)]='request.nr_inscricao' required>
-      <div *ngIf="numeroInscricao.errors && numeroInscricao.dirty" class="alert alert-danger">
-        <div [hidden]="!numeroInscricao.errors.required">
-          Digite o Número de Inscrição, por favor.
+        placeholder="Insira seu número de inscrição" [(ngModel)]='request.nr_inscricao'>
+        <div class="invalid-tooltip">
+          Insira o seu número de inscrição estadual!
         </div>
-      </div>
     </div>
   </div>
   <div class="form-row justify-content-around">
@@ -55,41 +47,41 @@
       <label for="cep" class="control-label">CEP</label>
       <input type="text" class="form-control" id="cep" name="cep" required #cep="ngModel"
         (blur)="consultaCEP($event.target.value,it)" placeholder="Apenas números"
-        [(ngModel)]='request.endereco[0].nrCep' required>
-      <div *ngIf="cep.errors && cep.dirty" class="alert alert-danger">
-        <div [hidden]="!cep.errors.required">
-          Digite o CEP, por favor.
+        [(ngModel)]='request.endereco[0].nrCep'>
+        <div class="invalid-tooltip">
+          Insira um CEP válido!
         </div>
-      </div>
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-3">
       <label for="tipoFornecedor" class="control-label">Tipo Fornecedor</label>
-      <select [(ngModel)]='request.fk_tipo_fornecedor.id_tipo_fornecedor' class="form-control" id="tipoFornecedor"
-        name="tipoFornecedor" ngModel required #tipoFornecedor="ngModel">
-        <option value="1">Especial</option>
-        <option value="2">Monopolista</option>
-        <option value="3">Habitual</option>
+      <select [(ngModel)]='request.fk_tipo_fornecedor.id_tipo_fornecedor'
+      class="form-control" id="tipoFornecedor"
+      name="tipoFornecedor" ngModel required #tipoFornecedor="ngModel">
+      <option value="1">Especial</option>
+          <option value="2">Monopolista</option>
+          <option value="3">Habitual</option>
       </select>
-      <div *ngIf="tipoFornecedor.errors && tipoFornecedor.dirty" class="alert alert-danger">
-        <div [hidden]="!tipoFornecedor.errors.required">
-          Informe o Tipo de Fornecedor, por favor.
-        </div>
+      <div class="invalid-tooltip">
+        Escolha um Tipo de Fornecedor!
       </div>
     </div>
-    <div class="form-group col-md-5">
+    <div class="form-group col-md-4">
     </div>
   </div>
   <div class="form-row justify-content-around">
     <div class="form-group input-group col-md-6">
 
-      <input name="rua" required #rua="ngModel" class="form-control" placeholder="Rua"
-        [(ngModel)]='request.endereco[0].dsEndereco'>
+      <input name="logradouro" required #logradouro="ngModel" class="form-control" placeholder="Logradouro"
+      [(ngModel)]='request.endereco[0].dsEndereco'>
+      <div class="invalid-tooltip">
+        Insira seu logradouro!
+      </div>
 
-      <input style="max-width: 70px;" name="numero" required #numero="ngModel" class="form-control" placeholder="Nº"
-        [(ngModel)]='request.endereco[0].nrEndereco'>
+      <input style="max-width: 90px;" name="numero"  required #numero="ngModel" class="form-control" placeholder="Nº"
+      [(ngModel)]='request.endereco[0].nrEndereco'>
 
-      <input style="max-width: 135px;" name="complemento" ngModel required #complemento="ngModel" class="form-control"
-        placeholder="Complemento" [(ngModel)]='request.endereco[0].nmComplemento'>
+      <input style="max-width: 155px;" name="complemento" ngModel #complemento="ngModel" class="form-control"
+        placeholder="Complemento"[(ngModel)]='request.endereco[0].nmComplemento'>
     </div>
     <div class="form-group col-md-2">
     </div>
@@ -99,17 +91,27 @@
   <div class="form-row justify-content-around">
     <div class="form-group col-md-3">
       <label for="inputBairro">Bairro</label>
-      <input name="bairro" #bairro="ngModel" class="form-control" placeholder="Insira seu bairro"
-        [(ngModel)]='request.endereco[0].dsBairro'>
+      <input name="bairro"  #bairro="ngModel" class="form-control"
+      placeholder="Insira seu bairro" required [(ngModel)]='request.endereco[0].dsBairro'>
+      <div class="invalid-tooltip">
+        Insira seu bairro!
+      </div>
     </div>
     <div class="form-group col-md-5">
       <label for="inputCidade">Cidade</label>
-      <input name="cidade" required #cidade="ngModel" class="form-control" placeholder="Insira sua cidade"
-        [(ngModel)]='request.endereco[0].dsCidade'>
+      <input name="cidade"  required #cidade="ngModel" class="form-control" placeholder="Insira sua cidade"
+      [(ngModel)]='request.endereco[0].dsCidade'>
+      <div class="invalid-tooltip">
+        Insira sua cidade!
+      </div>
     </div>
     <div class="form-group col-md-1">
       <label for="inputEstado">UF</label>
-      <input name="estado" required #estado="ngModel" class="form-control" [(ngModel)]='request.endereco[0].sgEstado'>
+      <input name="estado" required #estado="ngModel" class="form-control"
+      [(ngModel)]='request.endereco[0].sgEstado'>
+      <div class="invalid-tooltip">
+        Insira seu estado!
+      </div>
     </div>
   </div>
 
@@ -118,11 +120,17 @@
       <label for="inputEmail">E-mail</label>
       <input type="email" name="email" required #Email="ngModel" class="form-control"
         placeholder="Insira um e-mail válido" [(ngModel)]='request.ds_email'>
+        <div class="invalid-tooltip">
+          Insira um email válido!
+        </div>
     </div>
     <div class="form-group col-md-5">
       <label for="telefone">Telefone</label>
       <input name="telefone" required #telefone="ngModel" class="form-control"
         placeholder="Insira um número de telefone" [(ngModel)]='request.nr_telefone'>
+        <div class="invalid-tooltip">
+          Insira um nº de telefone válido!
+        </div>
     </div>
   </div>
   <div class="form-row justify-content-around">
@@ -131,7 +139,7 @@
     <div class="form-group col-md-4">
     </div>
     <div class="form-group col-md-4">
-      <button type="button" class="btn btn-default botaoConfirmar" (click)="register()" [disabled]="it.form.invalid" >Confirmar</button>
+      <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Confirmar</button>
 
       <a routerLink='/listaFornecedores'> <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
       </a>

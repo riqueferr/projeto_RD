@@ -170,3 +170,7 @@
   /*
      * Main
      */
+
+     .maxCarch {
+       max-width: 10ch;
+     }

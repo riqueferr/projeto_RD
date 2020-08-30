@@ -93,7 +93,7 @@ export class CadastroDeFornecedorComponent implements OnInit {
       numeroInscricao: form.value.numeroInscricao,
       email: form.value.email,
       telefone: form.value.telefone,
-      rua: dados.logradouro,
+      logradouro: dados.logradouro,
       cep: dados.cep,
       numero: '',
       complemento: '',
