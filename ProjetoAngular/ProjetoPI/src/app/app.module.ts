@@ -55,7 +55,7 @@ import { LoginComponent } from './login/login.component';
     ListaProdutosComponent,
     EditarProdutosComponent,
     EditarFornecedoresComponent,
-    ListaEntradaComponent
+    ListaEntradaComponent,
     MyBarChartOneComponent,
     DetalhamentoFornecedoresComponent,
     LoginComponent
