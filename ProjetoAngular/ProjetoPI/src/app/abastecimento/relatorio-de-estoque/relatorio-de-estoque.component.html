@@ -9,7 +9,7 @@
 
 
                             <div class="container">
-                                <table class="table table-bordeless">
+                                <!-- <table class="table table-bordeless">
                                     <thead class="thead" style="height:10%;">
                                         <tr>
                                             <th scope="col" style="border: none;">CD Filial</th>
@@ -37,7 +37,7 @@
                                             <td>{{ estoques.qt_estoque }}</td>
                                             <td>{{ estoques.qt_empenho }}</td>
                                             <td>{{ estoques.qt_base }}</td>
-                                        </tr>
+                                        </tr> -->
 
             <form>
                 <div class="form-row align-items-center centralizarMenu">
@@ -69,8 +69,8 @@
             </form>
 
             <div class="container">
-                <table class="table table-bordeless fixarrolagem fixarrolagem-tr">
-                    <thead class="thead fixarrolagem-thead fixarrolagem-tbody" style="height:10%; overflow: hidden;">
+                <table class="table table-bordeless">
+                    <thead style="height:10%; overflow: hidden;">
                         <tr>
                             <th scope="col" style="border: none;">CD Filial</th>
                             <th scope="col" style="border: none;">Nome Filial</th>
@@ -78,11 +78,10 @@
                             <th scope="col" style="border: none;">Nome Produto</th>
                             <th scope="col" style="border: none;">Categoria</th>
                             <th scope="col" style="border: none;">Quantidade</th>
-                            <th scope="col" style="border: none;">Empenho</th>
                             <th scope="col" style="border: none;">Base</th>
                         </tr>
                     </thead>
-                    <tbody class="fixarrolagem-tbody" style=" height:24.400rem !important;">
+                    <tbody  style=" height:24.400rem !important;">
                         <tr *ngFor='let estoques of responseEstoques'>
                             <th scope="row">{{ estoques.cdFilial }}</th>
                             <td class='maxCarch'>{{ estoques.nmFilial }}</td>
@@ -90,7 +89,6 @@
                             <td class='maxCarch'>{{ estoques.nmProduto }}</td>
                             <td class='maxCarch'>{{ estoques.categoria }}</td>
                             <td class='maxCarch'>{{ estoques.qt_estoque }}</td>
-                            <td class='maxCarch'>{{ estoques.qt_empenho }}</td>
                             <td class='maxCarch'>{{ estoques.qt_base }}</td>
                         </tr>
                     </tbody>
@@ -101,6 +99,3 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
