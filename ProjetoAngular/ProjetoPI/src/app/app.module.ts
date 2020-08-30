@@ -59,7 +59,7 @@ import { LoginComponent } from './login/login.component';
     ListaEntradaComponent,
     MyBarChartOneComponent,
     DetalhamentoFornecedoresComponent,
-    ListaTransferenciaComponent
+    ListaTransferenciaComponent,
     LoginComponent
   ],
   imports: [
