@@ -21,7 +21,7 @@
     "@angular/router": "~10.0.9",
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
-    "ng2-charts": "^2.3.0",
+    "ng2-charts": "^2.4.0",
     "rxjs": "^6.6.2",
     "rxjs-compat": "^6.6.2",
     "tslib": "^2.0.0",

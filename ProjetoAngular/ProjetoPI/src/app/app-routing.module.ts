@@ -21,6 +21,7 @@ import { ListaEntradaComponent } from './abastecimento/lista-entrada/lista-entra
 import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-one/my-bar-chart-one.component';
 import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornecedores/detalhamento-fornecedores/detalhamento-fornecedores.component';
 import { ListaTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-transferencia/lista-transferencia.component';
+import { LoginComponent } from './login/login.component';
 
 
 export const routes: Routes = [
@@ -69,8 +70,10 @@ export const routes: Routes = [
     {path: 'fornecedores/editar/:cd_fornecedor',
     component: EditarFornecedoresComponent},
     {path: 'graficoAbastecimentoDrogasil',
-    component: MyBarChartOneComponent
-    }
+    component: MyBarChartOneComponent},
+    {path: 'login',
+    component: LoginComponent}
+
 ];
 
 @NgModule({
