@@ -9,16 +9,17 @@
             <div class='col-md-12 justify-content-center'>
                 <div class="d-flex align-items-center justify-content p-2 text-white-50 bg-purple rounded shadow-sm">
                     <div class="lh-100">
-                        <h6 class="border-bottom-flex1 border-gray pb-2 mb-3 text-white lh-100">Período
+                        <h6 class="border-bottom-flex2 border-gray pb-2 mb-3 text-white lh-100">
+                            Produto
                         </h6>
                     </div>
                     <div class="lh-100">
                         <h6 class="border-bottom-flex2 border-gray pb-2 mb-3 text-white lh-100">
-                            Fornecedor
+                            Status
                         </h6>
                     </div>
                     <div class="lh-100">
-                        <h6 class="border-bottom-flex3 border-gray pb-2 mb-3 text-white lh-100">Status
+                        <h6 class="border-bottom-flex3 border-gray pb-2 mb-3 text-white lh-100">.
                         </h6>
                     </div>
                 </div>
@@ -28,28 +29,11 @@
 
             <div class='row marginTopMain semMarginRightMain fundo-bloco1 centralizarTexto'>
 
-                <div class='col-md-4' style='padding-top: 23px;'>
-                    <form>
-                        <div class="form-group row">
-                            <label for="example-date-input" class="col-2 col-form-label">De</label>
-                            <div class="col-8">
-                                <input class="form-control" type="date" value="2020-07-24" id="example-date-input">
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
                 <div class='col-md-4'>
                     <form>
-                        <div class="form-group">
+                        <div style="margin-left: 30%;" class="form-group">
                             <label for="exampleFormControlSelect1"></label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Fornecedor 1 </option>
-                                <option>Fornecedor 2</option>
-                                <option>Fornecedor 3</option>
-                                <option>Fornecedor 4</option>
-                                <option>Fornecedor 5</option>
-                            </select>
+                            <input class="form-control mr-sm-4" type="search" placeholder="Nome do Produto" aria-label="Search">
                         </div>
                     </form>
                 </div>
@@ -57,65 +41,47 @@
                     <form>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1"></label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Ativo</option>
-                                <option>Inativo</option>
-                                <option>Fora do mix</option>
-                            </select>
+                            <input class="form-control mr-sm-4" type="search" placeholder="Status do produto" aria-label="Search">
                         </div>
                     </form>
                 </div>
-
-            </div>
-
-            <div class='row marginTopMain semMarginRightMain fundo-bloco1 centralizarTexto'>
-
-                <div class='col-md-4'>
-
-                    <div class="form-group row">
-                        <label for="example-date-input" class="col-2 col-form-label">Até</label>
-                        <div class="col-8">
-                            <input class="form-control" type="date" value="2020-07-24" id="example-date-input">
-                        </div>
-                    </div>
+                <div style="margin-top: 24px;"class='col-md-4'>
+                    <button type="submit" class="btn btn-default botaoConfirmar">Pesquisar</button>
                 </div>
-                <div class='col-md-4'>
 
-                </div>
-                <div class='col-md-4'>
-                    <button type="submit" class="btn btn-default botaoConfirmar">Confirmar</button>
-                    <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
-                </div>
             </div>
         </div>
         <br>
 
-        <div class='row marginTabela' style='text-align: center'>
-            <table class="table">
-                <thead class="thead-default tituloTabela">
-                    <tr>
-                        <th scope="col">Código</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Fornecedor</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor='let produtos of responseRelatorioProduto'>
-                        <th scope="row">{{ produtos.cdProduto }}</th>
-                        <td class="maxCarch">{{ produtos.nmProduto }}</td>
-                        <td>{{ produtos.tipoProduto }}</td>
-                        <td *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
-                        <td>{{ produtos.statusProduto }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class='row justify-content-center' *ngIf="loading">
-            <div class="spinner-grow text-success text-center" role="status">
-                <span class="sr-only">Loading...</span>
+        <div class="container">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Fornecedor</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <!-- <tbody  style=" height:24.400rem !important;"> -->
+                        <tbody>
+                        <tr *ngFor='let produtos of responseRelatorioProduto'>
+                            <th scope="row">{{ produtos.cdProduto }}</th>
+                            <td class='maxCarch'>{{ produtos.nmProduto }}</td>
+                            <td class='maxCarch'>{{ produtos.tipoProduto }}</td>
+                            <td class='maxCarch' *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
+                            <td class='maxCarch'>{{ produtos.statusProduto }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            <div class='row justify-content-center' *ngIf="loading">
+                <div class="spinner-grow text-success text-center" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
             </div>
+        </div>
         </div>
     </div>
 </main>

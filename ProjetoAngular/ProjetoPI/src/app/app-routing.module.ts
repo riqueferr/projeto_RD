@@ -22,6 +22,7 @@ import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-o
 import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornecedores/detalhamento-fornecedores/detalhamento-fornecedores.component';
 import { ListaTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-transferencia/lista-transferencia.component';
 import { LoginComponent } from './login/login.component';
+import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/listar-id-filial/listar-id-filial.component';
 
 
 export const routes: Routes = [
@@ -39,6 +40,8 @@ export const routes: Routes = [
     component: EntradaDeProdutoComponent},
     {path: 'relatorioDeEstoque',
     component: RelatorioDeEstoqueComponent},
+    {path: 'relatorioDeEstoque/filial',
+    component: ListarIdFilialComponent},
     {path: 'relatorioDeProduto',
     component: RelatorioDeProdutoComponent},
     {path: 'transferenciaDeProduto',

@@ -31,6 +31,7 @@ import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-o
 import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornecedores/detalhamento-fornecedores/detalhamento-fornecedores.component';
 import { ListaTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-transferencia/lista-transferencia.component';
 import { LoginComponent } from './login/login.component';
+import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/listar-id-filial/listar-id-filial.component';
 
 
 
@@ -60,7 +61,8 @@ import { LoginComponent } from './login/login.component';
     MyBarChartOneComponent,
     DetalhamentoFornecedoresComponent,
     ListaTransferenciaComponent,
-    LoginComponent
+    LoginComponent,
+    ListarIdFilialComponent
   ],
   imports: [
     BrowserModule,
