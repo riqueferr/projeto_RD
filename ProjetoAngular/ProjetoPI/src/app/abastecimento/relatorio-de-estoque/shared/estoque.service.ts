@@ -12,8 +12,20 @@ export class EstoqueService {
 
   private readonly API = 'http://localhost:8080/abastecimento/FilialEstoque';
 
+  // private readonly API2 = 'http://localhost:8080/abastecimento/FilialEstoque/2';
+
   getEstoques() {
     return this.http.get<ResponseEstoque[]>(this.API);
+  }
+
+  // getEstoques3() {
+  //   return this.http.get<ResponseEstoque[]>(this.API2);
+  // }
+
+  
+  getEstoque(codigo: string): Observable<ResponseEstoque> {
+    const URL = `${this.API}/${codigo}`;
+    return this.http.get<ResponseEstoque>(URL);
   }
 
 }
