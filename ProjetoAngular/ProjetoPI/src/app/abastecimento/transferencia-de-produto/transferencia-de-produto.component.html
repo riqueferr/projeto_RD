@@ -8,6 +8,7 @@
     <div class='container'>
         <div class='col-md-12'>
             <form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
+
                 <!-- Inicio da primeira linha-->
                 <div class="form-row">
                     <div class="form-group col-md-4">
@@ -24,15 +25,7 @@
                         [(ngModel)]='request.idFilialDestino'>
                     </div>
                 </div>
-                <!-- fim da primeira linha-->
-
-                <!-- Inicio da segunda linha-->
                 <div class="form-row">
-                    <!-- <div class="form-group col-md-4">
-                        <label for="inputforn">Valor Total</label>
-                        <input id="vlDocumentoFiscal" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" class="form-control" placeholder="R$ 00.000"
-                        [(ngModel)]='request.vlDocumentoFiscal'>
-                    </div> -->
                     <div class="form-group col-md-4">
                         <label for="inputLote">Data Emissão</label>
                         <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="form-control" placeholder="____/___/___"
@@ -44,9 +37,8 @@
                         [(ngModel)]='request.dtEntrada'>
                     </div>
                 </div>
-                <!--Fim da terceira linha -->
 
-                <!-- Inicio da quarta linha -->
+                <!-- Itens do documento fiscal -->
                 <br>
                 <h3>Itens entrada</h3>
                 <br>
@@ -58,6 +50,17 @@
                     <div class="form-group col-md-4">
                         <label for="inputdescricao">Produto</label>
                         <input name="cdProduto" required #cdProduto="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].cdProduto'>
+                        <!-- <select [(ngModel)]='request.itens[0].cdProduto'
+                        class="form-control" id="cdProduto"
+                        name="cdProduto" ngModel required #cdProduto="ngModel">
+                            <option selected>Choose...</option>
+                            <option *ngFor='let produtos of responseProdutos; let i = index' value="{{i}}" >{{i}} {{ produtos.nm_fantasia }}</option>
+                          </select>
+                          <div class='row' *ngIf="loading">
+                            <div class="spinner-grow text-success text-center" role="status">
+                              <span class="sr-only">Loading...</span>
+                            </div>
+                          </div> -->
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputdescricao">Quantidade Itens</label>
