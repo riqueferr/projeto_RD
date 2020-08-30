@@ -1,44 +1,80 @@
 <br>
 <div class="container">
-    <h2>Relatório de Estoque</h2>
+  <h2>Relatório de Estoque</h2>
 </div>
 <br>
 <div class='container'>
-    <div class='row marginTopMain semMarginRightMain'>
-        <div class='col-md-12'>
-            <div class="container">
-            <form>
-                <div class="form-row align-items-center centralizarMenu">
-                    <div class="col-1 my-1">
+  <div class='row marginTopMain semMarginRightMain'>
+    <div class='col-md-12'>
+      <div class="container">
+        <form>
+          <div class="form-row align-items-center centralizarMenu">
+            <div class="col-1 my-1">
 
 
-                        <label class="sr-only" for="inlineFormInputName">Name</label>
-                        <input type="text" class="form-control form-control-override" id="inlineFormInputName"
-                            maxlength="4" placeholder="Cód." style="padding: 2%; text-align: center;">
-                    </div>
-                    <div class="col-sm-3 my-1">
-                        <label class="sr-only" for="inlineFormInputGroupUsername">Filial</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">Filial</div>
-                            </div>
-                            <input type="text" readonly class="form-control" id="inlineFormInputGroupUsername"
-                                placeholder="">
-                        </div>
-                    </div>
-                    <div class="col-sm-3 my-1">
-                        <label class="sr-only" for="inlineFormInputName">Data</label>
-                        <input type="date" class="form-control" id="inlineFormInputName">
-                    </div>
-                    <div class="col-auto my-1">
-                        <button type="submit" class="btn btn-default botaoConfirmar">Procurar</button>
-                    </div>
+              <label class="sr-only" for="inlineFormInputName">Name</label>
+              <input type="text" class="form-control form-control-override" id="inlineFormInputName" maxlength="4"
+                placeholder="Cód." style="padding: 2%; text-align: center;">
+            </div>
+            <div class="col-sm-3 my-1">
+              <label class="sr-only" for="inlineFormInputGroupUsername">Filial</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Filial</div>
                 </div>
-            </form>
-
-            <div class="container">
+                <input type="text" readonly class="form-control" id="inlineFormInputGroupUsername" placeholder="">
+              </div>
+            </div>
+            <div class="col-sm-3 my-1">
+              <label class="sr-only" for="inlineFormInputName">Data</label>
+              <input type="date" class="form-control" id="inlineFormInputName">
+            </div>
+            <div class="col-auto my-1">
+              <button type="submit" class="btn btn-default botaoConfirmar">Procurar</button>
+            </div>
+          </div>
+        </form>
+        <main>
+          <div class='row marginTabela' style='text-align: center'>
+            <table class="table">
+              <thead class="thead-default tituloTabela">
+                <tr>
+                  <th scope="col">CD Filial</th>
+                  <th scope="col">Nome Filial</th>
+                  <th scope="col">CD Produto</th>
+                  <th scope="col">Nome Produto</th>
+                  <th scope="col">SubCategoria</th>
+                  <th scope="col">Quantidade</th>
+                  <th scope="col">Valor Base</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!-- <th scope="row">001</th>
+                      <td>Johnson & Johnson</td>
+                      <td>66.666.865/0240-93</td>
+                      <td>needs.contato@rd.com.br | (11) 3765-2376</td> -->
+                <tr *ngFor='let estoques of responseEstoques'>
+                  <th scope="row">{{ estoques.cdFilial }}</th>
+                  <td class='maxCarch'>{{ estoques.nmFilial }}</td>
+                  <td class='maxCarch'>{{ estoques.codProduto }}</td>
+                  <td class='maxCarch'>{{ estoques.nmProduto }}</td>
+                  <td class='maxCarch'>{{ estoques.subCategoria }}</td>
+                  <td class='maxCarch'>{{ estoques.qt_estoque }}</td>
+                  <td class='maxCarch'>{{ estoques.qt_base }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class='row justify-content-center' *ngIf="loading">
+            <div class="spinner-grow text-success text-center" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </main>
+        <!-- <div class="container">
                 <table class="table table-bordeless">
-                    <thead style="height:10%; overflow: hidden;">
+                    <thead class='row justify-content-center'>
                         <tr>
                             <th scope="col" style="border: none;">CD Filial</th>
                             <th scope="col" style="border: none;">Nome Filial</th>
@@ -49,7 +85,7 @@
                             <th scope="col" style="border: none;">Base</th>
                         </tr>
                     </thead>
-                    <tbody  style=" height:24.400rem !important;">
+                    <tbody class='row justify-content-center'>
                         <tr *ngFor='let estoques of responseEstoques'>
                             <th scope="row">{{ estoques.cdFilial }}</th>
                             <td class='maxCarch'>{{ estoques.nmFilial }}</td>
@@ -65,5 +101,8 @@
                     <div class="spinner-grow text-success text-center" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>
-                </div>
-            </div>
+                </div> -->
+      </div>
+    </div>
+  </div>
+</div>
