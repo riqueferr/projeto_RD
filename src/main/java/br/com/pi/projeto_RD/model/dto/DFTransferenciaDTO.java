@@ -17,6 +17,7 @@ public class DFTransferenciaDTO {
     private String nmFilial;
 
     private Long idFilialDestino;
+    private String nmFilialDestino;
 
 //    private Long idFornecedor;
 //    private String nmFornecedor;

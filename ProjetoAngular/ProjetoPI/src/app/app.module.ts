@@ -29,6 +29,7 @@ import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/
 import { ListaEntradaComponent } from './abastecimento/lista-entrada/lista-entrada.component';
 import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-one/my-bar-chart-one.component';
 import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornecedores/detalhamento-fornecedores/detalhamento-fornecedores.component';
+import { ListaTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-transferencia/lista-transferencia.component';
 import { LoginComponent } from './login/login.component';
 
 
@@ -58,6 +59,7 @@ import { LoginComponent } from './login/login.component';
     ListaEntradaComponent,
     MyBarChartOneComponent,
     DetalhamentoFornecedoresComponent,
+    ListaTransferenciaComponent
     LoginComponent
   ],
   imports: [

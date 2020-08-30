@@ -56,7 +56,7 @@ export class TransferenciaDeProdutoComponent implements OnInit {
     if (this.it.form.valid) {
       console.log(this.request);
       this.transferenciaService.createTransferencia(this.request).subscribe();
-      this.router.navigate(['/cupomDeVenda']);
+      this.router.navigate(['/listaTransferenciaProduto']);
     }
   }
 
