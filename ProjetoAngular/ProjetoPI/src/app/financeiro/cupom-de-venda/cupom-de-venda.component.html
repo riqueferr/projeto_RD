@@ -46,10 +46,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngIf="loading">
-                <div class="spinner-border" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
               <tr *ngFor='let notas of responseDf'>
                 <th scope="row">{{ notas.idDF }}</th>
                 <td>{{ notas.dt_entrada | date: 'dd/MM/yyyy'}}</td>
@@ -58,10 +54,11 @@
                 <td>{{ notas.vl_documento_fiscal }}</td>
                 <td><abbr title="Detalhes">
                     <!-- <a routerLink='/detalhamentoCupomDeVendas'> -->
-                      <!-- <a [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]"> -->
-                      
-                      <button type="button" class="btn botaoConfirmar" [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]">
-                        <i class="fa fa-exclamation-circle"></i></button>
+                    <!-- <a [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]"> -->
+
+                    <button type="button" class="btn botaoConfirmar"
+                      [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]">
+                      <i class="fa fa-exclamation-circle"></i></button>
                     <!-- </a> -->
                   </abbr>&nbsp;
                   <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal"
@@ -72,6 +69,11 @@
 
             </tbody>
           </table>
+        </div>
+      </div>
+      <div class='row justify-content-center' *ngIf="loading">
+        <div class="spinner-grow text-success text-center" role="status">
+          <span class="sr-only">Loading...</span>
         </div>
       </div>
       <br>
