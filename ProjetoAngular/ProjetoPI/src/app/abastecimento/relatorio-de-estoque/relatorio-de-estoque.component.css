@@ -91,3 +91,7 @@
     color: #fff;
     margin-left: 10px;
   }
+
+  .maxCarch {
+    max-width: 10ch;
+  }

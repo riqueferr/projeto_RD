@@ -1,75 +1,73 @@
-                <br>
-                <div class="container">
-                    <h2>Relatório de Estoque</h2>
-                </div>
-                <br>
-                <div class='container'>
-                    <div class='row marginTopMain semMarginRightMain'>
-                        <div class='col-md-12'>
+<br>
+<div class="container">
+    <h2>Relatório de Estoque</h2>
+</div>
+<br>
+<div class='container'>
+    <div class='row marginTopMain semMarginRightMain'>
+        <div class='col-md-12'>
 
-                            <form>
-                                <div class="form-row align-items-center centralizarMenu">
-                                    <div class="col-1 my-1">
+            <form>
+                <div class="form-row align-items-center centralizarMenu">
+                    <div class="col-1 my-1">
 
-                                        <label class="sr-only" for="inlineFormInputName">Name</label>
-                                        <input type="text" class="form-control form-control-override"
-                                            id="inlineFormInputName" maxlength="4" placeholder="Cód."
-                                            style="padding: 2%; text-align: center;">
-                                    </div>
-                                    <div class="col-sm-3 my-1">
-                                        <label class="sr-only" for="inlineFormInputGroupUsername">Filial</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">Filial</div>
-                                            </div>
-                                            <input type="text" readonly class="form-control"
-                                                id="inlineFormInputGroupUsername" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3 my-1">
-                                        <label class="sr-only" for="inlineFormInputName">Data</label>
-                                        <input type="date" class="form-control" id="inlineFormInputName">
-                                    </div>
-                                    <div class="col-auto my-1">
-                                        <button type="submit" class="btn btn-default botaoConfirmar">Procurar</button>
-                                    </div>
-                                </div>
-                            </form>
-
-                            <div class="container">
-                                <table class="table table-bordeless fixarrolagem fixarrolagem-tr">
-                                    <thead class="thead fixarrolagem-thead fixarrolagem-tbody" style="height:10%; overflow: hidden;">
-                                        <tr>
-                                            <th scope="col" style="border: none;">CD Filial</th>
-                                            <th scope="col" style="border: none;">Nome Filial</th>
-                                            <th scope="col" style="border: none;">CD Produto</th>
-                                            <th scope="col" style="border: none;">Nome Produto</th>
-                                            <th scope="col" style="border: none;">Categoria</th>
-                                            <th scope="col" style="border: none;">Quantidade</th>
-                                            <th scope="col" style="border: none;">Empenho</th>
-                                            <th scope="col" style="border: none;">Base</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="fixarrolagem-tbody" style=" height:24.400rem !important;">
-                                        <tr *ngIf="loading">
-                                            <div class="spinner-border" role="status">
-                                              <span class="sr-only">Loading...</span>
-                                            </div>
-                                          </tr>
-                                        <tr *ngFor='let estoques of responseEstoques'>
-                                            <th scope="row">{{ estoques.cdFilial }}</th>
-                                            <td>{{ estoques.nmFilial }}</td>
-                                            <td> {{ estoques.codProduto }}</td>
-                                            <td>{{ estoques.nmProduto }}</td>
-                                            <td>{{ estoques.categoria }}</td>
-                                            <td>{{ estoques.qt_estoque }}</td>
-                                            <td>{{ estoques.qt_empenho }}</td>
-                                            <td>{{ estoques.qt_base }}</td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
+                        <label class="sr-only" for="inlineFormInputName">Name</label>
+                        <input type="text" class="form-control form-control-override" id="inlineFormInputName"
+                            maxlength="4" placeholder="Cód." style="padding: 2%; text-align: center;">
+                    </div>
+                    <div class="col-sm-3 my-1">
+                        <label class="sr-only" for="inlineFormInputGroupUsername">Filial</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Filial</div>
                             </div>
+                            <input type="text" readonly class="form-control" id="inlineFormInputGroupUsername"
+                                placeholder="">
                         </div>
                     </div>
+                    <div class="col-sm-3 my-1">
+                        <label class="sr-only" for="inlineFormInputName">Data</label>
+                        <input type="date" class="form-control" id="inlineFormInputName">
+                    </div>
+                    <div class="col-auto my-1">
+                        <button type="submit" class="btn btn-default botaoConfirmar">Procurar</button>
+                    </div>
                 </div>
+            </form>
+
+            <div class="container">
+                <table class="table table-bordeless fixarrolagem fixarrolagem-tr">
+                    <thead class="thead fixarrolagem-thead fixarrolagem-tbody" style="height:10%; overflow: hidden;">
+                        <tr>
+                            <th scope="col" style="border: none;">CD Filial</th>
+                            <th scope="col" style="border: none;">Nome Filial</th>
+                            <th scope="col" style="border: none;">CD Produto</th>
+                            <th scope="col" style="border: none;">Nome Produto</th>
+                            <th scope="col" style="border: none;">Categoria</th>
+                            <th scope="col" style="border: none;">Quantidade</th>
+                            <th scope="col" style="border: none;">Empenho</th>
+                            <th scope="col" style="border: none;">Base</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fixarrolagem-tbody" style=" height:24.400rem !important;">
+                        <tr *ngFor='let estoques of responseEstoques'>
+                            <th scope="row">{{ estoques.cdFilial }}</th>
+                            <td class='maxCarch'>{{ estoques.nmFilial }}</td>
+                            <td class='maxCarch'>{{ estoques.codProduto }}</td>
+                            <td class='maxCarch'>{{ estoques.nmProduto }}</td>
+                            <td class='maxCarch'>{{ estoques.categoria }}</td>
+                            <td class='maxCarch'>{{ estoques.qt_estoque }}</td>
+                            <td class='maxCarch'>{{ estoques.qt_empenho }}</td>
+                            <td class='maxCarch'>{{ estoques.qt_base }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class='row justify-content-center' *ngIf="loading">
+                    <div class="spinner-grow text-success text-center" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
