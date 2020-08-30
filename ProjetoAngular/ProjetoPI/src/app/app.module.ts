@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +27,8 @@ import { ListaProdutosComponent } from './abastecimento/lista-produtos/lista-pro
 import { EditarProdutosComponent } from './abastecimento/lista-produtos/editar-produtos/editar-produtos.component';
 import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/editar-fornecedores/editar-fornecedores.component';
 import { ListaEntradaComponent } from './abastecimento/lista-entrada/lista-entrada.component';
-
+import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-one/my-bar-chart-one.component';
+import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornecedores/detalhamento-fornecedores/detalhamento-fornecedores.component';
 
 
 
@@ -54,6 +55,8 @@ import { ListaEntradaComponent } from './abastecimento/lista-entrada/lista-entra
     EditarProdutosComponent,
     EditarFornecedoresComponent,
     ListaEntradaComponent
+    MyBarChartOneComponent,
+    DetalhamentoFornecedoresComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import { ListaEntradaComponent } from './abastecimento/lista-entrada/lista-entra
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

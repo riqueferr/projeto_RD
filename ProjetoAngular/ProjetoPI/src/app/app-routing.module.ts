@@ -18,6 +18,8 @@ import { ListaProdutosComponent } from './abastecimento/lista-produtos/lista-pro
 import { EditarProdutosComponent } from './abastecimento/lista-produtos/editar-produtos/editar-produtos.component';
 import { EditarFornecedoresComponent } from './abastecimento/lista-fornecedores/editar-fornecedores/editar-fornecedores.component';
 import { ListaEntradaComponent } from './abastecimento/lista-entrada/lista-entrada.component';
+import { MyBarChartOneComponent } from './abastecimento/dashboard/my-bar-chart-one/my-bar-chart-one.component';
+import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornecedores/detalhamento-fornecedores/detalhamento-fornecedores.component';
 
 
 export const routes: Routes = [
@@ -57,11 +59,15 @@ export const routes: Routes = [
     component: ListaProdutosComponent},
     {path: 'detalhamentoCupomDeVendas/:idDF',
     component: DetalhamentoCupomDeVendasComponent},
+    {path: 'visualizar/fornecedor/:cd_fornecedor',
+    component: DetalhamentoFornecedoresComponent},
     {path: 'produtos/editar/:codigo',
     component: EditarProdutosComponent},
     {path: 'fornecedores/editar/:cd_fornecedor',
     component: EditarFornecedoresComponent},
-    
+    {path: 'graficoAbastecimentoDrogasil',
+    component: MyBarChartOneComponent
+    }
 ];
 
 @NgModule({

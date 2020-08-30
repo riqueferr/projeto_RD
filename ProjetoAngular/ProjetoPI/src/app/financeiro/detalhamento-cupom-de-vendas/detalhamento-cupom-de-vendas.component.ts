@@ -11,7 +11,7 @@ import { DocumentoFiscalService } from '../cupom-de-venda/shared/documentofiscal
 })
 export class DetalhamentoCupomDeVendasComponent implements OnInit {
 
-  @ViewChild('formDF', {static: true}) formDF: NgForm;
+  @ViewChild('formDF', { static: true }) formDF: NgForm;
 
   idDF: string;
   request: any;
@@ -22,8 +22,8 @@ export class DetalhamentoCupomDeVendasComponent implements OnInit {
     private documentoFiscalService: DocumentoFiscalService,
     private route: ActivatedRoute,
     private router: Router
-  ) { 
-    
+  ) {
+
   }
 
   ngOnInit(): void {
@@ -33,10 +33,9 @@ export class DetalhamentoCupomDeVendasComponent implements OnInit {
   }
 
   listarTodosDF() {
-    this.documentoFiscalService.getDocumentoFiscal().subscribe(response => 
-      {
-        this.responseDf = response;
-      });
+    this.documentoFiscalService.getDocumentoFiscal().subscribe(response => {
+      this.responseDf = response;
+    });
   }
 
 }
