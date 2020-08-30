@@ -16,10 +16,10 @@ export class TransferenciaService {
     return this.http.get<ResponseTransferencia[]>(this.API);
   }
 
-  getTransferenciass(codigo: string): Observable<ResponseTransferencia> {
-    const URL = `${this.API}/${codigo}`;
-    return this.http.get<ResponseTransferencia>(URL);
-  }
+  // getTransferencia(codigo: string): Observable<ResponseTransferencia> {
+  //   const URL = `${this.API}/${codigo}`;
+  //   return this.http.get<ResponseTransferencia>(URL);
+  // }
 
   updateTransferencia(codigo: string, request: Transferencia): Observable<Transferencia> {
     const URL = `${this.API}`;

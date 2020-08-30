@@ -1,4 +1,4 @@
-export interface Produtos {
+export interface Entradas {
     idDocumento: number,
     nmFornecedor: String,
     dtEntrada: string,
@@ -12,6 +12,6 @@ export interface Produtos {
     ]
 }
 
-export interface ResponseProdutos {
-    produtos: Produtos[];
+export interface ResponseEntrada {
+    entradas: Entradas[];
 }
