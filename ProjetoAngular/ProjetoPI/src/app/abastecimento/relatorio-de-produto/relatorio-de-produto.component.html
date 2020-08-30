@@ -102,11 +102,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngIf="loading">
-                        <div class="spinner-border" role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div>
-                    </tr>
                     <tr *ngFor='let produtos of responseRelatorioProduto'>
                         <th scope="row">{{ produtos.cdProduto }}</th>
                         <td class="maxCarch">{{ produtos.nmProduto }}</td>
@@ -116,6 +111,11 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class='row justify-content-center' *ngIf="loading">
+            <div class="spinner-grow text-success text-center" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
     </div>
 </main>
