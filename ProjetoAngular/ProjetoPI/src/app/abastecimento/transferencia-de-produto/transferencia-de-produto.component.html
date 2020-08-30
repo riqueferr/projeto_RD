@@ -10,79 +10,41 @@
             <form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
                 <!-- Inicio da primeira linha-->
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="inputNomeproduto4">Operação</label>
-                        <input id="cdOperacao" name="cdOperacao" required #cdOperacao="ngModel" class="form-control" placeholder="Insira sua Operação"
-                        [(ngModel)]='request.operacao.cdOperacao'>
+                        <input id="cdOperacao" name="cdOperacao" class="form-control" placeholder="TRANSFERÊNCIA" disabled>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputdescricao">CD Filial</label>
-                        <input id="idFilial" name="idFilial" required #idFilial="ngModel" class="form-control" placeholder="Insira a filial"
-                        [(ngModel)]='request.idFilial'>
+                    <div class="form-group col-md-4">
+                        <label for="inputdescricao">Centro de Distribuição</label>
+                        <input id="idFilial" name="idFilial" class="form-control" placeholder="CD" disabled>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputdescricao">CD Filial Destino</label>
+                    <div class="form-group col-md-4">
+                        <label for="inputdescricao">Filial Destino</label>
                         <input id="idFilialDestino" name="idFilialDestino" required #idFilialDestino="ngModel" class="form-control" placeholder="Insira a filial destino"
                         [(ngModel)]='request.idFilialDestino'>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputdescricao">CD Fornecedor</label>
-                        <input id="idFornecedor" name="idFornecedor" required #idFornecedor="ngModel" class="form-control" placeholder="Fornecedor"
-                        [(ngModel)]='request.idFornecedor'>
                     </div>
                 </div>
                 <!-- fim da primeira linha-->
 
                 <!-- Inicio da segunda linha-->
-                <div class="form-row justify-content-between">
-                    <div class="form-group col-md-3">
-                        <label for="inputNomeFant">Chave Acesso</label>
-                        <input id="chaveAcesso" name="chaveAcesso" required #chaveAcesso="ngModel" class="form-control" placeholder="Chave de acesso"
-                        [(ngModel)]='request.chaveAcesso'>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputforn">Número DF</label>
-                        <input id="nrNF" name="nrNF" required #nrNF="ngModel" class="form-control" placeholder="0000.0000.00"
-                        [(ngModel)]='request.nrNF'>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputforn">Número Série</label>
-                        <input id="nrSerie" name="nrSerie" required #nrSerie="ngModel" class="form-control" placeholder="0000.0000.0000.00"
-                        [(ngModel)]='request.nrSerie'>
-                    </div>
-                    <div class="form-group col-md-3">
+                <div class="form-row">
+                    <!-- <div class="form-group col-md-4">
                         <label for="inputforn">Valor Total</label>
                         <input id="vlDocumentoFiscal" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" class="form-control" placeholder="R$ 00.000"
                         [(ngModel)]='request.vlDocumentoFiscal'>
-                    </div>
-                </div>
-                <!-- Fim da segunda linha-->
-
-                <!--Inicio da terceira linha -->
-                <div class="form-row justify-content-between">
-                    <div class="form-group col-md-3">
+                    </div> -->
+                    <div class="form-group col-md-4">
                         <label for="inputLote">Data Emissão</label>
                         <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="form-control" placeholder="____/___/___"
                         [(ngModel)]='request.dtEmissao'>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="inputCodProd">Data Entrada</label>
                         <input id="dtEntrada" name="dtEntrada" required #dtEntrada="ngModel" class="form-control" placeholder="____/___/___"
                         [(ngModel)]='request.dtEntrada'>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputQtd">Data Abertura</label>
-                        <input id="dtAbertura" name="dtAbertura" required #dtAbertura="ngModel" class="form-control" placeholder="____/___/___"
-                        [(ngModel)]='request.dtAbertura'>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputQtd">Data Fechamento</label>
-                        <input id="dtFechamento" name="dtFechamento" required #dtFechamento="ngModel" class="form-control" placeholder="____/___/___"
-                        [(ngModel)]='request.dtFechamento'>
-                    </div>
                 </div>
                 <!--Fim da terceira linha -->
-
 
                 <!-- Inicio da quarta linha -->
                 <br>
@@ -91,26 +53,15 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputNomeproduto4">Número Item Documento</label>
-                        <input name="nrItemDocumento" required #nrItemDocumento="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].nrItemDocumento'>
+                        <input name="nrItemDocumento" class="form-control" placeholder="01" disabled >
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputdescricao">CD Produto</label>
+                        <label for="inputdescricao">Produto</label>
                         <input name="cdProduto" required #cdProduto="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].cdProduto'>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputdescricao">Quantidade Itens</label>
                         <input name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="Quantidade itens" [(ngModel)]='request.itens[0].qtItem'>
-                    </div>
-                </div>
-                <!-- fim da quarta linha -->
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputNomeproduto4">Porcentagem ICMS</label>
-                        <input name="pcIcms" required #pcIcms="ngModel" class="form-control" placeholder="Porcentagem ICMS" [(ngModel)]='request.itens[0].pcIcms'>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputdescricao">Valor ICMS</label>
-                        <input name="vlIcms" required #vlIcms="ngModel" class="form-control" placeholder="Valor ICMS" [(ngModel)]='request.itens[0].vlIcms'>
                     </div>
                 </div>
 

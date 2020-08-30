@@ -40,10 +40,15 @@ public class DocumentoFiscalBO {
         dto.setNr_nf(d.getNrNf());
         dto.setNr_serie(d.getNrSerie());
 
-        dto.setDt_emissao(SDF.format(d.getDtEmissao()));
-        dto.setDt_entrada(SDF.format(d.getDtEntrada()));
-        dto.setDt_abertura(SDF.format(d.getDtAbertura()));
-        dto.setDt_fechamento(SDF.format(d.getDtFechamento()));
+        dto.setDt_emissao(d.getDtEmissao());
+        dto.setDt_entrada(d.getDtEntrada());
+        dto.setDt_abertura(d.getDtAbertura());
+        dto.setDt_fechamento(d.getDtFechamento());
+
+//        dto.setDt_emissao(SDF.format(d.getDtEmissao()));
+//        dto.setDt_entrada(SDF.format(d.getDtEntrada()));
+//        dto.setDt_abertura(SDF.format(d.getDtAbertura()));
+//        dto.setDt_fechamento(SDF.format(d.getDtFechamento()));
 
         dto.setFl_nf(d.getFlNf());
         dto.setVl_documento_fiscal(d.getVlDocumentoFiscal());

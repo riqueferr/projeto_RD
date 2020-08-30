@@ -15,6 +15,8 @@ export class CadastroDeProdutoComponent implements OnInit {
 
   @ViewChild('formProdutos', { static: true }) formProdutos: NgForm;
 
+  
+
   request: Produtos = {
     nm_fantasia: null,
     statusProduto: {
@@ -42,6 +44,7 @@ export class CadastroDeProdutoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   onSubmit(formProdutos: NgForm) {
     console.log(formProdutos.value);  // { first: '', last: '' }
     console.log(formProdutos.valid);  // false
