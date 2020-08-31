@@ -26,10 +26,10 @@ import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/li
 
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: HomeComponent
-    },
+    // {
+    //     path: '',
+    //     component: HomeComponent
+    // },
     {path: 'abastecimento-dashboard',
     component: DashboardComponent},
     {path: 'cadastroDeFornecedor',
