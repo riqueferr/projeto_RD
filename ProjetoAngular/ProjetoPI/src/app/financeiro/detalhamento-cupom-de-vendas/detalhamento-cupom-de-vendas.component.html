@@ -92,8 +92,14 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="valor">Valor Total</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">R$</span>
+                      </div>
+                
                 <input name="valor" ngModel #dsTipoPagamento="ngModel" class="form-control" id="inputPassword4" placeholder="Valor total"
                 [(ngModel)]='request.vl_documento_fiscal' disabled>
+            </div>
             </div>
         </div>
         <div class="form-row justify-content-end">
@@ -104,7 +110,7 @@
 
 
           <!-- TABLE ITENS -->
-            <div class="container">
+            <!-- <div class="container">
                 <h3>Itens do documento fiscal</h3>
             </div>
             <br><br>
@@ -132,7 +138,9 @@
                     </tbody>
                 </table>
                 </div>
-            </div>
+            </div> -->
+
+
           <div class="form-group col-md-2">
             <a routerLink='/cupomDeVenda'> <button type="reset"
                 class="btn btn-default botaoConfirmar">Voltar</button>

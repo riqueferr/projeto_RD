@@ -7,8 +7,7 @@
 <div class='row marginTopMain semMarginRightMain'>
     <div class='container'>
         <div class='col-md-12'>
-            <form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
-
+          <form class="needs-validation" #it="ngForm" novalidate>
                 <!-- Inicio da primeira linha-->
                 <div class="form-row">
                     <div class="form-group col-md-4">
@@ -19,22 +18,42 @@
                         <label for="inputdescricao">Centro de Distribuição</label>
                         <input id="idFilial" name="idFilial" class="form-control" placeholder="CD" disabled>
                     </div>
-                    <div class="form-group col-md-4">
+                    <!-- <div class="form-group col-md-4">
                         <label for="inputdescricao">Filial Destino</label>
                         <input id="idFilialDestino" name="idFilialDestino" required #idFilialDestino="ngModel" class="form-control" placeholder="Insira a filial destino"
                         [(ngModel)]='request.idFilialDestino'>
-                    </div>
+                    </div> -->
+                    <div class="form-group col-md-3">
+                        <label for="inputdescricao">Filial Destino</label>
+                        <select name="inputdescricao" ngModel #idStatusProduto="ngModel" class="form-control" placeholder="Filial"
+                          [(ngModel)]='request.idFilialDestino' id='idFilialDestino' required>
+                          <option value="1" selected>BUTANTÃ</option>
+                          <option value="2">CONSOLAÇÃO</option>
+                          <option value="3">SE</option>
+                          
+                        </select>
+                        <div class="invalid-tooltip">
+                         Selecione uma filial de destino, por favor.
+                      </div>
+
+                      </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputLote">Data Emissão</label>
                         <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="form-control" placeholder="____/___/___"
                         [(ngModel)]='request.dtEmissao'>
+                        <div class="invalid-tooltip">
+                          Insira uma data de emissão!
+                        </div>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputCodProd">Data Entrada</label>
                         <input id="dtEntrada" name="dtEntrada" required #dtEntrada="ngModel" class="form-control" placeholder="____/___/___"
                         [(ngModel)]='request.dtEntrada'>
+                        <div class="invalid-tooltip">
+                              Digite uma data de entrada, por favor.
+                        </div>
                     </div>
                 </div>
 
@@ -50,6 +69,10 @@
                     <div class="form-group col-md-4">
                         <label for="inputdescricao">Produto</label>
                         <input name="cdProduto" required #cdProduto="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].cdProduto'>
+                        <div class="invalid-tooltip">
+                              Digite o código de um produto, por favor.
+                        </div>
+        
                         <!-- <select [(ngModel)]='request.itens[0].cdProduto'
                         class="form-control" id="cdProduto"
                         name="cdProduto" ngModel required #cdProduto="ngModel">
@@ -65,6 +88,11 @@
                     <div class="form-group col-md-4">
                         <label for="inputdescricao">Quantidade Itens</label>
                         <input name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="Quantidade itens" [(ngModel)]='request.itens[0].qtItem'>
+                        <div *ngIf="qtItem.errors && qtItem.dirty" class="invalid-tooltip">
+                            <div [hidden]="!qtItem.errors.required">
+                              Digite quantos itens serão transferidos, por favor.
+                            </div>
+                          </div>
                     </div>
                 </div>
 
@@ -76,9 +104,7 @@
                   </div>
                   <div class="form-group col-md-4">
                     <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Confirmar</button>
-
-                     <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
-
+                    <a routerLink='/listaTransferenciaProduto'><button type="button" class="btn btn-default botaoCancelar">Cancelar</button></a>
                   </div>
                 </div>
               </form>

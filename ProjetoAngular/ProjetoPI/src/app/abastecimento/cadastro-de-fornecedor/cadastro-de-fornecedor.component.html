@@ -11,9 +11,6 @@
       <label for="cnpj">CNPJ</label>
       <input id="nr_cnpj" name="cnpj" required #cnpj="ngModel" class="form-control" placeholder="Insira seu CNPJ"
       [(ngModel)]='request.nr_cnpj'>
-      <div class="invalid-tooltip">
-        Insira um CNPJ válido!
-      </div>
     </div>
     <div class="form-group col-md-5">
       <label for="razaoSocial">Razão Social</label>
@@ -140,9 +137,7 @@
     </div>
     <div class="form-group col-md-4">
       <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Confirmar</button>
-
-      <a routerLink='/listaFornecedores'> <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
-      </a>
+      <a routerLink='/listaFornecedores'><button type="button" class="btn btn-default botaoCancelar">Cancelar</button></a>
     </div>
   </div>
 </form>
