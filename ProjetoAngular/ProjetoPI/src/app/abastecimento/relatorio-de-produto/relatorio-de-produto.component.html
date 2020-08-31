@@ -31,7 +31,7 @@
 
                 <div class='col-md-4'>
                     <form>
-                        <div style="margin-left: 30%;" class="form-group">
+                        <div class="form-group">
                             <label for="exampleFormControlSelect1"></label>
                             <input class="form-control mr-sm-4" type="search" placeholder="Nome do Produto" aria-label="Search">
                         </div>
@@ -40,8 +40,13 @@
                 <div class='col-md-4'>
                     <form>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1"></label>
-                            <input class="form-control mr-sm-4" type="search" placeholder="Status do produto" aria-label="Search">
+                          <select style="margin-top: 24px;"
+                          class="form-control mr-sm-4" id="statusProduto"
+                          name="statusProduto" ngModel #statusProduto="ngModel">
+                          <option value="1">Ativo</option>
+                              <option value="2">Inativo</option>
+                              <option value="3">Fora do Mix</option>
+                          </select>
                         </div>
                     </form>
                 </div>
@@ -53,35 +58,36 @@
         </div>
         <br>
 
-        <div class="container">
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                        <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Fornecedor</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <!-- <tbody  style=" height:24.400rem !important;"> -->
-                        <tbody>
-                        <tr *ngFor='let produtos of responseRelatorioProduto'>
-                            <th scope="row">{{ produtos.cdProduto }}</th>
-                            <td class='maxCarch'>{{ produtos.nmProduto }}</td>
-                            <td class='maxCarch'>{{ produtos.tipoProduto }}</td>
-                            <td class='maxCarch' *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
-                            <td class='maxCarch'>{{ produtos.statusProduto }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            <div class='row justify-content-center' *ngIf="loading">
-                <div class="spinner-grow text-success text-center" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
+        <main>
+          <div class='row marginTabela' style='text-align: center'>
+            <table class="table">
+              <thead class="thead-default tituloTabela">
+                <tr>
+                  <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Fornecedor</th>
+                    <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let produtos of responseRelatorioProduto'>
+                  <th scope="row">{{ produtos.cdProduto }}</th>
+                  <td class='maxCarch'>{{ produtos.nmProduto }}</td>
+                  <td class='maxCarch'>{{ produtos.tipoProduto }}</td>
+                  <td class='maxCarch' *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}</td>
+                  <td class='maxCarch'>{{ produtos.statusProduto }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class='row justify-content-center' *ngIf="loading">
+            <div class="spinner-grow text-success text-center" role="status">
+              <span class="sr-only">Loading...</span>
             </div>
+          </div>
+        </main>
         </div>
-        </div>
-    </div>
+
 </main>
