@@ -7,7 +7,7 @@
                 <div class='row marginTopMain semMarginRightMain'>
                     <div class='container'>
                         <div class='col-md-12'>
-                            <form #it="ngForm" class="needs-validation" (ngSubmit)="onSubmit(it)" novalidate>
+                          <form class="needs-validation" #it="ngForm" novalidate>
                                 <!-- Inicio da primeira linha-->
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
@@ -22,7 +22,7 @@
                                         <label for="inputdescricao">CD Fornecedor</label>
                                         <input id="idFornecedor" name="idFornecedor" #idFornecedor="ngModel" [(ngModel)]='request.idFornecedor'
                                         class="form-control" placeholder="Fornecedor" required>
-                                        <div *ngIf="idFornecedor.errors && idFornecedor.dirty" class="invalid-tooltip d-block">
+                                        <div *ngIf="idFornecedor.errors && idFornecedor.dirty" class="invalid-tooltip">
                                             <div [hidden]="!idFornecedor.errors.required">
                                               Digite o fornecedor, por favor.
                                             </div>
@@ -43,7 +43,7 @@
                                           </div>
                                         <input id="vlDocumentoFiscal" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" class="form-control" placeholder=" 00.000"
                                         [(ngModel)]='request.vlDocumentoFiscal'>
-                                        <div *ngIf="vlDocumentoFiscal.errors && vlDocumentoFiscal.dirty" class="invalid-tooltip d-block">
+                                        <div *ngIf="vlDocumentoFiscal.errors && vlDocumentoFiscal.dirty" class="invalid-tooltip">
                                             <div [hidden]="!vlDocumentoFiscal.errors.required">
                                               Digite um valor, por favor.
                                             </div>
@@ -55,7 +55,7 @@
                                         <label for="inputLote">Data Emissão</label>
                                         <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="form-control" placeholder="____/___/___"
                                         [(ngModel)]='request.dtEmissao'>
-                                        <div *ngIf="dtEmissao.errors && dtEmissao.dirty" class="invalid-tooltip d-block">
+                                        <div *ngIf="dtEmissao.errors && dtEmissao.dirty" class="invalid-tooltip">
                                             <div [hidden]="!dtEmissao.errors.required">
                                               Digite uma data de emissão, por favor.
                                             </div>
@@ -65,7 +65,7 @@
                                         <label for="inputCodProd">Data Entrada</label>
                                         <input id="dtEntrada" name="dtEntrada" required #dtEntrada="ngModel" class="form-control" placeholder="____/___/___"
                                         [(ngModel)]='request.dtEntrada'>
-                                        <div *ngIf="dtEntrada.errors && dtEntrada.dirty" class="invalid-tooltip d-block">
+                                        <div *ngIf="dtEntrada.errors && dtEntrada.dirty" class="invalid-tooltip">
                                             <div [hidden]="!dtEntrada.errors.required">
                                               Digite uma data de entrada, por favor.
                                             </div>
@@ -95,7 +95,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">CD Produto</label>
                                         <input name="cdProduto" required #cdProduto="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].cdProduto'>
-                                        <div *ngIf="cdProduto.errors && cdProduto.dirty" class="invalid-tooltip d-block">
+                                        <div *ngIf="cdProduto.errors && cdProduto.dirty" class="invalid-tooltip">
                                             <div [hidden]="!cdProduto.errors.required">
                                               Digite um código do produto, por favor.
                                             </div>
@@ -104,7 +104,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">Quantidade Itens</label>
                                         <input name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="Quantidade itens" [(ngModel)]='request.itens[0].qtItem'>
-                                        <div *ngIf="qtItem.errors && qtItem.dirty" class="invalid-tooltip d-block">
+                                        <div *ngIf="qtItem.errors && qtItem.dirty" class="invalid-tooltip">
                                             <div [hidden]="!qtItem.errors.required">
                                               Digite uma quantidade de itens, por favor.
                                             </div>
@@ -121,9 +121,7 @@
                                   </div>
                                   <div class="form-group col-md-4">
                                     <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Confirmar</button>
-
-                                    <a routerLink='/listaEntradaProdutos'> <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
-                                    </a>
+                                    <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
                                   </div>
                                 </div>
                               </form>

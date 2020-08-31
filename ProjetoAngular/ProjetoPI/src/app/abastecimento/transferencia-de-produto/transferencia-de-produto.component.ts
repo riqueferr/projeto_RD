@@ -86,6 +86,7 @@ export class TransferenciaDeProdutoComponent implements OnInit {
       console.log(this.request);
       this.transferenciaService.createTransferencia(this.request).subscribe();
       this.router.navigate(['/listaTransferenciaProduto']);
+      alert("Transferência registrada com sucesso!");
     }
   }
 
