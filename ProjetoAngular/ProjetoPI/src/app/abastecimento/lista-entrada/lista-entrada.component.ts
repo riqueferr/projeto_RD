@@ -10,6 +10,8 @@ import { EntradasService } from '../entrada-de-produto/shared/entrada.service';
 export class ListaEntradaComponent implements OnInit {
   loading: boolean;
 
+  public paginaAtual = 1;
+
   responseEntradas: ResponseEntradas[];
 
   constructor(private entradasService: EntradasService) { }

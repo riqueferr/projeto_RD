@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
+import { NgxPaginationModule } from 'ngx-pagination'; // Módulo da dependência de paginação
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -70,7 +72,8 @@ import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/li
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    NgxPaginationModule // Nosso módulo recém instalado
   ],
   providers: [],
   bootstrap: [AppComponent]

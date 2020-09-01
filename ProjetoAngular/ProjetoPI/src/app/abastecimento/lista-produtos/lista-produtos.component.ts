@@ -12,6 +12,8 @@ export class ListaProdutosComponent implements OnInit {
 
   loading: boolean;
 
+  public paginaAtual = 1;
+
   responseProdutos: ResponseProdutos[];
 
   constructor(private produtosService: ProdutosService) { }
