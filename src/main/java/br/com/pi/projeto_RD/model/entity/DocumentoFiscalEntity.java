@@ -14,6 +14,7 @@ import java.util.List;
 @Data
 @NamedQuery(name = "buscarNfPorFilial", query = "select n from DocumentoFiscalEntity n where n.filial.nmFilial  =:NM_FILIAL")
 @NamedQuery(name = "buscarNfPorDataEntrada", query = "select n from DocumentoFiscalEntity n where n.dtEntrada  =:DT_ENTRADA")
+@NamedQuery(name = "buscarTiposPagamento", query = "select n from DocumentoFiscalEntity n where n.idDocumento =:ID_DOCUMENTO_FISCAL")
 public class DocumentoFiscalEntity implements Serializable {
 
     @Id
@@ -60,7 +61,9 @@ public class DocumentoFiscalEntity implements Serializable {
     @Column(name = "DT_EMISSAO")
     private Date dtEmissao;
 
+
     @Column(name = "DT_ENTRADA")
+    @Temporal(value = TemporalType.DATE)
     private Date dtEntrada;
 
     @Column(name = "DT_ABERTURA")
