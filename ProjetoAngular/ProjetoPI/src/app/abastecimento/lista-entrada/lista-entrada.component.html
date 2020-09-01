@@ -40,7 +40,7 @@
       </thead>
 
       <tbody>
-        <tr *ngFor='let entradas of responseEntradas'>
+        <tr *ngFor='let entradas of responseEntradas | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
           <th scope="row"> {{ entradas.idDocumento }} </th>
           <td>
             <div class="dropdown">
@@ -62,6 +62,7 @@
         </tr>
       </tbody>
     </table>
+    <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
   </div>
   <div class='row justify-content-center' *ngIf="loading">
     <div class="spinner-grow text-success text-center" role="status">

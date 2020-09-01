@@ -1,3 +1,4 @@
+               
                 <br>
                 <div class="container">
                     <h2>Recebimento de Produto</h2>
@@ -39,12 +40,15 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">R$</span>
                                           </div>
-                                        <input id="vlDocumentoFiscal" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" class="form-control" placeholder=" 00.000"
+                                        <input id="vlDocumentoFiscal" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" 
+                                        class="dinheiro form-control" placeholder=" 00.000"
                                         [(ngModel)]='request.vlDocumentoFiscal'>
                                         <div class="invalid-tooltip">
                                               Digite um valor, por favor.
                                             </div>
                                     </div>
+                                    <input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" />
+                                    <input type="text" name="telefone" class="telefone form-control" placeholder="(17) 9 9173-3578" />
                                     </div>
 
                                     <div class="form-group col-md-4">

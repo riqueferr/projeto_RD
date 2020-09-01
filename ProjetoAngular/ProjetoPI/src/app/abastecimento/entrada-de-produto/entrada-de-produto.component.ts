@@ -4,6 +4,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 
+declare var $: any;
+
+
 import { NgForm, Form, FormGroup, FormControl } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import 'rxjs/add/operator/map';
@@ -51,6 +54,16 @@ export class EntradaDeProdutoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    $(document).ready(function() {
+      alert('Eu estou usando JQuery');
+
+      $('.telefone').mask('(00) 0 0000-0000');
+      $('.dinheiro').mask('#.##0.00', {reverse: true});
+      $('.estado').mask('AA');
+
+    });
+
+
   }
 
   onSubmit(it: NgForm) {
