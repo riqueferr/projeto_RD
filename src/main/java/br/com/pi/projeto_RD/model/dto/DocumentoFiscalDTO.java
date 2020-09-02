@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +38,7 @@ public class DocumentoFiscalDTO implements Serializable {
     private Date dt_fechamento;
 
     private Integer fl_nf;
-    private Double vl_documento_fiscal;
+    private BigDecimal vl_documento_fiscal;
     private Long nr_caixa;
     private List<ItensDfDTO> itens;
     private List<PagamentoDocDTO> pagamento;

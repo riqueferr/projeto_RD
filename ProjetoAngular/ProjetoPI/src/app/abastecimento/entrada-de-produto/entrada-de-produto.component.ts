@@ -4,6 +4,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 
+declare var $: any;
+
+
 import { NgForm, Form, FormGroup, FormControl } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import 'rxjs/add/operator/map';
@@ -30,8 +33,6 @@ export class EntradaDeProdutoComponent implements OnInit {
     nrSerie: 45785985,
     dtEmissao: null,
     dtEntrada: null,
-    // dtAbertura: null,
-    // dtFechamento: null,
     vlDocumentoFiscal: null,
     itens: [
         {
@@ -51,6 +52,14 @@ export class EntradaDeProdutoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    $(document).ready(function() {
+      // alert('Eu estou usando JQuery');
+
+      $('.telefone').mask('(00) 0 0000-0000');
+      $('.data').mask('00/00/0000');
+      // $(".dinheiro").mask('000.000.000.000,000.00', {reverse: true});
+
+    });
   }
 
   onSubmit(it: NgForm) {
@@ -66,5 +75,7 @@ export class EntradaDeProdutoComponent implements OnInit {
       this.router.navigate(['/listaEntradaProdutos']);
     }
   }
+
+  
 
 }

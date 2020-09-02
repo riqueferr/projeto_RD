@@ -2,9 +2,14 @@ package br.com.pi.projeto_RD.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.apache.tomcat.jni.Local;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -58,9 +63,11 @@ public class DocumentoFiscalEntity implements Serializable {
     @Column(name = "NR_SERIE")
     private Long nrSerie;
 
+//    @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "DT_EMISSAO")
     private Date dtEmissao;
 
+//    @DateTimeFormat(pattern = "dd/MM/yyyy")
 
     @Column(name = "DT_ENTRADA")
     @Temporal(value = TemporalType.DATE)
@@ -75,8 +82,9 @@ public class DocumentoFiscalEntity implements Serializable {
     @Column(name = "FL_NF")
     private Integer flNf;
 
-    @Column(name = "VL_DOCUMENTO_FISCAL")
-    private Double vlDocumentoFiscal;
+    @NumberFormat(style = NumberFormat.Style.CURRENCY, pattern = "#,##0.00")
+    @Column(name = "VL_DOCUMENTO_FISCAL", columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
+    private BigDecimal vlDocumentoFiscal;
 
     @Column(name = "NR_CAIXA")
     private Long nrCaixa;

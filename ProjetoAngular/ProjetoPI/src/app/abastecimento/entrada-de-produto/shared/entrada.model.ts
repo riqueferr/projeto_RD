@@ -23,6 +23,7 @@ export interface Entradas {
     ]
 }
 
+
 export interface ResponseEntradas {
   entradas: Entradas[];
 }

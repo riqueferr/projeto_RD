@@ -13,8 +13,10 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -56,8 +58,11 @@ public class DFEntradaBO {
         dto.setChaveAcesso(d.getNrChaveAcesso());
         dto.setNrNF(d.getNrNf());
         dto.setNrSerie(d.getNrSerie());
-        dto.setDtEmissao(d.getDtEmissao());
-        dto.setDtEntrada(d.getDtEntrada());
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        dto.setDtEmissao(formato.format(d.getDtEmissao()));
+        dto.setDtEntrada(formato.format(d.getDtEntrada()));
 //        dto.setDtAbertura(d.getDtAbertura());
 //        dto.setDtFechamento(d.getDtFechamento());
         dto.setVlDocumentoFiscal(d.getVlDocumentoFiscal());
@@ -99,8 +104,14 @@ public class DFEntradaBO {
         dfEntity.setNrChaveAcesso(dto.getChaveAcesso());
         dfEntity.setNrNf(dto.getNrNF());
         dfEntity.setNrSerie(dto.getNrSerie());
-        dfEntity.setDtEmissao(dto.getDtEmissao());
-        dfEntity.setDtEntrada(dto.getDtEntrada());
+
+
+
+//        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+//        Date dataEmissao = formato.parse(dto.getDtEmissao());
+
+        dfEntity.setDtEmissao(java.sql.Date.valueOf(formataDataEnviaBD(dto.getDtEmissao())));
+        dfEntity.setDtEntrada(java.sql.Date.valueOf(formataDataEnviaBD(dto.getDtEntrada())));
 //        dfEntity.setDtAbertura(dto.getDtAbertura());
 //        dfEntity.setDtFechamento(dto.getDtFechamento());
         dfEntity.setVlDocumentoFiscal(dto.getVlDocumentoFiscal());
@@ -136,6 +147,15 @@ public class DFEntradaBO {
 
 
         return dfEntity;
+    }
+
+    public String formataDataEnviaBD(String data) throws ParseException {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        df.setLenient(false);
+        Date d = df.parse(data);
+        df = new SimpleDateFormat("yyyy-MM-dd");
+        String s = df.format(d);
+        return s;
     }
 
 

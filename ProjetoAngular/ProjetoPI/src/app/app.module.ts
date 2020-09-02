@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
+import { NgxPaginationModule } from 'ngx-pagination'; // Módulo da dependência de paginação
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +34,8 @@ import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornece
 import { ListaTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-transferencia/lista-transferencia.component';
 import { LoginComponent } from './login/login.component';
 import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/listar-id-filial/listar-id-filial.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-entrada/lista-id-entrada.component'
 
 
 
@@ -62,7 +66,8 @@ import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/li
     DetalhamentoFornecedoresComponent,
     ListaTransferenciaComponent,
     LoginComponent,
-    ListarIdFilialComponent
+    ListarIdFilialComponent,
+    ListaIdEntradaComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,9 @@ import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/li
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    NgxMaskModule.forRoot(),
+    NgxPaginationModule // Nosso módulo recém instalado
   ],
   providers: [],
   bootstrap: [AppComponent]

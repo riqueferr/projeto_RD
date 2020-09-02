@@ -23,6 +23,7 @@ import { DetalhamentoFornecedoresComponent } from './abastecimento/lista-fornece
 import { ListaTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-transferencia/lista-transferencia.component';
 import { LoginComponent } from './login/login.component';
 import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/listar-id-filial/listar-id-filial.component';
+import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-entrada/lista-id-entrada.component';
 
 
 export const routes: Routes = [
@@ -58,6 +59,8 @@ export const routes: Routes = [
     component: ListaFornecedoresComponent},
     {path: 'listaEntradaProdutos',
     component: ListaEntradaComponent},
+    {path: 'listaEntradaProdutos/:idDF',
+    component: ListaIdEntradaComponent},
     {path: 'listaProdutos',
     component: ListaProdutosComponent},
     {path: 'listaTransferenciaProduto',
