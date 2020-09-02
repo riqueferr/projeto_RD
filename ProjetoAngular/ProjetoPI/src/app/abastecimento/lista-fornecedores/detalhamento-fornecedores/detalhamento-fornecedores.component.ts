@@ -19,7 +19,6 @@ export class DetalhamentoFornecedoresComponent implements OnInit {
   responseFornecedores: ResponseFornecedores[];
 
   constructor(
-    private http: HttpClient,
     private fornecedorService: FornecedoresService,
     private route: ActivatedRoute,
     private router: Router

@@ -40,20 +40,18 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">R$</span>
                                           </div>
-                                        <input id="vlDocumentoFiscal" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" 
-                                        class="dinheiro form-control" placeholder=" 00.000"
+                                        <input id="vlDocumentoFiscal" type="text" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" 
+                                        class="dinheiro form-control" placeholder=" 000.00"
                                         [(ngModel)]='request.vlDocumentoFiscal'>
                                         <div class="invalid-tooltip">
                                               Digite um valor, por favor.
                                             </div>
                                     </div>
-                                    <input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" />
-                                    <input type="text" name="telefone" class="telefone form-control" placeholder="(17) 9 9173-3578" />
                                     </div>
 
                                     <div class="form-group col-md-4">
                                         <label for="inputLote">Data Emissão</label>
-                                        <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="form-control" placeholder="____/___/___"
+                                        <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="data form-control" placeholder="____/___/___"
                                         [(ngModel)]='request.dtEmissao'>
                                         <div class="invalid-tooltip">
                                               Digite uma data de emissão, por favor.
@@ -61,7 +59,7 @@
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputCodProd">Data Entrada</label>
-                                        <input id="dtEntrada" name="dtEntrada" required #dtEntrada="ngModel" class="form-control" placeholder="____/___/___"
+                                        <input id="dtEntrada" name="dtEntrada" required #dtEntrada="ngModel" class="data form-control" placeholder="____/___/___"
                                         [(ngModel)]='request.dtEntrada'>
                                         <div class="invalid-tooltip">
                                               Digite uma data de entrada, por favor.
@@ -89,15 +87,15 @@
                                         <input name="nrItemDocumento"  class="form-control" placeholder="01" disabled>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="inputdescricao">CD Produto</label>
-                                        <input name="cdProduto" required #cdProduto="ngModel" class="form-control" placeholder="00" [(ngModel)]='request.itens[0].cdProduto'>
+                                        <label for="inputdescricao">Código Produto</label>
+                                        <input name="cdProduto" required #cdProduto="ngModel" class="form-control"  [(ngModel)]='request.itens[0].cdProduto'>
                                         <div class="invalid-tooltip">
                                               Digite um código do produto, por favor.
                                           </div>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">Quantidade Itens</label>
-                                        <input name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="Quantidade itens" [(ngModel)]='request.itens[0].qtItem'>
+                                        <input type="number" name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="Quantidade itens" [(ngModel)]='request.itens[0].qtItem'>
                                         <div class="invalid-tooltip">
                                               Digite uma quantidade de itens, por favor.
                                           </div>
