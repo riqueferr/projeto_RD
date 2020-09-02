@@ -1,109 +1,117 @@
-<br>
-<div class="container">
-  <h2>Detalhamento de Fornecedor</h2>
+<div class='row'>
+  <div class='col-md-3'>
+    <!-- SideBar -->
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class='col-md-9'>
+    <div class="container">
+      <br>
+      <div class="container">
+        <h2>Detalhamento de Fornecedor</h2>
+      </div>
+      <br>
+
+      <form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
+        <div class="form-row justify-content-around">
+          <div class="form-group col-md-5">
+            <label for="cnpj">CNPJ</label>
+            <input id="nr_cnpj" name="cnpj" required #cnpj="ngModel" class="form-control" placeholder="Insira seu CNPJ"
+              [(ngModel)]='request.nr_cnpj' disabled>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="razaoSocial">Razão Social</label>
+            <input name="razaoSocial" required #razaoSocial="ngModel" class="form-control"
+              placeholder="Insira sua razão social" [(ngModel)]='request.nm_razao_social' disabled>
+          </div>
+        </div>
+        <div class="form-row justify-content-around">
+          <div class="form-group col-md-5">
+            <label for="denominacaoSocial">Denominação Social</label>
+            <input name="denominacaoSocial" required #denominacaoSocial="ngModel" class="form-control"
+              placeholder="Insira sua denominação social" [(ngModel)]='request.ds_denominacao' disabled>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="numeroInscricao">Número de Inscrição</label>
+            <input name="numeroInscricao" required #numeroInscricao="ngModel" class="form-control"
+              placeholder="Insira seu número de inscrição" [(ngModel)]='request.nr_inscricao' disabled>
+          </div>
+        </div>
+        <div class="form-row justify-content-around">
+          <div class="form-group col-2">
+            <label for="cep" class="control-label">CEP</label>
+            <input type="text" class="form-control" id="cep" name="cep" required #cep="ngModel"
+              placeholder="Apenas números" [(ngModel)]='request.endereco[0].nrCep' disabled>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="tipoFornecedor" class="control-label">Tipo Fornecedor</label>
+            <select [(ngModel)]='request.fk_tipo_fornecedor.id_tipo_fornecedor' class="form-control" id="tipoFornecedor"
+              name="tipoFornecedor" ngModel required #tipoFornecedor="ngModel" disabled>
+              <option value="1">Especial</option>
+              <option value="2">Monopolista</option>
+              <option value="3">Habitual</option>
+            </select>
+          </div>
+          <div class="form-group col-md-5">
+          </div>
+        </div>
+        <div class="form-row justify-content-around">
+          <div class="form-group input-group col-md-6">
+
+            <input name="rua" required #rua="ngModel" class="form-control" placeholder="Rua"
+              [(ngModel)]='request.endereco[0].dsEndereco' disabled>
+
+            <input style="max-width: 70px;" name="numero" required #numero="ngModel" class="form-control"
+              placeholder="Nº" [(ngModel)]='request.endereco[0].nrEndereco' disabled>
+
+            <input style="max-width: 135px;" name="complemento" ngModel required #complemento="ngModel"
+              class="form-control" placeholder="Complemento" [(ngModel)]='request.endereco[0].nmComplemento' disabled>
+          </div>
+          <div class="form-group col-md-2">
+          </div>
+          <div class="form-group col-md-1">
+          </div>
+        </div>
+        <div class="form-row justify-content-around">
+          <div class="form-group col-md-3">
+            <label for="inputBairro">Bairro</label>
+            <input name="bairro" #bairro="ngModel" class="form-control" placeholder="Insira seu bairro"
+              [(ngModel)]='request.endereco[0].dsBairro' disabled>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="inputCidade">Cidade</label>
+            <input name="cidade" required #cidade="ngModel" class="form-control" placeholder="Insira sua cidade"
+              [(ngModel)]='request.endereco[0].dsCidade' disabled>
+          </div>
+          <div class="form-group col-md-1">
+            <label for="inputEstado">UF</label>
+            <input name="estado" required #estado="ngModel" class="form-control"
+              [(ngModel)]='request.endereco[0].sgEstado' disabled>
+          </div>
+        </div>
+
+        <div class="form-row justify-content-around">
+          <div class="form-group col-md-5">
+            <label for="inputEmail">E-mail</label>
+            <input type="email" name="email" required #Email="ngModel" class="form-control"
+              placeholder="Insira um e-mail válido" [(ngModel)]='request.ds_email' disabled>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="telefone">Telefone</label>
+            <input name="telefone" required #telefone="ngModel" class="form-control"
+              placeholder="Insira um número de telefone" [(ngModel)]='request.nr_telefone' disabled>
+          </div>
+        </div>
+        <div class="form-row justify-content-around">
+          <div class="form-group col-md-3">
+          </div>
+          <div class="form-group col-md-3">
+          </div>
+          <div class="form-group col-md-3">
+            <a routerLink='/listaFornecedores'> <button type="reset"
+                class="btn btn-default botaoConfirmar">Voltar</button></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
-<br>
-
-<form #it="ngForm" (ngSubmit)="onSubmit(it)" novalidate>
-  <div class="form-row justify-content-around">
-    <div class="form-group col-md-5">
-      <label for="cnpj">CNPJ</label>
-      <input id="nr_cnpj" name="cnpj" required #cnpj="ngModel" class="form-control" placeholder="Insira seu CNPJ"
-      [(ngModel)]='request.nr_cnpj' disabled>
-    </div>
-    <div class="form-group col-md-5">
-      <label for="razaoSocial">Razão Social</label>
-      <input name="razaoSocial" required #razaoSocial="ngModel" class="form-control"
-        placeholder="Insira sua razão social" [(ngModel)]='request.nm_razao_social'disabled>
-    </div>
-  </div>
-  <div class="form-row justify-content-around">
-    <div class="form-group col-md-5">
-      <label for="denominacaoSocial">Denominação Social</label>
-      <input name="denominacaoSocial" required #denominacaoSocial="ngModel" class="form-control"
-        placeholder="Insira sua denominação social" [(ngModel)]='request.ds_denominacao'disabled>
-    </div>
-    <div class="form-group col-md-5">
-      <label for="numeroInscricao">Número de Inscrição</label>
-      <input name="numeroInscricao" required #numeroInscricao="ngModel" class="form-control"
-        placeholder="Insira seu número de inscrição" [(ngModel)]='request.nr_inscricao'disabled>
-    </div>
-  </div>
-  <div class="form-row justify-content-around">
-    <div class="form-group col-2">
-      <label for="cep" class="control-label">CEP</label>
-      <input type="text" class="form-control" id="cep" name="cep" required #cep="ngModel"
-         placeholder="Apenas números"
-        [(ngModel)]='request.endereco[0].nrCep'disabled>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="tipoFornecedor" class="control-label">Tipo Fornecedor</label>
-      <select [(ngModel)]='request.fk_tipo_fornecedor.id_tipo_fornecedor'
-      class="form-control" id="tipoFornecedor"
-      name="tipoFornecedor" ngModel required #tipoFornecedor="ngModel"disabled>
-      <option value="1">Especial</option>
-          <option value="2">Monopolista</option>
-          <option value="3">Habitual</option>
-      </select>
-    </div>
-    <div class="form-group col-md-5">
-    </div>
-  </div>
-  <div class="form-row justify-content-around">
-    <div class="form-group input-group col-md-6">
-
-      <input name="rua" required #rua="ngModel" class="form-control"
-      placeholder="Rua" [(ngModel)]='request.endereco[0].dsEndereco'disabled>
-
-      <input style="max-width: 70px;" name="numero"  required #numero="ngModel" class="form-control"
-      placeholder="Nº"[(ngModel)]='request.endereco[0].nrEndereco'disabled>
-
-      <input style="max-width: 135px;" name="complemento" ngModel required #complemento="ngModel" class="form-control"
-        placeholder="Complemento"[(ngModel)]='request.endereco[0].nmComplemento'disabled>
-    </div>
-    <div class="form-group col-md-2">
-    </div>
-    <div class="form-group col-md-1">
-    </div>
-  </div>
-  <div class="form-row justify-content-around">
-    <div class="form-group col-md-3">
-      <label for="inputBairro">Bairro</label>
-      <input name="bairro"  #bairro="ngModel" class="form-control"
-      placeholder="Insira seu bairro" [(ngModel)]='request.endereco[0].dsBairro'disabled>
-    </div>
-    <div class="form-group col-md-5">
-      <label for="inputCidade">Cidade</label>
-      <input name="cidade"  required #cidade="ngModel" class="form-control"
-      placeholder="Insira sua cidade"
-      [(ngModel)]='request.endereco[0].dsCidade'disabled>
-    </div>
-    <div class="form-group col-md-1">
-      <label for="inputEstado">UF</label>
-      <input name="estado" required #estado="ngModel" class="form-control"
-      [(ngModel)]='request.endereco[0].sgEstado'disabled>
-    </div>
-  </div>
-
-  <div class="form-row justify-content-around">
-    <div class="form-group col-md-5">
-      <label for="inputEmail">E-mail</label>
-      <input type="email" name="email" required #Email="ngModel" class="form-control"
-        placeholder="Insira um e-mail válido" [(ngModel)]='request.ds_email'disabled>
-    </div>
-    <div class="form-group col-md-5">
-      <label for="telefone">Telefone</label>
-      <input name="telefone" required #telefone="ngModel" class="form-control"
-        placeholder="Insira um número de telefone" [(ngModel)]='request.nr_telefone'disabled>
-    </div>
-  </div>
-  <div class="form-row justify-content-around">
-    <div class="form-group col-md-3">
-    </div>
-    <div class="form-group col-md-3">
-    </div>
-    <div class="form-group col-md-3">
-      <a routerLink='/listaFornecedores'> <button type="reset" class="btn btn-default botaoConfirmar">Voltar</button></a>
-    </div>
-  </div>
-</form>

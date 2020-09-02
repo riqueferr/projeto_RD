@@ -1,117 +1,129 @@
-<br>
-<div class="container">
-  <h2>Cadastro de Produto</h2>
+<div class='row'>
+  <div class='col-md-3'>
+    <!-- SideBar -->
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class='col-md-9'>
+    <div class="container">
+      <br>
+      <div class="container">
+        <h2>Cadastro de Produto</h2>
+      </div>
+      <br>
+      <form #formProdutos="ngForm" (ngSubmit)="onSubmit(formProdutos)" novalidate>
+        <div class="form-row ">
+          <div class="form-group col-md-4">
+            <label for="nm_fantasia"> Nome Fantasia </label>
+            <input name="nm_fantasia" ngModel #nm_fantasia="ngModel" class="form-control"
+              [(ngModel)]='request.nm_fantasia' id='nm_fantasia' required>
+            <div *ngIf="nm_fantasia.errors && nm_fantasia.dirty" class="invalid-tooltip d-block">
+              <div [hidden]="!nm_fantasia.errors.required">
+                Digite o nome, por favor.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="nm_fabricante"> Fabricante </label>
+            <input name="nm_fabricante" ngModel #nm_fabricante="ngModel" class="form-control"
+              [(ngModel)]='request.nm_fabricante' id='nm_fabricante' required>
+            <div *ngIf="nm_fabricante.errors && nm_fabricante.dirty" class="invalid-tooltip d-block">
+              <div [hidden]="!nm_fabricante.errors.required">
+                Digite o fabricante, por favor.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="vl_unidade">Valor Unidade</label>
+            <input name="vl_unidade" ngModel #vl_unidade="ngModel" class="form-control" placeholder="R$ 00,00"
+              [(ngModel)]='request.vl_unidade' id='vl_unidade' required>
+            <div *ngIf="vl_unidade.errors && vl_unidade.dirty" class="invalid-tooltip d-block">
+              <div [hidden]="!vl_unidade.errors.required">
+                Digite o valor, por favor.
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="form-row ">
+          <div class="form-group col-md-3">
+            <label for="idStatusProduto">Status</label>
+            <select name="idStatusProduto" ngModel #idStatusProduto="ngModel" class="form-control" placeholder="Ativo"
+              [(ngModel)]='request.statusProduto.idStatusProduto' id='idStatusProduto' required>
+              <option value="1">Ativo</option>
+              <option value="2">Inativo</option>
+              <option value="3">Fora do Mix</option>
+            </select>
+            <div *ngIf="idStatusProduto.errors && idStatusProduto.dirty" class="invalid-tooltip d-block">
+              <div [hidden]="!idStatusProduto.errors.required">
+                Selecione o status, por favor.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="idSubCategoria">Sub Categoria</label>
+            <input name="idSubCategoria" ngModel #idSubCategoria="ngModel" class="form-control"
+              placeholder="Sub Categoria" [(ngModel)]='request.subCategoria.idSubCategoria' id='idSubCategoria'
+              required>
+            <div *ngIf="idSubCategoria.errors && idSubCategoria.dirty" class="invalid-tooltip d-block">
+              <div [hidden]="!idSubCategoria.errors.required">
+                Selecione a sub categoria, por favor.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="idTipoProduto">Tipo</label>
+            <select name="idTipoProduto" ngModel #idTipoProduto="ngModel" class="form-control"
+              placeholder="Tipo produto" [(ngModel)]='request.tipo_produto.idTipoProduto' id="idTipoProduto" required>
+              <option value="1">OTC</option>
+              <option value="2">Similar</option>
+              <option value="3">Genérico</option>
+              <option value="4">Referência</option>
+            </select>
+            <div *ngIf="idTipoProduto.errors && idTipoProduto.dirty" class="invalid-tooltip d-block">
+              <div [hidden]="!idTipoProduto.errors.required">
+                Selecione tipo, por favor.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="cd_fornecedor">Fornecedor</label>
+            <input name="cd_fornecedor" ngModel #cd_fornecedor="ngModel" class="form-control" placeholder="Fornecedor"
+              [(ngModel)]='request.fornecedor[0].cd_fornecedor' id='cd_fornecedor' required>
+          </div>
+          <div *ngIf="cd_fornecedor.errors && cd_fornecedor.dirty" class="invalid-tooltip d-block">
+            <div [hidden]="!cd_fornecedor.errors.required">
+              Digite o fornecedor, por favor.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="dsProduto">Descrição Produto</label>
+            <input name="dsProduto" ngModel #dsProduto="ngModel" class="form-control" placeholder="Descrição produto"
+              required>
+            <div *ngIf="dsProduto.errors && dsProduto.dirty" class="invalid-tooltip d-block">
+              <div [hidden]="!dsProduto.errors.required">
+                Digite a descrição, por favor.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row justify-content-around">
+          <div class="form-group col-md-4">
+          </div>
+          <div class="form-group col-md-4">
+          </div>
+          <div class="form-group col-md-4">
+            <button type="button" class="btn btn-default botaoConfirmar" (click)="register()"
+              [disabled]="formProdutos.form.invalid">Confirmar</button>
+            <a routerLink='/listaProdutos'><button type="button"
+                class="btn btn-default botaoCancelar">Cancelar</button></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
-<br>
-<form #formProdutos="ngForm" (ngSubmit)="onSubmit(formProdutos)" novalidate>
-  <div class="form-row ">
-    <div class="form-group col-md-4">
-      <label for="nm_fantasia"> Nome Fantasia </label>
-      <input name="nm_fantasia" ngModel #nm_fantasia="ngModel" class="form-control" [(ngModel)]='request.nm_fantasia'
-        id='nm_fantasia' required>
-      <div *ngIf="nm_fantasia.errors && nm_fantasia.dirty" class="invalid-tooltip d-block">
-        <div [hidden]="!nm_fantasia.errors.required">
-          Digite o nome, por favor.
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="nm_fabricante"> Fabricante </label>
-      <input name="nm_fabricante" ngModel #nm_fabricante="ngModel" class="form-control"
-        [(ngModel)]='request.nm_fabricante' id='nm_fabricante' required>
-      <div *ngIf="nm_fabricante.errors && nm_fabricante.dirty" class="invalid-tooltip d-block">
-        <div [hidden]="!nm_fabricante.errors.required">
-          Digite o fabricante, por favor.
-        </div>
-      </div>
-    </div>
-    <div class="form-group col-md-4">
-      <label for="vl_unidade">Valor Unidade</label>
-      <input name="vl_unidade" ngModel #vl_unidade="ngModel" class="form-control" placeholder="R$ 00,00"
-        [(ngModel)]='request.vl_unidade' id='vl_unidade' required>
-      <div *ngIf="vl_unidade.errors && vl_unidade.dirty" class="invalid-tooltip d-block">
-        <div [hidden]="!vl_unidade.errors.required">
-          Digite o valor, por favor.
-        </div>
-      </div>
-    </div>
-
-  </div>
-  <div class="form-row ">
-    <div class="form-group col-md-3">
-      <label for="idStatusProduto">Status</label>
-      <select name="idStatusProduto" ngModel #idStatusProduto="ngModel" class="form-control" placeholder="Ativo"
-        [(ngModel)]='request.statusProduto.idStatusProduto' id='idStatusProduto' required>
-        <option value="1">Ativo</option>
-        <option value="2">Inativo</option>
-        <option value="3">Fora do Mix</option>
-      </select>
-      <div *ngIf="idStatusProduto.errors && idStatusProduto.dirty" class="invalid-tooltip d-block">
-        <div [hidden]="!idStatusProduto.errors.required">
-          Selecione o status, por favor.
-        </div>
-      </div>
-    </div>
-    <div class="form-group col-md-3">
-      <label for="idSubCategoria">Sub Categoria</label>
-      <input name="idSubCategoria" ngModel #idSubCategoria="ngModel" class="form-control" placeholder="Sub Categoria"
-        [(ngModel)]='request.subCategoria.idSubCategoria' id='idSubCategoria' required>
-      <div *ngIf="idSubCategoria.errors && idSubCategoria.dirty" class="invalid-tooltip d-block">
-        <div [hidden]="!idSubCategoria.errors.required">
-          Selecione a sub categoria, por favor.
-        </div>
-      </div>
-    </div>
-    <div class="form-group col-md-3">
-      <label for="idTipoProduto">Tipo</label>
-      <select name="idTipoProduto" ngModel #idTipoProduto="ngModel" class="form-control" placeholder="Tipo produto"
-        [(ngModel)]='request.tipo_produto.idTipoProduto' id="idTipoProduto" required>
-        <option value="1">OTC</option>
-        <option value="2">Similar</option>
-        <option value="3">Genérico</option>
-        <option value="4">Referência</option>
-      </select>
-      <div *ngIf="idTipoProduto.errors && idTipoProduto.dirty" class="invalid-tooltip d-block">
-        <div [hidden]="!idTipoProduto.errors.required">
-          Selecione tipo, por favor.
-        </div>
-      </div>
-    </div>
-    <div class="form-group col-md-3">
-      <label for="cd_fornecedor">Fornecedor</label>
-      <input name="cd_fornecedor" ngModel #cd_fornecedor="ngModel" class="form-control" placeholder="Fornecedor"
-        [(ngModel)]='request.fornecedor[0].cd_fornecedor' id='cd_fornecedor' required>
-    </div>
-    <div *ngIf="cd_fornecedor.errors && cd_fornecedor.dirty" class="invalid-tooltip d-block">
-      <div [hidden]="!cd_fornecedor.errors.required">
-        Digite o fornecedor, por favor.
-      </div>
-    </div>
-  </div>
-
-
-  <div class="form-row">
-    <div class="form-group col-md-12">
-      <label for="dsProduto">Descrição Produto</label>
-      <input name="dsProduto" ngModel #dsProduto="ngModel" class="form-control" placeholder="Descrição produto"
-        required>
-      <div *ngIf="dsProduto.errors && dsProduto.dirty" class="invalid-tooltip d-block">
-        <div [hidden]="!dsProduto.errors.required">
-          Digite a descrição, por favor.
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="form-row justify-content-around">
-    <div class="form-group col-md-4">
-    </div>
-    <div class="form-group col-md-4">
-    </div>
-    <div class="form-group col-md-4">
-      <button type="button" class="btn btn-default botaoConfirmar" (click)="register()"
-        [disabled]="formProdutos.form.invalid">Confirmar</button>
-        <a routerLink='/listaProdutos'><button type="button" class="btn btn-default botaoCancelar">Cancelar</button></a>
-    </div>
-  </div>
-</form>
