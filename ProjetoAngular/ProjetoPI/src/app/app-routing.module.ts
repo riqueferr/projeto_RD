@@ -27,64 +27,113 @@ import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-
 
 
 export const routes: Routes = [
-    // {
-    //     path: '',
-    //     component: HomeComponent
-    // },
-    {path: 'abastecimento-dashboard',
-    component: DashboardComponent},
-    {path: 'cadastroDeFornecedor',
-    component: CadastroDeFornecedorComponent},
-    {path: 'cadastroDeProduto',
-    component: CadastroDeProdutoComponent},
-    {path: 'entradaDeProduto',
-    component: EntradaDeProdutoComponent},
-    {path: 'relatorioDeEstoque',
-    component: RelatorioDeEstoqueComponent},
-    {path: 'relatorioDeEstoque/filial',
-    component: ListarIdFilialComponent},
-    {path: 'relatorioDeProduto',
-    component: RelatorioDeProdutoComponent},
-    {path: 'transferenciaDeProduto',
-    component: TransferenciaDeProdutoComponent},
-    {path: 'cupomDeVenda',
-    component: CupomDeVendaComponent},
-    {path: 'financeiro-dashboard',
-    component: FinanceiroDashboardComponent},
-    {path: 'movimentoDeLoja',
-    component: MovimentoDeLojaComponent},
-    {path: 'relatorioGerencial',
-    component: RelatorioGerencialComponent},
-    {path: 'listaFornecedores',
-    component: ListaFornecedoresComponent},
-    {path: 'listaEntradaProdutos',
-    component: ListaEntradaComponent},
-    {path: 'listaEntradaProdutos/:idDF',
-    component: ListaIdEntradaComponent},
-    {path: 'listaProdutos',
-    component: ListaProdutosComponent},
-    {path: 'listaTransferenciaProduto',
-    component: ListaTransferenciaComponent},
-    {path: 'listaProdutos/:nm_fantasia',
-    component: ListaProdutosComponent},
-    {path: 'detalhamentoCupomDeVendas/:idDF',
-    component: DetalhamentoCupomDeVendasComponent},
-    {path: 'visualizar/fornecedor/:cd_fornecedor',
-    component: DetalhamentoFornecedoresComponent},
-    {path: 'produtos/editar/:codigo',
-    component: EditarProdutosComponent},
-    {path: 'fornecedores/editar/:cd_fornecedor',
-    component: EditarFornecedoresComponent},
-    {path: 'graficoAbastecimentoDrogasil',
-    component: MyBarChartOneComponent},
-    {path: 'login',
-    component: LoginComponent}
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'abastecimento-dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: 'cadastroDeFornecedor',
+    component: CadastroDeFornecedorComponent
+  },
+  {
+    path: 'cadastroDeProduto',
+    component: CadastroDeProdutoComponent
+  },
+  {
+    path: 'entradaDeProduto',
+    component: EntradaDeProdutoComponent
+  },
+  {
+    path: 'relatorioDeEstoque',
+    component: RelatorioDeEstoqueComponent
+  },
+  {
+    path: 'relatorioDeEstoque/filial',
+    component: ListarIdFilialComponent
+  },
+  {
+    path: 'relatorioDeProduto',
+    component: RelatorioDeProdutoComponent
+  },
+  {
+    path: 'transferenciaDeProduto',
+    component: TransferenciaDeProdutoComponent
+  },
+  {
+    path: 'cupomDeVenda',
+    component: CupomDeVendaComponent
+  },
+  {
+    path: 'financeiro-dashboard',
+    component: FinanceiroDashboardComponent
+  },
+  {
+    path: 'movimentoDeLoja',
+    component: MovimentoDeLojaComponent
+  },
+  {
+    path: 'relatorioGerencial',
+    component: RelatorioGerencialComponent
+  },
+  {
+    path: 'listaFornecedores',
+    component: ListaFornecedoresComponent
+  },
+  {
+    path: 'listaEntradaProdutos',
+    component: ListaEntradaComponent
+  },
+  {
+    path: 'listaEntradaProdutos/:idDF',
+    component: ListaIdEntradaComponent
+  },
+  {
+    path: 'listaProdutos',
+    component: ListaProdutosComponent
+  },
+  {
+    path: 'listaTransferenciaProduto',
+    component: ListaTransferenciaComponent
+  },
+  {
+    path: 'listaProdutos/:nm_fantasia',
+    component: ListaProdutosComponent
+  },
+  {
+    path: 'detalhamentoCupomDeVendas/:idDF',
+    component: DetalhamentoCupomDeVendasComponent
+  },
+  {
+    path: 'visualizar/fornecedor/:cd_fornecedor',
+    component: DetalhamentoFornecedoresComponent
+  },
+  {
+    path: 'produtos/editar/:codigo',
+    component: EditarProdutosComponent
+  },
+  {
+    path: 'fornecedores/editar/:cd_fornecedor',
+    component: EditarFornecedoresComponent
+  },
+  {
+    path: 'graficoAbastecimentoDrogasil',
+    component: MyBarChartOneComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
 
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 
 export class AppRoutingModule { }

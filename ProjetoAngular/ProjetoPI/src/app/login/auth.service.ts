@@ -22,10 +22,11 @@ export class AuthService {
 
       this.usuarioAutenticado = true;
       this.mostrarMenuEmitter.emit(true);
-      this.router.navigate(['/']);
+      this.router.navigate(['/abastecimento-dashboard']);
 
     } else {
       this.usuarioAutenticado = false;
+      this.mostrarMenuEmitter.emit(false);
     }
   }
 }
