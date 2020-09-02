@@ -6,7 +6,13 @@ import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
 import br.com.pi.projeto_RD.model.entity.OperacaoEntity;
 import lombok.Data;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
+import java.time.LocalDate;
 import java.util.Date;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -27,11 +33,18 @@ public class DFEntradaDTO {
     private Long chaveAcesso;
     private Long nrNF;
     private Long nrSerie;
-    private Date dtEmissao;
-    private Date dtEntrada;
+
+//    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private String dtEmissao;
+
+//    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private String dtEntrada;
+
     private Date dtAbertura;
     private Date dtFechamento;
-    private Double vlDocumentoFiscal;
+
+    @NumberFormat(style = NumberFormat.Style.CURRENCY, pattern = "#,##0.00")
+    private BigDecimal vlDocumentoFiscal;
 
     private List<ItensDfDTO> itens;
 

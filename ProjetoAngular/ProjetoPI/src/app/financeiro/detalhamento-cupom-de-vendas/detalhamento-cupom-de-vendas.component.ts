@@ -15,7 +15,6 @@ export class DetalhamentoCupomDeVendasComponent implements OnInit {
 
   idDF: string;
   request: any;
-
   responseDf: ResponseDF[];
 
   constructor(

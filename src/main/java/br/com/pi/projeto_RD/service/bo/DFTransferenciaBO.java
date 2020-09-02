@@ -113,7 +113,7 @@ public class DFTransferenciaBO {
             ProdutoFilialEstoqueEntity estoqueNulo = estoques.get(0);
 
             if (estoqueNulo.getQt_estoque() <= 0) {
-//                ResultData resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Estoque menor que um!");
+//                ResultData resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Estoque vazio!");
                 return null;
             } else {
 

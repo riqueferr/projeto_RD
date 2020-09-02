@@ -4,6 +4,7 @@ package br.com.pi.projeto_RD.model.dto;
 import br.com.pi.projeto_RD.model.entity.OperacaoEntity;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 

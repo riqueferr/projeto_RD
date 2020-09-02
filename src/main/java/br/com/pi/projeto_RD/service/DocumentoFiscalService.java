@@ -44,11 +44,11 @@ public class DocumentoFiscalService {
 
         List<TrocaMotivoDTO> dfDTO = new ArrayList<>();
 
-        double total = 0;
+//        Big total = 0;
 
         for (DocumentoFiscalEntity entity : dfEntity) {
             DocumentoFiscalDTO dto = bo.parseToDTO(entity);
-            total = total + entity.getVlDocumentoFiscal();
+//            total = total + entity.getVlDocumentoFiscal();
         }
 
 
@@ -57,7 +57,7 @@ public class DocumentoFiscalService {
 
             dto.setIdFilial(entity.getFilial().getCdFilial());
             dto.setNmFilial(entity.getFilial().getNmFilial());
-            dto.setTotalTroca(total);
+//            dto.setTotalTroca(total);
             dfDTO.add(dto);
         }
 

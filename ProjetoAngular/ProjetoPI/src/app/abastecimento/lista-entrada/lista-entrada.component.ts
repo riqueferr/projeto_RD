@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ResponseEntradas } from '../entrada-de-produto/shared/entrada.model';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { NgForm, Form, FormGroup, FormControl } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+import { Entradas, ResponseEntradas } from '../entrada-de-produto/shared/entrada.model';
 import { EntradasService } from '../entrada-de-produto/shared/entrada.service';
 
 @Component({
@@ -8,13 +13,20 @@ import { EntradasService } from '../entrada-de-produto/shared/entrada.service';
   styleUrls: ['./lista-entrada.component.css']
 })
 export class ListaEntradaComponent implements OnInit {
+  
   loading: boolean;
 
   public paginaAtual = 1;
 
   responseEntradas: ResponseEntradas[];
 
-  constructor(private entradasService: EntradasService) { }
+    idDF: any;
+
+  constructor(
+    private entradasService: EntradasService,
+    private http: HttpClient,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -27,4 +39,11 @@ export class ListaEntradaComponent implements OnInit {
       this.loading = false;
     });
   }
+
+  register(): void {
+      console.log(this.idDF);
+      this.entradasService.getEntrada(this.idDF).subscribe();
+      this.router.navigate(['/listaEntradaProdutos', this.idDF]);
+  }
+
 }
