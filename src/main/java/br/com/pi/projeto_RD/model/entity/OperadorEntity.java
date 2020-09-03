@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.List;
 
 @Entity
@@ -14,7 +15,7 @@ public class OperadorEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_OPERADOR")
-    private Long idOperador;
+    private BigInteger idOperador;
 
     @Column(name = "NM_NOME")
     private String nmOperador;
@@ -23,13 +24,13 @@ public class OperadorEntity implements Serializable {
     private String nrCpf;
 
     @Column(name = "NR_MATRICULA")
-    private Long nrMatricula;
+    private BigInteger nrMatricula;
 
     @Column(name = "DS_CARGO")
     private String dsCargo;
 
     @Column(name = "CD_FILIAL")
-    private Long cdFilial;
+    private BigInteger cdFilial;
 
     @Column(name = "PW_OPERADOR")
     private String pwOperador;

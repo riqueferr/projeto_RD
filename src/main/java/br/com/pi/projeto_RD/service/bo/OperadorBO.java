@@ -1,17 +1,14 @@
 package br.com.pi.projeto_RD.service.bo;
 
-import br.com.pi.projeto_RD.model.dto.FornecedorDTO;
+
 import br.com.pi.projeto_RD.model.dto.OperadorDTO;
 import br.com.pi.projeto_RD.model.dto.PerfilDTO;
-import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
 import br.com.pi.projeto_RD.model.entity.OperadorEntity;
 import br.com.pi.projeto_RD.model.entity.PerfilEntity;
 import br.com.pi.projeto_RD.repository.OperadorRepository;
-import br.com.pi.projeto_RD.repository.TipoFornecedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
