@@ -29,4 +29,9 @@ export class AuthService {
       this.mostrarMenuEmitter.emit(false);
     }
   }
+
+  // tslint:disable-next-line: typedef
+  usuarioEstaAutenticado() {
+    return this.usuarioAutenticado;
+  }
 }

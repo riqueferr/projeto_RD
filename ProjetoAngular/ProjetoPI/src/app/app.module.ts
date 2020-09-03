@@ -36,6 +36,8 @@ import { LoginComponent } from './login/login.component';
 import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/listar-id-filial/listar-id-filial.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-entrada/lista-id-entrada.component'
+import { AuthService } from './login/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -79,7 +81,7 @@ import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-
     NgxMaskModule.forRoot(),
     NgxPaginationModule // Nosso módulo recém instalado
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

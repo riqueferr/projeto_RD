@@ -24,105 +24,130 @@ import { ListaTransferenciaComponent } from './abastecimento/transferencia-de-pr
 import { LoginComponent } from './login/login.component';
 import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/listar-id-filial/listar-id-filial.component';
 import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-entrada/lista-id-entrada.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: '/login',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   },
   {
     path: 'abastecimento-dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'cadastroDeFornecedor',
-    component: CadastroDeFornecedorComponent
+    component: CadastroDeFornecedorComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'cadastroDeProduto',
-    component: CadastroDeProdutoComponent
+    component: CadastroDeProdutoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'entradaDeProduto',
-    component: EntradaDeProdutoComponent
+    component: EntradaDeProdutoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'relatorioDeEstoque',
-    component: RelatorioDeEstoqueComponent
+    component: RelatorioDeEstoqueComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'relatorioDeEstoque/filial',
-    component: ListarIdFilialComponent
+    component: ListarIdFilialComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'relatorioDeProduto',
-    component: RelatorioDeProdutoComponent
+    component: RelatorioDeProdutoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'transferenciaDeProduto',
-    component: TransferenciaDeProdutoComponent
+    component: TransferenciaDeProdutoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'cupomDeVenda',
-    component: CupomDeVendaComponent
+    component: CupomDeVendaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'financeiro-dashboard',
-    component: FinanceiroDashboardComponent
+    component: FinanceiroDashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'movimentoDeLoja',
-    component: MovimentoDeLojaComponent
+    component: MovimentoDeLojaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'relatorioGerencial',
-    component: RelatorioGerencialComponent
+    component: RelatorioGerencialComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'listaFornecedores',
-    component: ListaFornecedoresComponent
+    component: ListaFornecedoresComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'listaEntradaProdutos',
-    component: ListaEntradaComponent
+    component: ListaEntradaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'listaEntradaProdutos/:idDF',
-    component: ListaIdEntradaComponent
+    component: ListaIdEntradaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'listaProdutos',
-    component: ListaProdutosComponent
+    component: ListaProdutosComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'listaTransferenciaProduto',
-    component: ListaTransferenciaComponent
+    component: ListaTransferenciaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'listaProdutos/:nm_fantasia',
-    component: ListaProdutosComponent
+    component: ListaProdutosComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'detalhamentoCupomDeVendas/:idDF',
-    component: DetalhamentoCupomDeVendasComponent
+    component: DetalhamentoCupomDeVendasComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'visualizar/fornecedor/:cd_fornecedor',
-    component: DetalhamentoFornecedoresComponent
+    component: DetalhamentoFornecedoresComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'produtos/editar/:codigo',
-    component: EditarProdutosComponent
+    component: EditarProdutosComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'fornecedores/editar/:cd_fornecedor',
-    component: EditarFornecedoresComponent
+    component: EditarFornecedoresComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'graficoAbastecimentoDrogasil',
-    component: MyBarChartOneComponent
+    component: MyBarChartOneComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
