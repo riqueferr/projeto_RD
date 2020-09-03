@@ -37,9 +37,9 @@ public class LoginService {
 
         try {
 
-            String codificado = Base64.getEncoder().encodeToString(pwOperador.getBytes());
+//            String codificado = Base64.getEncoder().encodeToString(pwOperador.getBytes());
 
-            List<OperadorEntity> listEntity = repository.findByNrMatriculaAndPwOperador(nrMatricula, codificado);
+            List<OperadorEntity> listEntity = repository.findByNrMatriculaAndPwOperador(nrMatricula, pwOperador);
             if(listEntity.size() == 0){
                 resultData = new ResultData(HttpStatus.UNAUTHORIZED.value(), "Matrícula ou senha incorretas!");
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(resultData);
