@@ -34,16 +34,12 @@
         </thead>
         <tbody>
           <tr>
-            <!-- <th scope="row">001</th>
-            <td>Johnson & Johnson</td>
-            <td>66.666.865/0240-93</td>
-            <td>needs.contato@rd.com.br | (11) 3765-2376</td> -->
-            <tr *ngFor='let fornecedor of responseFornecedores | paginate: { itemsPerPage: 2, currentPage: paginaAtual }; let i = index'>
-              <th scope="row"> {{ fornecedor.cd_fornecedor }} </th>
-              <td>{{ fornecedor.nm_razao_social }}</td>
-              <td>{{ fornecedor.nr_cnpj }}</td>
-              <td>{{ fornecedor.nr_telefone}}</td>
-            <td _ngcontent-ytp-c40="">
+            <tr *ngFor='let re of request | paginate: { itemsPerPage: 2, currentPage: paginaAtual }; let i = index'>
+              <th scope="row"> {{ re.cd_fornecedor }} </th>
+              <td>{{ re.nm_razao_social }}</td>
+              <td>{{ re.nr_cnpj }}</td>
+              <td>{{ re.nr_telefone}}</td>
+            <!-- <td _ngcontent-ytp-c40="">
               <abbr _ngcontent-ytp-c40="" title="Editar">
                 <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar" [routerLink]="['/fornecedores/editar', fornecedor.cd_fornecedor]">
                   <i _ngcontent-ytp-c40="" class="fa fa-pencil">
@@ -57,12 +53,21 @@
                   </i>
                 </button>
               </abbr>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>
       <!-- <pagination-controls [routerLink]="['/fornecedores/editar', paginaAtual]" (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls> -->
-      <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+      <div class="form-group col-md-3">
+        <select  name="idTipoProduto" ngModel #idTipoProduto="ngModel" class="form-control" 
+        [(ngModel)]='page' id="idTipoProduto" (click)="register()" size="5">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
     </div>
     <div class='row justify-content-center' *ngIf="loading">
       <div class="spinner-grow text-success text-center" role="status">

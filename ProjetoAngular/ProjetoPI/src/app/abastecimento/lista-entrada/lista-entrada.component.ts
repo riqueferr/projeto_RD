@@ -6,6 +6,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { Entradas, ResponseEntradas } from '../entrada-de-produto/shared/entrada.model';
 import { EntradasService } from '../entrada-de-produto/shared/entrada.service';
+import { Itens } from 'src/app/financeiro/cupom-de-venda/shared/documentofiscal.model';
 
 @Component({
   selector: 'app-lista-entrada',

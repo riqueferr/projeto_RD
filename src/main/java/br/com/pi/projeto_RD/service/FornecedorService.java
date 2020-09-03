@@ -2,10 +2,14 @@ package br.com.pi.projeto_RD.service;
 
 import br.com.pi.projeto_RD.model.dto.FornecedorDTO;
 import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
+import br.com.pi.projeto_RD.repository.FornecedorPageRepository;
 import br.com.pi.projeto_RD.repository.FornecedorRepository;
 import br.com.pi.projeto_RD.repository.TipoFornecedorRepository;
 import br.com.pi.projeto_RD.service.bo.FornecedorBO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +23,9 @@ public class FornecedorService {
     private FornecedorRepository repository;
 
     @Autowired
+    private FornecedorPageRepository pageRepository;
+
+    @Autowired
     private TipoFornecedorRepository tipoFornecedorRepository;
 
     @Autowired
@@ -30,6 +37,20 @@ public class FornecedorService {
         List<FornecedorDTO> fornecedorDTO = new ArrayList<>();
 
 
+        for (FornecedorEntity entity : fornecedorEntity){
+            FornecedorDTO dto = fornecedorBO.parseToDTO(entity);
+            fornecedorDTO.add(dto);
+        }
+        return fornecedorDTO;
+    }
+
+    public List<FornecedorDTO> buscarPages(Integer page){
+
+        Pageable firstPageWithTwoElements = PageRequest.of(page, 2);
+
+        Page<FornecedorEntity> fornecedorEntity = pageRepository.findAll(firstPageWithTwoElements);
+
+        List<FornecedorDTO> fornecedorDTO = new ArrayList<>();
         for (FornecedorEntity entity : fornecedorEntity){
             FornecedorDTO dto = fornecedorBO.parseToDTO(entity);
             fornecedorDTO.add(dto);

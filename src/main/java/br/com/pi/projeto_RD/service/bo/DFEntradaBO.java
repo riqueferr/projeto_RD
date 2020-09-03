@@ -105,15 +105,8 @@ public class DFEntradaBO {
         dfEntity.setNrNf(dto.getNrNF());
         dfEntity.setNrSerie(dto.getNrSerie());
 
-
-
-//        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-//        Date dataEmissao = formato.parse(dto.getDtEmissao());
-
         dfEntity.setDtEmissao(java.sql.Date.valueOf(formataDataEnviaBD(dto.getDtEmissao())));
         dfEntity.setDtEntrada(java.sql.Date.valueOf(formataDataEnviaBD(dto.getDtEntrada())));
-//        dfEntity.setDtAbertura(dto.getDtAbertura());
-//        dfEntity.setDtFechamento(dto.getDtFechamento());
         dfEntity.setVlDocumentoFiscal(dto.getVlDocumentoFiscal());
 
         List<DocumentoItemEntity> itemsEntity = new ArrayList<>();
@@ -123,8 +116,6 @@ public class DFEntradaBO {
             itEntity.setNrItemDocumento(itemDTO.getNrItemDocumento());
             itEntity.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
             itEntity.setQtItem(itemDTO.getQtItem());
-            itEntity.setPcIcms(itemDTO.getPcIcms());
-            itEntity.setVlIcms(itemDTO.getVlIcms());
 
             List<ProdutoFilialEstoqueEntity> estoques = produtoFilialEstoqueRepository.findByFilialCdFilialAndProdutoCodigo(dto.getIdFilial(), itemDTO.getCdProduto());
 

@@ -56,8 +56,8 @@ public class FilialBO {
 
             eDTO.setQuantidade(item.getQt_estoque());//////////////
 
-            eDTO.setQt_empenho(item.getQt_empenho());
-            eDTO.setQt_base(item.getQt_base());
+//            eDTO.setQt_empenho(item.getQt_empenho());
+//            eDTO.setQt_base(item.getQt_base());
 
             produto.add(eDTO);
         }
@@ -93,8 +93,8 @@ public class FilialBO {
             Entity.getProduto().getSubCategoria().setDsSubCategoria(itemDTO.getSubCategoria());
             Entity.getProduto().getTipo_produto().setDsTipoProduto(itemDTO.getTipoProduto());
             Entity.setQt_estoque(itemDTO.getQuantidade());
-            Entity.setQt_empenho(itemDTO.getQt_empenho());
-            Entity.setQt_base(itemDTO.getQt_base());
+//            Entity.setQt_empenho(itemDTO.getQt_empenho());
+//            Entity.setQt_base(itemDTO.getQt_base());
 
 
             itemsEntity.add(Entity);

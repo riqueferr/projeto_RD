@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { ResponseEntradas } from '../../entrada-de-produto/shared/entrada.model';
+import { ResponseEntradas, ResponseEntradaItens } from '../../entrada-de-produto/shared/entrada.model';
 import { EntradasService } from '../../entrada-de-produto/shared/entrada.service';
 
 @Component({
@@ -20,6 +20,8 @@ export class ListaIdEntradaComponent implements OnInit {
   request: any;
   responseEntradas: ResponseEntradas[];
 
+  responseItens: ResponseEntradaItens[];
+
   constructor(
     private entradasService: EntradasService,
     private route: ActivatedRoute,
@@ -29,14 +31,6 @@ export class ListaIdEntradaComponent implements OnInit {
     ngOnInit(): void {
       this.idDF = this.route.snapshot.paramMap.get('idDF');
       this.entradasService.getEntrada(this.idDF).subscribe(response => this.request = response);
-      this.listarTodasEntradas();
-    }
-  
-    listarTodasEntradas() {
-      this.entradasService.getEntradas().subscribe(response => {
-        this.responseEntradas = response;
-        this.loading = false;
-      });
     }
 
     register(): void {

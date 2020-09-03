@@ -24,6 +24,11 @@ public class FornecedorController {
         return ResponseEntity.ok().body(repository.findAll());
     }
 
+    @GetMapping("/fornecedores/page/{pagina}")
+    public ResponseEntity buscarPage(@PathVariable("pagina") Integer pagina){
+        return ResponseEntity.ok().body(service.buscarPages(pagina));
+    }
+
     @GetMapping("/fornecedores/{cd_fornecedor}")
     @ApiOperation(value = "Listar fornecedores por ID")
     public ResponseEntity buscarPorId(@PathVariable("cd_fornecedor") Long cd_fornecedor){

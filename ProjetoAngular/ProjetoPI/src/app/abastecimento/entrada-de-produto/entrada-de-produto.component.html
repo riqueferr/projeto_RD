@@ -9,6 +9,7 @@
                     <div class='container'>
                         <div class='col-md-12'>
                           <form class="needs-validation" #it="ngForm" novalidate>
+                            <!-- <form #it="ngForm" novalidate> -->
                                 <!-- Inicio da primeira linha-->
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
@@ -16,9 +17,14 @@
                                         <input id="cdOperacao" name="cdOperacao" class="form-control" placeholder="ENTRADA" disabled>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="inputdescricao">Destino Filial</label>
-                                        <input id="idFilial" name="idFilial" class="form-control" placeholder="Centro de Distribuição" disabled>
-                                    </div>
+                                      <label for="inputNomeproduto4">Centro de Distribuição</label>
+                                      <select name="idFilial" ngModel #idFilial="ngModel" class="form-control"
+                                        [(ngModel)]='request.idFilial' id="idFilial" required>
+                                        <option value="5">CD BUTANTÃ</option>
+                                        <option value="6">CD EMBU</option>
+                                        <option value="7">CD GUARULHOS</option>
+                                      </select>
+                                  </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">CD Fornecedor</label>
                                         <input id="idFornecedor" name="idFornecedor" #idFornecedor="ngModel" [(ngModel)]='request.idFornecedor'
@@ -40,7 +46,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">R$</span>
                                           </div>
-                                        <input id="vlDocumentoFiscal" type="text" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" 
+                                        <input type="text" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" 
                                         class="dinheiro form-control" placeholder=" 000.00"
                                         [(ngModel)]='request.vlDocumentoFiscal'>
                                         <div class="invalid-tooltip">
@@ -65,56 +71,66 @@
                                               Digite uma data de entrada, por favor.
                                             </div>
                                     </div>
-                                    <!-- <div class="form-group col-md-3">
-                                        <label for="inputQtd">Data Abertura</label>
-                                        <input id="dtAbertura" name="dtAbertura" required #dtAbertura="ngModel" class="form-control" placeholder="____/___/___"
-                                        [(ngModel)]='request.dtAbertura' disabled>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputQtd">Data Fechamento</label>
-                                        <input id="dtFechamento" name="dtFechamento" required #dtFechamento="ngModel" class="form-control" placeholder="____/___/___"
-                                        [(ngModel)]='request.dtFechamento' disabled>
-                                    </div> -->
                                 </div>
+                            </form>
                                 <!--Fim da terceira linha -->
                                 <!-- ENTRADA DE PRODUTOS -->
+                                <form class="needs-validation" novalidate>
                                 <br>
                                 <h3>Itens entrada</h3>
                                 <br>
                                 <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label for="inputNomeproduto4">Número Item Documento</label>
-                                        <input name="nrItemDocumento"  class="form-control" placeholder="01" disabled>
-                                    </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-2">
                                         <label for="inputdescricao">Código Produto</label>
-                                        <input name="cdProduto" required #cdProduto="ngModel" class="form-control"  [(ngModel)]='request.itens[0].cdProduto'>
+                                        <input name="cdProduto" required #cdProduto="ngModel" class="form-control"  [(ngModel)]='item.cdProduto'>
                                         <div class="invalid-tooltip">
                                               Digite um código do produto, por favor.
                                           </div>
                                     </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-2">
                                         <label for="inputdescricao">Quantidade Itens</label>
-                                        <input type="number" name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="Quantidade itens" [(ngModel)]='request.itens[0].qtItem'>
+                                        <input type="number" name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="500" [(ngModel)]='item.qtItem'>
                                         <div class="invalid-tooltip">
                                               Digite uma quantidade de itens, por favor.
                                           </div>
                                     </div>
+                                    <!-- botão adicionar -->
+                                    <div class="form-group">
+                                      <br>
+                                      <button type="button" class="btn btn-outline-success my-2 my-sm-0" (click)="itens()" >Adicionar item</button>
+                                    </div>
+                                    <div class="col-md-2"></div>
+
+                                    <div class="form-group">
+                                      <br>
+                                      <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Confirmar</button>
+                                      <a routerLink='/listaEntradaProdutos'><button type="button" class="btn btn-default botaoCancelar">Cancelar</button></a>
+                                    </div>
                                 </div>
 
+                            </form>
 
-                                <!-- botões -->
-                                <div class="form-row justify-content-around">
-                                  <div class="form-group col-md-4">
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                    <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Confirmar</button>
-                                    <a routerLink='/listaEntradaProdutos'><button type="button" class="btn btn-default botaoCancelar">Cancelar</button></a>
-                                  </div>
-                                </div>
-                              </form>
+                                <table class="table table-hover">
+                                    <thead class="thead-default tituloTabela">
+                                      <tr>
+                                        <th scope="col">Item</th>
+                                        <th scope="col">Código Produto</th>
+                                        <th scope="col">Nome Produto</th>
+                                        <th scope="col">Quantidade de Itens</th>
+                              
+                                      </tr>
+                                    </thead>
+                              
+                                    <tbody>
+                                      <tr *ngFor='let itens of request.itens'>
+                                        <th scope="row" >{{itens.nrItemDocumento}}</th>
+                                        <td >{{itens.cdProduto}}</td>
+                                        <td>Product Name</td>
+                                        <!-- <td >{{itens.nmProduto}}</td> -->
+                                        <td >{{itens.qtItem}}</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
                         </div>
                     </div>
                 </div>

@@ -12,12 +12,19 @@ export class FornecedoresService {
 
   private readonly API = 'http://localhost:8080/abastecimento/fornecedores';
 
+  private readonly API2 = 'http://localhost:8080/abastecimento/fornecedores/page';
+
   getFornecedores() {
     return this.http.get<ResponseFornecedores[]>(this.API);
   }
 
   getFornecedor(codigo: string): Observable<ResponseFornecedores> {
     const URL = `${this.API}/${codigo}`;
+    return this.http.get<ResponseFornecedores>(URL);
+  }
+
+  getFornecedorPage(codigo: string): Observable<ResponseFornecedores> {
+    const URL = `${this.API2}/${codigo}`;
     return this.http.get<ResponseFornecedores>(URL);
   }
 
