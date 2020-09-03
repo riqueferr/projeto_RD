@@ -1,67 +1,81 @@
-<br>
-<div class="container">
-  <h2>Transferências recebidas filiais</h2>
-</div>
-<br>
-<div class="container">
-    <div class='row justify-content-start marginTabela justify-content-between'>
-        <form class="form-inline comMarginBottom">
-          <input type='search' placeholder='Pesquisar' class='form-inline form-control mr-sm-1'>
-          <button class="btn btn botaoConfirmar my-2 my-sm-0" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </form>
-        <form class="form-inline">
-          <a type='submit' routerLink='/transferenciaDeProduto' class='btn btn-default botaoCadastrar centralizar'>
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
-              <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
-              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-            </svg>
-            Cadastrar
-          </a>
-        </form>
-      </div>
-  <div class='row' style='text-align: center'>
-    <table class="table table-hover">
-      <thead class="thead-default tituloTabela">
-        <tr>
-          <th scope="col">Código DF</th>
-          <th scope="col">Produtos</th>
-          <th scope="col">Filial</th>
-          <th scope="col">Data Entrada</th>
-
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr *ngFor='let transferencias of responseTransferencia'>
-          <th scope="row"> {{ transferencias.idDocumento }} </th>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn botaoConfirmar dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Itens
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" *ngIf="transferencias.itens[0]">Código: {{transferencias.itens[0].cdProduto}}</a>
-                <a class="dropdown-item" *ngIf="transferencias.itens[0]">Nome: {{transferencias.itens[0].nmProduto}}</a>
-                <a class="dropdown-item"*ngIf="transferencias.itens[0]">Quantidade: {{transferencias.itens[0].qtItem}}</a>
-              </div>
-            </div>
-        </td>
-          <td>{{ transferencias.nmFilialDestino }}</td>
-          <td>{{ transferencias.dtEntrada | date: 'dd/MM/yyy' }}</td>
-
-        </tr>
-      </tbody>
-    </table>
-
+<div class='row'>
+  <div class='col-md-3'>
+    <!-- SideBar -->
+    <app-sidebar></app-sidebar>
   </div>
-  <div class='row justify-content-center' *ngIf="loading">
-    <div class="spinner-grow text-success text-center" role="status">
-      <span class="sr-only">Loading...</span>
+  <div class='col-md-9'>
+    <div class="container">
+      <br>
+      <div class="container">
+        <h2>Transferências recebidas filiais</h2>
+      </div>
+      <br>
+      <div class="container">
+        <div class='row justify-content-start marginTabela justify-content-between'>
+          <form class="form-inline comMarginBottom">
+            <input type='search' placeholder='Pesquisar' class='form-inline form-control mr-sm-1'>
+            <button class="btn btn botaoConfirmar my-2 my-sm-0" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+          <form class="form-inline">
+            <a type='submit' routerLink='/transferenciaDeProduto' class='btn btn-default botaoCadastrar centralizar'>
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+              </svg>
+              Cadastrar
+            </a>
+          </form>
+        </div>
+        <div class='row' style='text-align: center'>
+          <table class="table table-hover">
+            <thead class="thead-default tituloTabela">
+              <tr>
+                <th scope="col">Código DF</th>
+                <th scope="col">Produtos</th>
+                <th scope="col">Filial</th>
+                <th scope="col">Data Entrada</th>
+
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor='let transferencias of responseTransferencia'>
+                <th scope="row"> {{ transferencias.idDocumento }} </th>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn botaoConfirmar dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Itens
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" *ngIf="transferencias.itens[0]">Código:
+                        {{transferencias.itens[0].cdProduto}}</a>
+                      <a class="dropdown-item" *ngIf="transferencias.itens[0]">Nome:
+                        {{transferencias.itens[0].nmProduto}}</a>
+                      <a class="dropdown-item" *ngIf="transferencias.itens[0]">Quantidade:
+                        {{transferencias.itens[0].qtItem}}</a>
+                    </div>
+                  </div>
+                </td>
+                <td>{{ transferencias.nmFilialDestino }}</td>
+                <td>{{ transferencias.dtEntrada | date: 'dd/MM/yyy' }}</td>
+
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div class='row justify-content-center' *ngIf="loading">
+          <div class="spinner-grow text-success text-center" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,124 +1,132 @@
-<br>
-<div class="container">
-    <h2>Movimento de Loja</h2>
-</div>
-<br>
-<main>
-    <div class='container'>
-        <div class='row marginTopMain semMarginRightMain'>
+<div class='row'>
+  <div class='col-md-3'>
+    <!-- SideBar -->
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class='col-md-9'>
+    <div class="container"><br>
+      <div class="container">
+        <h2>Movimento de Loja</h2>
+      </div>
+      <br>
+      <main>
+        <div class='container'>
+          <div class='row marginTopMain semMarginRightMain'>
             <div class='col-md-12 justify-content-center'>
-                <div class="d-flex align-items-center justify-content p-2 text-white-50 bg-purple rounded shadow-sm">
-                  <div class="lh-100">
-                    <h6 class="border-bottom-flex1 border-gray pb-2 mb-3 text-white lh-100">Data
-                    </h6>
+              <div class="d-flex align-items-center justify-content p-2 text-white-50 bg-purple rounded shadow-sm">
+                <div class="lh-100">
+                  <h6 class="border-bottom-flex1 border-gray pb-2 mb-3 text-white lh-100">Data
+                  </h6>
                 </div>
                 <div class="lh-100">
-                    <h6 class="border-bottom-flex2 border-gray pb-2 mb-3 text-white lh-100">Nome
-                        Filial
-                    </h6>
+                  <h6 class="border-bottom-flex2 border-gray pb-2 mb-3 text-white lh-100">Nome
+                    Filial
+                  </h6>
                 </div>
                 <div class="lh-100">
-                    <h6 class="border-bottom-flex3 border-gray pb-2 mb-3 text-white lh-100">Código
-                        Filial</h6>
+                  <h6 class="border-bottom-flex3 border-gray pb-2 mb-3 text-white lh-100">Código
+                    Filial</h6>
                 </div>
-                </div>
+              </div>
 
             </div>
 
 
             <div class='row marginTopMain semMarginRightMain fundo-bloco1 centralizarTexto'>
 
-                <div class='col-md-4' style='padding-top: 23px;'>
-                    <form>
-                      <div class="form-group row">
-                      <label for="example-date-input" class="col-2 col-form-label"></label>
-                      <div class="col-8">
-                          <input class="form-control" type="date" value="2020-07-24"
-                              id="example-date-input">
-                      </div>
+              <div class='col-md-4' style='padding-top: 23px;'>
+                <form>
+                  <div class="form-group row">
+                    <label for="example-date-input" class="col-2 col-form-label"></label>
+                    <div class="col-8">
+                      <input class="form-control" type="date" value="2020-07-24" id="example-date-input">
+                    </div>
                   </div>
-                        </form>
-
-                </div>
-                <div class='col-md-4'>
-                    <form>
-                    <div class="form-group">
-                        <label for="inputFilial"></label>
-                        <input type="text" class="form-control" id="inputFilial">
-                    </div>
-                    </form>
-                </div>
-                <div class='col-md-4'>
-                    <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1"></label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>006 </option>
-                            <option>0078</option>
-                            <option>0628</option>
-                        </select>
-                    </div>
                 </form>
-                </div>
+
+              </div>
+              <div class='col-md-4'>
+                <form>
+                  <div class="form-group">
+                    <label for="inputFilial"></label>
+                    <input type="text" class="form-control" id="inputFilial">
+                  </div>
+                </form>
+              </div>
+              <div class='col-md-4'>
+                <form>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1"></label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>006 </option>
+                      <option>0078</option>
+                      <option>0628</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
 
             </div>
 
             <div class='row marginTopMain semMarginRightMain fundo-bloco1 centralizarTexto'>
 
-                <div class='col-md-4'>
+              <div class='col-md-4'>
 
-                    <div class="form-group row">
-                        <label for="example-date-input" class="col-2 col-form-label">.</label>
-                        <div class="col-8">
-                        </div>
-                    </div>
+                <div class="form-group row">
+                  <label for="example-date-input" class="col-2 col-form-label">.</label>
+                  <div class="col-8">
+                  </div>
                 </div>
-                <div class='col-md-4'>
+              </div>
+              <div class='col-md-4'>
 
-                </div>
-                <div class='col-md-4'>
-                    <button type="submit" class="btn btn-default botaoConfirmar">Confirmar</button>
-                    <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
-                </div>
+              </div>
+              <div class='col-md-4'>
+                <button type="submit" class="btn btn-default botaoConfirmar">Confirmar</button>
+                <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
+              </div>
             </div>
-        </div>
-        <br>
+          </div>
+          <br>
 
-        <div class='row marginTabela' style='text-align: center'>
-          <table class="table">
-            <thead class="thead-default tituloTabela">
+          <div class='row marginTabela' style='text-align: center'>
+            <table class="table">
+              <thead class="thead-default tituloTabela">
                 <tr>
-                    <th scope="col">Filial</th>
-                    <th scope="col">Nome da Filial</th>
-                    <th scope="col">Total Dinheiro</th>
-                    <th scope="col">Total Cheque</th>
-                    <th scope="col">Caixa de Loja</th>
+                  <th scope="col">Filial</th>
+                  <th scope="col">Nome da Filial</th>
+                  <th scope="col">Total Dinheiro</th>
+                  <th scope="col">Total Cheque</th>
+                  <th scope="col">Caixa de Loja</th>
                 </tr>
-            </thead>
-            <tbody>
+              </thead>
+              <tbody>
                 <tr>
-                    <th scope="row">0006</th>
-                    <td>Conjunto Nacional</td>
-                    <td>R$ 2.234.543,76</td>
-                    <td>R$ 34.543,76</td>
-                    <td>R$ 2.269.087,52</td>
-                </tr>
-                <tr>
-                    <th scope="row">0078</th>
-                    <td>Padre João Manuel</td>
-                    <td>R$ 1.754.234,54</td>
-                    <td>R$ 14.234,54</td>
-                    <td>R$ 1.768.469,08</td>
+                  <th scope="row">0006</th>
+                  <td>Conjunto Nacional</td>
+                  <td>R$ 2.234.543,76</td>
+                  <td>R$ 34.543,76</td>
+                  <td>R$ 2.269.087,52</td>
                 </tr>
                 <tr>
-                    <th scope="row">0628</th>
-                    <td>Cerqueira Cesar E</td>
-                    <td>R$ 874.124,97</td>
-                    <td>R$ 4.574,82</td>
-                    <td>R$ 78.699,79</td>
+                  <th scope="row">0078</th>
+                  <td>Padre João Manuel</td>
+                  <td>R$ 1.754.234,54</td>
+                  <td>R$ 14.234,54</td>
+                  <td>R$ 1.768.469,08</td>
                 </tr>
-            </tbody>
-        </table>
+                <tr>
+                  <th scope="row">0628</th>
+                  <td>Cerqueira Cesar E</td>
+                  <td>R$ 874.124,97</td>
+                  <td>R$ 4.574,82</td>
+                  <td>R$ 78.699,79</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+      </main>
     </div>
-</main>
+  </div>
+</div>

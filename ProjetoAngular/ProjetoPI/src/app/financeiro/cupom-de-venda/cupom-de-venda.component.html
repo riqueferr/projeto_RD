@@ -1,101 +1,112 @@
-<div class='row marginTopMain semMarginRightMain'>
-  <div class='col-md-12'>
-
-    <br>
+<div class='row'>
+  <div class='col-md-3'>
+    <!-- SideBar -->
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class='col-md-9'>
     <div class="container">
-      <h2>Documento Fiscal</h2>
-    </div>
+      <div class='row marginTopMain semMarginRightMain'>
+        <div class='col-md-12'>
 
-    <div class="container">
-      <br><br>
-      <div class="container">
-        <div class="navbar navbar-light bg-light justify-content-center">
-          <form class="form-row">
-            <div class="form-group col-md-3">
-              <label for="inputPassword4">ID NF</label>
-              <input class="form-control mr-sm-4" type="search" placeholder="00" aria-label="Search">
-            </div>
-            <div class="form-group col-md-3">
-              <label for="inputPassword4">Filial</label>
-              <input class="form-control mr-sm-4" type="search" placeholder="00000" aria-label="Search">
-            </div>
-            <div class="form-group col-md-3">
-              <label for="inlineFormInputName">Data de entrada</label>
-              <input type="date" class="form-control mr-sm-4" placeholder="___/___/___" aria-label="Search">
-            </div>
-            <div style="margin-top: 2.7%" class="form-group col-md-3">
-              <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-4" type="submit"><i class="fa fa-search"></i>
-                Pesquisar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <br><br>
-      <div class="container">
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">ID NF</th>
-                <th scope="col">Data de Entrada</th>
-                <th scope="col">Filial</th>
-                <th scope="col">Operação</th>
-                <th scope="col">Valor Total</th>
-                <th scope="col">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor='let notas of responseDf'>
-                <th scope="row">{{ notas.idDF }}</th>
-                <td>{{ notas.dt_entrada | date: 'dd/MM/yyyy'}}</td>
-                <td>{{ notas.nmFilial }}</td>
-                <td>{{ notas.operacao.dsOperacao }}</td>
-                <td>R$ {{ notas.vl_documento_fiscal }}</td>
-                <td><abbr title="Detalhes">
-                    <!-- <a routerLink='/detalhamentoCupomDeVendas'> -->
-                    <!-- <a [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]"> -->
-
-                    <button type="button" class="btn botaoConfirmar"
-                      [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]">
-                      <i class="fa fa-exclamation-circle"></i></button>
-                    <!-- </a> -->
-                  </abbr>&nbsp;
-                  <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal"
-                      data-target="#exampleModal"><i class="fa fa-trash"></i></button>
-                  </abbr>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class='row justify-content-center' *ngIf="loading">
-        <div class="spinner-grow text-success text-center" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </div>
-      <br>
-    </div>
-
-    <!-- Modal Excluir-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Confirmação de exclusão</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+          <br>
+          <div class="container">
+            <h2>Documento Fiscal</h2>
           </div>
-          <div class="modal-body">
-            Deseja realmente excluir o registro selecionado ?
+
+          <div class="container">
+            <br><br>
+            <div class="container">
+              <div class="navbar navbar-light bg-light justify-content-center">
+                <form class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="inputPassword4">ID NF</label>
+                    <input class="form-control mr-sm-4" type="search" placeholder="00" aria-label="Search">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputPassword4">Filial</label>
+                    <input class="form-control mr-sm-4" type="search" placeholder="00000" aria-label="Search">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inlineFormInputName">Data de entrada</label>
+                    <input type="date" class="form-control mr-sm-4" placeholder="___/___/___" aria-label="Search">
+                  </div>
+                  <div style="margin-top: 2.7%" class="form-group col-md-3">
+                    <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-4" type="submit"><i
+                        class="fa fa-search"></i>
+                      Pesquisar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <br><br>
+            <div class="container">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID NF</th>
+                      <th scope="col">Data de Entrada</th>
+                      <th scope="col">Filial</th>
+                      <th scope="col">Operação</th>
+                      <th scope="col">Valor Total</th>
+                      <th scope="col">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor='let notas of responseDf'>
+                      <th scope="row">{{ notas.idDF }}</th>
+                      <td>{{ notas.dt_entrada | date: 'dd/MM/yyyy'}}</td>
+                      <td>{{ notas.nmFilial }}</td>
+                      <td>{{ notas.operacao.dsOperacao }}</td>
+                      <td>R$ {{ notas.vl_documento_fiscal }}</td>
+                      <td><abbr title="Detalhes">
+                          <!-- <a routerLink='/detalhamentoCupomDeVendas'> -->
+                          <!-- <a [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]"> -->
+
+                          <button type="button" class="btn botaoConfirmar"
+                            [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]">
+                            <i class="fa fa-exclamation-circle"></i></button>
+                          <!-- </a> -->
+                        </abbr>&nbsp;
+                        <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal"
+                            data-target="#exampleModal"><i class="fa fa-trash"></i></button>
+                        </abbr>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class='row justify-content-center' *ngIf="loading">
+              <div class="spinner-grow text-success text-center" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            <br>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-danger">Salvar mudanças</button>
+
+          <!-- Modal Excluir-->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Confirmação de exclusão</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Deseja realmente excluir o registro selecionado ?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-danger">Salvar mudanças</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

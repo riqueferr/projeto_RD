@@ -35,8 +35,10 @@ import { ListaTransferenciaComponent } from './abastecimento/transferencia-de-pr
 import { LoginComponent } from './login/login.component';
 import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/listar-id-filial/listar-id-filial.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-entrada/lista-id-entrada.component';
 import { ListarPageFornecedoresComponent } from './abastecimento/lista-fornecedores/listar-page-fornecedores/listar-page-fornecedores.component';
+import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-entrada/lista-id-entrada.component'
+import { AuthService } from './login/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -82,7 +84,7 @@ import { ListarPageFornecedoresComponent } from './abastecimento/lista-fornecedo
     NgxMaskModule.forRoot(),
     NgxPaginationModule // Nosso módulo recém instalado
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
