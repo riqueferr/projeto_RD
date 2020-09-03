@@ -17,22 +17,22 @@ public class OperadorEntity implements Serializable {
     private Long idOperador;
 
     @Column(name = "NM_NOME")
-    private String nm_operador;
+    private String nmOperador;
 
     @Column(name = "NR_CPF")
-    private String nr_cpf;
+    private String nrCpf;
 
     @Column(name = "NR_MATRICULA")
-    private Long nr_matricula;
+    private Long nrMatricula;
 
     @Column(name = "DS_CARGO")
-    private String ds_cargo;
+    private String dsCargo;
 
     @Column(name = "CD_FILIAL")
-    private Long cd_filial;
+    private Long cdFilial;
 
     @Column(name = "PW_OPERADOR")
-    private String pw_operador;
+    private String pwOperador;
 
     @ManyToMany
     @JoinTable(name = "TB_OPERADOR_PERFIL",

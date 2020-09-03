@@ -16,12 +16,12 @@ public class OperadorDTO {
 
 
     private Long idOperador;
-    private String nm_operador;
-    private String nr_cpf;
-    private Long nr_matricula;
-    private String ds_cargo;
-    private Long cd_filial;
-    private String pw_operador;
+    private String nmOperador;
+    private String nrCpf;
+    private Long nrMatricula;
+    private String dsCargo;
+    private Long cdFilial;
+    private String pwOperador;
 
     private List<PerfilDTO> perfil;
 

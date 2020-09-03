@@ -12,6 +12,6 @@ import javax.persistence.Column;
 public class PerfilDTO {
 
     private Integer id;
-    private String ds_perfil;
+    private String dsPerfil;
 
 }

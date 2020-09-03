@@ -28,19 +28,19 @@ public class OperadorBO {
             return dto;
 
         dto.setIdOperador(o.getIdOperador());
-        dto.setNm_operador(o.getNm_operador());
-        dto.setNr_cpf(o.getNr_cpf());
-        dto.setNr_matricula(o.getNr_matricula());
-        dto.setDs_cargo(o.getDs_cargo());
-        dto.setCd_filial(o.getCd_filial());
-        dto.setPw_operador(o.getPw_operador());
+        dto.setNmOperador(o.getNmOperador());
+        dto.setNrCpf(o.getNrCpf());
+        dto.setNrMatricula(o.getNrMatricula());
+        dto.setDsCargo(o.getDsCargo());
+        dto.setCdFilial(o.getCdFilial());
+        dto.setPwOperador(o.getPwOperador());
 
         List<PerfilDTO> perfil = new ArrayList<>();
 
         for (PerfilEntity item : o.getPerfil()) {
             PerfilDTO pfDTO = new PerfilDTO();
             pfDTO.setId(item.getId());
-            pfDTO.setDs_perfil(item.getDs_perfil());
+            pfDTO.setDsPerfil(item.getDsPerfil());
 
             perfil.add(pfDTO);
         }
@@ -59,19 +59,19 @@ public class OperadorBO {
             return o;
 
         o.setIdOperador(dto.getIdOperador());
-        o.setNm_operador(dto.getNm_operador());
-        o.setNr_cpf(dto.getNr_cpf());
-        o.setNr_matricula(dto.getNr_matricula());
-        o.setDs_cargo(dto.getDs_cargo());
-        o.setCd_filial(dto.getCd_filial());
-        o.setPw_operador(dto.getPw_operador());
+        o.setNmOperador(dto.getNmOperador());
+        o.setNrCpf(dto.getNrCpf());
+        o.setNrMatricula(dto.getNrMatricula());
+        o.setDsCargo(dto.getDsCargo());
+        o.setCdFilial(dto.getCdFilial());
+        o.setPwOperador(dto.getPwOperador());
 
         List<PerfilEntity> itemsEntity = new ArrayList<>();
 
         for (PerfilDTO itemDTO : dto.getPerfil()) {
             PerfilEntity pEntity = new PerfilEntity();
             pEntity.setId(itemDTO.getId());
-            pEntity.setDs_perfil(itemDTO.getDs_perfil());
+            pEntity.setDsPerfil(itemDTO.getDsPerfil());
 
             itemsEntity.add(pEntity);
         }
