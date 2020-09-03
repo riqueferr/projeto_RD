@@ -10,6 +10,7 @@ import java.util.List;
 @Table(name = "TB_FILIAL")
 @Data
 @NamedQuery(name = "buscarNfPornmFilial", query = "select n from FilialEntity n where n.nmFilial  =:NM_FILIAL")
+//@NamedQuery(name = "buscarNfPornmFilial", query = "select n from FilialEntity n where n.nmFilial  =:NM_BANDEIRA")
 public class FilialEntity {
 
     @Id

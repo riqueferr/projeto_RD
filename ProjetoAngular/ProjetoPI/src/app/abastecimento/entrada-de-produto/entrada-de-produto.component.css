@@ -1,49 +1,36 @@
+.botaoCadastrar {
+  color: #29754E !important;
+  background-color: #FFFFFF !important;
+  border-color: #29754E !important;
+  width: 120px !important;
+  /* height: 28px !important; */
+  padding: 4px;
+  margin-bottom: 5px;
+}
+
+.botaoCadastrar:hover {
+  background-color: #29754E !important;
+  border-color: #FFFFFF !important;
+  color: #FFFFFF !important;
+  width: 120px !important;
+  /* height: 28px !important; */
+  padding: 4px;
+  margin-bottom: 5px;
+}
+
 .botaoConfirmar {
-    background-color: #29754e;
-    color: #fff;
-    margin-left: 40px;
-  }
-  
-  .botaoConfirmar:hover {
-    background-color: #174d31;
-    color: #fff;
-    margin-left: 40px;
-    border: 1px solid #29754e;
-  }
-  
-  .botaoCancelar {
-    background-color: #989898;
-    color: #fff;
-    margin-left: 10px;
-  }
-  
-  .botaoCancelar:hover {
-    background-color: #5e5e5e;
-    color: #fff;
-    margin-left: 10px;
-  }
+  background-color: #29754e;
+  color: #fff;
+  margin-left: 0px !important;
+}
 
-  .marginTopMain {
-    margin-top: 0px;
-  }
-  
-  .semMarginRightMain {
-    margin-right: 0px;
-  }
+.botaoConfirmar:hover {
+  background-color: #174d31;
+  color: #fff;
+  margin-left: 0px !important;
+  border: 1px solid #29754e;
+}
 
-  .bordaDash {
-    border-radius: 5px;
-    height: 170px;
-    margin-bottom: 10px;
-    border: 1px solid #f0f0f0;
-  } 
-
-  .tituloQuadros {
-    width: 200px;
-    background-color: #29754e;
-    margin-left: 20px;
-    margin-top: 10px;
-    border-radius: 5px;
-    color: #fff;
-    justify-content: center;
-  }
+.comMarginBottom{
+  margin-bottom: 5px;
+}

@@ -30,6 +30,11 @@ public class ProdutoController {
         return ResponseEntity.ok().body(service.listarTodas());
     }
 
+    @GetMapping("/produtos/page/{pagina}")
+    public ResponseEntity buscarTodasPage(@PathVariable("pagina") Integer pagina) {
+        return ResponseEntity.ok().body(service.listarTodasPage(pagina));
+    }
+
     @GetMapping("/produtos/{codigo}")
     @ApiOperation(value = "Listar todas os produtos por id")
     public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {

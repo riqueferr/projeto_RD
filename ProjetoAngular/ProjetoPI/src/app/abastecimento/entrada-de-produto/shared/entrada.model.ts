@@ -12,20 +12,20 @@ export interface Entradas {
     // dtAbertura: Date,
     // dtFechamento: Date,
     vlDocumentoFiscal: number,
-    itens: [
-        {
-            nrItemDocumento: number,
-            cdProduto: number,
-            qtItem: number,
-            pcIcms: number,
-            vlIcms: number
-        }
-    ]
+    itens: ResponseEntradaItens []
 }
 
 
-export interface ResponseEntradas {
+export class ResponseEntradas {
   entradas: Entradas[];
 }
 
+export class ResponseEntradaItens{
+    nrItemDocumento: number;
+    cdProduto: number;
+    qtItem: number;
+    nmProduto: String;
+    // pcIcms: number;
+    // vlIcms: number;
+}
 

@@ -45,40 +45,39 @@
 
               </tr>
             </thead>
-
-            <tbody>
-              <tr
-                *ngFor='let entradas of responseEntradas | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
-                <th scope="row"> {{ entradas.idDocumento }} </th>
-                <td>
-                  <div class="dropdown">
-                    <button class="btn btn botaoConfirmar dropdown-toggle" type="button" id="dropdownMenuButton"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Itens
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" *ngIf="entradas.itens[0]">Código: {{entradas.itens[0].cdProduto}}</a>
-                      <a class="dropdown-item" *ngIf="entradas.itens[0]">Nome: {{entradas.itens[0].nmProduto}}</a>
-                      <a class="dropdown-item" *ngIf="entradas.itens[0]">Quantidade: {{entradas.itens[0].qtItem}}</a>
-                    </div>
-                  </div>
-                </td>
-                <td>{{ entradas.nmFornecedor }}</td>
-                <td ng-model-options="{timezone: 'America/Sao_Paulo'}">{{ entradas.dtEntrada}}</td>
-                <td>R$ {{ entradas.vlDocumentoFiscal }}</td>
-                <!-- <td *ngIf="entradas.itens[0]">{{ entradas.itens[0].cdProduto }}</td> -->
-              </tr>
-            </tbody>
-          </table>
-          <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo">
-          </pagination-controls>
-        </div>
-        <div class='row justify-content-center' *ngIf="loading">
-          <div class="spinner-grow text-success text-center" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
-      </div>
+      <tbody>
+        <tr *ngFor='let entradas of responseEntradas | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
+          <th scope="row"> {{ entradas.idDocumento }} </th>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn botaoConfirmar dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Itens
+              </button>
+              <div
+              class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" *ngIf="entradas.itens[0]">Código: {{entradas.itens[0].cdProduto}}</a>
+                <a class="dropdown-item" *ngIf="entradas.itens[0]">Nome: {{entradas.itens[0].nmProduto}}</a>
+                <a class="dropdown-item" *ngIf="entradas.itens[0]">Quantidade: {{entradas.itens[0].qtItem}}</a>
+                <a class="dropdown-item">-------------</a>
+                <a class="dropdown-item" *ngIf="entradas.itens[1]">Código: {{entradas.itens[1].cdProduto}}</a>
+                <a class="dropdown-item" *ngIf="entradas.itens[1]">Nome: {{entradas.itens[1].nmProduto}}</a>
+                <a class="dropdown-item" *ngIf="entradas.itens[1]">Quantidade: {{entradas.itens[1].qtItem}}</a>
+              </div>
+            </div>
+          </td>
+          <td>{{ entradas.nmFornecedor }}</td>
+          <td ng-model-options="{timezone: 'America/Sao_Paulo'}" >{{ entradas.dtEntrada}}</td>
+          <td>R$ {{ entradas.vlDocumentoFiscal }}</td>
+          <!-- <td *ngIf="entradas.itens[0]">{{ entradas.itens[0].cdProduto }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+  </div>
+  <div class='row justify-content-center' *ngIf="loading">
+    <div class="spinner-grow text-success text-center" role="status">
+      <span class="sr-only">Loading...</span>
     </div>
   </div>
 </div>

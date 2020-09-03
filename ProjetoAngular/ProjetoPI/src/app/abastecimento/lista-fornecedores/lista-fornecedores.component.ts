@@ -11,6 +11,8 @@ export class ListaFornecedoresComponent implements OnInit {
 
   loading: boolean;
 
+  public paginaAtual = 1;
+
   responseFornecedores: ResponseFornecedores[];
   constructor(private fornecedorService: FornecedoresService) { }
 

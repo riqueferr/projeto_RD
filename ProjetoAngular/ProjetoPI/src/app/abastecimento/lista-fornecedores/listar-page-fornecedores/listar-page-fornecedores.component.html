@@ -1,0 +1,78 @@
+<br>
+<div class="container">
+  <h2>Fornecedores</h2>
+</div>
+<br>
+<div class="container">
+  <div class='row justify-content-end marginTabela'>
+
+    <a type='submit' routerLink='/cadastroDeFornecedor' class='btn btn-default botaoCadastrar centralizar'>
+
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+        <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+      </svg>
+      Cadastrar
+    </a>
+
+  </div>
+
+  <main>
+    <div class='row marginTabela' style='text-align: center'>
+      <table class="table">
+        <thead class="thead-default tituloTabela">
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Fornecedor</th>
+            <th scope="col">CNPJ</th>
+            <th scope="col">Contato</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <tr *ngFor='let re of request | paginate: { itemsPerPage: 2, currentPage: paginaAtual }; let i = index'>
+              <th scope="row"> {{ re.cd_fornecedor }} </th>
+              <td>{{ re.nm_razao_social }}</td>
+              <td>{{ re.nr_cnpj }}</td>
+              <td>{{ re.nr_telefone}}</td>
+            <!-- <td _ngcontent-ytp-c40="">
+              <abbr _ngcontent-ytp-c40="" title="Editar">
+                <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar" [routerLink]="['/fornecedores/editar', fornecedor.cd_fornecedor]">
+                  <i _ngcontent-ytp-c40="" class="fa fa-pencil">
+                  </i>
+                </button>
+              </abbr>&nbsp;
+              <abbr _ngcontent-ytp-c40="" title="Visualizar">
+                <button _ngcontent-ytp-c40="" type="button" data-toggle="modal" data-target="#exampleModal"
+                  class="btn btn-secondary" [routerLink]="['/visualizar/fornecedor', fornecedor.cd_fornecedor]">
+                  <i _ngcontent-ytp-c40="" class="fa fa-eye">
+                  </i>
+                </button>
+              </abbr>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+      <!-- <pagination-controls [routerLink]="['/fornecedores/editar', paginaAtual]" (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls> -->
+      <div class="form-group col-md-3">
+        <select  name="idTipoProduto" ngModel #idTipoProduto="ngModel" class="form-control" 
+        [(ngModel)]='page' id="idTipoProduto" (click)="register()" size="5">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+    </div>
+    <div class='row justify-content-center' *ngIf="loading">
+      <div class="spinner-grow text-success text-center" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </main>
+</div>

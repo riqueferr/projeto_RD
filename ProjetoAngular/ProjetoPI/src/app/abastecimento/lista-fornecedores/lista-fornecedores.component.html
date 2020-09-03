@@ -45,37 +45,35 @@
             <td>Johnson & Johnson</td>
             <td>66.666.865/0240-93</td>
             <td>needs.contato@rd.com.br | (11) 3765-2376</td> -->
-                <tr *ngFor='let fornecedor of responseFornecedores'>
-                  <th scope="row"> {{ fornecedor.cd_fornecedor }} </th>
-                  <td>{{ fornecedor.nm_razao_social }}</td>
-                  <td>{{ fornecedor.nr_cnpj }}</td>
-                  <td>{{ fornecedor.nr_telefone}}</td>
-                  <td _ngcontent-ytp-c40="">
-                    <abbr _ngcontent-ytp-c40="" title="Editar">
-                      <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar"
-                        [routerLink]="['/fornecedores/editar', fornecedor.cd_fornecedor]">
-                        <i _ngcontent-ytp-c40="" class="fa fa-pencil">
-                        </i>
-                      </button>
-                    </abbr>&nbsp;
-                    <abbr _ngcontent-ytp-c40="" title="Visualizar">
-                      <button _ngcontent-ytp-c40="" type="button" data-toggle="modal" data-target="#exampleModal"
-                        class="btn btn-secondary" [routerLink]="['/visualizar/fornecedor', fornecedor.cd_fornecedor]">
-                        <i _ngcontent-ytp-c40="" class="fa fa-eye">
-                        </i>
-                      </button>
-                    </abbr>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class='row justify-content-center' *ngIf="loading">
-            <div class="spinner-grow text-success text-center" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
-        </main>
+            <tr *ngFor='let fornecedor of responseFornecedores | paginate: { itemsPerPage: 2, currentPage: paginaAtual }; let i = index'>
+              <th scope="row"> {{ fornecedor.cd_fornecedor }} </th>
+              <td>{{ fornecedor.nm_razao_social }}</td>
+              <td>{{ fornecedor.nr_cnpj }}</td>
+              <td>{{ fornecedor.nr_telefone}}</td>
+            <td _ngcontent-ytp-c40="">
+              <abbr _ngcontent-ytp-c40="" title="Editar">
+                <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar" [routerLink]="['/fornecedores/editar', fornecedor.cd_fornecedor]">
+                  <i _ngcontent-ytp-c40="" class="fa fa-pencil">
+                  </i>
+                </button>
+              </abbr>&nbsp;
+              <abbr _ngcontent-ytp-c40="" title="Visualizar">
+                <button _ngcontent-ytp-c40="" type="button" data-toggle="modal" data-target="#exampleModal"
+                  class="btn btn-secondary" [routerLink]="['/visualizar/fornecedor', fornecedor.cd_fornecedor]">
+                  <i _ngcontent-ytp-c40="" class="fa fa-eye">
+                  </i>
+                </button>
+              </abbr>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <pagination-controls [routerLink]="['/fornecedores/editar', paginaAtual]" (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls> -->
+      <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+    </div>
+    <div class='row justify-content-center' *ngIf="loading">
+      <div class="spinner-grow text-success text-center" role="status">
+        <span class="sr-only">Loading...</span>
       </div>
     </div>
   </div>

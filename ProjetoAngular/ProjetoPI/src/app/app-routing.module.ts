@@ -24,6 +24,7 @@ import { ListaTransferenciaComponent } from './abastecimento/transferencia-de-pr
 import { LoginComponent } from './login/login.component';
 import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/listar-id-filial/listar-id-filial.component';
 import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-entrada/lista-id-entrada.component';
+import { ListarPageFornecedoresComponent } from './abastecimento/lista-fornecedores/listar-page-fornecedores/listar-page-fornecedores.component';
 import { AuthGuard } from './guards/auth.guard';
 
 
@@ -109,6 +110,11 @@ export const routes: Routes = [
     component: ListaIdEntradaComponent,
     canActivate: [AuthGuard]
   },
+    path: 'listaFornecedores/:page',
+    component: ListarPageFornecedoresComponent,
+    canActivate: [AuthGuard]
+  },
+    
   {
     path: 'listaProdutos',
     component: ListaProdutosComponent,
@@ -153,7 +159,6 @@ export const routes: Routes = [
     path: 'login',
     component: LoginComponent
   }
-
 ];
 
 @NgModule({
