@@ -15,6 +15,6 @@ public class PerfilEntity {
     private Integer id;
 
     @Column(name = "DS_PERFIL")
-    private String ds_perfil;
+    private String dsPerfil;
 
 }
