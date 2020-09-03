@@ -110,11 +110,12 @@ export const routes: Routes = [
     component: ListaIdEntradaComponent,
     canActivate: [AuthGuard]
   },
+  {
     path: 'listaFornecedores/:page',
     component: ListarPageFornecedoresComponent,
     canActivate: [AuthGuard]
   },
-    
+
   {
     path: 'listaProdutos',
     component: ListaProdutosComponent,
