@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NgForm, Form, FormGroup, FormControl } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { Entradas, ResponseEntradas } from '../entrada-de-produto/shared/entrada.model';
+import { Entradas, ResponseEntradas, ResponseEntradaItens } from '../entrada-de-produto/shared/entrada.model';
 import { EntradasService } from '../entrada-de-produto/shared/entrada.service';
 import { Itens } from 'src/app/financeiro/cupom-de-venda/shared/documentofiscal.model';
 
@@ -20,6 +20,7 @@ export class ListaEntradaComponent implements OnInit {
   public paginaAtual = 1;
 
   responseEntradas: ResponseEntradas[];
+  item: ResponseEntradaItens[];
 
     idDF: any;
 
@@ -32,6 +33,7 @@ export class ListaEntradaComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     this.listarTodasEntradas();
+    this.item;
   }
 
   listarTodasEntradas() {
