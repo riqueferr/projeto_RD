@@ -18,12 +18,19 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | boolean {
 
-    if (this.authService.usuarioEstaAutenticado()) {
+    const token = window.localStorage.getItem('token');
+    if (token) {
       return true;
+    } else {
+      this.router.navigate(['login']);
+      return false;
     }
+    // if (this.authService.usuarioEstaAutenticado()) {
+    //   return true;
+    // }
 
-    this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
 
-    return false;
+    // return false;
   }
 }
