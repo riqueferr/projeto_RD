@@ -1,5 +1,10 @@
 import { EntradasService } from './shared/entrada.service';
 import { Entradas, ResponseEntradas, ResponseEntradaItens } from './shared/entrada.model';
+import { ResponseProdutos } from '../lista-produtos/shared/produtos.model';
+import { ProdutosService } from '../lista-produtos/shared/produtos.service';
+import { ResponseFornecedores } from '../cadastro-de-fornecedor/shared/fornecedores.model';
+import { FornecedoresService } from '../cadastro-de-fornecedor/shared/fornecedores.service';
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -13,12 +18,15 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 
+
 @Component({
   selector: 'app-entrada-de-produto',
   templateUrl: './entrada-de-produto.component.html',
   styleUrls: ['../../app.component.css']
 })
 export class EntradaDeProdutoComponent implements OnInit {
+
+  loading: boolean;
 
   @ViewChild('it', { static: true }) it: NgForm;
 
@@ -41,17 +49,21 @@ export class EntradaDeProdutoComponent implements OnInit {
   item: ResponseEntradaItens = new ResponseEntradaItens();
 
   responseEntradas: ResponseEntradas[];
+  responseProdutos: ResponseProdutos[];
+  responseFornecedores: ResponseFornecedores[];
 
   constructor(
     private http: HttpClient,
     private entradaService: EntradasService,
+    private responseProdutoService: ProdutosService,
+    private responseFornecedoresService: FornecedoresService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-
-    
-
+    this.loading = true;
+    this.listarTodosProdutos();
+    this.listarTodosFornecedores();
 
     $(document).ready(function() {
       // alert('Eu estou usando JQuery');
@@ -60,11 +72,9 @@ export class EntradaDeProdutoComponent implements OnInit {
       $('.data').mask('00/00/0000');
       $(".dinheiro").mask('000.000.000.000,000.00', {reverse: true});
 
-      $(".dinheiro").change(function(){
-        $("#value").html($(this).val().replace(/\D/g,''))
-      })
-
-
+      // $(".dinheiro").change(function(){
+      //   $("#value").html($(this).val().replace(/\D/g,''))
+      // })
 
     });
     this.i = 1;
@@ -80,6 +90,20 @@ export class EntradaDeProdutoComponent implements OnInit {
   listarTodasEntradas() {
     this.entradaService.getEntradas().subscribe(response => {
       this.responseEntradas = response;
+    });
+  }
+
+  listarTodosProdutos() {
+    this.responseProdutoService.getProdutos().subscribe(response => {
+      this.responseProdutos = response;
+      this.loading = false;
+    });
+  }
+
+  listarTodosFornecedores() {
+    this.responseFornecedoresService.getFornecedores().subscribe(response => {
+      this.responseFornecedores = response;
+      this.loading = false;
     });
   }
 

@@ -33,9 +33,9 @@ public class FornecedorService {
 
 
     public List<FornecedorDTO> buscarTodos(){
+
         List<FornecedorEntity> fornecedorEntity = repository.findAll();
         List<FornecedorDTO> fornecedorDTO = new ArrayList<>();
-
 
         for (FornecedorEntity entity : fornecedorEntity){
             FornecedorDTO dto = fornecedorBO.parseToDTO(entity);

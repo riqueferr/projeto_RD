@@ -1,4 +1,10 @@
-
+    <div class='row'>
+      <div class='col-md-3'>
+        <!-- SideBar -->
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class='col-md-9'>
+        <div class="container">
                 <br>
                 <div class="container">
                     <h2>Recebimento de Produto</h2>
@@ -27,11 +33,19 @@
                                   </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputdescricao">CD Fornecedor</label>
-                                        <input id="idFornecedor" name="idFornecedor" #idFornecedor="ngModel" [(ngModel)]='request.idFornecedor'
-                                        class="form-control" placeholder="Fornecedor" required>
+                                        <!-- <input id="idFornecedor" name="idFornecedor" #idFornecedor="ngModel" [(ngModel)]='request.idFornecedor'
+                                        class="form-control" placeholder="Fornecedor" required> -->
                                         <div class="invalid-tooltip">
                                               Digite o fornecedor, por favor.
+                                          </div>
+                                          <select [(ngModel)]='request.idFornecedor'class="form-control" id="idFornecedor" name="idFornecedor" ngModel required #idFornecedor="ngModel">
+                                            <option *ngFor='let fornecedores of responseFornecedores' value="{{fornecedores.cd_fornecedor}}" >{{ fornecedores.nm_razao_social }}</option>
+                                          </select>
+                                          <div class='row' *ngIf="loading">
+                                            <div class="spinner-grow text-success text-center" role="status">
+                                              <span class="sr-only">Loading...</span>
                                             </div>
+                                          </div>
 
                                     </div>
                                 </div>
@@ -81,10 +95,18 @@
                                 <br>
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
-                                        <label for="inputdescricao">Código Produto</label>
-                                        <input name="cdProduto" required #cdProduto="ngModel" class="form-control"  [(ngModel)]='item.cdProduto'>
+                                        <label for="inputdescricao">Produtos</label>
+                                        <!-- <input name="cdProduto" required #cdProduto="ngModel" class="form-control"  [(ngModel)]='item.cdProduto'> -->
                                         <div class="invalid-tooltip">
-                                              Digite um código do produto, por favor.
+                                              Selecione um produto, por favor.
+                                        </div> 
+                                        <select [(ngModel)]='item.cdProduto'class="form-control" id="cdProduto" name="cdProduto" ngModel required #cdProduto="ngModel">
+                                            <option *ngFor='let produtos of responseProdutos' value="{{produtos.codigo}}" >{{produtos.codigo}} {{ produtos.nm_fantasia }}</option>
+                                          </select>
+                                          <div class='row' *ngIf="loading">
+                                            <div class="spinner-grow text-success text-center" role="status">
+                                              <span class="sr-only">Loading...</span>
+                                            </div>
                                           </div>
                                     </div>
                                     <div class="form-group col-md-2">
@@ -125,8 +147,8 @@
                                       <tr *ngFor='let itens of request.itens'>
                                         <th scope="row" >{{itens.nrItemDocumento}}</th>
                                         <td >{{itens.cdProduto}}</td>
-                                        <td>Product Name</td>
-                                        <!-- <td >{{itens.nmProduto}}</td> -->
+                                        <!-- <td>Product Name</td> -->
+                                        <td >{{itens.nmProduto}}</td>
                                         <td >{{itens.qtItem}}</td>
                                       </tr>
                                     </tbody>
@@ -135,6 +157,7 @@
                     </div>
                 </div>
             </div>
-
-
+    </div>
+</div>
+</div>
 
