@@ -11,9 +11,9 @@ import { FornecedoresService } from '../../cadastro-de-fornecedor/shared/fornece
 })
 export class ListarPageFornecedoresComponent implements OnInit {
 
-  loading: boolean;
+  // loading: boolean;
 
-  public paginaAtual = 1;
+  public paginaAtual = 0;
 
   page: any;
   request: any;
@@ -25,8 +25,6 @@ export class ListarPageFornecedoresComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    // this.page = 2;
-    this.loading = true;
     this.page = this.route.snapshot.paramMap.get('page');
     this.fornecedorService.getFornecedorPage(this.page).subscribe(response => this.request = response);
   }
