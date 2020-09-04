@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Usuario } from './usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +10,32 @@ import { Usuario } from './usuario';
 })
 export class LoginComponent implements OnInit {
 
-  public usuario: Usuario = new Usuario();
-
-  constructor(private authService: AuthService) { }
+  // public usuario: Usuario = new Usuario();
+  login = {
+    operador: '',
+    senha: ''
+  };
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
-  fazerLogin() {
-    console.log(this.usuario);
-    this.authService.fazerLogin(this.usuario);
+  async onSubmit() {
+    try {
+      const result = await this.authService.fazerLogin(this.login);
+      console.log(`Login efetuado: ${result}`);
+
+      // navego para a rota vazia novamente
+      this.router.navigate(['/abastecimento-dashboard']);
+    } catch (error) {
+      console.error(error);
+    }
+    // fazerLogin() {
+    //   console.log(this.usuario);
+    //   this.authService.fazerLogin(this.usuario);
   }
 
   // setUsuario(usuario: string) {

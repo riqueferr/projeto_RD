@@ -33,7 +33,7 @@ export const routes: Routes = [
     path: '',
     redirectTo: '/login',
     pathMatch: 'full',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'abastecimento-dashboard',

@@ -1,18 +1,19 @@
 <div class="body">
-  <form class="form-signin">
+  <form (ngSubmit)="onSubmit()" #form="ngForm" class="form-signin">
     <div class="text-center">
       <img class="mb-4 text-center" src="./assets/images/LogoRD.png" alt="" height="120">
     </div>
     <br>
     <label for="usuario">Login</label>
-    <input [(ngModel)]="usuario.nome" name="usuario" type="number" id="usuario" min="1" class="form-control mb-4"
+    <input [(ngModel)]="login.operador" name="usuario" type="number" id="usuario" min="1" class="form-control mb-4"
       placeholder="Username" required autofocus>
     <label for="senha">Senha</label>
-    <input [(ngModel)]="usuario.senha" name="senha" type="password" id="senha" class="form-control mb-4"
+    <input [(ngModel)]="login.senha" name="senha" type="password" id="senha" class="form-control mb-4"
       placeholder="***********" required>
     <div>
-      <a class="btn btn-lg btn-success btn-lg  mr-sm-4" role="button"
-        (click)="fazerLogin()">Entrar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- <a class="btn btn-lg btn-success btn-lg  mr-sm-4" role="button"
+        >Entrar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+        <button type="submit" class="btn btn-lg btn-success btn-lg  mr-sm-4" [disabled]="form.form.invalid">Entrar</button>
       <a style="color: #29754E;" href="#">Esqueceu a senha ?</a>
     </div>
     <p class="mt-5 mb-3 text-muted text-center">&copy; RDevs Abastecimento e Financeiro 2020</p>

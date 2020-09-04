@@ -13,25 +13,29 @@ export class AuthService {
   constructor(private router: Router) { }
 
   // tslint:disable-next-line: typedef
-  fazerLogin(usuario: Usuario) {
+  fazerLogin(user: any) {
 
-    // tslint:disable-next-line: triple-equals
-    if (usuario.nome == '166534' &&
-      // tslint:disable-next-line: triple-equals
-      usuario.senha == '123456') {
+    return new Promise((resolve) => {
+      window.localStorage.setItem('token', 'meu-token');
+      resolve(true);
+    });
+    // // tslint:disable-next-line: triple-equals
+    // if (usuario.nome == '166534' &&
+    //   // tslint:disable-next-line: triple-equals
+    //   usuario.senha == '123456') {
 
-      this.usuarioAutenticado = true;
-      this.mostrarMenuEmitter.emit(true);
-      this.router.navigate(['/abastecimento-dashboard']);
+    //   this.usuarioAutenticado = true;
+    //   this.mostrarMenuEmitter.emit(true);
+    //   this.router.navigate(['/abastecimento-dashboard']);
 
-    } else {
-      this.usuarioAutenticado = false;
-      this.mostrarMenuEmitter.emit(false);
-    }
+    // } else {
+    //   this.usuarioAutenticado = false;
+    //   this.mostrarMenuEmitter.emit(false);
+    // }
   }
 
   // tslint:disable-next-line: typedef
-  usuarioEstaAutenticado() {
-    return this.usuarioAutenticado;
-  }
+  // usuarioEstaAutenticado() {
+  //   return this.usuarioAutenticado;
+  // }
 }
