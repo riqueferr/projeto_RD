@@ -46,7 +46,7 @@ public class FornecedorService {
 
     public List<FornecedorDTO> buscarPages(Integer page){
 
-        Pageable firstPageWithTwoElements = PageRequest.of(page, 2);
+        Pageable firstPageWithTwoElements = PageRequest.of(page, 5);
 
         Page<FornecedorEntity> fornecedorEntity = pageRepository.findAll(firstPageWithTwoElements);
 

@@ -34,30 +34,41 @@
         </thead>
         <tbody>
           <tr>
-            <tr *ngFor='let re of request | paginate: { itemsPerPage: 2, currentPage: paginaAtual }; let i = index'>
+            <tr *ngFor='let re of request | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
               <th scope="row"> {{ re.cd_fornecedor }} </th>
               <td>{{ re.nm_razao_social }}</td>
               <td>{{ re.nr_cnpj }}</td>
               <td>{{ re.nr_telefone}}</td>
-            <!-- <td _ngcontent-ytp-c40="">
+            <td _ngcontent-ytp-c40="">
               <abbr _ngcontent-ytp-c40="" title="Editar">
-                <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar" [routerLink]="['/fornecedores/editar', fornecedor.cd_fornecedor]">
+                <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar" [routerLink]="['/fornecedores/editar', re.cd_fornecedor]">
                   <i _ngcontent-ytp-c40="" class="fa fa-pencil">
                   </i>
                 </button>
               </abbr>&nbsp;
               <abbr _ngcontent-ytp-c40="" title="Visualizar">
                 <button _ngcontent-ytp-c40="" type="button" data-toggle="modal" data-target="#exampleModal"
-                  class="btn btn-secondary" [routerLink]="['/visualizar/fornecedor', fornecedor.cd_fornecedor]">
+                  class="btn btn-secondary" [routerLink]="['/visualizar/fornecedor', re.cd_fornecedor]">
                   <i _ngcontent-ytp-c40="" class="fa fa-eye">
                   </i>
                 </button>
               </abbr>
-            </td> -->
+            </td>
           </tr>
         </tbody>
       </table>
-      <!-- <pagination-controls [routerLink]="['/fornecedores/editar', paginaAtual]" (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls> -->
+      <!-- <pagination-controls [routerLink]="['/listaFornecedores', 1]" (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls> -->
+
+      <!-- <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" [routerLink]="['/listaFornecedores', 0]">0</a></li>
+          <li class="page-item"><a class="page-link" [routerLink]="['/listaFornecedores', 1]">1</a></li>
+          <li class="page-item"><a class="page-link" [routerLink]="['/listaFornecedores', 2]">2</a></li>
+          <li class="page-item"><a class="page-link" [routerLink]="['/listaFornecedores', 3]">3</a></li>
+          <li class="page-item"><a class="page-link" [routerLink]="['/listaFornecedores', 4]">4</a></li>
+        </ul>
+      </nav> -->
+      <input type="text" id="estadovl" name="estadovl" hidden="hidden">
       <div class="form-group col-md-3">
         <select  name="idTipoProduto" ngModel #idTipoProduto="ngModel" class="form-control" 
         [(ngModel)]='page' id="idTipoProduto" (click)="register()" size="5">
@@ -68,11 +79,8 @@
           <option value="4">4</option>
         </select>
       </div>
+
     </div>
-    <div class='row justify-content-center' *ngIf="loading">
-      <div class="spinner-grow text-success text-center" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
+
   </main>
 </div>
