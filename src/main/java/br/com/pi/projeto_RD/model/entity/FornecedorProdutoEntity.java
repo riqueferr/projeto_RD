@@ -4,21 +4,23 @@ package br.com.pi.projeto_RD.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "TB_FORNECEDOR_PRODUTO")
 @Data
-public class FornecedorProdutoEntity {
-
+public class FornecedorProdutoEntity implements Serializable {
 
     @Id
-    @Column(name = "ID_FORNECEDOR")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_fornecedor;
+    @ManyToOne
+    @JoinColumn(name = "CD_FORNECEDOR")
+    private FornecedorEntity fornecedor;
 
     @Column(name = "FL_FABRICANTE")
-    private String fl_fabricante;
+    private String flFabricante;
 
-    @Column(name = "CD_PRODUTO")
-    private String cd_produto;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "CD_PRODUTO")
+    private ProdutoEntity produto;
 }

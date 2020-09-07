@@ -49,7 +49,9 @@ export class EntradaDeProdutoComponent implements OnInit {
   item: ResponseEntradaItens = new ResponseEntradaItens();
 
   responseEntradas: ResponseEntradas[];
+
   responseProdutos: ResponseProdutos[];
+
   responseFornecedores: ResponseFornecedores[];
 
   constructor(

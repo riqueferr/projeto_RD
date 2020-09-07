@@ -26,6 +26,7 @@ public class ProdutoFilialEstoqueEntity implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CD_PRODUTO")
     @JsonIgnore
+//    private List<ProdutoFilialEstoqueEntity> produtos;
     private ProdutoEntity produto;
 
     @Column(name = "QT_ESTOQUE")

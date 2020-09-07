@@ -44,7 +44,7 @@
             <td>Johnson & Johnson</td>
             <td>66.666.865/0240-93</td>
             <td>needs.contato@rd.com.br | (11) 3765-2376</td> -->
-            <tr *ngFor='let fornecedor of responseFornecedores | paginate: { itemsPerPage: 2, currentPage: paginaAtual }; let i = index'>
+            <tr *ngFor='let fornecedor of responseFornecedores | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
               <th scope="row"> {{ fornecedor.cd_fornecedor }} </th>
               <td>{{ fornecedor.nm_razao_social }}</td>
               <td>{{ fornecedor.nr_cnpj }}</td>
