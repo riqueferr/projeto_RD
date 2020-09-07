@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination'; // Módulo da dependência de paginação
+import { NgxCurrencyModule } from "ngx-currency";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -80,9 +81,9 @@ import { AuthGuard } from './guards/auth.guard';
     FormsModule,
     HttpClientModule,
     ChartsModule,
-    // MoneyMaskModule,
     NgxMaskModule.forRoot(),
-    NgxPaginationModule // Nosso módulo recém instalado
+    NgxPaginationModule, // Paginação
+    NgxCurrencyModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

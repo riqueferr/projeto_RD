@@ -60,9 +60,10 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">R$</span>
                                           </div>
-                                        <input type="text" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" 
+                                        <input currencyMask type="text" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" 
                                         class="dinheiro form-control" placeholder=" 000.00"
-                                        [(ngModel)]='request.vlDocumentoFiscal'>
+                                        [(ngModel)]='request.vlDocumentoFiscal'
+                                        [options]="{ prefix: '', thousands: ',', decimal: '.' }">
                                         <div class="invalid-tooltip">
                                               Digite um valor, por favor.
                                             </div>
@@ -87,6 +88,7 @@
                                     </div>
                                 </div>
                             </form>
+                            
                                 <!--Fim da terceira linha -->
                                 <!-- ENTRADA DE PRODUTOS -->
                                 <form class="needs-validation" novalidate>
