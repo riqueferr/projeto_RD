@@ -69,14 +69,7 @@ export class EntradaDeProdutoComponent implements OnInit {
 
     $(document).ready(function() {
       // alert('Eu estou usando JQuery');
-
-      $('.telefone').mask('(00) 0 0000-0000');
       $('.data').mask('00/00/0000');
-      $(".dinheiro").mask('000.000.000.000,000.00', {reverse: true});
-
-      // $(".dinheiro").change(function(){
-      //   $("#value").html($(this).val().replace(/\D/g,''))
-      // })
 
     });
     this.i = 1;
