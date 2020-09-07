@@ -100,9 +100,9 @@
                                         <div class="invalid-tooltip">
                                               Selecione um produto, por favor.
                                         </div> 
-                                        <select [(ngModel)]='item.cdProduto'class="form-control" id="cdProduto" name="cdProduto" ngModel required #cdProduto="ngModel">
+                                        <select [(ngModel)]='item.cdProduto' class="form-control" id="cdProduto" name="cdProduto" ngModel required #cdProduto="ngModel">
                                             <option *ngFor='let produtos of responseProdutos' value="{{produtos.codigo}}" >{{produtos.codigo}} {{ produtos.nm_fantasia }}</option>
-                                          </select>
+                                        </select>
                                           <div class='row' *ngIf="loading">
                                             <div class="spinner-grow text-success text-center" role="status">
                                               <span class="sr-only">Loading...</span>
@@ -148,7 +148,7 @@
                                         <th scope="row" >{{itens.nrItemDocumento}}</th>
                                         <td >{{itens.cdProduto}}</td>
                                         <!-- <td>Product Name</td> -->
-                                        <td >{{itens.nmProduto}}</td>
+                                        <td >{{itens.nm_fantasia}}</td>
                                         <td >{{itens.qtItem}}</td>
                                       </tr>
                                     </tbody>

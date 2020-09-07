@@ -43,25 +43,25 @@ public class FilialBO {
 
         List<ProdutoFilialDTO> produto = new ArrayList<>();
 
-        for (ProdutoFilialEstoqueEntity item : f.getProdutos()) {
-            ProdutoFilialDTO eDTO = new ProdutoFilialDTO();
-
-            eDTO.setCdEstoque(item.getProduto().getCodigo());
-            eDTO.setCdProduto(item.getProduto().getCodigo());
-            eDTO.setNm_fantasia(item.getProduto().getNm_fantasia());
-            eDTO.setStatusProduto(item.getProduto().getStatus().getDsStatusProduto());
-            eDTO.setSubCategoria(item.getProduto().getSubCategoria().getDsSubCategoria());
-            eDTO.setTipoProduto(item.getProduto().getTipo_produto().getDsTipoProduto());
-            eDTO.setVl_unidade(item.getProduto().getVl_unidade());
-
-            eDTO.setQuantidade(item.getQt_estoque());//////////////
-
-//            eDTO.setQt_empenho(item.getQt_empenho());
-//            eDTO.setQt_base(item.getQt_base());
-
-            produto.add(eDTO);
-        }
-        dto.setProduto(produto);
+//        for (ProdutoFilialEstoqueEntity item : f.getProdutos()) {
+//            ProdutoFilialDTO eDTO = new ProdutoFilialDTO();
+//
+//            eDTO.setCdEstoque(item.getProduto().getCodigo());
+//            eDTO.setCdProduto(item.getProduto().getCodigo());
+//            eDTO.setNm_fantasia(item.getProduto().getNm_fantasia());
+//            eDTO.setStatusProduto(item.getProduto().getStatus().getDsStatusProduto());
+//            eDTO.setSubCategoria(item.getProduto().getSubCategoria().getDsSubCategoria());
+//            eDTO.setTipoProduto(item.getProduto().getTipo_produto().getDsTipoProduto());
+//            eDTO.setVl_unidade(item.getProduto().getVl_unidade());
+//
+//            eDTO.setQuantidade(item.getQt_estoque());//////////////
+//
+////            eDTO.setQt_empenho(item.getQt_empenho());
+////            eDTO.setQt_base(item.getQt_base());
+//
+//            produto.add(eDTO);
+//        }
+//        dto.setProduto(produto);
         return dto;
     }
 
@@ -78,29 +78,29 @@ public class FilialBO {
         fEntity.setNr_telefone(dto.getNr_telefone());
 
 
-        List<ProdutoFilialEstoqueEntity> itemsEntity = new ArrayList<>();
-
-        for (ProdutoFilialDTO itemDTO : dto.getProduto()) {
-            ProdutoFilialEstoqueEntity Entity = new ProdutoFilialEstoqueEntity();
-
-            Entity.setCdEstoque(itemDTO.getCdEstoque());
-            Entity.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
-
-
-            Entity.getProduto().setNm_fantasia((itemDTO.getNm_fantasia()));
-            Entity.getProduto().getStatus().setDsStatusProduto(itemDTO.getStatusProduto());
-            Entity.getProduto().setVl_unidade(itemDTO.getVl_unidade());
-            Entity.getProduto().getSubCategoria().setDsSubCategoria(itemDTO.getSubCategoria());
-            Entity.getProduto().getTipo_produto().setDsTipoProduto(itemDTO.getTipoProduto());
-            Entity.setQt_estoque(itemDTO.getQuantidade());
-//            Entity.setQt_empenho(itemDTO.getQt_empenho());
-//            Entity.setQt_base(itemDTO.getQt_base());
-
-
-            itemsEntity.add(Entity);
-        }
-
-        fEntity.setProdutos(itemsEntity);
+//        List<ProdutoFilialEstoqueEntity> itemsEntity = new ArrayList<>();
+//
+//        for (ProdutoFilialDTO itemDTO : dto.getProduto()) {
+//            ProdutoFilialEstoqueEntity Entity = new ProdutoFilialEstoqueEntity();
+//
+//            Entity.setCdEstoque(itemDTO.getCdEstoque());
+//            Entity.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
+//
+//
+//            Entity.getProduto().setNm_fantasia((itemDTO.getNm_fantasia()));
+//            Entity.getProduto().getStatus().setDsStatusProduto(itemDTO.getStatusProduto());
+//            Entity.getProduto().setVl_unidade(itemDTO.getVl_unidade());
+//            Entity.getProduto().getSubCategoria().setDsSubCategoria(itemDTO.getSubCategoria());
+//            Entity.getProduto().getTipo_produto().setDsTipoProduto(itemDTO.getTipoProduto());
+//            Entity.setQt_estoque(itemDTO.getQuantidade());
+////            Entity.setQt_empenho(itemDTO.getQt_empenho());
+////            Entity.setQt_base(itemDTO.getQt_base());
+//
+//
+//            itemsEntity.add(Entity);
+//        }
+//
+//        fEntity.setProdutos(itemsEntity);
 
         return fEntity;
     }

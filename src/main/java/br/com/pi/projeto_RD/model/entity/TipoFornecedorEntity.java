@@ -22,7 +22,4 @@ public class TipoFornecedorEntity implements Serializable {
     @Column(name = "DS_TIPO_FORNECEDOR")
     private String ds_tipo_fornecedor;
 
-//    @OneToMany(mappedBy = "fk_tipo_fornecedor", cascade = CascadeType.ALL)
-//    private List<FornecedorEntity> tipo_fornecedor;
-
 }

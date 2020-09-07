@@ -57,15 +57,15 @@ public class ProdutoEntity implements Serializable {
     @Column(name = "DS_PRODUTO")
     private String dsProduto;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CD_PRODUTO")
-    private List<ProdutoFilialEstoqueEntity> estoqueProdutos;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "CD_PRODUTO")
+//    private List<FornecedorProdutoEntity> fornecedorProduto;
 
     @ManyToMany
     @JoinTable(
             name = "TB_FORNECEDOR_PRODUTO",
             joinColumns = @JoinColumn(name = "CD_PRODUTO"),
-            inverseJoinColumns = @JoinColumn(name = "ID_FORNECEDOR")
+            inverseJoinColumns = @JoinColumn(name = "CD_FORNECEDOR")
     )
     private List<FornecedorEntity> fornecedor;
 

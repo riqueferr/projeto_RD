@@ -38,9 +38,9 @@ public class EnderecoEntity {
     @Column(name = "NM_COMPLEMENTO")
     private String nmComplemento;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CD_FORNECEDOR")
-    @JsonIgnore
-    private FornecedorEntity fornecedor;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "CD_FORNECEDOR")
+//    @JsonIgnore
+//    private FornecedorEntity fornecedor;
 
 }
