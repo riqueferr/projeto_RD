@@ -5,6 +5,7 @@ export interface Produtos {
     },
     subCategoria: {
         idSubCategoria: number,
+        dsSubCategoria: String
     },
     tipo_produto: {
         idTipoProduto: number,
@@ -16,6 +17,33 @@ export interface Produtos {
             cd_fornecedor: number
         }
     ]
+}
+
+export interface SubCategorias {
+    idSubCategoria: number,
+    dsSubCategoria: String
+}
+
+export interface ResponseSubCategorias{
+    subCategorias: SubCategorias[];
+}
+
+export interface Status{
+    idStatusProduto: number,
+    dsStatusProduto: String
+}
+
+export interface ResponseStatus{
+    status: Status[];
+}
+
+export interface TipoProduto{
+    idTipoProduto: number,
+    dsTipoProduto: String
+}
+
+export interface ResponseTipoProduto{
+    tipoProduto: TipoProduto[];
 }
 
 export interface ResponseProdutos {

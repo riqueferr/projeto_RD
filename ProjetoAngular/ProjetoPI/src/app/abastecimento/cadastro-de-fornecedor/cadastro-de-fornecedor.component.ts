@@ -8,6 +8,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
 
+declare var $: any;
+
 
 @Component({
   selector: 'app-cadastro-de-fornecedor',
@@ -15,6 +17,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./cadastro-de-fornecedor.component.css']
 })
 export class CadastroDeFornecedorComponent implements OnInit {
+
 
   @ViewChild('it', { static: true }) it: NgForm;
 
@@ -51,6 +54,14 @@ export class CadastroDeFornecedorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    $(document).ready(function() {
+      $('#cpf').mask('000.000.000-00');
+      $('#cnpj').mask('00.000.000/0000-00');
+      $('#cep').mask('00000-000');
+      $('#phone').mask('(00) 0000-0000');
+    });
+
   }
 
   // tslint:disable-next-line: typedef

@@ -45,6 +45,17 @@ public class DFEntradaService {
         return entradaDTO;
     }
 
+    public List<DFEntradaDTO> buscarPorFilial(String filial) {
+        List<DocumentoFiscalEntity> dfEntity = repository.findByOperacaoDsOperacaoAndFilialNmFilial("ENTRADA", filial);
+        List<DFEntradaDTO> entradaDTO = new ArrayList<>();
+
+        for (DocumentoFiscalEntity entity : dfEntity) {
+            DFEntradaDTO dto = bo.parseToDTO(entity);
+            entradaDTO.add(dto);
+        }
+        return entradaDTO;
+    }
+
 
     public DFEntradaDTO buscarPorId(Long codigo) {
         return bo.parseToDTO(repository.getOne(codigo));
