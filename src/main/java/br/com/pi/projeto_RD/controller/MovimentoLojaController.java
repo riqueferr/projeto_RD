@@ -26,6 +26,15 @@ public class MovimentoLojaController {
     }
 
 
-    @GetMapping("/movimentoloja/pagamento/{teste}")
-    public ResponseEntity buscarPorPagamento(@PathVariable("teste") Long teste) { return ResponseEntity.ok().body(service.buscarPagamento(teste));}
+    @GetMapping("/movimentoloja/pagamento/{data}")
+    public ResponseEntity buscarPorPagamento(@PathVariable("data") Date data) { return ResponseEntity.ok().body(service.buscarPagamento(data));}
+
+    @GetMapping("/movimentoloja/pagamento/dinheiro")
+    public ResponseEntity buscarPorPagamentoDinheiro() { return ResponseEntity.ok().body(service.buscarPagamentoDinheiro());}
+
+    @GetMapping("/movimentoloja/pagamento/cheque")
+    public ResponseEntity buscarPorPagamentoCheque() { return ResponseEntity.ok().body(service.buscarPagamentoCheque());}
+
+    @GetMapping("/movimentoloja/pagamento/vaimerda")
+    public ResponseEntity buscarPorPagamentoTeste() { return ResponseEntity.ok().body(service.buscarTeste());}
 }

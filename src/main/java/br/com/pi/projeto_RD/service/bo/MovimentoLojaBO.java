@@ -26,10 +26,9 @@ public class MovimentoLojaBO {
 
         if (d == null)
             return dto;
-
-        dto.setIdFilial(d.getFilial().getCdFilial());
-        dto.setNmFilial(d.getFilial().getNmFilial());
-        dto.setDtEntrada(d.getDtEntrada());
+        dto.setIdDocumento(d.getIdDocumento());
+//        dto.setFilial(d.getFilial().getCdFilial());
+//        dto.setDtEntrada(d.getDtEntrada());
 
         List<PagamentoDocDTO> pg = new ArrayList<>();
         for (PagamentoDocEntity item : d.getPagamento()) {
@@ -41,7 +40,7 @@ public class MovimentoLojaBO {
 
             pg.add(eDTO);
         }
-        dto.setPagamento(pg);
+//        dto.setPagamento(pg);
 
         return dto;
 
