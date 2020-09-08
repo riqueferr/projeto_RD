@@ -26,6 +26,7 @@ import { ListarIdFilialComponent } from './abastecimento/relatorio-de-estoque/li
 import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-entrada/lista-id-entrada.component';
 import { ListarPageFornecedoresComponent } from './abastecimento/lista-fornecedores/listar-page-fornecedores/listar-page-fornecedores.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ListaNmfilialEntradaComponent } from './abastecimento/lista-entrada/lista-nmfilial-entrada/lista-nmfilial-entrada.component';
 
 
 export const routes: Routes = [
@@ -108,6 +109,11 @@ export const routes: Routes = [
   {
     path: 'listaEntradaProdutos/:idDF',
     component: ListaIdEntradaComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'listaEntradaProdutos/filial/:nmFilial',
+    component: ListaNmfilialEntradaComponent,
     canActivate: [AuthGuard]
   },
   {

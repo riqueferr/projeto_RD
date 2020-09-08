@@ -40,6 +40,7 @@ import { ListarPageFornecedoresComponent } from './abastecimento/lista-fornecedo
 import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-entrada/lista-id-entrada.component'
 import { AuthService } from './login/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { ListaNmfilialEntradaComponent } from './abastecimento/lista-entrada/lista-nmfilial-entrada/lista-nmfilial-entrada.component';
 
 
 
@@ -73,6 +74,7 @@ import { AuthGuard } from './guards/auth.guard';
     ListarIdFilialComponent,
     ListaIdEntradaComponent,
     ListarPageFornecedoresComponent,
+    ListaNmfilialEntradaComponent,
   ],
   imports: [
     BrowserModule,

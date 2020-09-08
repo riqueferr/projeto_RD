@@ -12,12 +12,19 @@ export class EntradasService {
 
   private readonly API = 'http://localhost:8080/abastecimento/entrada';
 
+  private readonly APIFilial = 'http://localhost:8080/abastecimento/entrada/filial';
+
   getEntradas() {
     return this.http.get<ResponseEntradas[]>(this.API);
   }
 
   getEntrada(codigo: string): Observable<ResponseEntradas> {
     const URL = `${this.API}/${codigo}`;
+    return this.http.get<ResponseEntradas>(URL);
+  }
+
+  getFilial(codigo: string): Observable<ResponseEntradas> {
+    const URL = `${this.APIFilial}/${codigo}`;
     return this.http.get<ResponseEntradas>(URL);
   }
 
