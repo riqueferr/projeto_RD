@@ -15,34 +15,33 @@
           <div class='col-md-12'>
             <div class="container">
               <form>
-                <div class="form-row align-items-center centralizarMenu">
-                  <div class="col-1 my-1">
+                <div class="form-row">
 
-
-                    <label class="sr-only" for="inlineFormInputName">Name</label>
-                    <input type="text" class="form-control form-control-override" id="inlineFormInputName" maxlength="4"
-                      placeholder="Cód." style="padding: 2%; text-align: center;">
-                  </div>
-                  <div class="col-sm-3 my-1">
-                    <label class="sr-only" for="inlineFormInputGroupUsername">Filial</label>
+                    <div class="col-sm-2 my-1">
                     <div class="input-group">
                       <div class="input-group-prepend">
-                        <div class="input-group-text">Filial</div>
+                        <div class="input-group-text">CD Filial</div>
                       </div>
-                      <input type="text" readonly class="form-control" id="inlineFormInputGroupUsername" placeholder="">
+                    <input id="search" name="search" class="form-control form-control-override" 
+                    [(ngModel)]='cdFilial' maxlength="4">
+                  </div>
+                  </div>
+
+                  <div class="col-sm-4 my-1">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">Nome Filial</div>
+                      </div>
+                      <input type="text" class="form-control" id="inlineFormInputGroupUsername">
                     </div>
                   </div>
-                  <div class="col-sm-3 my-1">
-                    <label class="sr-only" for="inlineFormInputName">Data</label>
-                    <input type="date" class="form-control" id="inlineFormInputName">
-                  </div>
                   <div class="col-auto my-1">
-                    <button type="submit" class="btn btn-default botaoConfirmar">Procurar</button>
+                    <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Procurar</button>
                   </div>
                 </div>
               </form>
               <main>
-                <div class='row marginTabela' style='text-align: center'>
+                <div class='row marginTabela'>
                   <table class="table">
                     <thead class="thead-default tituloTabela">
                       <tr>
@@ -59,7 +58,7 @@
                       <tr *ngFor='let estoques of responseEstoques'>
                         <th scope="row">{{ estoques.cdFilial }}</th>
                         <td class='maxCarch'>{{ estoques.nmFilial }}</td>
-                        <td class='maxCarch'>{{ estoques.codProduto }}</td>
+                        <th scope="row" class='maxCarch'>{{ estoques.codProduto }}</th>
                         <td class='maxCarch'>{{ estoques.nmProduto }}</td>
                         <td class='maxCarch'>{{ estoques.subCategoria }}</td>
                         <td class='maxCarch'>{{ estoques.qt_estoque }}</td>

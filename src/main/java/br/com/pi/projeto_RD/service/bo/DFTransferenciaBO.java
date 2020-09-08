@@ -132,12 +132,14 @@ public class DFTransferenciaBO {
                 if (estoquesDestino != null && estoquesDestino.size() > 0) {
                     ProdutoFilialEstoqueEntity estoqueDestino = estoquesDestino.get(0);
                     estoqueDestino.setQt_estoque(estoqueDestino.getQt_estoque() + itEntity.getQtItem());
+                    estoqueDestino.setQt_empenho(0);
                     produtoFilialEstoqueRepository.save(estoqueDestino);
                 } else {
                     ProdutoFilialEstoqueEntity estoque = new ProdutoFilialEstoqueEntity();
                     estoque.setFilial(filialRepository.getOne(dto.getIdFilialDestino()));
                     estoque.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
                     estoque.setQt_estoque(itEntity.getQtItem());
+                    estoque.setQt_empenho(0);
                     produtoFilialEstoqueRepository.save(estoque);
                 }
             }

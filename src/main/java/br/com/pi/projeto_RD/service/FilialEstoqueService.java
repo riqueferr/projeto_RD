@@ -37,6 +37,26 @@ public class FilialEstoqueService {
         return pfBO.parseToDTO(repository.getOne(codigo));
     }
 
+    public List<ProdutoFilialEstoqueDTO> buscarCdFilial(Long cdFilial) {
+        List<ProdutoFilialEstoqueEntity> pfEntity = repository.findByFilialCdFilial(cdFilial);
+        List<ProdutoFilialEstoqueDTO> filialDTO = new ArrayList<>();
+        for (ProdutoFilialEstoqueEntity entity : pfEntity) {
+            ProdutoFilialEstoqueDTO dto = pfBO.parseToDTO(entity);
+            filialDTO.add(dto);
+        }
+        return filialDTO;
+    }
+
+    public List<ProdutoFilialEstoqueDTO> buscarNmFilial(String nmFilial) {
+        List<ProdutoFilialEstoqueEntity> pfEntity = repository.findByFilialNmFilial(nmFilial);
+        List<ProdutoFilialEstoqueDTO> filialDTO = new ArrayList<>();
+        for (ProdutoFilialEstoqueEntity entity : pfEntity) {
+            ProdutoFilialEstoqueDTO dto = pfBO.parseToDTO(entity);
+            filialDTO.add(dto);
+        }
+        return filialDTO;
+    }
+
     public ProdutoFilialEstoqueEntity inserir(ProdutoFilialEstoqueDTO dto) throws Exception {
         ProdutoFilialEstoqueEntity entity = pfBO.parseToEntity(dto, null);
 

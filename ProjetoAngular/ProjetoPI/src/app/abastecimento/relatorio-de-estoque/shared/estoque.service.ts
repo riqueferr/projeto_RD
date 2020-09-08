@@ -12,7 +12,7 @@ export class EstoqueService {
 
   private readonly API = 'http://localhost:8080/abastecimento/FilialEstoque';
 
-  // private readonly API2 = 'http://localhost:8080/abastecimento/FilialEstoque/2';
+  private readonly APIFilial = 'http://localhost:8080/abastecimento/FilialEstoque/filial';
 
   getEstoques() {
     return this.http.get<ResponseEstoque[]>(this.API);
@@ -22,6 +22,10 @@ export class EstoqueService {
   //   return this.http.get<ResponseEstoque[]>(this.API2);
   // }
 
+  getEstoqueFilial(codigo: string): Observable<ResponseEstoque> {
+    const URL = `${this.APIFilial}/${codigo}`;
+    return this.http.get<ResponseEstoque>(URL);
+  }
   
   getEstoque(codigo: string): Observable<ResponseEstoque> {
     const URL = `${this.API}/${codigo}`;

@@ -61,7 +61,7 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'relatorioDeEstoque/filial',
+    path: 'relatorioDeEstoque/filial/:cdFilial',
     component: ListarIdFilialComponent,
     canActivate: [AuthGuard]
   },

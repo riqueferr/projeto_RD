@@ -34,6 +34,16 @@ public class ProdutoFilialEstoqueController {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
+    @GetMapping("/FilialEstoque/filial/{cdFilial}")
+    public ResponseEntity buscarPorCdFilial(@PathVariable("cdFilial") Long cdFilial) {
+        return ResponseEntity.ok().body(service.buscarCdFilial(cdFilial));
+    }
+
+    @GetMapping("/FilialEstoque/filial/nome/{nmFilial}")
+    public ResponseEntity buscarPorNmFilial(@PathVariable("nmFilial") String nmFilial) {
+        return ResponseEntity.ok().body(service.buscarNmFilial(nmFilial));
+    }
+
     @PutMapping("/FilialEstoque")
     @ApiOperation(value = "Alterar filiais produtos")
     public ResponseEntity atualizar(@RequestBody ProdutoFilialEstoqueDTO dto) throws Exception {

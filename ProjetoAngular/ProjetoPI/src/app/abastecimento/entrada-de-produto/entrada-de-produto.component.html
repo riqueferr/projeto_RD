@@ -61,12 +61,12 @@
                                             <span class="input-group-text">R$</span>
                                           </div>
                                         <input currencyMask type="text" name="vlDocumentoFiscal" required #vlDocumentoFiscal="ngModel" 
-                                        class="dinheiro form-control" placeholder=" 000.00"
+                                        class="form-control" placeholder=" 000.00"
                                         [(ngModel)]='request.vlDocumentoFiscal'
                                         [options]="{ prefix: '', thousands: ',', decimal: '.' }">
                                         <div class="invalid-tooltip">
                                               Digite um valor, por favor.
-                                            </div>
+                                        </div>
                                     </div>
                                     </div>
 
