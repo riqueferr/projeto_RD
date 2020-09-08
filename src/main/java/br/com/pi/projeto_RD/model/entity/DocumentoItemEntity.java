@@ -39,6 +39,4 @@ public class DocumentoItemEntity implements Serializable {
     @Id
     private DocumentoFiscalEntity nf;
 
-
-
 }
