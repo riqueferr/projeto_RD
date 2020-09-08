@@ -1,7 +1,9 @@
 package br.com.pi.projeto_RD.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.tomcat.jni.Local;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
@@ -14,13 +16,20 @@ import java.util.Date;
 import java.util.List;
 
 
+
 @Entity
 @Table(name = "TB_DOCUMENTO_FISCAL")
 @Data
+@NoArgsConstructor
 @NamedQuery(name = "buscarNfPorFilial", query = "select n from DocumentoFiscalEntity n where n.filial.nmFilial  =:NM_FILIAL")
-@NamedQuery(name = "buscarNfPorDataEntrada", query = "select n from DocumentoFiscalEntity n where n.dtEntrada  =:DT_ENTRADA")
-@NamedQuery(name = "buscarTiposPagamento", query = "select n from DocumentoFiscalEntity n where n.idDocumento =:ID_DOCUMENTO_FISCAL")
+@NamedQuery(name = "filtrarDataeFilial", query = "Select n from DocumentoFiscalEntity n JOIN n.pagamento p WHERE n.operacao.cdOperacao = 1 AND p.tipoPagamento.idTipoPagamento = 4 OR p.tipoPagamento.idTipoPagamento = 5 AND n.dtEntrada = :DT_ENTRADA AND n.filial.cdFilial = :FILIAL")
+@NamedQuery(name = "buscarNfPorDataEntrada", query = "select n.dtEntrada from DocumentoFiscalEntity AS n where dtEntrada  = :DT_ENTRADA")
+//@NamedQuery(name = "buscarTiposPagamento", query = "select n from DocumentoFiscalEntity n where n.idPagamento =:ID_PAGAMENTO")
+//@NamedQuery(name = "testePagamento", query =  "Select n from DocumentoFiscalEntity n WHERE n.operacao.cdOperacao = 4")
+//@NamedQuery(name = "seila", query = "Select MovimentoLojaDTO(n.idDocumento)")
+//@SqlResultSetMapping(name = "testeBusca", entities = {@EntityResult(entityClass = DocumentoFiscalEntity.class),@EntityResult(entityClass = PagamentoDocEntity.class)})
 public class DocumentoFiscalEntity implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
