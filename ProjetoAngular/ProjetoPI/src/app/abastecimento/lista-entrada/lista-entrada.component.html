@@ -14,7 +14,15 @@
         <div class='row justify-content-start marginTabela justify-content-between'>
           <form class="form-inline comMarginBottom">
             <input id="search" name="search" class="form-control mr-sm-2"
-              placeholder="Pesquisar" [(ngModel)]='idDF'>
+              placeholder="Pesquisar código DF" [(ngModel)]='idDF'>
+              <!-- <input id="search" name="search" class="form-control mr-sm-2"
+              placeholder="Pesquisar Nome Filial" [(ngModel)]='nmFilial'> -->
+              <select name="nmFilial" class="form-control mr-sm-2"
+                  [(ngModel)]='nmFilial' id="nmFilial" required>
+                  <option value="CD BUTANTÃ">CD BUTANTÃ</option>
+                  <option value="CD EMBU">CD EMBU</option>
+                  <option value="CD GUARULHOS">CD GUARULHOS</option>
+                </select>
             <button class="btn btn botaoConfirmar my-2 my-sm-0" type="submit" (click)="register()">
               <i class="fa fa-search"></i>
             </button>
@@ -38,16 +46,17 @@
             <thead class="thead-default tituloTabela">
               <tr>
                 <th scope="col">Código DF</th>
+                <th scope="col">CD</th>
                 <th scope="col">Itens</th>
                 <th scope="col">Fornecedor</th>
                 <th scope="col">Data Entrada</th>
                 <th scope="col">Valor DF</th>
-
               </tr>
             </thead>
       <tbody>
         <tr *ngFor='let entradas of responseEntradas | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
           <th scope="row"> {{ entradas.idDocumento }} </th>
+          <td> {{ entradas.nmFilial }} </td>
           <td>
             <div class="dropdown">
               <button class="btn btn botaoConfirmar dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -55,20 +64,17 @@
                 Itens
               </button>
               <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" *ngIf="entradas.itens[0]">Código: {{entradas.itens[0].cdProduto}}</a>
-                <a class="dropdown-item" *ngIf="entradas.itens[0]">Nome: {{entradas.itens[0].nmProduto}}</a>
-                <a class="dropdown-item" *ngIf="entradas.itens[0]">Quantidade: {{entradas.itens[0].qtItem}}</a>
-                <a class="dropdown-item">-------------</a>
-                <a class="dropdown-item" *ngIf="entradas.itens[1]">Código: {{entradas.itens[1].cdProduto}}</a>
-                <a class="dropdown-item" *ngIf="entradas.itens[1]">Nome: {{entradas.itens[1].nmProduto}}</a>
-                <a class="dropdown-item" *ngIf="entradas.itens[1]">Quantidade: {{entradas.itens[1].qtItem}}</a>
+                <tr *ngFor='let item of entradas.itens'>
+                  <a class="dropdown-item" *ngIf="item"><b>Nome: </b>{{item.nmProduto}}</a>
+                  <a class="dropdown-item" *ngIf="item"><b>Quantidade: </b>{{item.qtItem}}</a>
+                  <a class="dropdown-item">&nbsp;</a>
+                </tr>
               </div>
             </div>
           </td>
           <td>{{ entradas.nmFornecedor }}</td>
           <td ng-model-options="{timezone: 'America/Sao_Paulo'}" >{{ entradas.dtEntrada}}</td>
           <td>{{ entradas.vlDocumentoFiscal | currency:'R$ '}}</td>
-          <!-- <td *ngIf="entradas.itens[0]">{{ entradas.itens[0].cdProduto }}</td> -->
         </tr>
       </tbody>
     </table>

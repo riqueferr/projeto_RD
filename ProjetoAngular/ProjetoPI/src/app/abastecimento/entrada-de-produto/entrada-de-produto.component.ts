@@ -42,9 +42,8 @@ export class EntradaDeProdutoComponent implements OnInit {
     dtEmissao: null,
     dtEntrada: null,
     vlDocumentoFiscal: null,
-    itens: [
-    ]
-  };
+    itens: []
+    };
 
   item: ResponseEntradaItens = new ResponseEntradaItens();
 
@@ -79,7 +78,6 @@ export class EntradaDeProdutoComponent implements OnInit {
     console.log(it.value);  // { first: '', last: '' }
     console.log(it.valid);  // false
   }
-
 
 
   listarTodasEntradas() {

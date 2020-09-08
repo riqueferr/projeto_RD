@@ -6,11 +6,11 @@ import { ResponseEntradas, ResponseEntradaItens } from '../../entrada-de-produto
 import { EntradasService } from '../../entrada-de-produto/shared/entrada.service';
 
 @Component({
-  selector: 'app-lista-id-entrada',
-  templateUrl: './lista-id-entrada.component.html',
-  styleUrls: ['./lista-id-entrada.component.css']
+  selector: 'app-lista-nmfilial-entrada',
+  templateUrl: './lista-nmfilial-entrada.component.html',
+  styleUrls: ['./lista-nmfilial-entrada.component.css']
 })
-export class ListaIdEntradaComponent implements OnInit {
+export class ListaNmfilialEntradaComponent implements OnInit {
 
   @ViewChild('it', { static: true }) formDF: NgForm;
 
@@ -30,8 +30,13 @@ export class ListaIdEntradaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.idDF = this.route.snapshot.paramMap.get('idDF');
-    this.entradasService.getEntrada(this.idDF).subscribe(response => {
+    this.loading = true;
+    this.listarPorNmFilial();
+  }
+
+  listarPorNmFilial(): void {
+    this.nmFilial = this.route.snapshot.paramMap.get('nmFilial');
+    this.entradasService.getFilial(this.nmFilial).subscribe(response => {
       this.request = response;
       this.loading = false;
     });
@@ -42,7 +47,7 @@ export class ListaIdEntradaComponent implements OnInit {
       console.log(this.idDF);
       this.entradasService.getEntrada(this.idDF).subscribe();
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
-        this.router.navigate(['/listaEntradaProdutos', this.idDF]));
+      this.router.navigate(['/listaEntradaProdutos', this.idDF]));
     } else {
       console.log(this.nmFilial);
       this.entradasService.getFilial(this.nmFilial).subscribe();
@@ -50,6 +55,5 @@ export class ListaIdEntradaComponent implements OnInit {
       this.router.navigate(['/listaEntradaProdutos/filial', this.nmFilial]));
     }
   }
-
 
 }

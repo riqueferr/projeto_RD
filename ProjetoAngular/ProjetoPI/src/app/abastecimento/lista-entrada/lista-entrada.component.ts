@@ -14,7 +14,7 @@ import { Itens } from 'src/app/financeiro/cupom-de-venda/shared/documentofiscal.
   styleUrls: ['./lista-entrada.component.css']
 })
 export class ListaEntradaComponent implements OnInit {
-  
+
   loading: boolean;
 
   public paginaAtual = 1;
@@ -22,13 +22,14 @@ export class ListaEntradaComponent implements OnInit {
   responseEntradas: ResponseEntradas[];
   item: ResponseEntradaItens[];
 
-    idDF: any;
+  idDF: any;
+  nmFilial: any;
 
   constructor(
     private entradasService: EntradasService,
     private http: HttpClient,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -44,9 +45,15 @@ export class ListaEntradaComponent implements OnInit {
   }
 
   register(): void {
+    if (this.idDF != null) {
       console.log(this.idDF);
       this.entradasService.getEntrada(this.idDF).subscribe();
       this.router.navigate(['/listaEntradaProdutos', this.idDF]);
+    } else {
+      console.log(this.nmFilial);
+      this.entradasService.getFilial(this.nmFilial).subscribe();
+      this.router.navigate(['/listaEntradaProdutos/filial', this.nmFilial]);
+    }
   }
 
 }
