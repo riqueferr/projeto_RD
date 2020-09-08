@@ -26,6 +26,21 @@ public class MovimentoLojaController {
     }
 
 
-    @GetMapping("/movimentoloja/pagamento/{teste}")
-    public ResponseEntity buscarPorPagamento(@PathVariable("teste") Long teste) { return ResponseEntity.ok().body(service.buscarPagamento(teste));}
+    @GetMapping("/movimentoloja/pagamento/{data}")
+    public ResponseEntity buscarPorPagamento(@PathVariable("data") Date data) { return ResponseEntity.ok().body(service.buscarPagamento(data));}
+
+    @GetMapping("/movimentoloja/pagamento/dinheiro")
+    public ResponseEntity buscarPorPagamentoDinheiro() { return ResponseEntity.ok().body(service.buscarPagamentoDinheiro());}
+
+    @GetMapping("/movimentoloja/pagamento/cheque")
+    public ResponseEntity buscarPorPagamentoCheque() { return ResponseEntity.ok().body(service.buscarPagamentoCheque());}
+
+    @GetMapping("/movimentoloja/pagamento/teste/{data}/{filial}")
+    public ResponseEntity buscarPorPagamentoTeste(@PathVariable("data")Date data, @PathVariable("filial") Long filial) { return ResponseEntity.ok().body(service.buscarTeste(data,filial));}
+
+    @GetMapping("/movimentoloja/pagamento/dinheiro/{data}/{filial}")
+    public ResponseEntity somarDinheiro(@PathVariable("data")Date data, @PathVariable("filial") Long filial) { return ResponseEntity.ok().body(service.somarDinheiro(data,filial));}
+
+    @GetMapping("/movimentoloja/pagamento/cheque/{data}/{filial}")
+    public ResponseEntity somarCheque(@PathVariable("data")Date data, @PathVariable("filial") Long filial) { return ResponseEntity.ok().body(service.somarCheque(data,filial));}
 }
