@@ -122,12 +122,14 @@ public class DFEntradaBO {
             if (estoques != null && estoques.size() > 0) {
                 ProdutoFilialEstoqueEntity estoque = estoques.get(0);
                 estoque.setQt_estoque(estoque.getQt_estoque() + itEntity.getQtItem());
+                estoque.setQt_empenho(0);
                 produtoFilialEstoqueRepository.save(estoque);
             } else {
                 ProdutoFilialEstoqueEntity estoque = new ProdutoFilialEstoqueEntity();
                 estoque.setFilial(filialRepository.getOne(dto.getIdFilial()));
                 estoque.setProduto(produtoRepository.getOne(itemDTO.getCdProduto()));
                 estoque.setQt_estoque(itEntity.getQtItem());
+                estoque.setQt_empenho(0);
                 produtoFilialEstoqueRepository.save(estoque);
             }
 

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { EstoqueService } from '../shared/estoque.service';
 import { ResponseEstoque } from '../shared/estoque.model';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listar-id-filial',
@@ -11,7 +13,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ListarIdFilialComponent implements OnInit {
 
   loading : boolean;
-
+  
+  cdFilial: any;
+  request: any;
   responseEstoques: ResponseEstoque[];
 
   codigo: string;
@@ -24,24 +28,22 @@ export class ListarIdFilialComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.listarTodosProdutos();
+    this.listarPorCdFilial();
   }
 
-  // listarTodosProdutos() {
-  //   this.estoquesService.getEstoque(this.codigo).subscribe(response => 
-  //     {
-  //       this.loading = false;
-  //       // this.router.navigate(['/listaProdutos']);
-  //       // this.responseEstoques = response;
-  //     });
-  // }
+  listarPorCdFilial():void{
+    this.cdFilial = this.route.snapshot.paramMap.get('cdFilial');
+    this.estoquesService.getEstoqueFilial(this.cdFilial).subscribe(response => {
+      this.request = response;
+      this.loading = false;
+    });
+  }
 
-  listarTodosProdutos() {
-    this.estoquesService.getEstoques().subscribe(response => 
-      {
-        this.responseEstoques = response;
-        this.loading = false;
-      });
+  register(): void {
+    console.log(this.cdFilial);
+    this.estoquesService.getEstoqueFilial(this.cdFilial).subscribe();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate(['/relatorioDeEstoque/filial', this.cdFilial]));
   }
 
 }

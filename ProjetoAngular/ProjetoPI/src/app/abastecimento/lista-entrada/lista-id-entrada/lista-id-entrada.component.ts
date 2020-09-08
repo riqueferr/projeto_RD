@@ -38,7 +38,7 @@ export class ListaIdEntradaComponent implements OnInit {
       this.entradasService.getEntrada(this.idDF).subscribe();
       this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
       this.router.navigate(['/listaEntradaProdutos', this.idDF]));
-  }
+    }
 
 
 }
