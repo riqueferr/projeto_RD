@@ -37,20 +37,38 @@ public class RelatorioProdutoService {
         return listDTO;
     }
 
+    public List<RelatorioProdutoDTO> buscarNfPornmProduto(String Nm_Fantasia) {
+
+        List<ProdutoEntity> listEntity = manager.createNamedQuery("buscarNfPornmProduto", ProdutoEntity.class).setParameter("NM_FANTASIA", Nm_Fantasia).getResultList();;
+        List<RelatorioProdutoDTO> listDTO = new ArrayList<>();
+
+        for (ProdutoEntity entity : listEntity) {
+            RelatorioProdutoDTO dto = bo.parseToDTO(entity);
+            listDTO.add(dto);
+        }
+
+        return listDTO;
+    }
+
+    public List<RelatorioProdutoDTO> buscarNfPoridStatusProduto(Long idStatusProduto) {
+
+        List<ProdutoEntity> listEntity = manager.createNamedQuery("buscarNfPoridStatusProduto", ProdutoEntity.class).setParameter("ID_STATUS_PRODUTO", idStatusProduto).getResultList();
+        List<RelatorioProdutoDTO> listDTO = new ArrayList<>();
+
+        for (ProdutoEntity entity : listEntity) {
+            RelatorioProdutoDTO dto = bo.parseToDTO(entity);
+            listDTO.add(dto);
+        }
+
+        return listDTO;
+    }
+
     public RelatorioProdutoDTO buscarPorId(Integer codigo) {
         return bo.parseToDTO(repository.getOne(codigo));
     }
 
-    public List<ProdutoEntity> buscarNfPoridStatusProduto(Long idStatusProduto) {
-        return manager.createNamedQuery("buscarNfPoridStatusProduto", ProdutoEntity.class).setParameter("ID_STATUS_PRODUTO", idStatusProduto).getResultList();
-    }
-
     public List<ProdutoEntity> buscarNfPordsStatusProduto(String dsStatusProduto) {
         return manager.createNamedQuery("buscarNfPordsStatusProduto", ProdutoEntity.class).setParameter("DS_STATUS_PRODUTO", dsStatusProduto).getResultList();
-    }
-
-    public List<ProdutoEntity> buscarNfPornmProduto(String Nm_Fantasia){
-        return manager.createNamedQuery("buscarNfPornmProduto", ProdutoEntity.class).setParameter("NM_FANTASIA", Nm_Fantasia).getResultList();
     }
 
 }
