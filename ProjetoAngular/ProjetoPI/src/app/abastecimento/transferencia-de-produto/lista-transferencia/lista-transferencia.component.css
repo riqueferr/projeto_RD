@@ -33,3 +33,7 @@
   .comMarginBottom{
     margin-bottom: 5px;
   }
+
+  .maxCarch{
+    max-width: 15ch;
+  }
