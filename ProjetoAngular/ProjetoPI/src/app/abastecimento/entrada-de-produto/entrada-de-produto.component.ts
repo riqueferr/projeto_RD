@@ -106,6 +106,7 @@ export class EntradaDeProdutoComponent implements OnInit {
   itens(): void{
     this.item.nrItemDocumento = this.i;
     this.request.itens.push(this.item);
+    console.log(this.request.itens);
     this.item = new ResponseEntradaItens();
     this.i ++;
   }
