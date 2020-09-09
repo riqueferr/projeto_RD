@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
-import { Usuario } from './usuario';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,9 +11,10 @@ export class LoginComponent implements OnInit {
 
   // public usuario: Usuario = new Usuario();
   login = {
-    operador: '',
-    senha: ''
+    nrMatricula: null,
+    pwOperador: ''
   };
+
   constructor(
     private authService: AuthService,
     private router: Router
