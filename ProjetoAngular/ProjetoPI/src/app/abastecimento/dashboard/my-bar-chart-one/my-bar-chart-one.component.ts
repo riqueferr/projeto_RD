@@ -30,8 +30,8 @@ export class MyBarChartOneComponent implements OnInit {
   listarTodasFiliais() {
     this.filialService.getBuscarQuantidadeProdutosPorLoja().subscribe(response => {
       this.responseFiliais = response;
-      this.barChartData = response.barChartData;
-      this.barChartLabels = response.barChartLabels;
+      // this.barChartData = response.barChartData;
+      // this.barChartLabels = response.barChartLabels;
     });
   }
 }

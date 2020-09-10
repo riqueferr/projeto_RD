@@ -1,0 +1,115 @@
+<div class='row'>
+  <div class='col-md-3'>
+    <!-- SideBar -->
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class='col-md-9'>
+    <div class="container">
+      <br>
+      <div class="container">
+        <h2>Relatório de Produto por Fornecedor</h2>
+      </div>
+      <br>
+      <main>
+        <div class='container'>
+          <div class='row marginTopMain semMarginRightMain'>
+            <div class='col-md-12 justify-content-center'>
+              <div class="d-flex align-items-center justify-content p-2 text-white-50 bg-purple rounded shadow-sm">
+                <div class="lh-100">
+                  <h6 class="border-bottom-flex2 border-gray pb-2 mb-3 text-white lh-100">
+                    Produto
+                  </h6>
+                </div>
+                <div class="lh-100">
+                  <h6 class="border-bottom-flex2 border-gray pb-2 mb-3 text-white lh-100">
+                    Status
+                  </h6>
+                </div>
+                <div class="lh-100">
+                  <h6 class="border-bottom-flex3 border-gray pb-2 mb-3 text-white lh-100">.
+                  </h6>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class='row marginTopMain semMarginRightMain fundo-bloco1 centralizarTexto'>
+
+              <div class='col-md-4'>
+                <form>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1"></label>
+                    <input id="search" name="search" class="form-control form-control-override" 
+                    [(ngModel)]='nmProduto' placeholder="Pesquisar por nome do produto">
+                  </div>
+                </form>
+              </div>
+              <div class='col-md-4'>
+                <form>
+                  <div class="form-group">
+                    <select style="margin-top: 24px;" class="form-control mr-sm-4" id="statusProduto"
+                      name="statusProduto" [(ngModel)]='statusProduto'>
+                      <option value="1">Ativo</option>
+                      <option value="2">Inativo</option>
+                      <option value="3">Fora do Mix</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <div style="margin-top: 24px;" class='col-md-4'>
+                <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Pesquisar</button>
+              </div>
+
+            </div>
+          </div>
+          <br>
+
+          <main>
+            <div class='row marginTabela' style='text-align: center'>
+              <table class="table">
+                <thead class="thead-default tituloTabela">
+                  <tr>
+                  <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Fornecedor</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let produtos of request | paginate: { itemsPerPage: 8, currentPage: paginaAtual }; let i = index'>
+                    <th scope="row">{{ produtos.cdProduto }}</th>
+                    <td class='maxCarch'>{{ produtos.nmProduto }}</td>
+                    <td class='maxCarch'>{{ produtos.tipoProduto }}</td>
+                    <td>
+                      <div class="dropdown">
+                        <button class="btn btn-default botaoCadastrar dropdown-toggle" type="button" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Fornecedores
+                        </button>
+                        <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                          <tr *ngFor='let item of produtos.fornecedor'>
+                            <a class="dropdown-item" *ngIf="item">{{item.nm_razao_social}}</a>
+                          </tr>
+                        </div>
+                      </div>
+                    </td>
+                    <td class='maxCarch'>{{ produtos.statusProduto }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+            </div>
+            <div class='row justify-content-center' *ngIf="loading">
+              <div class="spinner-grow text-success text-center" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+          </main>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

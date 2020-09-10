@@ -2,9 +2,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProdutosService } from '../lista-produtos/shared/produtos.service';
-import { Produtos } from '../lista-produtos/shared/produtos.model'
+import { Produtos, ResponseProdutos, ResponseSubCategorias, ResponseStatus, ResponseTipoProduto } from '../lista-produtos/shared/produtos.model'
 
+import { ResponseFornecedores } from '../cadastro-de-fornecedor/shared/fornecedores.model';
+import { FornecedoresService } from '../cadastro-de-fornecedor/shared/fornecedores.service';
 
+declare var $: any;
 
 @Component({
   selector: 'app-cadastro-de-produto',
@@ -15,7 +18,13 @@ export class CadastroDeProdutoComponent implements OnInit {
 
   @ViewChild('formProdutos', { static: true }) formProdutos: NgForm;
 
-  
+  loading: boolean;
+
+  responseProdutos: ResponseProdutos[];
+  responseSubCategorias: ResponseSubCategorias[];
+  responseFornecedores: ResponseFornecedores[];
+  responseStatus: ResponseStatus[];
+  responseTipoProduto: ResponseTipoProduto[];
 
   request: Produtos = {
     nm_fantasia: null,
@@ -23,7 +32,8 @@ export class CadastroDeProdutoComponent implements OnInit {
       idStatusProduto: null
     },
     subCategoria: {
-      idSubCategoria: null
+      idSubCategoria: null,
+      dsSubCategoria: null
     },
     tipo_produto: {
       idTipoProduto: null
@@ -39,10 +49,20 @@ export class CadastroDeProdutoComponent implements OnInit {
 
   constructor(
     private produtosService: ProdutosService,
+    private responseFornecedoresService: FornecedoresService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.loading = true;
+    this.listarTipoProdutos();
+    this.listarTodasCategorias();
+    this.listarTodosFornecedores();
+    this.listarStatus();
+
+    $(document).ready(function() {
+      $('.data').mask('00/00/0000');
+    });
   }
   
   onSubmit(formProdutos: NgForm) {
@@ -56,6 +76,31 @@ export class CadastroDeProdutoComponent implements OnInit {
       this.router.navigate(["/listaProdutos"]);
     }
     alert("Produto cadastrado com sucesso!");
-
   }
+
+  listarTodasCategorias() {
+    this.produtosService.getSubCategoria().subscribe(response => {
+      this.responseSubCategorias = response;
+    });
+  }
+
+  listarStatus() {
+    this.produtosService.getStatus().subscribe(response => {
+      this.responseStatus = response;
+    });
+  }
+
+  listarTipoProdutos() {
+    this.produtosService.getTipoProduto().subscribe(response => {
+      this.responseTipoProduto = response;
+    });
+  }
+
+  listarTodosFornecedores() {
+    this.responseFornecedoresService.getFornecedores().subscribe(response => {
+      this.responseFornecedores = response;
+      this.loading = false;
+    });
+  }
+
 }

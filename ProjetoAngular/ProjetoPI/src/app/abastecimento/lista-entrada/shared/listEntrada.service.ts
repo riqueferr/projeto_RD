@@ -20,4 +20,5 @@ export class EntradasService {
     const URL = `${this.API}/${codigo}`;
     return this.http.get<ResponseEntrada>(URL);
   }
+
 }

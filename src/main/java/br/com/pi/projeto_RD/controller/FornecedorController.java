@@ -35,6 +35,12 @@ public class FornecedorController {
         return ResponseEntity.ok().body(service.buscarPorId(cd_fornecedor));
     }
 
+    @GetMapping("/fornecedores/nome/{nomeFornecedor}")
+    @ApiOperation(value = "Listar fornecedores por Nome")
+    public ResponseEntity buscarPorNomeFornecedor(@PathVariable("nomeFornecedor") String nomeFornecedor){
+        return ResponseEntity.ok().body(service.buscarPorNomeFornecedor(nomeFornecedor));
+    }
+
     @PutMapping("/fornecedores")
     @ApiOperation(value = "atualizar fornecedor selecionado")
     public ResponseEntity atualizar(@RequestBody FornecedorDTO dto) throws Exception {

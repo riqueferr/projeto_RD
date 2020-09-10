@@ -53,11 +53,26 @@ public class DFTransferenciaService {
         return transferenciaDTO;
     }
 
+    public List<DFTransferenciaDTO> buscarPorFilial(String filial) {
+        List<DocumentoFiscalEntity> dfEntity = repository.findByOperacaoDsOperacaoAndDestinoNmFilialContaining("TRANSFERENCIA", filial);
+        List<DFTransferenciaDTO> transferenciaDTO = new ArrayList<>();
+
+        for (DocumentoFiscalEntity entity : dfEntity) {
+            DFTransferenciaDTO dto = bo.parseToDTO(entity);
+            transferenciaDTO.add(dto);
+        }
+        return transferenciaDTO;
+    }
+
+    public DFTransferenciaDTO buscarPorId(Long codigo) {
+        return bo.parseToDTO(repository.getOne(codigo));
+    }
+
     public DocumentoFiscalEntity inserir(DFTransferenciaDTO dto) throws Exception {
         DocumentoFiscalEntity entity = bo.parseToEntity(dto, null);
-        if (entity.getFilial() != null){
+        if (entity.getFilial() != null) {
             repository.save(entity);
-            }
+        }
         return entity;
     }
 

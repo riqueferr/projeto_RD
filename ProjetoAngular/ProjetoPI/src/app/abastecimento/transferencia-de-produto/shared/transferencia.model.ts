@@ -18,7 +18,7 @@ export interface Transferencia {
     ]
 }
 
-export interface ResponseTransferencia {
+export class ResponseTransferencia {
     transferencia: Transferencia[];
 }
 

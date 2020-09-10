@@ -42,9 +42,8 @@ export class EntradaDeProdutoComponent implements OnInit {
     dtEmissao: null,
     dtEntrada: null,
     vlDocumentoFiscal: null,
-    itens: [
-    ]
-  };
+    itens: []
+    };
 
   item: ResponseEntradaItens = new ResponseEntradaItens();
 
@@ -81,7 +80,6 @@ export class EntradaDeProdutoComponent implements OnInit {
   }
 
 
-
   listarTodasEntradas() {
     this.entradaService.getEntradas().subscribe(response => {
       this.responseEntradas = response;
@@ -108,6 +106,7 @@ export class EntradaDeProdutoComponent implements OnInit {
   itens(): void{
     this.item.nrItemDocumento = this.i;
     this.request.itens.push(this.item);
+    console.log(this.request.itens);
     this.item = new ResponseEntradaItens();
     this.i ++;
   }

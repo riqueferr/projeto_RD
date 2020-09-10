@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "TB_FORNECEDOR")
 @Data
+@NamedQuery(name = "buscarNfPornmFornecedor", query = "select n from FornecedorEntity n where n.nm_razao_social LIKE CONCAT ('%',:nm_razao_social,'%')")
 public class FornecedorEntity implements Serializable {
 
     @Id

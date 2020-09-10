@@ -31,6 +31,12 @@ public class EntradaController {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
+    //BUSCAR POR FILIAL
+    @GetMapping("/entrada/filial/{filial}")
+    public ResponseEntity buscarPorFilial(@PathVariable("filial") String filial) {
+        return ResponseEntity.ok().body(service.buscarPorFilial(filial));
+    }
+
     //ATUALIZAR
     @PutMapping("/entrada")
     @ApiOperation(value = "Atualizar documentos fiscais por ID Entrada")

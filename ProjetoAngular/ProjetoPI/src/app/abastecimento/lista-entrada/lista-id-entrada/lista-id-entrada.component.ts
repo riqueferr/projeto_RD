@@ -17,28 +17,39 @@ export class ListaIdEntradaComponent implements OnInit {
   loading: boolean;
 
   idDF: any;
+  nmFilial: any;
   request: any;
-  responseEntradas: ResponseEntradas[];
 
+  responseEntradas: ResponseEntradas[];
   responseItens: ResponseEntradaItens[];
 
   constructor(
     private entradasService: EntradasService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
-    ngOnInit(): void {
-      this.idDF = this.route.snapshot.paramMap.get('idDF');
-      this.entradasService.getEntrada(this.idDF).subscribe(response => this.request = response);
-    }
+  ngOnInit(): void {
+    this.idDF = this.route.snapshot.paramMap.get('idDF');
+    this.entradasService.getEntrada(this.idDF).subscribe(response => {
+      this.request = response;
+      this.loading = false;
+    });
+  }
 
-    register(): void {
+  register(): void {
+    if (this.idDF != null) {
       console.log(this.idDF);
       this.entradasService.getEntrada(this.idDF).subscribe();
-      this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-      this.router.navigate(['/listaEntradaProdutos', this.idDF]));
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+        this.router.navigate(['/listaEntradaProdutos', this.idDF]));
+    } else {
+      console.log(this.nmFilial);
+      this.entradasService.getFilial(this.nmFilial).subscribe();
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this.router.navigate(['/listaEntradaProdutos/filial', this.nmFilial]));
     }
+  }
 
 
 }

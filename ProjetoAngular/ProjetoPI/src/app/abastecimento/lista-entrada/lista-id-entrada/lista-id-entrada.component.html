@@ -13,8 +13,16 @@
       <div class="container">
         <div class='row justify-content-start marginTabela justify-content-between'>
           <form class="form-inline comMarginBottom">
-            <input id="search" name="search" #vlDocumentoFiscal="ngModel" class="form-control mr-sm-2"
-              placeholder="Pesquisar" [(ngModel)]='idDF'>
+            <input id="search" name="search" class="form-control mr-sm-2"
+              placeholder="Pesquisar código DF" [(ngModel)]='idDF'>
+              <!-- <input id="search" name="search" class="form-control mr-sm-2"
+              placeholder="Pesquisar Nome Filial" [(ngModel)]='nmFilial'> -->
+              <select name="nmFilial" class="form-control mr-sm-2"
+                  [(ngModel)]='nmFilial' id="nmFilial" required>
+                  <option value="CD BUTANTÃ">CD BUTANTÃ</option>
+                  <option value="CD EMBU">CD EMBU</option>
+                  <option value="CD GUARULHOS">CD GUARULHOS</option>
+                </select>
             <button class="btn btn botaoConfirmar my-2 my-sm-0" type="submit" (click)="register()">
               <i class="fa fa-search"></i>
             </button>
@@ -38,6 +46,7 @@
             <thead class="thead-default tituloTabela">
               <tr>
                 <th scope="col">Código DF</th>
+                <th scope="col">CD</th>
                 <th scope="col">Itens</th>
                 <th scope="col">Fornecedor</th>
                 <th scope="col">Data Entrada</th>
@@ -49,16 +58,19 @@
             <tbody>
               <tr>
                 <th scope="row"> {{ request.idDocumento }} </th>
+                <td> {{ request.nmFilial }} </td>
                 <td>
                   <div class="dropdown">
-                    <button class="btn btn botaoConfirmar dropdown-toggle" type="button" id="dropdownMenuButton"
+                    <button class="btn btn-default botaoCadastrar dropdown-toggle" type="button" id="dropdownMenuButton"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Itens
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" *ngIf="request.itens[0]">Código: {{request.itens[0].cdProduto}}</a>
-                      <a class="dropdown-item" *ngIf="request.itens[0]">Nome: {{request.itens[0].nmProduto}}</a>
-                      <a class="dropdown-item" *ngIf="request.itens[0]">Quantidade: {{request.itens[0].qtItem}}</a>
+                    <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                      <tr *ngFor='let item of request.itens'>
+                        <a class="dropdown-item" *ngIf="item"><b>Nome: </b>{{item.nmProduto}}</a>
+                        <a class="dropdown-item" *ngIf="item"><b>Quantidade: </b>{{item.qtItem}}</a>
+                        <a class="dropdown-item">&nbsp;</a>
+                      </tr>
                     </div>
                   </div>
                 </td>

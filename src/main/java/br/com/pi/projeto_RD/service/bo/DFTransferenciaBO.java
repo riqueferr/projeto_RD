@@ -52,7 +52,7 @@ public class DFTransferenciaBO {
         dto.setIdFilial(d.getFilial().getCdFilial());
         dto.setNmFilial(d.getFilial().getNmFilial());
 
-        if(dto.getIdFilialDestino() != null) {
+        if(d.getDestino().getCdFilial() != null) {
             dto.setIdFilialDestino(d.getDestino().getCdFilial());
             dto.setNmFilialDestino(d.getDestino().getNmFilial());
         }

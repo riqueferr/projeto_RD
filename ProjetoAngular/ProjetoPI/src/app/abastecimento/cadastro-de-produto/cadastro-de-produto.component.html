@@ -35,11 +35,17 @@
           </div>
           <div class="form-group col-md-4">
             <label for="vl_unidade">Valor Unidade</label>
-            <input name="vl_unidade" ngModel #vl_unidade="ngModel" class="form-control" placeholder="R$ 00,00"
-              [(ngModel)]='request.vl_unidade' id='vl_unidade' required>
-            <div *ngIf="vl_unidade.errors && vl_unidade.dirty" class="invalid-tooltip d-block">
-              <div [hidden]="!vl_unidade.errors.required">
-                Digite o valor, por favor.
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">R$</span>
+              </div>
+              <input name="vl_unidade" currencyMask ngModel #vl_unidade="ngModel" class="form-control"
+                placeholder="R$ 00,00" [(ngModel)]='request.vl_unidade' id='vl_unidade'
+                [options]="{ prefix: '', thousands: ',', decimal: '.' }" required>
+              <div *ngIf="vl_unidade.errors && vl_unidade.dirty" class="invalid-tooltip d-block">
+                <div [hidden]="!vl_unidade.errors.required">
+                  Digite o valor, por favor.
+                </div>
               </div>
             </div>
           </div>
@@ -48,54 +54,43 @@
         <div class="form-row ">
           <div class="form-group col-md-3">
             <label for="idStatusProduto">Status</label>
-            <select name="idStatusProduto" ngModel #idStatusProduto="ngModel" class="form-control" placeholder="Ativo"
-              [(ngModel)]='request.statusProduto.idStatusProduto' id='idStatusProduto' required>
-              <option value="1">Ativo</option>
-              <option value="2">Inativo</option>
-              <option value="3">Fora do Mix</option>
+            <select [(ngModel)]='request.statusProduto.idStatusProduto' class="form-control" name="idStatusProduto"
+              required>
+              <option *ngFor='let status of responseStatus' value="{{ status.idStatusProduto }}">
+                {{ status.dsStatusProduto }}</option>
             </select>
-            <div *ngIf="idStatusProduto.errors && idStatusProduto.dirty" class="invalid-tooltip d-block">
-              <div [hidden]="!idStatusProduto.errors.required">
-                Selecione o status, por favor.
-              </div>
-            </div>
           </div>
+
           <div class="form-group col-md-3">
             <label for="idSubCategoria">Sub Categoria</label>
-            <input name="idSubCategoria" ngModel #idSubCategoria="ngModel" class="form-control"
-              placeholder="Sub Categoria" [(ngModel)]='request.subCategoria.idSubCategoria' id='idSubCategoria'
+            <select [(ngModel)]='request.subCategoria.idSubCategoria' class="form-control" name="idSubCategoria"
               required>
-            <div *ngIf="idSubCategoria.errors && idSubCategoria.dirty" class="invalid-tooltip d-block">
-              <div [hidden]="!idSubCategoria.errors.required">
-                Selecione a sub categoria, por favor.
-              </div>
-            </div>
+              <option *ngFor='let sub of responseSubCategorias' value="{{ sub.idSubCategoria }}">
+                {{ sub.dsSubCategoria }}</option>
+            </select>
           </div>
+
           <div class="form-group col-md-3">
             <label for="idTipoProduto">Tipo</label>
-            <select name="idTipoProduto" ngModel #idTipoProduto="ngModel" class="form-control"
-              placeholder="Tipo produto" [(ngModel)]='request.tipo_produto.idTipoProduto' id="idTipoProduto" required>
-              <option value="1">OTC</option>
-              <option value="2">Similar</option>
-              <option value="3">Genérico</option>
-              <option value="4">Referência</option>
+            <select name="idTipoProduto" class="form-control" placeholder="Tipo produto" 
+            [(ngModel)]='request.tipo_produto.idTipoProduto' id="idTipoProduto" required>
+              <option *ngFor='let tipo of responseTipoProduto' value="{{ tipo.idTipoProduto }}">
+                {{ tipo.dsTipoProduto }}</option>
             </select>
-            <div *ngIf="idTipoProduto.errors && idTipoProduto.dirty" class="invalid-tooltip d-block">
-              <div [hidden]="!idTipoProduto.errors.required">
-                Selecione tipo, por favor.
-              </div>
-            </div>
           </div>
+
           <div class="form-group col-md-3">
             <label for="cd_fornecedor">Fornecedor</label>
-            <input name="cd_fornecedor" ngModel #cd_fornecedor="ngModel" class="form-control" placeholder="Fornecedor"
-              [(ngModel)]='request.fornecedor[0].cd_fornecedor' id='cd_fornecedor' required>
-          </div>
-          <div *ngIf="cd_fornecedor.errors && cd_fornecedor.dirty" class="invalid-tooltip d-block">
-            <div [hidden]="!cd_fornecedor.errors.required">
-              Digite o fornecedor, por favor.
+          <select [(ngModel)]='request.fornecedor[0].cd_fornecedor'class="form-control" id="idFornecedor" name="idFornecedor" ngModel required #idFornecedor="ngModel">
+            <option *ngFor='let fornecedores of responseFornecedores' value="{{fornecedores.cd_fornecedor}}" >{{ fornecedores.nm_razao_social }}</option>
+          </select>
+          <div class='row' *ngIf="loading">
+            <div class="spinner-grow text-success text-center" role="status">
+              <span class="sr-only">Loading...</span>
             </div>
           </div>
+        </div>
+
         </div>
 
 

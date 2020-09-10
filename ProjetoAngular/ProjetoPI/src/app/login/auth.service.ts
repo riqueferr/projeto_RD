@@ -1,24 +1,33 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Usuario } from './usuario';
-import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+// import { JwtService } from '@nestjs/jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public usuarioAutenticado = false;
+  // public usuarioAutenticado = false;
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
-  constructor(private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    // private jwtService: JwtService
+    ) { }
 
   // tslint:disable-next-line: typedef
-  fazerLogin(user: any) {
-
-    return new Promise((resolve) => {
-      window.localStorage.setItem('token', 'meu-token');
-      resolve(true);
-    });
+  async fazerLogin(user: any) {
+    const result = await this.http.post<any>(`${environment.api}/login`, user).toPromise();
+    if (result){
+      window.localStorage.setItem('token', 'result.access_token');
+      return true;
+    }
+    return false;
+    // return new Promise((resolve) => {
+    //   window.localStorage.setItem('token', 'meu-token');
+    //   resolve(true);
+    // });
     // // tslint:disable-next-line: triple-equals
     // if (usuario.nome == '166534' &&
     //   // tslint:disable-next-line: triple-equals
@@ -33,6 +42,12 @@ export class AuthService {
     //   this.mostrarMenuEmitter.emit(false);
     // }
   }
+  // async login(user: any) {
+  //   const payload = { nrMatricula: user.nrMatricula, sub: user.idOperador };
+  //   return {
+  //     access_token: this.jwtService.sign(payload),
+  //   };
+  // }
 
   // tslint:disable-next-line: typedef
   // usuarioEstaAutenticado() {

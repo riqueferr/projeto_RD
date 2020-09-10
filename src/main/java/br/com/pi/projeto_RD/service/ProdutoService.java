@@ -58,9 +58,6 @@ public class ProdutoService {
         return listDTO;
     }
 
-
-
-
     public ProdutoDto buscarPorId(Integer codigo) {
         return produtoBO.parseToDTO(repository.getOne(codigo));
     }

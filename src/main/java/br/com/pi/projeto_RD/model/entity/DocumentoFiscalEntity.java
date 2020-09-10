@@ -73,11 +73,8 @@ public class DocumentoFiscalEntity implements Serializable {
     @Column(name = "NR_SERIE")
     private Long nrSerie;
 
-//    @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "DT_EMISSAO")
     private Date dtEmissao;
-
-//    @DateTimeFormat(pattern = "dd/MM/yyyy")
 
     @Column(name = "DT_ENTRADA")
     @Temporal(value = TemporalType.DATE)
@@ -99,7 +96,6 @@ public class DocumentoFiscalEntity implements Serializable {
     @Column(name = "NR_CAIXA")
     private Long nrCaixa;
 
-//    @OneToMany(mappedBy = "nf", cascade = CascadeType.ALL)
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
     private List<DocumentoItemEntity> itens;
@@ -107,6 +103,5 @@ public class DocumentoFiscalEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
     private List<PagamentoDocEntity> pagamento;
-
 
 }

@@ -15,10 +15,9 @@ export class ListarIdFilialComponent implements OnInit {
   loading : boolean;
   
   cdFilial: any;
+  nmFilial: any;
   request: any;
   responseEstoques: ResponseEstoque[];
-
-  codigo: string;
 
   constructor(
     private estoquesService: EstoqueService,
@@ -40,10 +39,17 @@ export class ListarIdFilialComponent implements OnInit {
   }
 
   register(): void {
-    console.log(this.cdFilial);
-    this.estoquesService.getEstoqueFilial(this.cdFilial).subscribe();
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-    this.router.navigate(['/relatorioDeEstoque/filial', this.cdFilial]));
+    if(this.cdFilial != null){
+      console.log(this.cdFilial);
+      this.estoquesService.getEstoqueFilial(this.cdFilial).subscribe();
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+      this.router.navigate(['/relatorioDeEstoque/filial', this.cdFilial]));
+    }else{
+        console.log(this.nmFilial);
+        this.estoquesService.getEstoqueNomeFilial(this.cdFilial).subscribe();
+        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+        this.router.navigate(['/relatorioDeEstoque/nomefilial', this.nmFilial]));
+    }
   }
 
 }

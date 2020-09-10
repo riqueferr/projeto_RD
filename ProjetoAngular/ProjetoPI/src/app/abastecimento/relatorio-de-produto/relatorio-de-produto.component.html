@@ -40,7 +40,8 @@
                 <form>
                   <div class="form-group">
                     <label for="exampleFormControlSelect1"></label>
-                    <input class="form-control mr-sm-4" type="search" placeholder="Nome do Produto" aria-label="Search">
+                    <input id="search" name="search" class="form-control form-control-override" 
+                    [(ngModel)]='nmProduto' placeholder="Pesquisar por nome do produto">
                   </div>
                 </form>
               </div>
@@ -48,7 +49,7 @@
                 <form>
                   <div class="form-group">
                     <select style="margin-top: 24px;" class="form-control mr-sm-4" id="statusProduto"
-                      name="statusProduto" ngModel #statusProduto="ngModel">
+                      name="statusProduto" [(ngModel)]='statusProduto'>
                       <option value="1">Ativo</option>
                       <option value="2">Inativo</option>
                       <option value="3">Fora do Mix</option>
@@ -57,7 +58,7 @@
                 </form>
               </div>
               <div style="margin-top: 24px;" class='col-md-4'>
-                <button type="submit" class="btn btn-default botaoConfirmar">Pesquisar</button>
+                <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Pesquisar</button>
               </div>
 
             </div>
@@ -78,16 +79,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor='let produtos of responseRelatorioProduto'>
+                  <tr *ngFor='let produtos of responseRelatorioProduto | paginate: { itemsPerPage: 8, currentPage: paginaAtual }; let i = index'>
                     <th scope="row">{{ produtos.cdProduto }}</th>
                     <td class='maxCarch'>{{ produtos.nmProduto }}</td>
                     <td class='maxCarch'>{{ produtos.tipoProduto }}</td>
-                    <td class='maxCarch' *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}
+                    <td>
+                      <div class="dropdown">
+                        <button class="btn btn-default botaoCadastrar dropdown-toggle" type="button" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Fornecedores
+                        </button>
+                        <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                          <tr *ngFor='let item of produtos.fornecedor'>
+                            <a class="dropdown-item" *ngIf="item">{{item.nm_razao_social}}</a>
+                          </tr>
+                        </div>
+                      </div>
                     </td>
                     <td class='maxCarch'>{{ produtos.statusProduto }}</td>
                   </tr>
                 </tbody>
               </table>
+              <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
             </div>
             <div class='row justify-content-center' *ngIf="loading">
               <div class="spinner-grow text-success text-center" role="status">
