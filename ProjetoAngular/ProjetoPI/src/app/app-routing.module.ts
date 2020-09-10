@@ -27,6 +27,9 @@ import { ListaIdEntradaComponent } from './abastecimento/lista-entrada/lista-id-
 import { ListarPageFornecedoresComponent } from './abastecimento/lista-fornecedores/listar-page-fornecedores/listar-page-fornecedores.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ListaNmfilialEntradaComponent } from './abastecimento/lista-entrada/lista-nmfilial-entrada/lista-nmfilial-entrada.component';
+import { ListarNomeFilialComponent } from './abastecimento/relatorio-de-estoque/listar-nome-filial/listar-nome-filial.component';
+import { ListaNomeProdutoRelatorioComponent } from './abastecimento/relatorio-de-produto/lista-nome-produto-relatorio/lista-nome-produto-relatorio.component';
+import { ListaStatusProdutoRelatorioComponent } from './abastecimento/relatorio-de-produto/lista-status-produto-relatorio/lista-status-produto-relatorio.component';
 
 
 export const routes: Routes = [
@@ -67,8 +70,23 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'relatorioDeEstoque/nomefilial/:nmFilial',
+    component: ListarNomeFilialComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'relatorioDeProduto',
     component: RelatorioDeProdutoComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'relatorioDeProduto/nomeproduto/:nmProduto',
+    component: ListaNomeProdutoRelatorioComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'relatorioDeProduto/statusproduto/:statusProduto',
+    component: ListaStatusProdutoRelatorioComponent,
     canActivate: [AuthGuard]
   },
   {
