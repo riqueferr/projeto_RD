@@ -15,8 +15,6 @@
             <form class="form-inline comMarginBottom">
               <input id="search" name="search" class="form-control mr-sm-2"
                 placeholder="Pesquisar código DF" [(ngModel)]='idDF'>
-                <!-- <input id="search" name="search" class="form-control mr-sm-2"
-                placeholder="Pesquisar Nome Filial" [(ngModel)]='nmFilial'> -->
                 <select name="nmFilial" class="form-control mr-sm-2"
                     [(ngModel)]='nmFilial' id="nmFilial" required>
                     <option value="CD BUTANTÃ">CD BUTANTÃ</option>
@@ -28,7 +26,6 @@
               </button>
             </form>
             <form class="form-inline">
-              <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
               <a type='submit' routerLink='/entradaDeProduto' class='btn btn-default botaoCadastrar centralizar'>
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +58,7 @@
                   <td> {{ entradas.nmFilial }} </td>
                   <td>
                     <div class="dropdown">
-                      <button class="btn btn botaoConfirmar dropdown-toggle" type="button" id="dropdownMenuButton"
+                      <button class="btn btn-default botaoCadastrar dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Itens
                       </button>
