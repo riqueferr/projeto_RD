@@ -79,16 +79,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor='let produtos of responseRelatorioProduto'>
+                  <tr *ngFor='let produtos of responseRelatorioProduto | paginate: { itemsPerPage: 8, currentPage: paginaAtual }; let i = index'>
                     <th scope="row">{{ produtos.cdProduto }}</th>
                     <td class='maxCarch'>{{ produtos.nmProduto }}</td>
                     <td class='maxCarch'>{{ produtos.tipoProduto }}</td>
-                    <td class='maxCarch' *ngIf="produtos.fornecedor[0]">{{ produtos.fornecedor[0].nm_razao_social }}
+                    <td>
+                      <div class="dropdown">
+                        <button class="btn btn-default botaoCadastrar dropdown-toggle" type="button" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Fornecedores
+                        </button>
+                        <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                          <tr *ngFor='let item of produtos.fornecedor'>
+                            <a class="dropdown-item" *ngIf="item">{{item.nm_razao_social}}</a>
+                          </tr>
+                        </div>
+                      </div>
                     </td>
                     <td class='maxCarch'>{{ produtos.statusProduto }}</td>
                   </tr>
                 </tbody>
               </table>
+              <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
             </div>
             <div class='row justify-content-center' *ngIf="loading">
               <div class="spinner-grow text-success text-center" role="status">

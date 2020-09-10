@@ -139,6 +139,27 @@
     color: #fff;
     background-color: #458d68;
   }
+
+  .botaoCadastrar {
+    color: #29754E !important;
+    background-color: #FFFFFF !important;
+    border-color: #29754E !important;
+    width: 120px !important;
+    /* height: 28px !important; */
+    padding: 4px;
+    margin-bottom: 5px;
+  }
+
+  .botaoCadastrar:hover {
+    background-color: #29754E !important;
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+    width: 120px !important;
+    /* height: 28px !important; */
+    padding: 4px;
+    margin-bottom: 5px;
+  }
+
   .botaoConfirmar {
     background-color: #29754e;
     color: #fff;
