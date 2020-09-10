@@ -24,7 +24,7 @@ import java.util.List;
 @NamedQuery(name = "buscarNfPorFilial", query = "select n from DocumentoFiscalEntity n where n.filial.nmFilial  =:NM_FILIAL")
 @NamedQuery(name = "filtrarDataeFilial", query = "Select n from DocumentoFiscalEntity n JOIN n.pagamento p WHERE n.operacao.cdOperacao = 1 AND p.tipoPagamento.idTipoPagamento = 4 OR p.tipoPagamento.idTipoPagamento = 5 AND n.dtEntrada = :DT_ENTRADA AND n.filial.cdFilial = :FILIAL")
 @NamedQuery(name = "buscarNfPorDataEntrada", query = "select n.dtEntrada from DocumentoFiscalEntity AS n where dtEntrada  = :DT_ENTRADA")
-@NamedQuery(name = "buscarVendasDiaria", query = "select n.")
+@NamedQuery(name = "buscarVendasDiaria", query = "select n from DocumentoFiscalEntity n where n.dtEntrada =: DT_ENTRADA And n.filial.cdFilial =: FILIAL And n.operacao.cdOperacao=1 or n.operacao.cdOperacao=3")
 //@NamedQuery(name = "buscarTiposPagamento", query = "select n from DocumentoFiscalEntity n where n.idPagamento =:ID_PAGAMENTO")
 //@NamedQuery(name = "testePagamento", query =  "Select n from DocumentoFiscalEntity n WHERE n.operacao.cdOperacao = 4")
 //@NamedQuery(name = "seila", query = "Select MovimentoLojaDTO(n.idDocumento)")

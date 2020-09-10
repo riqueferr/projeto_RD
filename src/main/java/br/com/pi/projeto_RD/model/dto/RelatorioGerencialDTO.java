@@ -23,4 +23,14 @@ public class RelatorioGerencialDTO {
     private OperacaoEntity operacao;
     private ProdutoEntity produto;
     private FilialEntity filial;
+
+    public RelatorioGerencialDTO(Long idDocumento,Date dtEntrada,BigDecimal vlDocumento,OperacaoEntity operacao,FilialEntity filial){
+        this.idDocumento = idDocumento;
+        this.dtEntrada = dtEntrada;
+        this.vlDocumento = vlDocumento;
+        // this.pagamento = pagamento;
+        this.operacao = operacao;
+        //this.itemEntity = itemEntity;
+        this.filial = filial;
+    }
 }

@@ -13,6 +13,9 @@ public class RelatorioGerencialBO {
     @Autowired
     private DocumentoFiscalRepository repository;
 
+//    @Autowired
+//    private RelatorioGerencialDTO dto;
+
     public RelatorioGerencialDTO parseToDTO (DocumentoFiscalEntity d) {
         RelatorioGerencialDTO dto = new RelatorioGerencialDTO();
          if (d == null)
