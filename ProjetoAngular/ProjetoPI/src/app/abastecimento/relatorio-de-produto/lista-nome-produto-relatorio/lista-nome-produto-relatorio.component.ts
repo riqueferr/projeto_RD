@@ -10,6 +10,8 @@ import { RelatorioProdutoService } from '../shared/relatorioproduto.service';
 })
 export class ListaNomeProdutoRelatorioComponent implements OnInit {
 
+  public paginaAtual = 1;
+
   loading : boolean;
 
   nmProduto: any;

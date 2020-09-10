@@ -12,6 +12,8 @@ import { ResponseEstoque } from '../shared/estoque.model';
 })
 export class ListarIdFilialComponent implements OnInit {
 
+  public paginaAtual = 1;
+
   loading : boolean;
   
   cdFilial: any;

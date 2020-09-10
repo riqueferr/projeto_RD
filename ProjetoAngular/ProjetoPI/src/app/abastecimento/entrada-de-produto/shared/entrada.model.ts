@@ -9,8 +9,6 @@ export interface Entradas {
     nrSerie: number,
     dtEmissao: Date,
     dtEntrada: Date,
-    // dtAbertura: Date,
-    // dtFechamento: Date,
     vlDocumentoFiscal: number,
     itens: ResponseEntradaItens []
 }
@@ -25,7 +23,5 @@ export class ResponseEntradaItens{
     cdProduto: number;
     qtItem: number;
     nmProduto: String;
-    // pcIcms: number;
-    // vlIcms: number;
 }
 

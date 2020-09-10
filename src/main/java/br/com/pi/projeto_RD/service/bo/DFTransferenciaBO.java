@@ -13,8 +13,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -60,9 +62,10 @@ public class DFTransferenciaBO {
         dto.setChaveAcesso(d.getNrChaveAcesso());
         dto.setNrNF(d.getNrNf());
         dto.setNrSerie(d.getNrSerie());
-        dto.setDtEmissao(d.getDtEmissao());
-        dto.setDtEntrada(d.getDtEntrada());
-//        dto.setVlDocumentoFiscal(d.getVlDocumentoFiscal());
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        dto.setDtEmissao(formato.format(d.getDtEmissao()));
+        dto.setDtEntrada(formato.format(d.getDtEntrada()));
 
         List<ItensDfDTO> itens = new ArrayList<>();
         for (DocumentoItemEntity item : d.getItens()) {
@@ -99,9 +102,8 @@ public class DFTransferenciaBO {
         dfEntity.setNrChaveAcesso(dto.getChaveAcesso());
         dfEntity.setNrNf(dto.getNrNF());
         dfEntity.setNrSerie(dto.getNrSerie());
-        dfEntity.setDtEmissao(dto.getDtEmissao());
-        dfEntity.setDtEntrada(dto.getDtEntrada());
-//        dfEntity.setVlDocumentoFiscal(dto.getVlDocumentoFiscal());
+        dfEntity.setDtEmissao(java.sql.Date.valueOf(formataDataEnviaBD(dto.getDtEmissao())));
+        dfEntity.setDtEntrada(java.sql.Date.valueOf(formataDataEnviaBD(dto.getDtEntrada())));
 
         List<DocumentoItemEntity> itemsEntity = new ArrayList<>();
         for (ItensDfDTO itemDTO : dto.getItens()) {
@@ -151,6 +153,15 @@ public class DFTransferenciaBO {
 
 
         return dfEntity;
+    }
+
+    public String formataDataEnviaBD(String data) throws ParseException {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        df.setLenient(false);
+        Date d = df.parse(data);
+        df = new SimpleDateFormat("yyyy-MM-dd");
+        String s = df.format(d);
+        return s;
     }
 
 }

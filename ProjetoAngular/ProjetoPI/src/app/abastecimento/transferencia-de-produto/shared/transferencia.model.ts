@@ -9,17 +9,18 @@ export interface Transferencia {
     nrSerie: number,
     dtEmissao: Date,
     dtEntrada: Date,
-    itens: [
-        {
-            nrItemDocumento: number,
-            cdProduto: number,
-            qtItem: number,
-        }
-    ]
+    itens: ResponseEntradaItens []
 }
 
 export class ResponseTransferencia {
     transferencia: Transferencia[];
+}
+
+export class ResponseEntradaItens{
+    nrItemDocumento: number;
+    cdProduto: number;
+    qtItem: number;
+    nmProduto: String;
 }
 
 

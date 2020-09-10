@@ -12,11 +12,14 @@ export class TransferenciaService {
   constructor(private http: HttpClient) { }
 
   private readonly API = 'http://localhost:8080/abastecimento/transferencia';
-
-  // private readonly APIProdutos = 'http://localhost:8080/abastecimento/produtos';
+  private readonly APIFilial = 'http://localhost:8080/abastecimento/filial';
 
   getTransferencias() {
     return this.http.get<ResponseTransferencia[]>(this.API);
+  }
+
+  getFiliais() {
+    return this.http.get<ResponseTransferencia[]>(this.APIFilial);
   }
 
   // getTransferencia(codigo: string): Observable<ResponseTransferencia> {

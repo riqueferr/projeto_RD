@@ -12,6 +12,8 @@ import { ResponseEstoque } from './shared/estoque.model';
 })
 export class RelatorioDeEstoqueComponent implements OnInit {
 
+  public paginaAtual = 1;
+
   loading : boolean;
 
   responseEstoques: ResponseEstoque[];

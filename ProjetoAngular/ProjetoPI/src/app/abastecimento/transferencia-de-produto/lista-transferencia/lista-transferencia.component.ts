@@ -13,8 +13,9 @@ export class ListaTransferenciaComponent implements OnInit {
 
   loading: boolean;
 
-  responseTransferencia: ResponseTransferencia[];
+  public paginaAtual = 1;
 
+  responseTransferencia: ResponseTransferencia[];
 
   constructor(
     private responseService: TransferenciaService) { }

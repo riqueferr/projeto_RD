@@ -55,7 +55,7 @@
                     </tr>
                   </thead>
                   <tbody style=" height:24.400rem !important;">
-                    <tr *ngFor='let estoques of request'>
+                    <tr *ngFor='let estoques of request | paginate: { itemsPerPage: 8, currentPage: paginaAtual }; let i = index'>
                       <th scope="row">{{ estoques.cdFilial }}</th>
                       <td class='maxCarch'>{{ estoques.nmFilial }}</td>
                       <th scope="row" class='maxCarch'>{{ estoques.codProduto }}</th>
@@ -66,6 +66,7 @@
                     </tr>
                   </tbody>
                 </table>
+                <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
               </div>
               <div class='row justify-content-center' *ngIf="loading">
                 <div class="spinner-grow text-success text-center" role="status">

@@ -44,31 +44,30 @@
             </thead>
 
             <tbody>
-              <tr *ngFor='let transferencias of responseTransferencia'>
+              <tr *ngFor='let transferencias of responseTransferencia | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
                 <th scope="row"> {{ transferencias.idDocumento }} </th>
                 <td>
-                  <div class="dropdown">
-                    <button class="btn btn botaoConfirmar dropdown-toggle" type="button" id="dropdownMenuButton"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Itens
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" *ngIf="transferencias.itens[0]">Código:
-                        {{transferencias.itens[0].cdProduto}}</a>
-                      <a class="dropdown-item" *ngIf="transferencias.itens[0]">Nome:
-                        {{transferencias.itens[0].nmProduto}}</a>
-                      <a class="dropdown-item" *ngIf="transferencias.itens[0]">Quantidade:
-                        {{transferencias.itens[0].qtItem}}</a>
+                    <div class="dropdown">
+                      <button class="btn btn-default botaoCadastrar dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Itens
+                      </button>
+                      <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                        <tr *ngFor='let item of transferencias.itens'>
+                          <a class="dropdown-item" *ngIf="item"><b>Nome: </b>{{item.nmProduto}}</a>
+                          <a class="dropdown-item" *ngIf="item"><b>Quantidade: </b>{{item.qtItem}}</a>
+                          <a class="dropdown-item">&nbsp;</a>
+                        </tr>
+                      </div>
                     </div>
-                  </div>
-                </td>
+                  </td>
                 <td>{{ transferencias.nmFilialDestino }}</td>
-                <td>{{ transferencias.dtEntrada | date: 'dd/MM/yyy' }}</td>
+                <td ng-model-options="{timezone: 'America/Sao_Paulo'}" >{{ transferencias.dtEntrada}}</td>
 
               </tr>
             </tbody>
           </table>
-
+          <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
         </div>
         <div class='row justify-content-center' *ngIf="loading">
           <div class="spinner-grow text-success text-center" role="status">
