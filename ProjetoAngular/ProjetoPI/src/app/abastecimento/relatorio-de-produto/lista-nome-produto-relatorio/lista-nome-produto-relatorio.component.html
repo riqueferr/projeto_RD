@@ -79,7 +79,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor='let produtos of responseRelatorioProduto'>
+                  <tr *ngFor='let produtos of request'>
                     <th scope="row">{{ produtos.cdProduto }}</th>
                     <td class='maxCarch'>{{ produtos.nmProduto }}</td>
                     <td class='maxCarch'>{{ produtos.tipoProduto }}</td>

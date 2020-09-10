@@ -1,0 +1,97 @@
+.marginTopMain {
+    margin-top: 0px;
+  }
+  
+  .semMarginRightMain {
+    margin-right: 0px;
+  }
+
+  .centralizarMenu {
+    justify-content: space-around;
+  }
+
+  .fixarrolagem-thead, .fixarrolagem-tbody { 
+    display: block;
+     
+  }
+  
+  .fixarrolagem-tbody {
+    height: 26.600rem;
+    overflow-y: auto;    /* Scroll vertical             */
+    width:100%;
+    float: left;    
+    
+  }
+  .fixarrolagem-tbody2 tr {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #dee2e6;
+  
+  }
+  .fixarrolagem-tbody tr {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #dee2e6;
+  }
+  .fixarrolagem-tbody th, .fixarrolagem-tbody td {
+    border-top: none;
+  }
+  
+  
+  .fixarrolagem2-thead, .fixarrolagem2-tbody { 
+    display: block;
+     
+  }
+  table {
+    border: 1px solid #CDCDCD;
+    border-collapse: collapse;
+   
+  }
+  .fixarrolagem2-tbody {
+    height: 11.500rem;
+    overflow-y: auto;    /* Scroll vertical             */
+    width:100%;
+    float: left;
+  }
+
+  tbody::-webkit-scrollbar{
+    height:3rem;
+    width: 0.500rem;    
+  }
+  tbody::-webkit-scrollbar-thumb{
+    
+    background-color: #29754E;
+  }
+  tbody::-webkit-scrollbar-button{
+    height: 1%;
+    background-color: white;
+  }
+
+  .botaoConfirmar {
+    background-color: #29754e;
+    color: #fff;
+    margin-left: 40px;
+  }
+  
+  .botaoConfirmar:hover {
+    background-color: #174d31;
+    color: #fff;
+    margin-left: 40px;
+    border: 1px solid #29754e;
+  }
+  
+  .botaoCancelar {
+    background-color: #989898;
+    color: #fff;
+    margin-left: 10px;
+  }
+  
+  .botaoCancelar:hover {
+    background-color: #5e5e5e;
+    color: #fff;
+    margin-left: 10px;
+  }
+
+  .maxCarch {
+    max-width: 10ch;
+  }

@@ -1,21 +1,22 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { EstoqueService } from '../shared/estoque.service';
 import { ResponseEstoque } from '../shared/estoque.model';
 
+
+
 @Component({
-  selector: 'app-listar-id-filial',
-  templateUrl: './listar-id-filial.component.html',
-  styleUrls: ['./listar-id-filial.component.css']
+  selector: 'app-listar-nome-filial',
+  templateUrl: './listar-nome-filial.component.html',
+  styleUrls: ['./listar-nome-filial.component.css']
 })
-export class ListarIdFilialComponent implements OnInit {
+export class ListarNomeFilialComponent implements OnInit {
 
   loading : boolean;
   
-  cdFilial: any;
   nmFilial: any;
+  cdFilial: any;
   request: any;
   responseEstoques: ResponseEstoque[];
 
@@ -23,16 +24,16 @@ export class ListarIdFilialComponent implements OnInit {
     private estoquesService: EstoqueService,
     private route: ActivatedRoute,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.loading = true;
-    this.listarPorCdFilial();
+    this.listarPorNomeFilial();
   }
 
-  listarPorCdFilial():void{
-    this.cdFilial = this.route.snapshot.paramMap.get('cdFilial');
-    this.estoquesService.getEstoqueFilial(this.cdFilial).subscribe(response => {
+  listarPorNomeFilial():void{
+    this.nmFilial = this.route.snapshot.paramMap.get('nmFilial');
+    this.estoquesService.getEstoqueNomeFilial(this.nmFilial).subscribe(response => {
       this.request = response;
       this.loading = false;
     });

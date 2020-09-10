@@ -1,37 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { RelatorioProdutoService } from './shared/relatorioproduto.service';
-import { ResponseRelatorioProduto } from './shared/relatorioproduto.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ResponseRelatorioProduto } from '../shared/relatorioproduto.model';
+import { RelatorioProdutoService } from '../shared/relatorioproduto.service';
 
 @Component({
-  selector: 'app-relatorio-de-produto',
-  templateUrl: './relatorio-de-produto.component.html',
-  styleUrls: ['./relatorio-de-produto.component.css']
+  selector: 'app-lista-nome-produto-relatorio',
+  templateUrl: './lista-nome-produto-relatorio.component.html',
+  styleUrls: ['./lista-nome-produto-relatorio.component.css']
 })
-export class RelatorioDeProdutoComponent implements OnInit {
+export class ListaNomeProdutoRelatorioComponent implements OnInit {
 
   loading : boolean;
 
   nmProduto: any;
   statusProduto: any;
+  request: any;
 
   responseRelatorioProduto: ResponseRelatorioProduto[];
 
   constructor(
     private relatorioProdutoService: RelatorioProdutoService,
+    private route: ActivatedRoute,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.loading = true;
-    this.listarTodosProdutos();
+    this.listarPorNmProduto();
   }
 
-  listarTodosProdutos() {
-    this.relatorioProdutoService.getRelatorioEstoque().subscribe(response => {
-        this.responseRelatorioProduto = response;
-        this.loading = false;
-      });
+  listarPorNmProduto(): void {
+    this.nmProduto = this.route.snapshot.paramMap.get('nmProduto');
+    this.relatorioProdutoService.getRelatorioProdutoPorNome(this.nmProduto).subscribe(response => {
+      this.request = response;
+      this.loading = false;
+    });
   }
 
   register(): void {
