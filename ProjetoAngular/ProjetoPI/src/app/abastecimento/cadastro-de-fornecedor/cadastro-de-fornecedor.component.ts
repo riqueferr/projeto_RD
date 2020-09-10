@@ -19,6 +19,8 @@ declare var $: any;
 export class CadastroDeFornecedorComponent implements OnInit {
 
 
+
+
   @ViewChild('it', { static: true }) it: NgForm;
 
   request: Fornecedores = {
@@ -55,11 +57,12 @@ export class CadastroDeFornecedorComponent implements OnInit {
 
   ngOnInit(): void {
 
-    $(document).ready(function() {
+    $(document).ready(function () {
       $('#cpf').mask('000.000.000-00');
       $('#cnpj').mask('00.000.000/0000-00');
       $('#cep').mask('00000-000');
       $('#phone').mask('(00) 0000-0000');
+      $('#numeroInscricao').mask('000.000.000.000');
     });
 
   }

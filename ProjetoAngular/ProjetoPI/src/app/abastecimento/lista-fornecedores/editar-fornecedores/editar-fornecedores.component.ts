@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-
+declare var $: any;
 @Component({
   selector: 'app-editar-fornecedores',
   templateUrl: './editar-fornecedores.component.html',
@@ -52,6 +52,13 @@ export class EditarFornecedoresComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    $(document).ready(function () {
+      $('#cpf').mask('000.000.000-00');
+      $('#cnpj').mask('00.000.000/0000-00');
+      $('#cep').mask('00000-000');
+      $('#phone').mask('(00) 0000-0000');
+      $('#numeroInscricao').mask('000.000.000.000');
+    });
     this.cd_fornecedor = this.route.snapshot.paramMap.get('cd_fornecedor');
     this.fornecedorService.getFornecedor(this.cd_fornecedor).subscribe(response => this.request = response);
   }

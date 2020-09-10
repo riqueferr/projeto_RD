@@ -14,7 +14,7 @@
         <div class="form-row justify-content-around">
           <div class="form-group col-md-5">
             <label for="cnpj">CNPJ</label>
-            <input id="nr_cnpj" name="cnpj" ngModel #cnpj="ngModel" class="form-control" placeholder="Insira seu CNPJ"
+            <input  id="cnpj" name="cnpj" required #cnpj="ngModel" class="form-control" placeholder="Insira seu CNPJ"
               [(ngModel)]='request.nr_cnpj'>
           </div>
           <div class="form-group col-md-5">
@@ -31,7 +31,7 @@
           </div>
           <div class="form-group col-md-5">
             <label for="numeroInscricao">Número de Inscrição</label>
-            <input name="numeroInscricao" ngModel #numeroInscricao="ngModel" class="form-control"
+            <input  id="numeroInscricao" name="numeroInscricao" ngModel #numeroInscricao="ngModel" class="form-control"
               placeholder="Insira seu número de inscrição" [(ngModel)]='request.nr_inscricao'>
           </div>
         </div>
