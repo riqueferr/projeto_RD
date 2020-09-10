@@ -6,10 +6,7 @@ import br.com.pi.projeto_RD.service.DFTransferenciaService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TransferenciaController {
@@ -21,6 +18,19 @@ public class TransferenciaController {
     @ApiOperation(value = "Listar todas notas fiscais por transferencia")
     public ResponseEntity<Object> listarTodas(){
         return ResponseEntity.ok().body(service.buscarTodos());
+    }
+
+    //BUSCAR POR ID
+    @GetMapping("/transferencia/{codigo}")
+    @ApiOperation(value = "Buscar documentos fiscais por ID transferencia")
+    public ResponseEntity buscarPorId(@PathVariable("codigo") Long codigo) {
+        return ResponseEntity.ok().body(service.buscarPorId(codigo));
+    }
+
+    //BUSCAR POR FILIAL
+    @GetMapping("/transferencia/filial/{filial}")
+    public ResponseEntity buscarPorFilial(@PathVariable("filial") String filial) {
+        return ResponseEntity.ok().body(service.buscarPorFilial(filial));
     }
 
     @PostMapping("/transferencia")

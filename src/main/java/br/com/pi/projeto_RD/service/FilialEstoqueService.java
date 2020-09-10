@@ -48,7 +48,7 @@ public class FilialEstoqueService {
     }
 
     public List<ProdutoFilialEstoqueDTO> buscarNmFilial(String nmFilial) {
-        List<ProdutoFilialEstoqueEntity> pfEntity = repository.findByFilialNmFilial(nmFilial);
+        List<ProdutoFilialEstoqueEntity> pfEntity = repository.findByFilialNmFilialContaining(nmFilial);
         List<ProdutoFilialEstoqueDTO> filialDTO = new ArrayList<>();
         for (ProdutoFilialEstoqueEntity entity : pfEntity) {
             ProdutoFilialEstoqueDTO dto = pfBO.parseToDTO(entity);

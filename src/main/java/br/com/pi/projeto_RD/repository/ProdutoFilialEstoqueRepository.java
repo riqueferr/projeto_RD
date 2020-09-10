@@ -12,6 +12,6 @@ public interface ProdutoFilialEstoqueRepository extends JpaRepository<ProdutoFil
 
         List<ProdutoFilialEstoqueEntity> findByFilialCdFilialAndProdutoCodigo(Long cdFilial, Integer codigo);
         List<ProdutoFilialEstoqueEntity> findByFilialCdFilial(Long cdFilial);
-        List<ProdutoFilialEstoqueEntity> findByFilialNmFilial(String nmFilial);
+        List<ProdutoFilialEstoqueEntity> findByFilialNmFilialContaining(String nmFilial);
 
 }

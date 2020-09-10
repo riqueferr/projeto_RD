@@ -16,5 +16,6 @@ public interface DocumentoFiscalRepository extends JpaRepository<DocumentoFiscal
     List<DocumentoFiscalEntity> findByOperacaoDsOperacao(String operacao);
     List<DocumentoFiscalEntity> findByMotivoDsMotivo(String motivo);
     List<DocumentoFiscalEntity> findByOperacaoDsOperacaoAndFilialNmFilial(String operacao, String filial);
+    List<DocumentoFiscalEntity> findByOperacaoDsOperacaoAndDestinoNmFilialContaining(String operacao, String filial);
 
 }

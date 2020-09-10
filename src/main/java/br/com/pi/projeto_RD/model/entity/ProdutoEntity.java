@@ -12,8 +12,7 @@ import java.util.List;
 @Data
 @NamedQuery(name = "buscarNfPoridStatusProduto", query = "select n from ProdutoEntity n where n.status.idStatusProduto  =:ID_STATUS_PRODUTO")
 @NamedQuery(name = "buscarNfPordsStatusProduto", query = "select n from ProdutoEntity n where n.status.dsStatusProduto  =:DS_STATUS_PRODUTO")
-@NamedQuery(name = "buscarNfPornmProduto", query = "select n from ProdutoEntity n where n.nm_fantasia  =:NM_FANTASIA")
-//@NamedQuery(name = "buscarNfPornmFornecedor", query = "select n from ProdutoEntity n where n.fornecedor.nm_razao_social  =:NM_RAZAO_SOCIAL")
+@NamedQuery(name = "buscarNfPornmProduto", query = "select n from ProdutoEntity n where n.nm_fantasia LIKE CONCAT ('%',:NM_FANTASIA,'%')")
 public class ProdutoEntity implements Serializable {
 
     @Id
