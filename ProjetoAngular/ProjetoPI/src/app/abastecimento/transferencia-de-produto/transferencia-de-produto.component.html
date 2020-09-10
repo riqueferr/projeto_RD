@@ -22,14 +22,14 @@
                     <input id="cdOperacao" name="cdOperacao" class="form-control" placeholder="TRANSFERÊNCIA" disabled>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="inputdescricao">Centro de Distribuição</label>
-                    <input id="idFilial" name="idFilial" class="form-control" placeholder="CD" disabled>
+                      <label for="inputNomeproduto4">Centro de Distribuição</label>
+                      <select name="idFilial" ngModel #idFilial="ngModel" class="form-control"
+                        [(ngModel)]='request.idFilial' id="idFilial" required>
+                        <option value="5">CD BUTANTÃ</option>
+                        <option value="6">CD EMBU</option>
+                        <option value="7">CD GUARULHOS</option>
+                      </select>
                   </div>
-                  <!-- <div class="form-group col-md-4">
-                        <label for="inputdescricao">Filial Destino</label>
-                        <input id="idFilialDestino" name="idFilialDestino" required #idFilialDestino="ngModel" class="form-control" placeholder="Insira a filial destino"
-                        [(ngModel)]='request.idFilialDestino'>
-                    </div> -->
                   <div class="form-group col-md-3">
                     <label for="inputdescricao">Filial Destino</label>
                     <select name="inputdescricao" ngModel #idStatusProduto="ngModel" class="form-control"
@@ -46,82 +46,89 @@
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="inputLote">Data Emissão</label>
-                    <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="form-control"
-                      placeholder="____/___/___" [(ngModel)]='request.dtEmissao'>
-                    <div class="invalid-tooltip">
-                      Insira uma data de emissão!
+                    <div class="form-group col-md-4">
+                        <label for="inputLote">Data Emissão</label>
+                        <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="data form-control" placeholder="____/___/___"
+                        [(ngModel)]='request.dtEmissao'>
+                        <div class="invalid-tooltip">
+                              Digite uma data de emissão, por favor.
+                            </div>
                     </div>
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputCodProd">Data Entrada</label>
-                    <input id="dtEntrada" name="dtEntrada" required #dtEntrada="ngModel" class="form-control"
-                      placeholder="____/___/___" [(ngModel)]='request.dtEntrada'>
-                    <div class="invalid-tooltip">
-                      Digite uma data de entrada, por favor.
+                    <div class="form-group col-md-4">
+                        <label for="inputCodProd">Data Entrada</label>
+                        <input id="dtEntrada" name="dtEntrada" required #dtEntrada="ngModel" class="data form-control" placeholder="____/___/___"
+                        [(ngModel)]='request.dtEntrada'>
+                        <div class="invalid-tooltip">
+                              Digite uma data de entrada, por favor.
+                            </div>
                     </div>
-                  </div>
                 </div>
 
                 <!-- Itens do documento fiscal -->
-                <br>
-                <h3>Itens entrada</h3>
-                <br>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="inputNomeproduto4">Número Item Documento</label>
-                    <input name="nrItemDocumento" class="form-control" placeholder="01" disabled>
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputdescricao">Produto</label>
-                    <input name="cdProduto" required #cdProduto="ngModel" class="form-control" placeholder="00"
-                      [(ngModel)]='request.itens[0].cdProduto'>
-                    <div class="invalid-tooltip">
-                      Digite o código de um produto, por favor.
-                    </div>
+                <form class="needs-validation" novalidate>
+                    <br>
+                    <h3>Itens transferência</h3>
+                    <br>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="inputdescricao">Produtos</label>
+                            <div class="invalid-tooltip">
+                                  Selecione um produto, por favor.
+                            </div> 
+                            <select [(ngModel)]='item.cdProduto' class="form-control" id="cdProduto" name="cdProduto" required>
+                                <option *ngFor='let produtos of responseProdutos' value="{{produtos.codigo}}">{{produtos.codigo}} {{ produtos.nm_fantasia }}</option>
+                            </select>
+                              <div class='row' *ngIf="loading">
+                                <div class="spinner-grow text-success text-center" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputdescricao">Quantidade Itens</label>
+                            <input type="number" name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="500" [(ngModel)]='item.qtItem'>
+                            <div class="invalid-tooltip">
+                                  Digite uma quantidade de itens, por favor.
+                              </div>
+                        </div>
+                        <!-- botão adicionar -->
+                        <div class="form-group">
+                          <br>
+                          <button type="button" class="btn btn-outline-success my-2 my-sm-0" (click)="itens()" >Adicionar item</button>
+                        </div>
+                        <div class="col-md-2"></div>
 
-                    <!-- <select [(ngModel)]='request.itens[0].cdProduto'
-                        class="form-control" id="cdProduto"
-                        name="cdProduto" ngModel required #cdProduto="ngModel">
-                            <option selected>Choose...</option>
-                            <option *ngFor='let produtos of responseProdutos; let i = index' value="{{i}}" >{{i}} {{ produtos.nm_fantasia }}</option>
-                          </select>
-                          <div class='row' *ngIf="loading">
-                            <div class="spinner-grow text-success text-center" role="status">
-                              <span class="sr-only">Loading...</span>
-                            </div>
-                          </div> -->
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputdescricao">Quantidade Itens</label>
-                    <input name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="Quantidade itens"
-                      [(ngModel)]='request.itens[0].qtItem'>
-                    <div *ngIf="qtItem.errors && qtItem.dirty" class="invalid-tooltip">
-                      <div [hidden]="!qtItem.errors.required">
-                        Digite quantos itens serão transferidos, por favor.
-                      </div>
+                        <div class="form-group">
+                          <br>
+                          <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Confirmar</button>
+                          <a routerLink='/listaEntradaProdutos'><button type="button" class="btn btn-default botaoCancelar">Cancelar</button></a>
+                        </div>
                     </div>
-                  </div>
-                </div>
+                </form>
 
-                <!-- botões -->
-                <div class="form-row justify-content-around">
-                  <div class="form-group col-md-4">
-                  </div>
-                  <div class="form-group col-md-4">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Confirmar</button>
-                    <a routerLink='/listaTransferenciaProduto'><button type="button"
-                        class="btn btn-default botaoCancelar">Cancelar</button></a>
-                  </div>
-                </div>
+                <table class="table table-hover">
+                    <thead class="thead-default tituloTabela">
+                      <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Código Produto</th>
+                        <th scope="col">Nome Produto</th>
+                        <th scope="col">Quantidade de Itens</th>
+                      </tr>
+                    </thead>
+              
+                    <tbody>
+                      <tr *ngFor='let itens of request.itens'>
+                        <th scope="row" >{{itens.nrItemDocumento}}</th>
+                        <td >{{itens.cdProduto}}</td>
+                        <td>Product Name</td>
+                        <!-- <td >{{itens.nmProduto}}</td> -->
+                        <td >{{itens.qtItem}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
               </form>
-              <!-- <button type="button" class="btn btn-default botaoConfirmar" (click)="register()">Salvar</button>
-                <a href="/listaTransferenciaProduto"><button type="button" class="botaoCancelar btn btn-default botaoCancelar"
-                    id="Cancelar">Cancelar</button></a>
-                botões -->
+              <!-- FIM DA LISTA -->
+
             </div>
           </div>
         </div>

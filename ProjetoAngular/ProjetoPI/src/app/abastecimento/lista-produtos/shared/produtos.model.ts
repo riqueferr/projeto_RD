@@ -49,3 +49,12 @@ export interface ResponseTipoProduto{
 export interface ResponseProdutos {
     produtos: Produtos[];
 }
+
+// export interface ResponseFiliais {
+//     filaiis: Filiais[];
+// }
+
+// export interface Filiais {
+//     idSubCategoria: number,
+//     dsSubCategoria: String
+// }

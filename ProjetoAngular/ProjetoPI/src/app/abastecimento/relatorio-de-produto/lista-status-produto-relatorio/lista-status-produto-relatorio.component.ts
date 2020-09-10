@@ -10,6 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListaStatusProdutoRelatorioComponent implements OnInit {
 
+  public paginaAtual = 1;
+
   loading : boolean;
 
   nmProduto: any;

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 declare var $: any;
 
 
-import { NgForm, Form, FormGroup, FormControl } from '@angular/forms';
+import { NgForm, Form, FormGroup, FormControl, NgModel } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
@@ -48,9 +48,7 @@ export class EntradaDeProdutoComponent implements OnInit {
   item: ResponseEntradaItens = new ResponseEntradaItens();
 
   responseEntradas: ResponseEntradas[];
-
   responseProdutos: ResponseProdutos[];
-
   responseFornecedores: ResponseFornecedores[];
 
   constructor(
@@ -67,7 +65,6 @@ export class EntradaDeProdutoComponent implements OnInit {
     this.listarTodosFornecedores();
 
     $(document).ready(function() {
-      // alert('Eu estou usando JQuery');
       $('.data').mask('00/00/0000');
 
     });
@@ -110,7 +107,6 @@ export class EntradaDeProdutoComponent implements OnInit {
     this.item = new ResponseEntradaItens();
     this.i ++;
   }
-
 
   register(): void {
     if (this.it.form.valid) {

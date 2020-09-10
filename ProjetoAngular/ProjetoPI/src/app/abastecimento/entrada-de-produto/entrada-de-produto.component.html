@@ -98,15 +98,12 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
                                         <label for="inputdescricao">Produtos</label>
-                                        <!-- <input name="cdProduto" required #cdProduto="ngModel" class="form-control"  [(ngModel)]='item.cdProduto'> -->
                                         <div class="invalid-tooltip">
                                               Selecione um produto, por favor.
                                         </div> 
                                         <select [(ngModel)]='item.cdProduto' class="form-control" id="cdProduto" name="cdProduto" required>
-                                            <option *ngFor='let produtos of responseProdutos' value="{{produtos.codigo}}" >{{produtos.codigo}} {{ produtos.nm_fantasia }}</option>
+                                            <option *ngFor='let produtos of responseProdutos' value="{{produtos.codigo}}">{{produtos.codigo}} {{ produtos.nm_fantasia }}</option>
                                         </select>
-                                        
-
                                           <div class='row' *ngIf="loading">
                                             <div class="spinner-grow text-success text-center" role="status">
                                               <span class="sr-only">Loading...</span>
@@ -150,8 +147,8 @@
                                       <tr *ngFor='let itens of request.itens'>
                                         <th scope="row" >{{itens.nrItemDocumento}}</th>
                                         <td >{{itens.cdProduto}}</td>
-                                        <!-- <td>Product Name</td> -->
-                                        <td >{{itens.nmProduto}}</td>
+                                        <td>Product Name</td>
+                                        <!-- <td >{{itens.nmProduto}}</td> -->
                                         <td >{{itens.qtItem}}</td>
                                       </tr>
                                     </tbody>

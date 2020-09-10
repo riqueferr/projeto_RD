@@ -26,8 +26,8 @@ public class DFTransferenciaDTO {
     private Long chaveAcesso;
     private Long nrNF;
     private Long nrSerie;
-    private Date dtEmissao;
-    private Date dtEntrada;
+    private String dtEmissao;
+    private String dtEntrada;
     private Double vlDocumentoFiscal;
 
     private List<ItensDfDTO> itens;

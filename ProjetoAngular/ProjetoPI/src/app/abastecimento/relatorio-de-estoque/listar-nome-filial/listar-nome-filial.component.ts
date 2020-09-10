@@ -13,6 +13,8 @@ import { ResponseEstoque } from '../shared/estoque.model';
 })
 export class ListarNomeFilialComponent implements OnInit {
 
+  public paginaAtual = 1;
+
   loading : boolean;
   
   nmFilial: any;
