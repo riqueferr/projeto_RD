@@ -20,6 +20,9 @@ public class DocumentoFiscalBO {
     @Autowired
     private DocumentoFiscalRepository repository;
 
+    @Autowired
+            private FilialBO filialBO;
+
     SimpleDateFormat SDF = new SimpleDateFormat("dd/MM/yyyy");
 
     public DocumentoFiscalDTO parseToDTO(DocumentoFiscalEntity d) {
@@ -29,26 +32,51 @@ public class DocumentoFiscalBO {
             return dto;
 
         dto.setIdDF(d.getIdDocumento());
-        dto.setOperacao(d.getOperacao());
-        dto.setIdFilial(d.getFilial().getCdFilial());
-        dto.setNmFilial(d.getFilial().getNmFilial());
-        dto.setCliente(d.getCliente());
-        dto.setFornecedor(d.getFornecedor());
-        dto.setId_recarga(d.getIdRecarga());
-        dto.setMotivo(d.getMotivo());
+
+        if(d.getOperacao() != null) {
+            dto.setOperacao(d.getOperacao().getDsOperacao());
+        }
+
+        if(d.getFilial() != null) {
+            dto.setIdFilial(d.getFilial().getCdFilial());
+            dto.setNmFilial(d.getFilial().getNmFilial());
+        }
+
+        if(d.getCliente() != null) {
+            dto.setCliente(d.getCliente().getNmCliente());
+        }
+
+        if(d.getFornecedor() != null){
+            dto.setFornecedor(d.getFornecedor().getNm_razao_social());
+        }
+
+        if(d.getIdRecarga() != null) {
+            dto.setId_recarga(d.getIdRecarga());
+        }
+
+        if(d.getMotivo() != null) {
+            dto.setMotivo(d.getMotivo());
+        }
+
         dto.setNr_chave_acesso(d.getNrChaveAcesso());
         dto.setNr_nf(d.getNrNf());
         dto.setNr_serie(d.getNrSerie());
 
-        dto.setDt_emissao(d.getDtEmissao());
-        dto.setDt_entrada(d.getDtEntrada());
-        dto.setDt_abertura(d.getDtAbertura());
-        dto.setDt_fechamento(d.getDtFechamento());
+        if(d.getDtEmissao() != null) {
+            dto.setDt_emissao(SDF.format(d.getDtEmissao()));
+        }
 
-//        dto.setDt_emissao(SDF.format(d.getDtEmissao()));
-//        dto.setDt_entrada(SDF.format(d.getDtEntrada()));
-//        dto.setDt_abertura(SDF.format(d.getDtAbertura()));
-//        dto.setDt_fechamento(SDF.format(d.getDtFechamento()));
+        if(d.getDtEntrada() != null) {
+            dto.setDt_entrada(SDF.format(d.getDtEntrada()));
+        }
+
+        if(d.getDtAbertura() != null) {
+            dto.setDt_abertura(d.getDtAbertura());
+        }
+
+        if(d.getDtFechamento() != null) {
+            dto.setDt_fechamento(d.getDtFechamento());
+        }
 
         dto.setFl_nf(d.getFlNf());
         dto.setVl_documento_fiscal(d.getVlDocumentoFiscal());

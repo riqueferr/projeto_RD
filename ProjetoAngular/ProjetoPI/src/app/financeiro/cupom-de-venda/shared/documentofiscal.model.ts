@@ -1,24 +1,14 @@
 
 export interface Nota {
     idDF: number;
+    cliente: String;
+    operacao: String;
+    fornecedor: String;
     dt_entrada: String;
     nmFilial: String;
     idFilial: number;
-    cliente: Cliente;
-    operacao: Operacao;
     item: Itens;
     vl_documento_fiscal: number;
-}
-
-
-export interface Operacao {
-    cdOperacao: number;
-    dsOperacao: String;
-}
-
-export interface Cliente{
-    idCliente: number;
-    nmCliente: String;
 }
 
 export interface Itens{

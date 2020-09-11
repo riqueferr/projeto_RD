@@ -32,13 +32,15 @@
                   </div>
                   <div class="form-group col-md-3">
                     <label for="inputdescricao">Filial Destino</label>
-                    <select name="inputdescricao" ngModel #idStatusProduto="ngModel" class="form-control"
-                      placeholder="Filial" [(ngModel)]='request.idFilialDestino' id='idFilialDestino' required>
-                      <option value="1" selected>BUTANTÃ</option>
-                      <option value="2">CONSOLAÇÃO</option>
-                      <option value="3">SE</option>
-
+                    <select name="idFilialDestino" ngModel #idFilialDestino="ngModel" class="form-control"
+                        [(ngModel)]='request.idFilialDestino' id="idFilialDestino" required>
+                        <option *ngFor='let filiais of responseFiliais' value="{{filiais.cd_filial}}">{{ filiais.nm_filial }}</option>
                     </select>
+                    <div class='row' *ngIf="loading">
+                        <div class="spinner-grow text-success text-center" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                      </div>
                     <div class="invalid-tooltip">
                       Selecione uma filial de destino, por favor.
                     </div>
@@ -86,19 +88,20 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputdescricao">Quantidade Itens</label>
-                            <input type="number" name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="500" [(ngModel)]='item.qtItem'>
+                            <input type="number" name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="1" [(ngModel)]='item.qtItem' min="1">
                             <div class="invalid-tooltip">
                                   Digite uma quantidade de itens, por favor.
                               </div>
                         </div>
                         <!-- botão adicionar -->
-                        <div class="form-group">
+                        <div style="margin-top: 8px;" class="form-group">
                           <br>
+                          
                           <button type="button" class="btn btn-outline-success my-2 my-sm-0" (click)="itens()" >Adicionar item</button>
                         </div>
                         <div class="col-md-2"></div>
 
-                        <div class="form-group">
+                        <div style="margin-top: 8px;" class="form-group">
                           <br>
                           <button type="submit" class="btn btn-default botaoConfirmar" (click)="register()">Confirmar</button>
                           <a routerLink='/listaEntradaProdutos'><button type="button" class="btn btn-default botaoCancelar">Cancelar</button></a>

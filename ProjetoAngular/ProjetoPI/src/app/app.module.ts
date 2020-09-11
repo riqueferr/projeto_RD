@@ -44,6 +44,8 @@ import { ListaNmfilialEntradaComponent } from './abastecimento/lista-entrada/lis
 import { ListarNomeFilialComponent } from './abastecimento/relatorio-de-estoque/listar-nome-filial/listar-nome-filial.component';
 import { ListaNomeProdutoRelatorioComponent } from './abastecimento/relatorio-de-produto/lista-nome-produto-relatorio/lista-nome-produto-relatorio.component';
 import { ListaStatusProdutoRelatorioComponent } from './abastecimento/relatorio-de-produto/lista-status-produto-relatorio/lista-status-produto-relatorio.component';
+import { ListaIdTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-id-transferencia/lista-id-transferencia.component';
+import { ListaFilialdestinoTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-filialdestino-transferencia/lista-filialdestino-transferencia.component';
 
 
 
@@ -81,6 +83,8 @@ import { ListaStatusProdutoRelatorioComponent } from './abastecimento/relatorio-
     ListarNomeFilialComponent,
     ListaNomeProdutoRelatorioComponent,
     ListaStatusProdutoRelatorioComponent,
+    ListaIdTransferenciaComponent,
+    ListaFilialdestinoTransferenciaComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,9 +8,10 @@
 
   .bordaDash {
     border-radius: 5px;
-    height: 170px;
+    height: 450px;
     margin-bottom: 10px;
     border: 1px solid #f0f0f0;
+    
   } 
 
   .tituloQuadros {
@@ -18,6 +19,7 @@
     background-color: #29754e;
     margin-left: 20px;
     margin-top: 10px;
+    margin-bottom: 25px;
     border-radius: 5px;
     color: #fff;
     justify-content: center;

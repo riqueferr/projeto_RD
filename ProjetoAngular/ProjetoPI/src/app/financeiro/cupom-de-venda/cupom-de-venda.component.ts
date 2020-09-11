@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { ResponseDF } from './shared/documentofiscal.model';
 import { DocumentoFiscalService } from './shared/documentofiscal.service';
 
@@ -10,23 +12,33 @@ import { DocumentoFiscalService } from './shared/documentofiscal.service';
 export class CupomDeVendaComponent implements OnInit {
 
   loading : boolean;
+  idDF: any;
 
   responseDf: ResponseDF[];
 
-  constructor(private dfService: DocumentoFiscalService) { }
+  constructor(
+    private dfService: DocumentoFiscalService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.loading = true;
     this.listarTodosDF();
   }
-
   
   listarTodosDF() {
-    this.dfService.getDocumentoFiscal().subscribe(response => 
-      {
+    this.dfService.getDocumentoFiscal().subscribe(response => {
         this.responseDf = response;
         this.loading = false;
       });
+  }
+
+  register(): void {
+    if (this.idDF != null) {
+      console.log(this.idDF);
+      this.dfService.getDF(this.idDF).subscribe();
+      this.router.navigate(['/detalhamentoCupomDeVendas', this.idDF]);
+    }
   }
 
 }
