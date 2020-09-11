@@ -39,16 +39,16 @@
                           <div class="form-group">
                             <label for="usuario">Matrícula</label>
                             <input [(ngModel)]="login.nrMatricula" name="usuario" type="number" id="usuario" min="1"
-                              class="form-control mb-4" placeholder="Username" required autofocus>
+                              class="form-control mb-4" placeholder="Username"  autofocus>
                             <label for="senha">CPF</label>
                             <input [(ngModel)]="login.cpf" name="cpf" type="text" id="cpf"
-                              class="form-control mb-4" placeholder="000.000.000-00" required>
+                              class="form-control mb-4" placeholder="000.000.000-00" >
                               <label for="senha">Nova senha</label>
                             <input [(ngModel)]="login.pwOperador" name="novaSsenha" type="password" id="novaSsenha"
-                              class="form-control mb-4" placeholder="***********" required>
+                              class="form-control mb-4" placeholder="***********" >
                               <label for="senha">Confirma Senha</label>
                             <input [(ngModel)]="login.pwOperador" name="confSenha" type="password" id="confSenha"
-                              class="form-control mb-4" placeholder="***********" required>
+                              class="form-control mb-4" placeholder="***********" >
                           </div>
                           <input class="btn btn-lg btn-primary btn-block" value="Alterar senha" type="submit">
                         </fieldset>
