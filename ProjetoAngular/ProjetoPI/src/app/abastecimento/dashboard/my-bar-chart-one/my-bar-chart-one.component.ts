@@ -9,7 +9,7 @@ import { ResponseFiliais } from './shared/filial.model';
 })
 export class MyBarChartOneComponent implements OnInit {
 
-  responseFiliais: ResponseFiliais[];
+  responseFiliais: ResponseFiliais;
 
   constructor(private filialService: FilialService) { }
   public barChartOptions = {
@@ -19,7 +19,7 @@ export class MyBarChartOneComponent implements OnInit {
   };
   public barChartLabels = [];
   public barChartType = 'bar';
-  public barChartLegend = true;
+  public barChartLegend = false;
   public barChartData = [];
   
   ngOnInit() {
@@ -30,8 +30,9 @@ export class MyBarChartOneComponent implements OnInit {
   listarTodasFiliais() {
     this.filialService.getBuscarQuantidadeProdutosPorLoja().subscribe(response => {
       this.responseFiliais = response;
-      // this.barChartData = response.barChartData;
-      // this.barChartLabels = response.barChartLabels;
+      this.barChartData = response.barChartData;
+      this.barChartLabels = response.barChartLabels;
+      // console.log(response);
     });
   }
 }
