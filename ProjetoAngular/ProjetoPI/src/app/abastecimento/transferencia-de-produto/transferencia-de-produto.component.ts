@@ -1,6 +1,6 @@
 import { TransferenciaService } from './shared/transferencia.service';
-import { Transferencia } from './shared/transferencia.model';
-import { ResponseProdutos } from '../lista-produtos/shared/produtos.model';
+import { Transferencia, ResponseFiliais } from './shared/transferencia.model';
+import { ResponseProdutos} from '../lista-produtos/shared/produtos.model';
 import { ProdutosService } from '../lista-produtos/shared/produtos.service';
 import { EstoqueService } from '../relatorio-de-estoque/shared/estoque.service';
 import { ResponseEstoque } from '../relatorio-de-estoque/shared/estoque.model';
@@ -27,6 +27,7 @@ export class TransferenciaDeProdutoComponent implements OnInit {
   loading: boolean;
 
   responseProdutos: ResponseProdutos[];
+  responseFiliais: ResponseFiliais[];
   item: ResponseEntradaItens = new ResponseEntradaItens();
 
   @ViewChild('it', { static: true }) it: NgForm;
@@ -55,6 +56,7 @@ export class TransferenciaDeProdutoComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     this.listarTodosProdutos();
+    this.listarTodasFiliais();
 
     $(document).ready(function() {
       // alert('Eu estou usando JQuery');
@@ -87,12 +89,12 @@ export class TransferenciaDeProdutoComponent implements OnInit {
      this.i ++;
    }
 
-  // listarTodasFiliais() {
-  //   this.transferenciaService.getFiliais().subscribe(response => {
-  //     this.responseEstoques = response;
-  //     this.loading = false;
-  //   });
-  // }
+  listarTodasFiliais() {
+    this.transferenciaService.getFiliais().subscribe(response => {
+      this.responseFiliais = response;
+      this.loading = false;
+    });
+  }
 
   register(): void {
     if (this.it.form.valid) {

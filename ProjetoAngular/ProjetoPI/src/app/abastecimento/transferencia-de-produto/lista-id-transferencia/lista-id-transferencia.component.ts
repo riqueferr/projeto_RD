@@ -1,47 +1,36 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { ResponseTransferencia, ResponseFiliais } from '../shared/transferencia.model';
+import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { TransferenciaService } from '../shared/transferencia.service';
-import { ResponseProdutos } from '../../lista-produtos/shared/produtos.model';
-import { ProdutosService } from '../../lista-produtos/shared/produtos.service';
+import { ResponseTransferencia } from '../shared/transferencia.model';
 
 @Component({
-  selector: 'app-lista-transferencia',
-  templateUrl: './lista-transferencia.component.html',
-  styleUrls: ['./lista-transferencia.component.css']
+  selector: 'app-lista-id-transferencia',
+  templateUrl: './lista-id-transferencia.component.html',
+  styleUrls: ['./lista-id-transferencia.component.css']
 })
-export class ListaTransferenciaComponent implements OnInit {
+export class ListaIdTransferenciaComponent implements OnInit {
 
+  @ViewChild('it', { static: true }) formDF: NgForm;
+  
   loading: boolean;
 
-  public paginaAtual = 1;
   idDF: any;
   nmFilialDestino: any;
+  request: any;
 
   responseTransferencia: ResponseTransferencia[];
-  responseFiliais: ResponseFiliais[];
 
   constructor(
     private responseService: TransferenciaService,
+    private route: ActivatedRoute,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    this.loading = true;
-    this.listarTodasTransferencias();
-  }
-
-  listarTodasTransferencias() {
-    this.responseService.getTransferencias().subscribe(response => {
-      this.responseTransferencia = response;
-      this.loading = false;
-    });
-  }
-
-  listarTodasFiliais() {
-    this.responseService.getFiliais().subscribe(response => {
-      this.responseFiliais = response;
+    this.idDF = this.route.snapshot.paramMap.get('idDF');
+    this.responseService.getTransferencia(this.idDF).subscribe(response => {
+      this.request = response;
       this.loading = false;
     });
   }
@@ -60,6 +49,5 @@ export class ListaTransferenciaComponent implements OnInit {
       this.router.navigate(['/listaTransferenciaProduto/filial', this.nmFilialDestino]));
     }
   }
-
 
 }

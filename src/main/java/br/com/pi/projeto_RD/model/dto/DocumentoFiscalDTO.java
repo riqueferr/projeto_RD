@@ -17,12 +17,12 @@ import java.util.List;
 public class DocumentoFiscalDTO implements Serializable {
 
     private Long idDF;
-    private OperacaoEntity operacao;
+    private String operacao;
 //    private FilialEntity cd_filial;
     private Long idFilial;
     private String nmFilial;
-    private ClienteEntity cliente;
-    private FornecedorEntity fornecedor;
+    private String cliente;
+    private String fornecedor;
     private Long id_recarga;
     private MotivoEntity motivo;
     private Long nr_chave_acesso;
@@ -30,10 +30,10 @@ public class DocumentoFiscalDTO implements Serializable {
     private Long nr_serie;
 
 
-    private Date dt_emissao;
+    private String dt_emissao;
 
 //    private String dt_emissao;
-    private Date dt_entrada;
+    private String dt_entrada;
     private Date dt_abertura;
     private Date dt_fechamento;
 

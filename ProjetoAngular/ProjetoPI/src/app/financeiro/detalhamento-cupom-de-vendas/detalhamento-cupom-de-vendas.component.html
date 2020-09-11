@@ -23,12 +23,12 @@
             <div class="form-group col-md-4">
               <label for="Cliente">Cliente</label>
               <input name="Cliente" ngModel #nmCliente="ngModel" class="form-control" id="inputPassword4"
-                placeholder="Cliente" [(ngModel)]='request.cliente.nmCliente' disabled>
+                placeholder="Cliente" [(ngModel)]='request.cliente' disabled>
             </div>
             <div class="form-group col-md-4">
               <label for="fornecedor">Fornecedor</label>
               <input name="fornecedor" ngModel #nm_razao_social="ngModel" class="form-control" id="inputPassword4"
-                placeholder=" Fornecedor" [(ngModel)]='request.fornecedor.nm_razao_social' disabled>
+                placeholder=" Fornecedor" [(ngModel)]='request.fornecedor' disabled>
             </div>
           </div>
           <div class="form-row">
@@ -67,36 +67,22 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-4">
-              <label for="dsOperacao">Status NF</label>
-              <input class="form-control" id="inputEmail4" placeholder="NULL" disabled>
-            </div>
-            <div class="form-group col-md-4">
               <label for="dsOperacao">Tipo de NF</label>
               <input name="dsOperacao" ngModel #dsOperacao="ngModel" class="form-control" id="inputEmail4"
-                placeholder="Tipo de NF" [(ngModel)]='request.operacao.dsOperacao' disabled>
+                placeholder="Tipo de NF" [(ngModel)]='request.operacao' disabled>
             </div>
             <div class="form-group col-md-4">
               <label for="chaveAcesso">Chave de acesso</label>
               <input name="chaveAcesso" ngModel #nr_chave_acesso="ngModel" class="form-control" id="inputEmail4"
                 placeholder="Chave de acesso" [(ngModel)]='request.nr_chave_acesso' disabled>
             </div>
+            <div class="form-group col-md-4">
+                <label for="pagamento">Forma de Pagamento</label>
+                <input name="pagamento" ngModel #dsTipoPagamento="ngModel" class="form-control" id="inputPassword4"
+                  placeholder="Forma de Pagamento" [(ngModel)]='request.pagamento[0].dsTipoPagamento' disabled>
+              </div>
           </div>
           <div class="form-row">
-            <div class="form-group col-md-4">
-              <label for="pagamento">Forma de Pagamento</label>
-              <input name="pagamento" ngModel #dsTipoPagamento="ngModel" class="form-control" id="inputPassword4"
-                placeholder="Forma de Pagamento" [(ngModel)]='request.pagamento[0].dsTipoPagamento' disabled>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="disabledSelect">Itens</label>
-              <select id="disabledSelect" class="form-control">
-                <option>Código: {{ request.itens[0].cdProduto }}</option>
-                <option>Nome: {{ request.itens[0].nmProduto }}</option>
-                <option>Quantidade: {{ request.itens[0].qtItem }}</option>
-                <option>% ICMS: {{ request.itens[0].pcIcms }}</option>
-                <option>ICMS: {{ request.itens[0].vlIcms }}</option>
-              </select>
-            </div>
             <div class="form-group col-md-4">
               <label for="valor">Valor Total</label>
               <div class="input-group mb-3">
@@ -119,7 +105,7 @@
 
 
             <!-- TABLE ITENS -->
-            <!-- <div class="container">
+            <div class="container">
                 <h3>Itens do documento fiscal</h3>
             </div>
             <br><br>
@@ -128,26 +114,24 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">Código</th>
-                        <th scope="col">Nome</th>
+                        <th scope="col">Nome Produto</th>
                         <th scope="col">Quantidade</th>
                         <th scope="col">% ICMS</th>
                         <th scope="col">Valor ICMS</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor='let notas of responseDf'>
-                            <th scope="row">{{ notas.itens[0].cdProduto }}</th>
-                            <td>{{ notas.itens[0].nmProduto }}</td>
-                            <td>{{ notas.itens[0].qtItem }}</td>
-                            <td>{{ notas.itens[0].pcIcms }}</td>
-                            <td>{{ notas.itens[0].vlIcms }}</td>
+                        <tr *ngFor='let notas of request.itens'>
+                            <td>{{ notas.nmProduto }}</td>
+                            <td>{{ notas.qtItem }}</td>
+                            <td>{{ notas.pcIcms }} %</td>
+                            <td>R$ {{ notas.vlIcms }}</td>
                           </tr>
 
                     </tbody>
                 </table>
                 </div>
-            </div> -->
+            </div>
 
 
             <div class="form-group col-md-2">
