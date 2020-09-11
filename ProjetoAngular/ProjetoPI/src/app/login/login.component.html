@@ -13,8 +13,59 @@
     <div>
       <!-- <a class="btn btn-lg btn-success btn-lg  mr-sm-4" role="button"
         >Entrar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-        <button type="submit" class="btn btn-lg btn-success btn-lg  mr-sm-4" [disabled]="form.form.invalid">Entrar</button>
-      <a style="color: #29754E;" href="#">Esqueceu a senha ?</a>
+      <button type="submit" class="btn btn-lg btn-success btn-lg  mr-sm-4"
+        [disabled]="form.form.invalid">Entrar</button>
+      <a style="color: #29754E;" href="#" data-target="#pwdModal" data-toggle="modal">Esqueceu a senha ?</a>
+      <!-- <div class="container">
+        <a href="#" data-target="#pwdModal" data-toggle="modal">Forgot my password</a>
+      </div> -->
+
+      <!--modal-->
+      <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="text-center">Esqueceu sua senha?</h1>
+            </div>
+            <div class="modal-body">
+              <div class="col-md-12">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="text-center">
+
+                      <p>Você pode muda-la, inserindo os dados abaixo:</p>
+                      <div class="panel-body">
+                        <fieldset>
+                          <div class="form-group">
+                            <label for="usuario">Matrícula</label>
+                            <input [(ngModel)]="login.nrMatricula" name="usuario" type="number" id="usuario" min="1"
+                              class="form-control mb-4" placeholder="Username" required autofocus>
+                            <label for="senha">CPF</label>
+                            <input [(ngModel)]="login.cpf" name="cpf" type="text" id="cpf"
+                              class="form-control mb-4" placeholder="000.000.000-00" required>
+                              <label for="senha">Nova senha</label>
+                            <input [(ngModel)]="login.pwOperador" name="novaSsenha" type="password" id="novaSsenha"
+                              class="form-control mb-4" placeholder="***********" required>
+                              <label for="senha">Confirma Senha</label>
+                            <input [(ngModel)]="login.pwOperador" name="confSenha" type="password" id="confSenha"
+                              class="form-control mb-4" placeholder="***********" required>
+                          </div>
+                          <input class="btn btn-lg btn-primary btn-block" value="Alterar senha" type="submit">
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="col-md-12">
+                <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <p class="mt-5 mb-3 text-muted text-center">&copy; RDevs Abastecimento e Financeiro 2020</p>
   </form>
