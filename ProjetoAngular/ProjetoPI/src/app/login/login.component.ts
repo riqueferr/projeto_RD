@@ -2,17 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 
+declare var $: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
 export class LoginComponent implements OnInit {
 
   // public usuario: Usuario = new Usuario();
   login = {
     nrMatricula: null,
-    pwOperador: ''
+    pwOperador: '',
+    cpf: null
   };
 
   constructor(
@@ -21,6 +26,9 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    $(document).ready(function () {
+      $('#cpf').mask('000.000.000-00');
+    });
   }
 
   async onSubmit() {
