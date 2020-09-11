@@ -8,8 +8,34 @@
     </h5>
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-white">Bem-Vindo,</a>
-      <a class="p-2 text-white" href="#">Adminstrador</a>
+      <a class="p-2 text-white">Adminstrador</a>
     </nav>
-    <a class="btn btn-outline-primary centralizar" href="../app/loginInicial/Login.html">Sair</a>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-primary centralizar" data-toggle="modal" data-target="#exampleModal">
+      Sair
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Deslogar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Você deseja realmente sair?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="submit" (click)="logout()" class="btn btn-danger">Deslogar!</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
