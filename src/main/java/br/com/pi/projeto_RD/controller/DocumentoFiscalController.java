@@ -61,7 +61,6 @@ public class DocumentoFiscalController {
         return ResponseEntity.ok().body(service.filialMotivo());
     }
 
-
     //LISTAR POR DATA ENTRADA
     @GetMapping("/documentofiscal/data/{dtentrada}")
     @ApiOperation(value = "Buscar documentos fiscais por Data")

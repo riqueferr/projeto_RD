@@ -23,4 +23,13 @@ export class ResponseEntradaItens{
     nmProduto: String;
 }
 
+export interface ResponseFiliais {
+    filiais: Filiais[];
+}
+
+export interface Filiais {
+    cd_filial: number,
+    nm_filial: String,
+}
+
 

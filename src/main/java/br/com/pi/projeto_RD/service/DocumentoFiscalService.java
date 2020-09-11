@@ -30,7 +30,6 @@ public class DocumentoFiscalService {
         List<DocumentoFiscalEntity> dfEntity = repository.findAll();
         List<DocumentoFiscalDTO> dfDTO = new ArrayList<>();
 
-
         for (DocumentoFiscalEntity entity : dfEntity) {
             DocumentoFiscalDTO dto = bo.parseToDTO(entity);
             dfDTO.add(dto);

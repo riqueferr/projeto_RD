@@ -20,7 +20,7 @@
                 <form class="form-row">
                   <div class="form-group col-md-3">
                     <label for="inputPassword4">ID NF</label>
-                    <input class="form-control mr-sm-4" type="search" placeholder="00" aria-label="Search">
+                    <input id="search" name="search" class="form-control mr-sm-4" placeholder="00" [(ngModel)]='idDF'>
                   </div>
                   <div class="form-group col-md-3">
                     <label for="inputPassword4">Filial</label>
@@ -31,7 +31,7 @@
                     <input type="date" class="form-control mr-sm-4" placeholder="___/___/___" aria-label="Search">
                   </div>
                   <div style="margin-top: 2.7%" class="form-group col-md-3">
-                    <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-4" type="submit"><i
+                    <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-4" type="submit" (click)="register()"><i
                         class="fa fa-search"></i>
                       Pesquisar</button>
                   </div>
@@ -56,18 +56,14 @@
                   <tbody>
                     <tr *ngFor='let notas of responseDf'>
                       <th scope="row">{{ notas.idDF }}</th>
-                      <td>{{ notas.dt_entrada | date: 'dd/MM/yyyy'}}</td>
+                      <td>{{ notas.dt_entrada}}</td>
                       <td>{{ notas.nmFilial }}</td>
-                      <td>{{ notas.operacao.dsOperacao }}</td>
+                      <td>{{ notas.operacao }}</td>
                       <td>R$ {{ notas.vl_documento_fiscal }}</td>
                       <td><abbr title="Detalhes">
-                          <!-- <a routerLink='/detalhamentoCupomDeVendas'> -->
-                          <!-- <a [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]"> -->
-
                           <button type="button" class="btn botaoConfirmar"
                             [routerLink]="['/detalhamentoCupomDeVendas', notas.idDF]">
                             <i class="fa fa-exclamation-circle"></i></button>
-                          <!-- </a> -->
                         </abbr>&nbsp;
                         <abbr title="Excluir"><button type="button" class="btn btn-secondary" data-toggle="modal"
                             data-target="#exampleModal"><i class="fa fa-trash"></i></button>

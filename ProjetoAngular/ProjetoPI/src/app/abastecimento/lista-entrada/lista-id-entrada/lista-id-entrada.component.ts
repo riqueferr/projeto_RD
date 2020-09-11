@@ -21,7 +21,6 @@ export class ListaIdEntradaComponent implements OnInit {
   request: any;
 
   responseEntradas: ResponseEntradas[];
-  responseItens: ResponseEntradaItens[];
 
   constructor(
     private entradasService: EntradasService,
