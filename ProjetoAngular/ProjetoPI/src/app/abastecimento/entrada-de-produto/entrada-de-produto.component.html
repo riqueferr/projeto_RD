@@ -112,7 +112,7 @@
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="inputdescricao">Quantidade Itens</label>
-                                        <input type="number" name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="500" [(ngModel)]='item.qtItem'>
+                                        <input type="number" name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="1" [(ngModel)]='item.qtItem' min="1">
                                         <div class="invalid-tooltip">
                                               Digite uma quantidade de itens, por favor.
                                           </div>
