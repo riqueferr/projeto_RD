@@ -7,9 +7,12 @@ import { NgForm, Form, FormGroup, FormControl } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
+import { validate, format, generate } from 'cnpj';
+
 
 declare var $: any;
-
+// const valid2 = validate('57.865.533/0001-53');
+// console.log(valid2);
 
 @Component({
   selector: 'app-cadastro-de-fornecedor',
@@ -17,9 +20,6 @@ declare var $: any;
   styleUrls: ['./cadastro-de-fornecedor.component.css']
 })
 export class CadastroDeFornecedorComponent implements OnInit {
-
-
-
 
   @ViewChild('it', { static: true }) it: NgForm;
 
@@ -56,7 +56,6 @@ export class CadastroDeFornecedorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     $(document).ready(function () {
       $('#cpf').mask('000.000.000-00');
       $('#cnpj').mask('00.000.000/0000-00');
@@ -64,7 +63,6 @@ export class CadastroDeFornecedorComponent implements OnInit {
       $('#phone').mask('(00) 0000-0000');
       $('#numeroInscricao').mask('000.000.000.000');
     });
-
   }
 
   // tslint:disable-next-line: typedef
@@ -73,6 +71,10 @@ export class CadastroDeFornecedorComponent implements OnInit {
     console.log(it.valid);  // false
   }
 
+  validar() {
+    let valida = validate(this.request.nr_cnpj);
+    return valida;
+  }
   // tslint:disable-next-line: typedef
   consultaCEP(cep, form) {
 
