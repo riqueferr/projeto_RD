@@ -13,7 +13,7 @@ export class FilialService {
   private readonly API = 'http://localhost:8080/abastecimento/filial/produtos/lista';
 
   getBuscarQuantidadeProdutosPorLoja() {
-    return this.http.get<ResponseFiliais[]>(this.API);
+    return this.http.get<ResponseFiliais>(this.API);
   }
 
 }
