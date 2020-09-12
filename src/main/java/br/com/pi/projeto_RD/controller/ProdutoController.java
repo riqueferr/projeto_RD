@@ -30,6 +30,12 @@ public class ProdutoController {
         return ResponseEntity.ok().body(service.listarTodas());
     }
 
+
+//    @GetMapping("/buscar")
+//    public ResponseEntity buscar() {
+//        return ResponseEntity.ok().body(service.buscarProdutos());
+//    }
+
     @GetMapping("/produtos/page/{pagina}")
     public ResponseEntity buscarTodasPage(@PathVariable("pagina") Integer pagina) {
         return ResponseEntity.ok().body(service.listarTodasPage(pagina));

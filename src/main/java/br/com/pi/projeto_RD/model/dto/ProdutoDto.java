@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 
 @Data
@@ -15,11 +17,13 @@ public class ProdutoDto {
 
     private Integer codigo;
     private String nm_fantasia;
+
     private StatusProdutoEntity statusProduto;
+
     private SubCategoriaEntity subCategoria;
     private TipoProdutoEntity tipo_produto;
     private String nm_fabricante;
-    private double vl_unidade;
+    private BigDecimal vl_unidade;
     private String ds_altura;
     private String ds_peso;
     private String ds_largura;

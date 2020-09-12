@@ -6,18 +6,25 @@ import org.hibernate.annotations.CollectionId;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.List;
 
 @Entity
 @Table(name = "TB_FORNECEDOR")
 @Data
 @NamedQuery(name = "buscarNfPornmFornecedor", query = "select n from FornecedorEntity n where n.nm_razao_social LIKE CONCAT ('%',:nm_razao_social,'%')")
+@NamedEntityGraph(name = "FornecedorEntity.enderecos",
+        attributeNodes = {
+                @NamedAttributeNode("endereco"),
+                @NamedAttributeNode("fk_tipo_fornecedor"),
+        }
+)
 public class FornecedorEntity implements Serializable {
 
     @Id
     @Column(name = "CD_FORNECEDOR")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long cd_fornecedor;
+    private BigInteger cd_fornecedor;
 
     @Column(name = "NR_CNPJ")
     private String nr_cnpj;
@@ -37,7 +44,7 @@ public class FornecedorEntity implements Serializable {
     @Column(name = "NR_TELEFONE")
     private String nr_telefone;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_TIPO_FORNECEDOR")
     private TipoFornecedorEntity fk_tipo_fornecedor;
 

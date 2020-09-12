@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "TB_SUB_CATEGORIA_PRODUTO")
@@ -15,7 +16,7 @@ public class SubCategoriaEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_SUB_CATEGORIA")
 //    @JsonIgnore
-    private Long idSubCategoria;
+    private BigInteger idSubCategoria;
 
     @Column(name = "DS_SUB_CATEGORIA")
     private String dsSubCategoria;

@@ -4,13 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import java.math.BigInteger;
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class StatusProdutoDTO {
-
-    private BigInteger idStatusProduto;
+public class BuscarProdutosDTO {
+    private Integer codigo;
+    private String nm_fantasia;
     private String dsStatusProduto;
-
 }

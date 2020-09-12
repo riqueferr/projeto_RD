@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @AllArgsConstructor
@@ -13,7 +14,7 @@ import java.util.List;
 @Data
 public class FornecedorDTO {
 
-    private Long cd_fornecedor;
+    private BigInteger cd_fornecedor;
     private String nr_cnpj;
     private String nm_razao_social;
     private String ds_denominacao;

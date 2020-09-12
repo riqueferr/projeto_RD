@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
+
 @RestController
 public class FornecedorController {
     @Autowired
@@ -31,7 +33,7 @@ public class FornecedorController {
 
     @GetMapping("/fornecedores/{cd_fornecedor}")
     @ApiOperation(value = "Listar fornecedores por ID")
-    public ResponseEntity buscarPorId(@PathVariable("cd_fornecedor") Long cd_fornecedor){
+    public ResponseEntity buscarPorId(@PathVariable("cd_fornecedor") BigInteger cd_fornecedor){
         return ResponseEntity.ok().body(service.buscarPorId(cd_fornecedor));
     }
 
@@ -57,7 +59,7 @@ public class FornecedorController {
 
     @DeleteMapping("/fornecedores/{cd_fornecedor}")
     @ApiOperation(value = "Excluir fornecedor")
-    public ResponseEntity excluirPorId(@PathVariable("cd_fornecedor") Long cd_fornecedor){
+    public ResponseEntity excluirPorId(@PathVariable("cd_fornecedor") BigInteger cd_fornecedor){
         FornecedorDTO dto = service.excluirPorId(cd_fornecedor);
 
         return ResponseEntity.ok().body(dto);

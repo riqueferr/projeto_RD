@@ -6,11 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigInteger;
 
 @Data
 public class TipoProdutoDTO {
 
-    private Long idTipoProduto;
+    private BigInteger idTipoProduto;
     private String dsTipoProduto;
 
 }
