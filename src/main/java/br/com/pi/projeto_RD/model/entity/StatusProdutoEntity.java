@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "TB_STATUS_PRODUTO")
@@ -16,7 +17,7 @@ public class StatusProdutoEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_STATUS_PRODUTO")
 //    @JsonIgnore
-    private Long idStatusProduto;
+    private BigInteger idStatusProduto;
 
     @Column(name = "DS_STATUS_PRODUTO")
     private String dsStatusProduto;

@@ -9,6 +9,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -27,7 +28,7 @@ public class DFEntradaDTO {
     private Long idFilialDestino;
 
 //    private List<FornecedorComprimidoDTO> itens;
-    private Long idFornecedor;
+    private BigInteger idFornecedor;
     private String nmFornecedor;
 
     private Long chaveAcesso;

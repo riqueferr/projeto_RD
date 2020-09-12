@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +66,7 @@ public class FornecedorService {
         return fornecedorDTO;
     }
 
-    public FornecedorDTO buscarPorId(Long cd_fornecedor){
+    public FornecedorDTO buscarPorId(BigInteger cd_fornecedor){
         return fornecedorBO.parseToDTO(repository.getOne(cd_fornecedor));
     }
 
@@ -96,7 +97,7 @@ public class FornecedorService {
             repository.save(entity);
     }
 
-    public FornecedorDTO excluirPorId(Long cd_fornecedor){
+    public FornecedorDTO excluirPorId(BigInteger cd_fornecedor){
         FornecedorEntity entity = repository.getOne(cd_fornecedor);
         FornecedorDTO dto = new FornecedorDTO();
 

@@ -28,6 +28,14 @@ import java.util.List;
 //@NamedQuery(name = "testePagamento", query =  "Select n from DocumentoFiscalEntity n WHERE n.operacao.cdOperacao = 4")
 //@NamedQuery(name = "seila", query = "Select MovimentoLojaDTO(n.idDocumento)")
 //@SqlResultSetMapping(name = "testeBusca", entities = {@EntityResult(entityClass = DocumentoFiscalEntity.class),@EntityResult(entityClass = PagamentoDocEntity.class)})
+
+@NamedEntityGraph( name = "documentosfindall",
+        attributeNodes = {
+                @NamedAttributeNode("filial"),
+                @NamedAttributeNode("destino"),
+                @NamedAttributeNode("fornecedor")
+        }
+)
 public class DocumentoFiscalEntity implements Serializable {
 
 
