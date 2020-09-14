@@ -48,15 +48,16 @@ public class DFTransferenciaService {
         Map<Integer, DFTransferenciaDTO> map = new HashMap<>();
 
         Query query = manager.createNativeQuery("SELECT DISTINCT DC.ID_DOCUMENTO_FISCAL, O.CD_OPERACAO, O.DS_OPERACAO, " +
-                "DC.CD_FILIAL_DESTINO, F.CD_FILIAL, F.NM_FILIAL, DC.NR_CHAVE_ACESSO, " +
+                "DC.CD_FILIAL_DESTINO, FD.NM_FILIAL AS NM_FILIAL_DESTINO, F.CD_FILIAL, F.NM_FILIAL, DC.NR_CHAVE_ACESSO, " +
                 "DC.NR_NF, DC.NR_SERIE, DC.DT_EMISSAO, DC.DT_ENTRADA, DC.VL_DOCUMENTO_FISCAL, " +
                 "DI.NR_ITEM_DOCUMENTO, DI.CD_PRODUTO, P.NM_FANTASIA, DI.QT_ITEM " +
-                "FROM TB_DOCUMENTO_FISCAL DC, TB_OPERACAO O, TB_FILIAL F, TB_FORNECEDOR FO, " +
+                "FROM TB_DOCUMENTO_FISCAL DC, TB_OPERACAO O, TB_FILIAL F, TB_FILIAL FD, TB_FORNECEDOR FO, " +
                 "TB_DOCUMENTO_ITEM DI, TB_PRODUTO P " +
                 "WHERE DC.CD_OPERACAO = O.CD_OPERACAO " +
                 "AND DC.CD_FILIAL = F.CD_FILIAL " +
                 "AND DC.ID_DOCUMENTO_FISCAL = DI.ID_DOCUMENTO_FISCAL " +
                 "AND DI.CD_PRODUTO = P.CD_PRODUTO " +
+                "AND DC.CD_FILIAL_DESTINO = FD.CD_FILIAL " +
                 "AND O.DS_OPERACAO = 'TRANSFERENCIA'");
 
         List<Object []> listEntity = query.getResultList();
@@ -74,24 +75,25 @@ public class DFTransferenciaService {
                 dto.setOperacao(o);
 
                 dto.setIdFilialDestino((BigInteger) produto[3]);
+                dto.setNmFilialDestino((String) produto[4]);
 
                 //FILIAL
-                dto.setIdFilial((BigInteger) produto[4]);
-                dto.setNmFilial((String) produto[5]);
+                dto.setIdFilial((BigInteger) produto[5]);
+                dto.setNmFilial((String) produto[6]);
 
-                dto.setChaveAcesso((BigInteger) produto[6]);
-                dto.setNrNF((BigInteger) produto[7]);
-                dto.setNrSerie((BigInteger) produto[8]);
-                dto.setDtEmissao((Date) produto[9]);
-                dto.setDtEntrada((Date) produto[10]);
-                dto.setVlDocumentoFiscal((BigDecimal) produto[11]);
+                dto.setChaveAcesso((BigInteger) produto[7]);
+                dto.setNrNF((BigInteger) produto[8]);
+                dto.setNrSerie((BigInteger) produto[9]);
+                dto.setDtEmissao((Date) produto[10]);
+                dto.setDtEntrada((Date) produto[11]);
+                dto.setVlDocumentoFiscal((BigDecimal) produto[12]);
 
                 //ITENS
                 ItensDfDTO itensDfDTO = new ItensDfDTO();
-                itensDfDTO.setNrItemDocumento((BigInteger) produto[12]);
-                itensDfDTO.setCdProduto((BigInteger) produto[13]);
-                itensDfDTO.setNmProduto((String) produto[14]);
-                itensDfDTO.setQtItem((Integer) produto[15]);
+                itensDfDTO.setNrItemDocumento((BigInteger) produto[13]);
+                itensDfDTO.setCdProduto((BigInteger) produto[14]);
+                itensDfDTO.setNmProduto((String) produto[15]);
+                itensDfDTO.setQtItem((Integer) produto[16]);
 
                 if(dto.getItens() == null)
                     dto.setItens(new ArrayList<>());
@@ -100,10 +102,10 @@ public class DFTransferenciaService {
             }else{
                 dto = map.get(codigo);
                 ItensDfDTO itensDfDTO = new ItensDfDTO();
-                itensDfDTO.setNrItemDocumento((BigInteger) produto[12]);
-                itensDfDTO.setCdProduto((BigInteger) produto[13]);
-                itensDfDTO.setNmProduto((String) produto[14]);
-                itensDfDTO.setQtItem((Integer) produto[15]);
+                itensDfDTO.setNrItemDocumento((BigInteger) produto[13]);
+                itensDfDTO.setCdProduto((BigInteger) produto[14]);
+                itensDfDTO.setNmProduto((String) produto[15]);
+                itensDfDTO.setQtItem((Integer) produto[16]);
                 dto.getItens().add(itensDfDTO);
             }
             map.put(dto.getIdDocumento().intValue(), dto);
