@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
+
 @RestController
 public class DocumentoFiscalController {
 
@@ -36,7 +38,7 @@ public class DocumentoFiscalController {
     //LISTAR POR ID
     @GetMapping("/documentofiscal/{codigo}")
     @ApiOperation(value = "Listar documentos fiscais por ID")
-    public ResponseEntity buscarPorId(@PathVariable("codigo") Long codigo) {
+    public ResponseEntity buscarPorId(@PathVariable("codigo") BigInteger codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
@@ -71,7 +73,7 @@ public class DocumentoFiscalController {
     //EXCLUIR POR ID
     @DeleteMapping("/documentofiscal/{codigo}")
     @ApiOperation(value = "Excluir documento fiscal por ID")
-    public ResponseEntity excluirPorId(@PathVariable("codigo") Long codigo) {
+    public ResponseEntity excluirPorId(@PathVariable("codigo") BigInteger codigo) {
         DocumentoFiscalDTO dto = service.excluirPorId(codigo);
         return ResponseEntity.ok().body(dto);
     }

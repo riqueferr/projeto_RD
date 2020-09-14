@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
+
 @RestController
 public class ProdutoFilialEstoqueController {
 
@@ -30,7 +32,7 @@ public class ProdutoFilialEstoqueController {
 
     @GetMapping("/FilialEstoque/{codigo}")
     @ApiOperation(value = "Listar filiais e produtos por ID produto")
-    public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
+    public ResponseEntity buscarPorId(@PathVariable("codigo") BigInteger codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 

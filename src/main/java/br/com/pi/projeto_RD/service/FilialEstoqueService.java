@@ -9,6 +9,7 @@ import br.com.pi.projeto_RD.service.bo.ProdutoFilialEstoqueBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class FilialEstoqueService {
         return filialDTO;
     }
 
-    public ProdutoFilialEstoqueDTO buscarPorId(Integer codigo) {
+    public ProdutoFilialEstoqueDTO buscarPorId(BigInteger codigo) {
         return pfBO.parseToDTO(repository.getOne(codigo));
     }
 

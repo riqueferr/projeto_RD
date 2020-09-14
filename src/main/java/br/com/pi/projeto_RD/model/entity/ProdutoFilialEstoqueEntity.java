@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "TB_PRODUTO_FILIAL_ESTOQUE")
@@ -16,7 +17,7 @@ public class ProdutoFilialEstoqueEntity implements Serializable {
     @Id
     @Column(name = "CD_ESTOQUE")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer cdEstoque;
+    private BigInteger cdEstoque;
 
     @ManyToOne
     @JoinColumn(name = "CD_FILIAL")

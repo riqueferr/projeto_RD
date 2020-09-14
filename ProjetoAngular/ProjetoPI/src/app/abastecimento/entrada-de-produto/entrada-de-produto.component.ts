@@ -39,8 +39,8 @@ export class EntradaDeProdutoComponent implements OnInit {
     chaveAcesso: 4578985,
     nrNF: 1001091,
     nrSerie: 45785985,
-    dtEmissao: null,
-    dtEntrada: null,
+    emissao: null,
+    entrada: null,
     vlDocumentoFiscal: null,
     itens: []
     };

@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "TB_DOCUMENTO_ITEM")
@@ -15,7 +16,7 @@ public class DocumentoItemEntity implements Serializable {
 
     @Id
     @Column(name = "NR_ITEM_DOCUMENTO")
-    private Long nrItemDocumento;
+    private BigInteger nrItemDocumento;
 
     @Column(name = "QT_ITEM")
     private Integer qtItem;

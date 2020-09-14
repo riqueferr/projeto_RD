@@ -64,8 +64,8 @@ public class DFTransferenciaBO {
         dto.setNrSerie(d.getNrSerie());
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
-        dto.setDtEmissao(formato.format(d.getDtEmissao()));
-        dto.setDtEntrada(formato.format(d.getDtEntrada()));
+        dto.setDtEmissao(d.getDtEntrada());
+        dto.setDtEntrada(d.getDtEntrada());
 
         List<ItensDfDTO> itens = new ArrayList<>();
         for (DocumentoItemEntity item : d.getItens()) {
@@ -102,8 +102,8 @@ public class DFTransferenciaBO {
         dfEntity.setNrChaveAcesso(dto.getChaveAcesso());
         dfEntity.setNrNf(dto.getNrNF());
         dfEntity.setNrSerie(dto.getNrSerie());
-        dfEntity.setDtEmissao(java.sql.Date.valueOf(formataDataEnviaBD(dto.getDtEmissao())));
-        dfEntity.setDtEntrada(java.sql.Date.valueOf(formataDataEnviaBD(dto.getDtEntrada())));
+        dfEntity.setDtEmissao(java.sql.Date.valueOf(formataDataEnviaBD(dto.getEmissao())));
+        dfEntity.setDtEntrada(java.sql.Date.valueOf(formataDataEnviaBD(dto.getEntrada())));
 
         List<DocumentoItemEntity> itemsEntity = new ArrayList<>();
         for (ItensDfDTO itemDTO : dto.getItens()) {

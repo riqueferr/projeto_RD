@@ -7,8 +7,8 @@ export interface Transferencia {
     chaveAcesso: number,
     nrNF: number,
     nrSerie: number,
-    dtEmissao: Date,
-    dtEntrada: Date,
+    emissao: Date,
+    entrada: Date,
     itens: ResponseEntradaItens []
 }
 

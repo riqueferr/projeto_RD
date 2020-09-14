@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 
 @Entity
@@ -28,7 +29,7 @@ public class ProdutoEntity implements Serializable {
     @Id
     @Column(name = "CD_PRODUTO")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer codigo;
+    private BigInteger codigo;
 
     @Column(name = "NM_FANTASIA")
     private String nm_fantasia;

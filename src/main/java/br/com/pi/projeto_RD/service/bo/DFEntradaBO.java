@@ -61,8 +61,8 @@ public class DFEntradaBO {
 
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
-        dto.setDtEmissao(formato.format(d.getDtEmissao()));
-        dto.setDtEntrada(formato.format(d.getDtEntrada()));
+        dto.setEmissao(formato.format(d.getDtEmissao()));
+        dto.setEntrada(formato.format(d.getDtEntrada()));
 //        dto.setDtAbertura(d.getDtAbertura());
 //        dto.setDtFechamento(d.getDtFechamento());
         dto.setVlDocumentoFiscal(d.getVlDocumentoFiscal());
@@ -105,8 +105,8 @@ public class DFEntradaBO {
         dfEntity.setNrNf(dto.getNrNF());
         dfEntity.setNrSerie(dto.getNrSerie());
 
-        dfEntity.setDtEmissao(java.sql.Date.valueOf(formataDataEnviaBD(dto.getDtEmissao())));
-        dfEntity.setDtEntrada(java.sql.Date.valueOf(formataDataEnviaBD(dto.getDtEntrada())));
+        dfEntity.setDtEmissao(java.sql.Date.valueOf(formataDataEnviaBD(dto.getEmissao())));
+        dfEntity.setDtEntrada(java.sql.Date.valueOf(formataDataEnviaBD(dto.getEntrada())));
         dfEntity.setVlDocumentoFiscal(dto.getVlDocumentoFiscal());
 
         List<DocumentoItemEntity> itemsEntity = new ArrayList<>();

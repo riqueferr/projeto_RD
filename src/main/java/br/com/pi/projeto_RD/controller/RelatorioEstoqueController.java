@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
+
 @RestController
 public class RelatorioEstoqueController {
 
@@ -31,7 +33,7 @@ public class RelatorioEstoqueController {
     //LISTAR POR ID
     @GetMapping("/relatorioestoque/{codigo}")
     @ApiOperation(value = "Listar relatório estoque das filiais por ID FILIAL")
-    public ResponseEntity buscarPorId(@PathVariable("codigo") Long codigo) {
+    public ResponseEntity buscarPorId(@PathVariable("codigo") BigInteger codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 

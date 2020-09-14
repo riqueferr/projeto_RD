@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -16,18 +17,18 @@ import java.util.List;
 @Data
 public class DocumentoFiscalDTO implements Serializable {
 
-    private Long idDF;
+    private BigInteger idDF;
     private String operacao;
 //    private FilialEntity cd_filial;
-    private Long idFilial;
+    private BigInteger idFilial;
     private String nmFilial;
     private String cliente;
     private String fornecedor;
     private Long id_recarga;
     private MotivoEntity motivo;
-    private Long nr_chave_acesso;
-    private Long nr_nf;
-    private Long nr_serie;
+    private BigInteger nr_chave_acesso;
+    private BigInteger nr_nf;
+    private BigInteger nr_serie;
 
 
     private String dt_emissao;

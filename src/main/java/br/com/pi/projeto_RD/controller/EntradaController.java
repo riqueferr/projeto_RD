@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
+
 @RestController
 public class EntradaController {
 
@@ -27,7 +29,7 @@ public class EntradaController {
     //BUSCAR POR ID
     @GetMapping("/entrada/{codigo}")
     @ApiOperation(value = "Buscar documentos fiscais por ID Entrada")
-    public ResponseEntity buscarPorId(@PathVariable("codigo") Long codigo) {
+    public ResponseEntity buscarPorId(@PathVariable("codigo") BigInteger codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
@@ -38,12 +40,12 @@ public class EntradaController {
     }
 
     //ATUALIZAR
-    @PutMapping("/entrada")
-    @ApiOperation(value = "Atualizar documentos fiscais por ID Entrada")
-    public ResponseEntity atualizar(@RequestBody DFEntradaDTO dto) throws Exception {
-        service.atualizar(dto);
-        return ResponseEntity.ok().body(dto);
-    }
+//    @PutMapping("/entrada")
+//    @ApiOperation(value = "Atualizar documentos fiscais por ID Entrada")
+//    public ResponseEntity atualizar(@RequestBody DFEntradaDTO dto) throws Exception {
+//        service.atualizar(dto);
+//        return ResponseEntity.ok().body(dto);
+//    }
 
     //INSERIR ENTRADA PRODUTO
     @PostMapping("/entrada")

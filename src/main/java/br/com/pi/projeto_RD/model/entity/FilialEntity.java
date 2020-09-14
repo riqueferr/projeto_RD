@@ -4,6 +4,7 @@ import lombok.Data;
 import net.bytebuddy.asm.Advice;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,7 @@ public class FilialEntity {
     @Id
     @Column(name = "CD_FILIAL")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cdFilial;
+    private BigInteger cdFilial;
 
     @Column(name = "NM_FILIAL")
     private String nmFilial;

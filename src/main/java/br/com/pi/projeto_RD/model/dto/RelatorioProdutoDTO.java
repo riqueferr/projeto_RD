@@ -5,12 +5,13 @@ import br.com.pi.projeto_RD.model.entity.StatusProdutoEntity;
 import br.com.pi.projeto_RD.model.entity.TipoProdutoEntity;
 import lombok.Data;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Data
 public class RelatorioProdutoDTO {
 
-    private Integer cdProduto;
+    private BigInteger cdProduto;
     private String nmProduto;
     private String tipoProduto;
 

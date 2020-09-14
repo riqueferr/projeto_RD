@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.math.BigInteger;
 import java.util.List;
 
 @RestController
@@ -43,7 +44,7 @@ public class ProdutoController {
 
     @GetMapping("/produtos/{codigo}")
     @ApiOperation(value = "Listar todas os produtos por id")
-    public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
+    public ResponseEntity buscarPorId(@PathVariable("codigo") BigInteger codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
@@ -61,7 +62,7 @@ public class ProdutoController {
 
     @DeleteMapping("/produtos/{codigo}")
     @ApiOperation(value = "Excluir produto por ID")
-    public ResponseEntity excluirPorId(@PathVariable("codigo") Integer codigo) {
+    public ResponseEntity excluirPorId(@PathVariable("codigo") BigInteger codigo) {
         ProdutoDto dto = service.excluirPorId(codigo);
         return ResponseEntity.ok().body(dto);
     }

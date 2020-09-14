@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +64,7 @@ public class RelatorioProdutoService {
         return listDTO;
     }
 
-    public RelatorioProdutoDTO buscarPorId(Integer codigo) {
+    public RelatorioProdutoDTO buscarPorId(BigInteger codigo) {
         return bo.parseToDTO(repository.getOne(codigo));
     }
 

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class FilialService {
         return filialDTO;
     }
 
-    public FilialDTO buscarPorId(Long codigo) {
+    public FilialDTO buscarPorId(BigInteger codigo) {
         return filialBO.parseToDTO(repository.getOne(codigo));
     }
 

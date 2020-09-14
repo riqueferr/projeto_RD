@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
@@ -19,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class MovimentoLojaDTO {
-    private Long idDocumento;
+    private BigInteger idDocumento;
     private FilialEntity filial;
     private Date dtEntrada;
 //    private List<PagamentoDocDTO> pagamento;
@@ -34,7 +35,7 @@ public class MovimentoLojaDTO {
 //    }
 
 
-    public MovimentoLojaDTO(Long idDocumento, Date dtEntrada, BigDecimal vlDocumento, OperacaoEntity operacao, FilialEntity filial) {
+    public MovimentoLojaDTO(BigInteger idDocumento, Date dtEntrada, BigDecimal vlDocumento, OperacaoEntity operacao, FilialEntity filial) {
         this.idDocumento = idDocumento;
         this.dtEntrada = dtEntrada;
         this.vlDocumento = vlDocumento;

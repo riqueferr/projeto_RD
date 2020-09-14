@@ -73,7 +73,7 @@
             </div>
           </td>
           <td>{{ entradas.nmFornecedor }}</td>
-          <td ng-model-options="{timezone: 'America/Sao_Paulo'}" >{{ entradas.dtEntrada}}</td>
+          <td ng-model-options="{timezone: 'America/Sao_Paulo'}" >{{ entradas.dtEntrada | date: 'dd/MM/yyyy'}}</td>
           <td>{{ entradas.vlDocumentoFiscal | currency:'R$ '}}</td>
         </tr>
       </tbody>

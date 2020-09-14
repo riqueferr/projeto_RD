@@ -8,10 +8,11 @@ import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Repository
-public interface ProdutoRepository  extends JpaRepository<ProdutoEntity, Integer> {
+public interface ProdutoRepository  extends JpaRepository<ProdutoEntity, BigInteger> {
 
     @EntityGraph(value = "produtosfindall", type = EntityGraph.EntityGraphType.LOAD)
     List<ProdutoEntity> findAll();

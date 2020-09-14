@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @NoArgsConstructor
@@ -14,14 +15,14 @@ import java.util.List;
 @Data
 public class ProdutoFilialEstoqueDTO {
 
-    private Integer cdEstoque;
+    private BigInteger cdEstoque;
 
     //INFO FILIAL
-    private Long cdFilial;
+    private BigInteger cdFilial;
     private String nmFilial;
 
     //INFO PRODUTOS
-    private Integer codProduto;
+    private BigInteger codProduto;
     private String nmProduto;
 
     private String subCategoria;

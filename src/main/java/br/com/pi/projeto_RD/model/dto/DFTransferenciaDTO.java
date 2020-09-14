@@ -4,6 +4,8 @@ package br.com.pi.projeto_RD.model.dto;
 import br.com.pi.projeto_RD.model.entity.OperacaoEntity;
 import lombok.Data;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -11,24 +13,26 @@ import java.util.List;
 @Data
 public class DFTransferenciaDTO {
 
-    private Long idDocumento;
+    private BigInteger idDocumento;
     private OperacaoEntity operacao;
 
-    private Long idFilial;
+    private BigInteger idFilial;
     private String nmFilial;
 
-    private Long idFilialDestino;
+    private BigInteger idFilialDestino;
     private String nmFilialDestino;
 
-//    private Long idFornecedor;
-//    private String nmFornecedor;
+    private BigInteger chaveAcesso;
+    private BigInteger nrNF;
+    private BigInteger nrSerie;
 
-    private Long chaveAcesso;
-    private Long nrNF;
-    private Long nrSerie;
-    private String dtEmissao;
-    private String dtEntrada;
-    private Double vlDocumentoFiscal;
+    private Date dtEmissao;
+    private Date dtEntrada;
+
+    private String emissao;
+    private String entrada;
+
+    private BigDecimal vlDocumentoFiscal;
 
     private List<ItensDfDTO> itens;
 }
