@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
+
 @RestController
 public class RelatorioProdutoController {
 
@@ -27,7 +29,7 @@ public class RelatorioProdutoController {
 
     @GetMapping("/relatorioproduto/{codigo}")
     @ApiOperation(value = "Listar todas os produtos por id")
-    public ResponseEntity buscarPorId(@PathVariable("codigo") Integer codigo) {
+    public ResponseEntity buscarPorId(@PathVariable("codigo") BigInteger codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 

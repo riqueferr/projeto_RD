@@ -15,13 +15,13 @@ import java.util.List;
 @NoArgsConstructor
 public class ProdutoDto {
 
-    private Integer codigo;
+    private BigInteger codigo;
     private String nm_fantasia;
 
     private StatusProdutoEntity statusProduto;
-
     private SubCategoriaEntity subCategoria;
     private TipoProdutoEntity tipo_produto;
+
     private String nm_fabricante;
     private BigDecimal vl_unidade;
     private String ds_altura;

@@ -70,7 +70,7 @@ public class ProdutoService {
         return listDTO;
     }
 
-    public ProdutoDto buscarPorId(Integer codigo) {
+    public ProdutoDto buscarPorId(BigInteger codigo) {
         return produtoBO.parseToDTO(repository.getOne(codigo));
     }
 
@@ -78,17 +78,13 @@ public class ProdutoService {
         return manager.createNamedQuery("buscarNfPornmProduto", ProdutoEntity.class).setParameter("NM_FANTASIA", Nm_Fantasia).getResultList();
     }
 
-//    public List<BuscarProdutosDTO> buscarProdutos() {
-//        List<BuscarProdutosDTO> list = manager.createNamedQuery("buscarProdutos", BuscarProdutosDTO.class).getResultList();
-//        return list;
-//    }
 
     public List<ProdutoDto> listarTodas() {
         // namedQuery
 //        List<ConsultaProdutosEntity> list = em.createNamedQuery("buscarProdutos", ConsultaProdutosEntity.class).getResultList();
 
         //nativeNamedQuery
-        Map<Integer, ProdutoDto> map = new HashMap<>();
+        Map<BigInteger, ProdutoDto> map = new HashMap<>();
 
         Query query = manager.createNativeQuery("select P.CD_PRODUTO, P.NM_FANTASIA, F.CD_FORNECEDOR, F.NM_RAZAO_SOCIAL, S.ID_STATUS_PRODUTO, " +
                 "S.DS_STATUS_PRODUTO, SC.ID_SUB_CATEGORIA, SC.DS_SUB_CATEGORIA, TP.ID_TIPO_PRODUTO, TP.DS_TIPO_PRODUTO, P.NM_FABRICANTE, P.VL_UNIDADE, P.DS_PRODUTO  " +
@@ -97,7 +93,8 @@ public class ProdutoService {
                 "AND FP.CD_FORNECEDOR = F.CD_FORNECEDOR " +
                 "AND P.ID_STATUS_PRODUTO = S.ID_STATUS_PRODUTO " +
                 "AND P.ID_SUB_CATEGORIA = SC.ID_SUB_CATEGORIA " +
-                "AND P.ID_TIPO_PRODUTO = TP.ID_TIPO_PRODUTO  ");
+                "AND P.ID_TIPO_PRODUTO = TP.ID_TIPO_PRODUTO  " +
+                "ORDER BY P.CD_PRODUTO");
 
         List<Object []> listEntity = query.getResultList();
         for(Object [] produto : listEntity){
@@ -105,7 +102,7 @@ public class ProdutoService {
             ProdutoDto dto = null;
             if(!map.containsKey(codigo)){
                 dto = new ProdutoDto();
-                dto.setCodigo(codigo);
+                dto.setCodigo((BigInteger) produto[0]);
 
                 dto.setNm_fantasia( (String) produto [1]);
 
@@ -167,7 +164,7 @@ public class ProdutoService {
         }
     }
 
-    public ProdutoDto excluirPorId(Integer codigo) {
+    public ProdutoDto excluirPorId(BigInteger codigo) {
         ProdutoEntity entity = repository.getOne(codigo);
         ProdutoDto dto = new ProdutoDto();
 

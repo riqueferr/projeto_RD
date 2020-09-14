@@ -7,8 +7,8 @@ export interface Entradas {
     chaveAcesso: number,
     nrNF: number,
     nrSerie: number,
-    dtEmissao: Date,
-    dtEntrada: Date,
+    emissao: Date,
+    entrada: Date,
     vlDocumentoFiscal: number,
     itens: ResponseEntradaItens []
 }

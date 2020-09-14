@@ -11,6 +11,7 @@ import org.springframework.format.annotation.NumberFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -42,7 +43,7 @@ public class DocumentoFiscalEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_DOCUMENTO_FISCAL")
-    private Long idDocumento;
+    private BigInteger idDocumento;
 
     @ManyToOne
     @JoinColumn(name = "CD_OPERACAO")//fk
@@ -72,13 +73,13 @@ public class DocumentoFiscalEntity implements Serializable {
     private Long idRecarga;
 
     @Column(name = "NR_CHAVE_ACESSO")
-    private Long nrChaveAcesso;
+    private BigInteger nrChaveAcesso;
 
     @Column(name = "NR_NF")
-    private Long nrNf;
+    private BigInteger nrNf;
 
     @Column(name = "NR_SERIE")
-    private Long nrSerie;
+    private BigInteger nrSerie;
 
     @Column(name = "DT_EMISSAO")
     private Date dtEmissao;

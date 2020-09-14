@@ -5,12 +5,13 @@ import br.com.pi.projeto_RD.model.entity.ProdutoFilialEstoqueEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Repository
-public interface ProdutoFilialEstoqueRepository extends JpaRepository<ProdutoFilialEstoqueEntity, Integer>{
+public interface ProdutoFilialEstoqueRepository extends JpaRepository<ProdutoFilialEstoqueEntity, BigInteger>{
 
-        List<ProdutoFilialEstoqueEntity> findByFilialCdFilialAndProdutoCodigo(Long cdFilial, Integer codigo);
+        List<ProdutoFilialEstoqueEntity> findByFilialCdFilialAndProdutoCodigo(BigInteger cdFilial, BigInteger codigo);
         List<ProdutoFilialEstoqueEntity> findByFilialCdFilial(Long cdFilial);
         List<ProdutoFilialEstoqueEntity> findByFilialNmFilialContaining(String nmFilial);
 

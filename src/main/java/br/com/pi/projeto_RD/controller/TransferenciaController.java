@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
+
 @RestController
 public class TransferenciaController {
 
@@ -23,7 +25,7 @@ public class TransferenciaController {
     //BUSCAR POR ID
     @GetMapping("/transferencia/{codigo}")
     @ApiOperation(value = "Buscar documentos fiscais por ID transferencia")
-    public ResponseEntity buscarPorId(@PathVariable("codigo") Long codigo) {
+    public ResponseEntity buscarPorId(@PathVariable("codigo") BigInteger codigo) {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 

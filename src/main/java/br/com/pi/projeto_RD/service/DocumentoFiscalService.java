@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +64,7 @@ public class DocumentoFiscalService {
         return dfDTO;
     }
 
-    public DocumentoFiscalDTO buscarPorId(Long codigo) {
+    public DocumentoFiscalDTO buscarPorId(BigInteger codigo) {
         return bo.parseToDTO(repository.getOne(codigo));
     }
 
@@ -87,7 +88,7 @@ public class DocumentoFiscalService {
     }
 
 
-    public DocumentoFiscalDTO excluirPorId(Long idDF) {
+    public DocumentoFiscalDTO excluirPorId(BigInteger idDF) {
         DocumentoFiscalEntity entity = repository.getOne(idDF);
         DocumentoFiscalDTO dto = new DocumentoFiscalDTO();
 

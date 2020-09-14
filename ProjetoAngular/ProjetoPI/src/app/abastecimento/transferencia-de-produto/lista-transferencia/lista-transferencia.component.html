@@ -67,7 +67,7 @@
                     </div>
                   </td>
                 <td>{{ transferencias.nmFilialDestino }}</td>
-                <td ng-model-options="{timezone: 'America/Sao_Paulo'}" >{{ transferencias.dtEntrada}}</td>
+                <td ng-model-options="{timezone: 'America/Sao_Paulo'}" >{{ transferencias.dtEntrada | date: 'dd/MM/yyyy'}}</td>
 
               </tr>
             </tbody>

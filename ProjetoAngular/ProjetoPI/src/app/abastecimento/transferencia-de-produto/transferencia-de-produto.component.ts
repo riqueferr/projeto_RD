@@ -41,8 +41,8 @@ export class TransferenciaDeProdutoComponent implements OnInit {
       chaveAcesso: 5679,
       nrNF: 410,
       nrSerie: 4444444,
-      dtEmissao: null,
-      dtEntrada: null,
+      emissao: null,
+      entrada: null,
       itens: []
     };
 

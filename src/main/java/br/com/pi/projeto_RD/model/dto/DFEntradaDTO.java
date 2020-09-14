@@ -4,6 +4,7 @@ package br.com.pi.projeto_RD.model.dto;
 import br.com.pi.projeto_RD.model.entity.FilialEntity;
 import br.com.pi.projeto_RD.model.entity.FornecedorEntity;
 import br.com.pi.projeto_RD.model.entity.OperacaoEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,32 +20,25 @@ import java.util.List;
 @Data
 public class DFEntradaDTO {
 
-    private Long idDocumento;
+    private BigInteger idDocumento;
     private OperacaoEntity operacao;
 
-    private Long idFilial;
+    private BigInteger idFilial;
     private String nmFilial;
 
-    private Long idFilialDestino;
-
-//    private List<FornecedorComprimidoDTO> itens;
     private BigInteger idFornecedor;
     private String nmFornecedor;
 
-    private Long chaveAcesso;
-    private Long nrNF;
-    private Long nrSerie;
+    private BigInteger chaveAcesso;
+    private BigInteger nrNF;
+    private BigInteger nrSerie;
 
-//    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private String dtEmissao;
+    private Date dtEmissao;
+    private Date dtEntrada;
 
-//    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private String dtEntrada;
+    private String emissao;
+    private String entrada;
 
-    private Date dtAbertura;
-    private Date dtFechamento;
-
-    @NumberFormat(style = NumberFormat.Style.CURRENCY, pattern = "#,##0.00")
     private BigDecimal vlDocumentoFiscal;
 
     private List<ItensDfDTO> itens;

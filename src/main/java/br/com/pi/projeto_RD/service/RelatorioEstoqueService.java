@@ -8,6 +8,7 @@ import br.com.pi.projeto_RD.service.bo.RelatorioEstoqueBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class RelatorioEstoqueService {
         return relatorioEstoqueDTO;
     }
 
-    public RelatorioEstoqueDTO buscarPorId(Long codigo) {
+    public RelatorioEstoqueDTO buscarPorId(BigInteger codigo) {
         return bo.parseToDTO(repository.getOne(codigo));
     }
 
