@@ -15,7 +15,7 @@
           <div class="form-group col-md-5">
             <label for="cnpj">CNPJ</label>
             <input id="cnpj" name="cnpj" required #cnpj="ngModel" class="form-control" placeholder="00.000.000/0000-00"
-              [(ngModel)]='request.nr_cnpj' (blur)="validar($event.target.value,it)">
+              [(ngModel)]='request.nr_cnpj'>
             <div *ngIf="validar() == false" class="invalid-tooltip d-block">
               <div [hidden]="validar() == true">
                 CNPJ inválido!
