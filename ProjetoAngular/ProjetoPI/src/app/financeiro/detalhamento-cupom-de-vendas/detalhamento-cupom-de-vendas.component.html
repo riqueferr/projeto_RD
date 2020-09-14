@@ -76,11 +76,29 @@
               <input name="chaveAcesso" ngModel #nr_chave_acesso="ngModel" class="form-control" id="inputEmail4"
                 placeholder="Chave de acesso" [(ngModel)]='request.nr_chave_acesso' disabled>
             </div>
-            <div class="form-group col-md-4">
+            <!-- <div class="form-group col-md-4">
                 <label for="pagamento">Forma de Pagamento</label>
                 <input name="pagamento" ngModel #dsTipoPagamento="ngModel" class="form-control" id="inputPassword4"
                   placeholder="Forma de Pagamento" [(ngModel)]='request.pagamento[0].dsTipoPagamento' disabled>
-              </div>
+              </div> -->
+              
+              <div class="form-group col-md-4">
+                  <label for="dsOperacao">Forma de Pagamento</label>
+                  <div class="dropdown">
+                    <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </button>
+                    <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                      <tr *ngFor='let pagamento of request.pagamento'>
+                        <a class="dropdown-item" *ngIf="pagamento"><b>Pagamento: </b>{{pagamento.dsTipoPagamento}}</a>
+                        <a class="dropdown-item" *ngIf="pagamento"><b>Valor: </b> R$ {{pagamento.vlPagamento}}</a>
+                        <a class="dropdown-item">&nbsp;</a>
+                      </tr>
+                    </div>
+                  </div>
+            </div>
+
+
           </div>
           <div class="form-row">
             <div class="form-group col-md-4">
@@ -89,7 +107,6 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">R$</span>
                 </div>
-
                 <input name="valor" ngModel #dsTipoPagamento="ngModel" class="form-control" id="inputPassword4"
                   placeholder="Valor total" [(ngModel)]='request.vl_documento_fiscal' disabled>
               </div>
@@ -115,6 +132,7 @@
                     <thead>
                     <tr>
                         <th scope="col">Nome Produto</th>
+                        <th scope="col">Valor Item</th>
                         <th scope="col">Quantidade</th>
                         <th scope="col">% ICMS</th>
                         <th scope="col">Valor ICMS</th>
@@ -123,6 +141,7 @@
                     <tbody>
                         <tr *ngFor='let notas of request.itens'>
                             <td>{{ notas.nmProduto }}</td>
+                            <td>R$ {{ notas.vlItem }}</td>
                             <td>{{ notas.qtItem }}</td>
                             <td>{{ notas.pcIcms }} %</td>
                             <td>R$ {{ notas.vlIcms }}</td>

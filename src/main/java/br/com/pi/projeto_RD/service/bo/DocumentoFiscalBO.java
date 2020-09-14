@@ -63,11 +63,11 @@ public class DocumentoFiscalBO {
         dto.setNr_serie(d.getNrSerie());
 
         if(d.getDtEmissao() != null) {
-            dto.setDt_emissao(SDF.format(d.getDtEmissao()));
+            dto.setDt_emissao(d.getDtEmissao());
         }
 
         if(d.getDtEntrada() != null) {
-            dto.setDt_entrada(SDF.format(d.getDtEntrada()));
+            dto.setDt_entrada(d.getDtEntrada());
         }
 
         if(d.getDtAbertura() != null) {
