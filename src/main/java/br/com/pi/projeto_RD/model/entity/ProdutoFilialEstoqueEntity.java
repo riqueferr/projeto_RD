@@ -11,6 +11,13 @@ import java.math.BigInteger;
 @Entity
 @Table(name = "TB_PRODUTO_FILIAL_ESTOQUE")
 @Data
+@NamedEntityGraph(name = "ProdutoFilialEstoqueEntity.filial.produto",
+        attributeNodes = {
+                @NamedAttributeNode("cdEstoque"),
+                @NamedAttributeNode("filial"),
+                @NamedAttributeNode("produto"),
+        }
+)
 public class ProdutoFilialEstoqueEntity implements Serializable {
 
     // MUDAR AQUI

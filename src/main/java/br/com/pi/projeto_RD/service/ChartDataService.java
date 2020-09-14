@@ -20,7 +20,9 @@ public class ChartDataService {
     private ProdutoFilialEstoqueRepository repository;
 
     public FilialProdutoDTO consultarProdutoPorLoja(){
+
         FilialProdutoDTO dto = new FilialProdutoDTO();
+
         List<ChartDataDTO> barChartData = new ArrayList<>();
         ChartDataDTO dataDTO = new ChartDataDTO();
         List<ProdutoFilialEstoqueEntity> estoques = repository.findAll();

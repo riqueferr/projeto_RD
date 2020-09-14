@@ -9,9 +9,15 @@ import br.com.pi.projeto_RD.service.bo.ProdutoFilialEstoqueBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class FilialEstoqueService {
@@ -21,6 +27,10 @@ public class FilialEstoqueService {
 
     @Autowired
     private ProdutoFilialEstoqueRepository repository;
+
+
+    @PersistenceContext
+    private EntityManager manager;
 
     public List<ProdutoFilialEstoqueDTO> buscarTodos() {
         List<ProdutoFilialEstoqueEntity> pfEntity = repository.findAll();
