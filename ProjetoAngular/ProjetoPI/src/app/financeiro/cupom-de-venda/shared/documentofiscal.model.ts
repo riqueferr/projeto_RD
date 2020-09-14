@@ -19,7 +19,14 @@ export interface Itens{
     vlIcms: number;
 }
 
+export interface Pagamentos{
+    idTipoPagamento: number;
+    dsTipoPagamento: String;
+    vlPagamento: number;
+}
+
 export interface ResponseDF {
     notas: Nota[];
     itens: Itens[];
+    pagamento: Pagamentos[];
 }

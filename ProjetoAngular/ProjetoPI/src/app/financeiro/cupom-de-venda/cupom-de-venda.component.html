@@ -54,9 +54,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor='let notas of responseDf'>
+                    <tr *ngFor='let notas of responseDf | paginate: { itemsPerPage: 8, currentPage: paginaAtual }; let i = index'>
                       <th scope="row">{{ notas.idDF }}</th>
-                      <td>{{ notas.dt_entrada}}</td>
+                      <td>{{ notas.dt_entrada | date: 'dd/MM/yyyy'}}</td>
                       <td>{{ notas.nmFilial }}</td>
                       <td>{{ notas.operacao }}</td>
                       <td>R$ {{ notas.vl_documento_fiscal }}</td>
@@ -73,6 +73,7 @@
 
                   </tbody>
                 </table>
+                <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
               </div>
             </div>
             <div class='row justify-content-center' *ngIf="loading">

@@ -13,6 +13,8 @@ export class CupomDeVendaComponent implements OnInit {
 
   loading : boolean;
   idDF: any;
+  
+  public paginaAtual = 1;
 
   responseDf: ResponseDF[];
 

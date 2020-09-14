@@ -22,13 +22,13 @@ public class DocumentoItemEntity implements Serializable {
     private Integer qtItem;
 
     @Column(name = "PC_ICMS")
-    private Double pcIcms;
+    private BigDecimal pcIcms;
 
     @Column(name = "VL_ICMS")
-    private Double vlIcms;
+    private BigDecimal vlIcms;
 
     @Column(name = "VL_ITEM")
-    private Double vlItem;
+    private BigDecimal vlItem;
 
     @ManyToOne
     @JoinColumn(name = "CD_PRODUTO")
