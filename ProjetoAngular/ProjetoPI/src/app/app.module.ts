@@ -46,6 +46,7 @@ import { ListaNomeProdutoRelatorioComponent } from './abastecimento/relatorio-de
 import { ListaStatusProdutoRelatorioComponent } from './abastecimento/relatorio-de-produto/lista-status-produto-relatorio/lista-status-produto-relatorio.component';
 import { ListaIdTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-id-transferencia/lista-id-transferencia.component';
 import { ListaFilialdestinoTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-filialdestino-transferencia/lista-filialdestino-transferencia.component';
+import { ListarFilialDfComponent } from './financeiro/cupom-de-venda/listar-filial-df/listar-filial-df.component';
 
 
 
@@ -85,6 +86,7 @@ import { ListaFilialdestinoTransferenciaComponent } from './abastecimento/transf
     ListaStatusProdutoRelatorioComponent,
     ListaIdTransferenciaComponent,
     ListaFilialdestinoTransferenciaComponent,
+    ListarFilialDfComponent,
   ],
   imports: [
     BrowserModule,
