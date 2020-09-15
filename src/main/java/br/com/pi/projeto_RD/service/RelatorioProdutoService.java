@@ -54,7 +54,7 @@ public class RelatorioProdutoService {
         for(Object [] produto : listentity ){
             Integer codigo = ((BigInteger) produto [0]).intValue();
             RelatorioProdutoDTO dto = null;
-            ProdutoEntity entity = new ProdutoEntity();
+//            ProdutoEntity entity = new ProdutoEntity();
             if (!map.containsKey(codigo)){
                 dto = new RelatorioProdutoDTO();
 

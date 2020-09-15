@@ -21,11 +21,11 @@ import java.util.List;
 @Data
 public class MovimentoLojaDTO {
     private BigInteger idDocumento;
-    private FilialEntity filial;
+    private BigInteger cdFilial;
     private Date dtEntrada;
 //    private List<PagamentoDocDTO> pagamento;
     private BigDecimal vlDocumento;
-    private OperacaoEntity operacao;
+    private String nmFilial;
 
 
 //    public MovimentoLojaDTO(Long idDocumento) {
@@ -35,12 +35,12 @@ public class MovimentoLojaDTO {
 //    }
 
 
-    public MovimentoLojaDTO(BigInteger idDocumento, Date dtEntrada, BigDecimal vlDocumento, OperacaoEntity operacao, FilialEntity filial) {
+    public MovimentoLojaDTO(BigInteger idDocumento, Date dtEntrada, BigDecimal vlDocumento, BigInteger cdFilial, String nmFilial) {
         this.idDocumento = idDocumento;
         this.dtEntrada = dtEntrada;
         this.vlDocumento = vlDocumento;
-        this.operacao = operacao;
-        this.filial = filial;
+        this.nmFilial = nmFilial;
+        this.cdFilial = cdFilial;
     }
 //    private double total;
 
