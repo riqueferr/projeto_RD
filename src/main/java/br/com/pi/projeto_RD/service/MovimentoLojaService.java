@@ -50,10 +50,12 @@ public class MovimentoLojaService {
                 "                F.CD_FILIAL,\n" +
                 "                F.NM_FILIAL, DF.DT_ENTRADA,\n" +
                 "                DF.ID_DOCUMENTO_FISCAL,\n" +
+                "                TP.DS_TIPO_PAGAMENTO, \n" +
                 "                SUM(DF.VL_DOCUMENTO_FISCAL) as Soma\n" +
                 "                FROM TB_DOCUMENTO_FISCAL DF \n" +
                 "                LEFT OUTER JOIN TB_FILIAL F ON DF.CD_FILIAL = F.CD_FILIAL \n" +
                 "                LEFT OUTER JOIN TB_PAGAMENTO_DOC PD ON DF.ID_DOCUMENTO_FISCAL = PD.ID_DOCUMENTO_FISCAL \n" +
+                "                LEFT OUTER JOIN TB_TIPO_PAGAMENTO TP ON PD.ID_TIPO_PAGAMENTO = TP.ID_TIPO_PAGAMENTO \n" +
                 "                WHERE PD.ID_TIPO_PAGAMENTO = 4 OR PD.ID_TIPO_PAGAMENTO = 5\n" +
                 "                GROUP BY PD.ID_TIPO_PAGAMENTO;");
 
@@ -66,21 +68,24 @@ public class MovimentoLojaService {
                 dto = new MovimentoLojaDTO();
 
                 //Filial
-
                 dto.setCdFilial((BigInteger) produto[0]);
                 dto.setNmFilial((String) produto[1]);
 
-
                 //Documento Fiscal
                 dto.setDtEntrada((Date) produto[2]);
-                dto.setVlDocumento((BigDecimal) produto[4]);
+                dto.setVlDocumento((BigDecimal) produto[5]);
                 dto.setIdDocumento((BigInteger) produto[3]);
 
+                PagamentoMovimentoDTO pdto = new PagamentoMovimentoDTO();
+                pdto.setDsTipoPagamento((String) produto[4]);
 
-
-
-
-
+                if(dto.getPagamento() == null)
+                    dto.setPagamento(new ArrayList<>());
+                dto.getPagamento().add(pdto);
+            }else{  dto = map.get(codigo);
+                PagamentoMovimentoDTO pDTO = new PagamentoMovimentoDTO();
+                pDTO.setDsTipoPagamento((String) produto[4]);
+                dto.getPagamento().add(pDTO);
 
             }
             map.put(dto.getIdDocumento().intValue(), dto);

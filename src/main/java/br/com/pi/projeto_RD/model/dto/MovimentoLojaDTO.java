@@ -26,6 +26,7 @@ public class MovimentoLojaDTO {
 //    private List<PagamentoDocDTO> pagamento;
     private BigDecimal vlDocumento;
     private String nmFilial;
+    private List<PagamentoMovimentoDTO> pagamento;
 
 
 //    public MovimentoLojaDTO(Long idDocumento) {
