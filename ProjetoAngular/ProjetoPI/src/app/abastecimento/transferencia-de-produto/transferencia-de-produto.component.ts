@@ -105,4 +105,28 @@ export class TransferenciaDeProdutoComponent implements OnInit {
     }
   }
 
+  validarData() {
+    if (this.request.emissao != null) {
+      var e = this.request.emissao.toString();
+      var arrDataExclusao = e.split('/');
+      var stringFormatada = arrDataExclusao[1] + '-' + arrDataExclusao[0] + '-' +
+        arrDataExclusao[2];
+      var dataEmissao = new Date(stringFormatada);
+    }
+
+    if (this.request.entrada != null) {
+      var e = this.request.entrada.toString();
+      var arrDataExclusao = e.split('/');
+      var stringFormatada = arrDataExclusao[1] + '-' + arrDataExclusao[0] + '-' +
+        arrDataExclusao[2];
+      var dataEntrada = new Date(stringFormatada);
+    }
+
+    if (dataEmissao > dataEntrada) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 }

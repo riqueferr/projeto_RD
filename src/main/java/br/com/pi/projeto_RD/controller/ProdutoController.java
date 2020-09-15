@@ -48,6 +48,11 @@ public class ProdutoController {
         return ResponseEntity.ok().body(service.buscarPorId(codigo));
     }
 
+    @GetMapping("/produtos/fornecedor/{codigo}")
+    public ResponseEntity listarPorFornecedor(@PathVariable("codigo") BigInteger codigo) {
+        return ResponseEntity.ok().body(service.listarPorFornecedor(codigo));
+    }
+
     @GetMapping("/produtos/nmproduto/{Nm_Fantasia}")
     public ResponseEntity<Object> buscarNfPornmProduto(@PathVariable("Nm_Fantasia") String Nm_Fantasia) {
         return ResponseEntity.ok().body(service.buscarNfPornmProduto(Nm_Fantasia));

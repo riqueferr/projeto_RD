@@ -14,6 +14,7 @@ export class ProdutosService {
   private readonly APISubCategoria = 'http://localhost:8080/abastecimento/subcategorias';
   private readonly ApiStatus = 'http://localhost:8080/abastecimento/status';
   private readonly ApiTipoProduto = 'http://localhost:8080/abastecimento/tipoproduto';
+  private readonly ApiFornecedores = 'http://localhost:8080/abastecimento/produtos/fornecedor';
 
   getProdutos() {
     return this.http.get<ResponseProdutos[]>(this.API);
@@ -29,6 +30,11 @@ export class ProdutosService {
 
   getTipoProduto() {
     return this.http.get<ResponseTipoProduto[]>(this.ApiTipoProduto);
+  }
+
+  getProdutosFornecedores(codigo: string): Observable<ResponseProdutos[]> {
+    const URL = `${this.ApiFornecedores}/${codigo}`;
+    return this.http.get<ResponseProdutos[]>(URL);
   }
 
   getProduto(codigo: string): Observable<ResponseProdutos> {
