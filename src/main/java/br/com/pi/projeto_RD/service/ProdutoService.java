@@ -149,6 +149,46 @@ public class ProdutoService {
         return map.values().stream().collect(Collectors.toList());
     }
 
+    public List<ProdutoDto> listarPorFornecedor(BigInteger fornecedor) {
+
+        Map<BigInteger, ProdutoDto> map = new HashMap<>();
+        Query query = manager.createNativeQuery("select P.CD_PRODUTO, P.NM_FANTASIA, F.CD_FORNECEDOR, F.NM_RAZAO_SOCIAL " +
+                "from TB_PRODUTO P, TB_FORNECEDOR_PRODUTO FP, TB_FORNECEDOR F " +
+                "where P.CD_PRODUTO = FP.CD_PRODUTO " +
+                "AND FP.CD_FORNECEDOR = F.CD_FORNECEDOR " +
+                "AND F.CD_FORNECEDOR = "+ fornecedor +" " +
+                "ORDER BY P.CD_PRODUTO");
+
+        List<Object []> listEntity = query.getResultList();
+        for(Object [] produto : listEntity){
+            Integer codigo = ((BigInteger) produto [0]).intValue();
+            ProdutoDto dto = null;
+            if(!map.containsKey(codigo)){
+                dto = new ProdutoDto();
+                dto.setCodigo((BigInteger) produto[0]);
+                dto.setNm_fantasia( (String) produto [1]);
+
+                //FORNECEDOR
+                FornecedorProdutoDTO fornecedorProdutoDTO = new FornecedorProdutoDTO();
+                fornecedorProdutoDTO.setCd_fornecedor((BigInteger) produto[2]);
+                fornecedorProdutoDTO.setNm_razao_social((String) produto[3]);
+
+                if(dto.getFornecedor() == null)
+                    dto.setFornecedor(new ArrayList<>());
+                dto.getFornecedor().add(fornecedorProdutoDTO);
+
+            }else{
+                dto = map.get(codigo);
+                FornecedorProdutoDTO fornecedorProdutoDTO = new FornecedorProdutoDTO();
+                fornecedorProdutoDTO.setCd_fornecedor((BigInteger) produto[2]);
+                fornecedorProdutoDTO.setNm_razao_social((String) produto[3]);
+                dto.getFornecedor().add(fornecedorProdutoDTO);
+            }
+            map.put(dto.getCodigo(), dto);
+        }
+        return map.values().stream().collect(Collectors.toList());
+    }
+
     public ProdutoEntity inserir(ProdutoDto dto) throws Exception {
         ProdutoEntity entity = produtoBO.parseToEntity(dto, null);
         if (entity.getNm_fantasia() != null)

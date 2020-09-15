@@ -30,9 +30,11 @@ export class EntradaDeProdutoComponent implements OnInit {
 
   @ViewChild('it', { static: true }) it: NgForm;
 
+  pr: any;
+
   request: Entradas = {
     operacao: {
-        cdOperacao: 4,
+      cdOperacao: 4,
     },
     idFilial: null,
     idFornecedor: null,
@@ -43,7 +45,7 @@ export class EntradaDeProdutoComponent implements OnInit {
     entrada: null,
     vlDocumentoFiscal: null,
     itens: []
-    };
+  };
 
   item: ResponseEntradaItens = new ResponseEntradaItens();
 
@@ -61,13 +63,13 @@ export class EntradaDeProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.listarTodosProdutos();
     this.listarTodosFornecedores();
+    this.listarTodosProdutos();
 
-    $(document).ready(function() {
+    $(document).ready(function () {
       $('.data').mask('00/00/0000');
-
     });
+    
     this.i = 1;
   }
 
@@ -90,6 +92,14 @@ export class EntradaDeProdutoComponent implements OnInit {
     });
   }
 
+  // listarTodosProdutos() {
+  //     var idFornecedor = this.request.idFornecedor.toString();
+  //     this.responseProdutoService.getProdutosFornecedores(idFornecedor).subscribe(response => {
+  //       this.responseProdutos = response;
+  //       this.loading = false;
+  //     });
+  // }
+
   listarTodosFornecedores() {
     this.responseFornecedoresService.getFornecedores().subscribe(response => {
       this.responseFornecedores = response;
@@ -99,13 +109,13 @@ export class EntradaDeProdutoComponent implements OnInit {
 
   //Famosa gambiarra
   i: number;
-  
-  itens(): void{
+
+  itens(): void {
     this.item.nrItemDocumento = this.i;
     this.request.itens.push(this.item);
     console.log(this.request.itens);
     this.item = new ResponseEntradaItens();
-    this.i ++;
+    this.i++;
   }
 
   register(): void {
@@ -116,6 +126,28 @@ export class EntradaDeProdutoComponent implements OnInit {
     }
   }
 
-  
+  validarData() {
+    if (this.request.emissao != null) {
+      var e = this.request.emissao.toString();
+      var arrDataExclusao = e.split('/');
+      var stringFormatada = arrDataExclusao[1] + '-' + arrDataExclusao[0] + '-' +
+        arrDataExclusao[2];
+      var dataEmissao = new Date(stringFormatada);
+    }
+
+    if (this.request.entrada != null) {
+      var e = this.request.entrada.toString();
+      var arrDataExclusao = e.split('/');
+      var stringFormatada = arrDataExclusao[1] + '-' + arrDataExclusao[0] + '-' +
+        arrDataExclusao[2];
+      var dataEntrada = new Date(stringFormatada);
+    }
+
+    if (dataEmissao > dataEntrada) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
 }
