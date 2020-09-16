@@ -91,6 +91,38 @@ public class FilialEstoqueService {
         return map.values().stream().collect(Collectors.toList());
     }
 
+    public List<ProdutoFilialEstoqueDTO> buscarFilialProduto(Integer idFilial) {
+        Map<Integer, ProdutoFilialEstoqueDTO> map = new HashMap<>();
+
+        Query query = manager.createNativeQuery("SELECT FE.CD_ESTOQUE, F.CD_FILIAL, F.NM_FILIAL, P.CD_PRODUTO, P.NM_FANTASIA " +
+                "FROM TB_PRODUTO_FILIAL_ESTOQUE FE " +
+                "LEFT OUTER JOIN TB_FILIAL F ON F.CD_FILIAL = FE.CD_FILIAL " +
+                "LEFT OUTER JOIN TB_PRODUTO P ON P.CD_PRODUTO = FE.CD_PRODUTO " +
+                " WHERE F.CD_FILIAL = "+ idFilial + "");
+
+        List<Object []> listEntity = query.getResultList();
+        for(Object [] produto : listEntity){
+            Integer codigo = ((BigInteger) produto [0]).intValue();
+            ProdutoFilialEstoqueDTO dto = null;
+            if(!map.containsKey(codigo)){
+                dto = new ProdutoFilialEstoqueDTO();
+                dto.setCdEstoque((BigInteger) produto[0]);
+
+                //FILIAL
+                dto.setCdFilial((BigInteger) produto[1]);
+                dto.setNmFilial((String) produto[2]);
+
+                //PRODUTO
+                dto.setCodProduto((BigInteger) produto[3]);
+                dto.setNmProduto((String) produto[4]);
+
+
+            }
+            map.put(dto.getCdEstoque().intValue(), dto);
+        }
+        return map.values().stream().collect(Collectors.toList());
+    }
+
     public ProdutoFilialEstoqueDTO buscarPorId(BigInteger codigo) {
         return pfBO.parseToDTO(repository.getOne(codigo));
     }
@@ -105,15 +137,6 @@ public class FilialEstoqueService {
         return filialDTO;
     }
 
-//    public List<ProdutoFilialEstoqueDTO> buscarNmFilial(String nmFilial) {
-//        List<ProdutoFilialEstoqueEntity> pfEntity = repository.findByFilialNmFilialContaining(nmFilial);
-//        List<ProdutoFilialEstoqueDTO> filialDTO = new ArrayList<>();
-//        for (ProdutoFilialEstoqueEntity entity : pfEntity) {
-//            ProdutoFilialEstoqueDTO dto = pfBO.parseToDTO(entity);
-//            filialDTO.add(dto);
-//        }
-//        return filialDTO;
-//    }
 
     public List<ProdutoFilialEstoqueDTO> buscarNmFilial(String NM_FILIAL) {
         Map<Integer, ProdutoFilialEstoqueDTO> map = new HashMap<>();
