@@ -10,8 +10,8 @@ import java.util.List;
 @Entity
 @Table(name = "TB_FILIAL")
 @Data
+@NamedQuery(name = "buscarNfPorCD", query = "select n from FilialEntity n where n.bandeira  !=:NM_BANDEIRA")
 @NamedQuery(name = "buscarNfPornmFilial", query = "select n from FilialEntity n where n.nmFilial  =:NM_FILIAL")
-//@NamedQuery(name = "buscarNfPornmFilial", query = "select n from FilialEntity n where n.nmFilial  =:NM_BANDEIRA")
 public class FilialEntity {
 
     @Id
@@ -28,9 +28,7 @@ public class FilialEntity {
     @Column(name = "NR_TELEFONE")
     private String nr_telefone;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "CD_FILIAL")
-//    private List<ProdutoFilialEstoqueEntity> produtos;
-
+    @Column(name = "NM_BANDEIRA")
+    private String bandeira;
 
 }

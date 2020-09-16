@@ -46,6 +46,12 @@ public class FilialController {
         return ResponseEntity.ok().body(service.buscarNfPornmFilial(nmFilial));
     }
 
+    //LISTAR POR CD
+    @GetMapping("/filial/cd/{nmFilial}")
+    public ResponseEntity<Object> buscarNfPorCD(@PathVariable("nmFilial") String nmFilial) {
+        return ResponseEntity.ok().body(service.buscarNfPorCD(nmFilial));
+    }
+
     //ATUALIZAR
     @PutMapping("/filial")
     @ApiOperation(value = "Atualizar filiais")

@@ -49,6 +49,10 @@ public class FilialService {
         return manager.createNamedQuery("buscarNfPornmFilial", FilialEntity.class).setParameter("NM_FILIAL", nmFilial).getResultList();
     }
 
+    public List<FilialEntity> buscarNfPorCD(String nmFilial) {
+        return manager.createNamedQuery("buscarNfPorCD", FilialEntity.class).setParameter("NM_BANDEIRA", nmFilial).getResultList();
+    }
+
     public void atualizar(FilialDTO dto) throws Exception {
         FilialEntity entity = repository.getOne(dto.getCd_filial());
         if (entity != null) {
