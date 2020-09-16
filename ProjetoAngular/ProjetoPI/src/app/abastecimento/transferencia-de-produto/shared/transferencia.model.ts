@@ -9,6 +9,7 @@ export interface Transferencia {
     nrSerie: number,
     emissao: Date,
     entrada: Date,
+    vlDocumentoFiscal: number,
     itens: ResponseEntradaItens []
 }
 

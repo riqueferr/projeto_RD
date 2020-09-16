@@ -49,6 +49,7 @@ export class EntradaDeProdutoComponent implements OnInit {
 
   item: ResponseEntradaItens = new ResponseEntradaItens();
 
+  teste: ResponseEntradaItens[];
   responseEntradas: ResponseEntradas[];
   responseProdutos: ResponseProdutos[];
   responseFornecedores: ResponseFornecedores[];
@@ -64,7 +65,7 @@ export class EntradaDeProdutoComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     this.listarTodosFornecedores();
-    this.listarTodosProdutos();
+    // this.listarTodosProdutos();
 
     $(document).ready(function () {
       $('.data').mask('00/00/0000');
@@ -86,19 +87,13 @@ export class EntradaDeProdutoComponent implements OnInit {
   }
 
   listarTodosProdutos() {
-    this.responseProdutoService.getProdutos().subscribe(response => {
-      this.responseProdutos = response;
-      this.loading = false;
-    });
+      console.log(this.request.idFornecedor);
+      var idFornecedor = this.request.idFornecedor.toString();
+      this.responseProdutoService.getProdutosFornecedores(idFornecedor).subscribe(response => {
+        this.responseProdutos = response;
+        this.loading = false;
+      });
   }
-
-  // listarTodosProdutos() {
-  //     var idFornecedor = this.request.idFornecedor.toString();
-  //     this.responseProdutoService.getProdutosFornecedores(idFornecedor).subscribe(response => {
-  //       this.responseProdutos = response;
-  //       this.loading = false;
-  //     });
-  // }
 
   listarTodosFornecedores() {
     this.responseFornecedoresService.getFornecedores().subscribe(response => {
@@ -116,6 +111,10 @@ export class EntradaDeProdutoComponent implements OnInit {
     console.log(this.request.itens);
     this.item = new ResponseEntradaItens();
     this.i++;
+  }
+
+  pegarProdutos(produtos): void{
+    console.log("Cod: " + produtos)
   }
 
   register(): void {

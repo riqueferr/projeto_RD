@@ -43,7 +43,7 @@ export class ListaNmfilialEntradaComponent implements OnInit {
   }
 
   register(): void {
-    if (this.idDF != null) {
+    if (this.idDF != null && this.idDF > 0) {
       console.log(this.idDF);
       this.entradasService.getEntrada(this.idDF).subscribe();
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>

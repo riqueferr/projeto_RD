@@ -75,7 +75,7 @@
                   </div>
                 </td>
                 <td>{{ request.nmFornecedor }}</td>
-                <td ng-model-options="{timezone: 'America/Sao_Paulo'}">{{ request.dtEntrada}}</td>
+                <td ng-model-options="{timezone: 'America/Sao_Paulo'}">{{ request.entrada | date: 'dd/MM/yyyy'}}</td>
                 <td>R$ {{ request.vlDocumentoFiscal }}</td>
                 <!-- <td *ngIf="entradas.itens[0]">{{ entradas.itens[0].cdProduto }}</td> -->
               </tr>

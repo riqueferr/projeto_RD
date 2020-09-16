@@ -43,6 +43,7 @@ export class TransferenciaDeProdutoComponent implements OnInit {
       nrSerie: 4444444,
       emissao: null,
       entrada: null,
+      vlDocumentoFiscal: null,
       itens: []
     };
 
@@ -77,6 +78,8 @@ export class TransferenciaDeProdutoComponent implements OnInit {
       this.loading = false;
     });
   }
+
+  
 
    //Famosa gambiarra
    i: number;

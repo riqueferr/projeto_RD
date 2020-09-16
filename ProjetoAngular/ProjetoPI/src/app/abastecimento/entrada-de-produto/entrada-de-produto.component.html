@@ -37,7 +37,7 @@
                                         <div class="invalid-tooltip">
                                               Digite o fornecedor, por favor.
                                           </div>
-                                          <select [(ngModel)]='request.idFornecedor'class="form-control" id="idFornecedor" name="idFornecedor" ngModel required #idFornecedor="ngModel">
+                                          <select [(ngModel)]='request.idFornecedor' (change)="listarTodosProdutos()" class="form-control" id="idFornecedor" name="idFornecedor" ngModel required #idFornecedor="ngModel">
                                             <option *ngFor='let fornecedores of responseFornecedores' value="{{fornecedores.cd_fornecedor}}" >{{ fornecedores.nm_razao_social }}</option>
                                           </select>
                                           <div class='row' *ngIf="loading">
@@ -143,8 +143,8 @@
                                       <tr *ngFor='let itens of request.itens'>
                                         <th scope="row" >{{itens.nrItemDocumento}}</th>
                                         <td >{{itens.cdProduto}}</td>
-                                        <td>Product Name</td>
-                                        <!-- <td >{{itens.nmProduto}}</td> -->
+                                        <!-- <td>Product Name</td> -->
+                                        <td >{{itens.nmProduto}}</td>
                                         <td >{{itens.qtItem}}</td>
                                       </tr>
                                     </tbody>

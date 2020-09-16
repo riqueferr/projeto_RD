@@ -104,6 +104,7 @@ public class DFTransferenciaBO {
         dfEntity.setNrSerie(dto.getNrSerie());
         dfEntity.setDtEmissao(java.sql.Date.valueOf(formataDataEnviaBD(dto.getEmissao())));
         dfEntity.setDtEntrada(java.sql.Date.valueOf(formataDataEnviaBD(dto.getEntrada())));
+        dfEntity.setVlDocumentoFiscal(dto.getVlDocumentoFiscal());
 
         List<DocumentoItemEntity> itemsEntity = new ArrayList<>();
         for (ItensDfDTO itemDTO : dto.getItens()) {
