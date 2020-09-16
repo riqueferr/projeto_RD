@@ -49,7 +49,7 @@ public class DFEntradaService {
         String entrada = "ENTRADA";
 
         Query query = manager.createNativeQuery("SELECT DC.ID_DOCUMENTO_FISCAL, O.CD_OPERACAO, O.DS_OPERACAO, F.CD_FILIAL, " +
-                "F.NM_FILIAL, FO.CD_FORNECEDOR, FO.DS_DENOMINACAO, DC.NR_CHAVE_ACESSO, " +
+                "F.NM_FILIAL, FO.CD_FORNECEDOR, FO.NM_RAZAO_SOCIAL, DC.NR_CHAVE_ACESSO, " +
                 "DC.NR_NF, DC.NR_SERIE, DC.DT_EMISSAO, DC.DT_ENTRADA, DC.VL_DOCUMENTO_FISCAL, " +
                 "DI.NR_ITEM_DOCUMENTO, DI.CD_PRODUTO, P.NM_FANTASIA, DI.QT_ITEM " +
                 "FROM TB_DOCUMENTO_FISCAL DC, TB_OPERACAO O, TB_FILIAL F, TB_FORNECEDOR FO, " +
@@ -122,7 +122,7 @@ public class DFEntradaService {
         Map<Integer, DFEntradaDTO> map = new HashMap<>();
 
         Query query = manager.createNativeQuery("SELECT DC.ID_DOCUMENTO_FISCAL, O.CD_OPERACAO, O.DS_OPERACAO, F.CD_FILIAL, " +
-                "F.NM_FILIAL, FO.CD_FORNECEDOR, FO.DS_DENOMINACAO, DC.NR_CHAVE_ACESSO, " +
+                "F.NM_FILIAL, FO.CD_FORNECEDOR, FO.NM_RAZAO_SOCIAL, DC.NR_CHAVE_ACESSO, " +
                 "DC.NR_NF, DC.NR_SERIE, DC.DT_EMISSAO, DC.DT_ENTRADA, DC.VL_DOCUMENTO_FISCAL, " +
                 "DI.NR_ITEM_DOCUMENTO, DI.CD_PRODUTO, P.NM_FANTASIA, DI.QT_ITEM " +
                 "FROM TB_DOCUMENTO_FISCAL DC, TB_OPERACAO O, TB_FILIAL F, TB_FORNECEDOR FO, " +

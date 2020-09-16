@@ -27,6 +27,7 @@ export class TransferenciaDeProdutoComponent implements OnInit {
   loading: boolean;
 
   responseProdutos: ResponseProdutos[];
+  responseEstoque: ResponseEstoque[];
   responseFiliais: ResponseFiliais[];
   item: ResponseEntradaItens = new ResponseEntradaItens();
 
@@ -56,7 +57,7 @@ export class TransferenciaDeProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.listarTodosProdutos();
+    // this.listarTodosProdutos();
     this.listarTodasFiliais();
 
     $(document).ready(function() {
@@ -72,14 +73,21 @@ export class TransferenciaDeProdutoComponent implements OnInit {
     console.log(it.valid);  // false
   }
 
+  // listarTodosProdutos() {
+  //   this.responseProdutoService.getProdutos().subscribe(response => {
+  //     this.responseProdutos = response;
+  //     this.loading = false;
+  //   });
+  // }
+
   listarTodosProdutos() {
-    this.responseProdutoService.getProdutos().subscribe(response => {
-      this.responseProdutos = response;
+    console.log(this.request.idFilial);
+    var idFilial = this.request.idFilial.toString();
+    this.transferenciaService.getFilialProduto(idFilial).subscribe(response => {
+      this.responseEstoque = response;
       this.loading = false;
     });
   }
-
-  
 
    //Famosa gambiarra
    i: number;

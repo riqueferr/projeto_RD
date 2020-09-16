@@ -41,6 +41,11 @@ public class ProdutoFilialEstoqueController {
         return ResponseEntity.ok().body(service.buscarCdFilial(cdFilial));
     }
 
+    @GetMapping("/FilialEstoque/filialproduto/{cdFilial}")
+    public ResponseEntity buscarFilialProduto(@PathVariable("cdFilial") Integer cdFilial) {
+        return ResponseEntity.ok().body(service.buscarFilialProduto(cdFilial));
+    }
+
     @GetMapping("/FilialEstoque/filial/nome/{nmFilial}")
     public ResponseEntity buscarPorNmFilial(@PathVariable("nmFilial") String nmFilial) {
         return ResponseEntity.ok().body(service.buscarNmFilial(nmFilial));
