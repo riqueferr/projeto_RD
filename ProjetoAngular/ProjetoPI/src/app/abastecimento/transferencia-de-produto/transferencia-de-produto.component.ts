@@ -4,7 +4,7 @@ import { ResponseProdutos} from '../lista-produtos/shared/produtos.model';
 import { ProdutosService } from '../lista-produtos/shared/produtos.service';
 import { EstoqueService } from '../relatorio-de-estoque/shared/estoque.service';
 import { ResponseEstoque } from '../relatorio-de-estoque/shared/estoque.model';
-import { ResponseEntradaItens } from '../entrada-de-produto/shared/entrada.model';
+import { Produto, ResponseEntradaItens } from '../entrada-de-produto/shared/entrada.model';
 import { FornecedoresService } from '../cadastro-de-fornecedor/shared/fornecedores.service';
 import { ResponseFornecedores } from '../cadastro-de-fornecedor/shared/fornecedores.model';
 
@@ -30,8 +30,10 @@ export class TransferenciaDeProdutoComponent implements OnInit {
   responseEstoque: ResponseEstoque[];
   responseFiliais: ResponseFiliais[];
   item: ResponseEntradaItens = new ResponseEntradaItens();
+  responseProduto: Produto;
 
   @ViewChild('it', { static: true }) it: NgForm;
+  @ViewChild('itItens', { static: true }) itItens: NgForm;
 
   request: Transferencia = {
     operacao: {
@@ -48,11 +50,13 @@ export class TransferenciaDeProdutoComponent implements OnInit {
       itens: []
     };
 
+    itemSelec: any;
+
   constructor(
     private http: HttpClient,
     private router: Router,
     private transferenciaService: TransferenciaService,
-    private responseProdutoService: ProdutosService,
+    private responseProdutoService: ProdutosService
   ) { }
 
   ngOnInit(): void {
@@ -73,13 +77,6 @@ export class TransferenciaDeProdutoComponent implements OnInit {
     console.log(it.valid);  // false
   }
 
-  // listarTodosProdutos() {
-  //   this.responseProdutoService.getProdutos().subscribe(response => {
-  //     this.responseProdutos = response;
-  //     this.loading = false;
-  //   });
-  // }
-
   listarTodosProdutos() {
     console.log(this.request.idFilial);
     var idFilial = this.request.idFilial.toString();
@@ -89,20 +86,32 @@ export class TransferenciaDeProdutoComponent implements OnInit {
     });
   }
 
+
+  selecionarItem(itemSelecionado: any) {
+    this.itemSelec = itemSelecionado
+  }
+
+  cancelarProduto(){
+    console.log("item selecionado cancelar: " + this.itemSelec);
+    this.request.itens.splice(this.itemSelec, 1);
+  }
+
    //Famosa gambiarra
    i: number;
   
-   itens(): void{
-     this.item.nrItemDocumento = this.i;
-     this.request.itens.push(this.item);
-     console.log(this.request.itens);
-     this.item = new ResponseEntradaItens();
-     this.i ++;
-   }
-
-   pegar(){
+   itens(): void {
+    this.transferenciaService.getProduto(this.item.cdProduto).subscribe(response => {
+    this.responseProduto = response
+      // console.log(this.responseProduto)
+      this.item.nmProduto = this.responseProduto.nm_fantasia;
+      this.item.nrItemDocumento = this.i;
+      this.request.itens.push(this.item);
       console.log(this.request.itens);
-   }
+      this.item = new ResponseEntradaItens();
+      this.i++;
+    })
+  }
+
 
   listarTodasFiliais() {
     this.transferenciaService.getFiliais().subscribe(response => {
@@ -137,6 +146,15 @@ export class TransferenciaDeProdutoComponent implements OnInit {
       return true;
     }
 
+  }
+
+  
+  validacaoCDProduto(){
+    if(this.request.itens.length > 0){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   validarData() {

@@ -23,7 +23,7 @@
                   </div>
                   <div class="form-group col-md-4">
                       <label for="inputNomeproduto4">Centro de Distribuição</label>
-                      <select name="idFilial" (change)="listarTodosProdutos()" ngModel #idFilial="ngModel" class="form-control"
+                      <select name="idFilial" [disabled]="validacaoCDProduto() == true" (change)="listarTodosProdutos()" ngModel #idFilial="ngModel" class="form-control"
                         [(ngModel)]='request.idFilial' id="idFilial" required>
                         <option value="5">CD BUTANTÃ</option>
                         <option value="6">CD EMBU</option>
@@ -78,9 +78,10 @@
                         </div>
                     </div>
                 </div>
-
+              </form>
                 <!-- Itens do documento fiscal -->
-                <form class="needs-validation" novalidate>
+                <!-- <form class="needs-validation" novalidate> -->
+                  <form class="needs-validation" #itItens="ngForm" novalidate>
                     <br>
                     <h3>Itens transferência</h3>
                     <br>
@@ -91,7 +92,7 @@
                                   Selecione um produto, por favor.
                             </div> 
                             <select [(ngModel)]='item.cdProduto' class="form-control" id="cdProduto" name="cdProduto" required>
-                                <option *ngFor='let produtos of responseEstoque'  ngValue="{{produtos.cdProduto}}">{{produtos.cdProduto}} {{ produtos.nmProduto }}</option>
+                                <option *ngFor='let produtos of responseEstoque'  ngValue="{{produtos.cdProduto}}">{{produtos.qt_estoque}} - {{ produtos.nmProduto }}</option>
                             </select>
                               <div class='row' *ngIf="loading">
                                 <div class="spinner-grow text-success text-center" role="status">
@@ -101,7 +102,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputdescricao">Quantidade Itens</label>
-                            <input type="number" name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="1" [(ngModel)]='item.qtItem' min="1">
+                            <input type="number" name="qtItem" required #qtItem="ngModel" pattern="[1-9]+$" class="form-control" placeholder="1" [(ngModel)]='item.qtItem' min="1">
                             <div class="invalid-tooltip">
                                   Digite uma quantidade de itens, por favor.
                               </div>
@@ -110,7 +111,7 @@
                         <div style="margin-top: 8px;" class="form-group">
                           <br>
                           
-                          <button type="button" class="btn btn-outline-success my-2 my-sm-0" (click)="itens()" >Adicionar item</button>
+                          <button type="button" class="btn btn-outline-success my-2 my-sm-0" [disabled]="itItens.form.invalid" (click)="itens()" >Adicionar item</button>
                         </div>
                         <div class="col-md-2"></div>
 
@@ -125,26 +126,44 @@
                 <table class="table table-hover">
                     <thead class="thead-default tituloTabela">
                       <tr>
-                        <th scope="col">Item</th>
                         <th scope="col">Código Produto</th>
                         <th scope="col">Nome Produto</th>
                         <th scope="col">Quantidade de Itens</th>
+                        <th scope="col">Remover</th>
                       </tr>
                     </thead>
               
                     <tbody>
-                      <tr *ngFor='let itens of request.itens'>
-                        <th scope="row" >{{itens.nrItemDocumento}}</th>
+                      <tr *ngFor='let itens of request.itens; let i = index;'>
                         <td >{{itens.cdProduto}}</td>
-                        <td>Product Name</td>
-                        <!-- <td >{{itens.nmProduto}}</td> -->
+                        <td >{{itens.nmProduto}}</td>
                         <td >{{itens.qtItem}}</td>
+                        <td><abbr title="Excluir">
+                          <button class="btn btn-secondary" (click)="selecionarItem(i)"
+                            data-dismiss="modal" data-toggle="modal" data-target="#removerProduto"><i class="fa fa-trash"></i>
+                            </button>
+                        </abbr>
+                      </td>
                       </tr>
                     </tbody>
                   </table>
-              </form>
+              
               <!-- FIM DA LISTA -->
 
+            </div>
+            <!-- Modal Excluir-->
+            <div class="modal fade" id="removerProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    Deseja realmente remover o item selecionado ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger" (click)="cancelarProduto()">Remover</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

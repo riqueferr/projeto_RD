@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Transferencia, ResponseTransferencia, ResponseFiliais } from './transferencia.model';
+import { Transferencia, ResponseTransferencia, ResponseFiliais, Produto } from './transferencia.model';
 import { Observable } from 'rxjs';
 import { ResponseProdutos } from '../../lista-produtos/shared/produtos.model';
 import { ResponseEstoque } from '../../relatorio-de-estoque/shared/estoque.model';
@@ -17,6 +17,7 @@ export class TransferenciaService {
   private readonly APINomeFilial = 'http://localhost:8080/abastecimento/transferencia/filial'
   private readonly APILojas = 'http://localhost:8080/abastecimento/filial/cd/RD'
   private readonly APIFilialProduto = 'http://localhost:8080/abastecimento/FilialEstoque/filialproduto'
+  private readonly APIProduto = 'http://localhost:8080/abastecimento/produtos';
 
 
   getFilialProduto(codigo: string): Observable<ResponseEstoque[]> {
@@ -50,6 +51,11 @@ export class TransferenciaService {
   createTransferencia(request: Transferencia): Observable<Transferencia> {
     const URL = `${this.API}`;
     return this.http.post<Transferencia>(URL, request);
+  }
+
+  getProduto(codigo: number): Observable<Produto>{
+    const URL = `${this.APIProduto}/${codigo}`;
+    return this.http.get<Produto>(URL);
   }
 
 }

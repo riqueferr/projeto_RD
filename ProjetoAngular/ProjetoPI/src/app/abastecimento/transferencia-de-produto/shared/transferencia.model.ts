@@ -39,4 +39,9 @@ export interface Filiais {
     nm_filial: String,
 }
 
+export interface Produto {
+    codigo: number,
+    nm_fantasia: String
+}
+
 
