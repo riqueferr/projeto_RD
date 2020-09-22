@@ -64,7 +64,7 @@ public class ProdutoFilialEstoqueController {
         ResultData resultData = null;
         if (dto.getCdFilial() == null)
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Filial não informado!");
-        else if (dto.getCodProduto() == null)
+        else if (dto.getCdProduto() == null)
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Produto não informado!");
 
         if (resultData != null)

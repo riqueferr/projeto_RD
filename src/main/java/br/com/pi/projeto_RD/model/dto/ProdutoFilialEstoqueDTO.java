@@ -22,7 +22,7 @@ public class ProdutoFilialEstoqueDTO {
     private String nmFilial;
 
     //INFO PRODUTOS
-    private BigInteger codProduto;
+    private BigInteger cdProduto;
     private String nmProduto;
 
     private String subCategoria;

@@ -53,8 +53,7 @@ public class DocumentoFiscalService {
                 "LEFT OUTER JOIN TB_FORNECEDOR FO ON DF.ID_FORNECEDOR = FO.CD_FORNECEDOR " +
                 "LEFT OUTER JOIN TB_MOTIVO M ON DF.ID_MOTIVO = M.ID_MOTIVO " +
                 "LEFT OUTER JOIN TB_DOCUMENTO_ITEM DI ON DF.ID_DOCUMENTO_FISCAL = DI.ID_DOCUMENTO_FISCAL " +
-                "LEFT OUTER JOIN TB_PRODUTO P ON DI.CD_PRODUTO = P.CD_PRODUTO " +
-                "order by DF.ID_DOCUMENTO_FISCAL");
+                "LEFT OUTER JOIN TB_PRODUTO P ON DI.CD_PRODUTO = P.CD_PRODUTO");
 
         List<Object []> listEntity = query.getResultList();
         for(Object [] produto : listEntity){

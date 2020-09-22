@@ -37,7 +37,7 @@
                                         <div class="invalid-tooltip">
                                               Digite o fornecedor, por favor.
                                           </div>
-                                          <select [(ngModel)]='request.idFornecedor' (change)="listarTodosProdutos()" class="form-control" id="idFornecedor" name="idFornecedor" ngModel required #idFornecedor="ngModel">
+                                          <select [(ngModel)]='request.idFornecedor' [disabled]="validacaoFornecedorProduto() == true" (change)="listarTodosProdutos()" class="form-control" id="idFornecedor" name="idFornecedor" ngModel required #idFornecedor="ngModel">
                                             <option *ngFor='let fornecedores of responseFornecedores' value="{{fornecedores.cd_fornecedor}}" >{{ fornecedores.nm_razao_social }}</option>
                                           </select>
                                           <div class='row' *ngIf="loading">
@@ -70,9 +70,9 @@
                                         <label for="inputLote">Data Emissão</label>
                                         <input id="dtEmissao" name="dtEmissao" required #dtEmissao="ngModel" class="data form-control" placeholder="____/___/___"
                                         [(ngModel)]='request.emissao'>
-                                        <div class="invalid-tooltip">
-                                              Digite uma data de emissão, por favor.
-                                        </div>
+                                        <div *ngIf="validarDataEmissao() == false" class="invalid-tooltip d-block">
+                                          <div [hidden]="validarDataEmissao() == true">Insira uma data menor ou igual a atual.</div>
+                                      </div>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputCodProd">Data Entrada</label>
@@ -85,9 +85,9 @@
                                 </div>
                             </form>
                             
-                                <!--Fim da terceira linha -->
                                 <!-- ENTRADA DE PRODUTOS -->
-                                <form class="needs-validation" novalidate>
+                                <!-- <form class="needs-validation" novalidate> -->
+                                <form class="needs-validation" #itItens="ngForm" novalidate>
                                 <br>
                                 <h3>Itens entrada</h3>
                                 <br>
@@ -97,8 +97,8 @@
                                         <div class="invalid-tooltip">
                                               Selecione um produto, por favor.
                                         </div> 
-                                        <select [(ngModel)]='item.cdProduto' class="form-control" id="cdProduto" name="cdProduto" required>
-                                            <option *ngFor='let produtos of responseProdutos' value="{{produtos.codigo}}">{{produtos.codigo}} {{ produtos.nm_fantasia }}</option>
+                                        <select [(ngModel)]='item.cdProduto'class="form-control" id="cdProduto" name="cdProduto" required>
+                                            <option *ngFor='let produtos of responseProdutos'  ngValue="{{produtos.codigo}}">{{ produtos.nm_fantasia }}</option>
                                         </select>
                                           <div class='row' *ngIf="loading">
                                             <div class="spinner-grow text-success text-center" role="status">
@@ -108,21 +108,22 @@
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="inputdescricao">Quantidade Itens</label>
-                                        <input type="number" name="qtItem" required #qtItem="ngModel" class="form-control" placeholder="1" [(ngModel)]='item.qtItem' min="1">
+                                        <input type="number" name="qtItem" required #qtItem="ngModel" pattern="[1-9]+$" class="form-control"  placeholder="1" [(ngModel)]='item.qtItem'>
                                         <div class="invalid-tooltip">
                                               Digite uma quantidade de itens, por favor.
                                           </div>
                                     </div>
+
                                     <!-- botão adicionar -->
                                     <div class="form-group">
                                       <br>
-                                      <button type="button" class="btn btn-outline-success my-2 my-sm-0" (click)="itens()" >Adicionar item</button>
+                                      <button type="button" class="btn btn-outline-success my-2 my-sm-0" [disabled]="itItens.form.invalid" (click)="itens()" >Adicionar item</button>
                                     </div>
                                     <div class="col-md-2"></div>
 
                                     <div class="form-group">
                                       <br>
-                                      <button type="submit" class="btn btn-default botaoConfirmar" [disabled]="it.form.invalid || validarData() == false" (click)="register()">Confirmar</button>
+                                      <button type="submit" class="btn btn-default botaoConfirmar" [disabled]="it.form.invalid || validarData() == false || validarDataEmissao() == false" (click)="register()">Confirmar</button>
                                       <a routerLink='/listaEntradaProdutos'><button type="button" class="btn btn-default botaoCancelar">Cancelar</button></a>
                                     </div>
                                 </div>
@@ -132,24 +133,44 @@
                                 <table class="table table-hover">
                                     <thead class="thead-default tituloTabela">
                                       <tr>
-                                        <th scope="col">Item</th>
+                                        <!-- <th scope="col">Item</th> -->
                                         <th scope="col">Código Produto</th>
                                         <th scope="col">Nome Produto</th>
                                         <th scope="col">Quantidade de Itens</th>
+                                        <th scope="col">Remover</th>
                                       </tr>
                                     </thead>
                               
                                     <tbody>
-                                      <tr *ngFor='let itens of request.itens'>
-                                        <th scope="row" >{{itens.nrItemDocumento}}</th>
-                                        <td >{{itens.cdProduto}}</td>
-                                        <!-- <td>Product Name</td> -->
+                                      <tr *ngFor='let itens of request.itens; let i = index;'>
+                                        <!-- <th scope="row" >{{itens.nrItemDocumento}}</th> -->
+                                        <th scope="row" >{{itens.cdProduto}}</th>
                                         <td >{{itens.nmProduto}}</td>
                                         <td >{{itens.qtItem}}</td>
+                                        <td><abbr title="Excluir">
+                                          <button class="btn btn-secondary" (click)="selecionarItem(i)"
+                                            data-dismiss="modal" data-toggle="modal" data-target="#removerProduto"><i class="fa fa-trash"></i>
+                                            </button>
+                                        </abbr>
+                                      </td>
                                       </tr>
                                     </tbody>
                                   </table>
                         </div>
+                           <!-- Modal Excluir-->
+                            <div class="modal fade" id="removerProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  Deseja realmente remover o item selecionado ?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                  <button type="button" data-dismiss="modal" class="btn btn-danger" (click)="cancelarProduto()">Remover</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                     </div>
                 </div>
             </div>

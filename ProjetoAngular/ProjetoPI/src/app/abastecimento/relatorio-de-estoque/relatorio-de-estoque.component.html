@@ -59,7 +59,7 @@
                       <tr *ngFor='let estoques of responseEstoques | paginate: { itemsPerPage: 8, currentPage: paginaAtual }; let i = index'>
                         <th scope="row">{{ estoques.cdFilial }}</th>
                         <td class='maxCarch'>{{ estoques.nmFilial }}</td>
-                        <th scope="row" class='maxCarch'>{{ estoques.codProduto }}</th>
+                        <th scope="row" class='maxCarch'>{{ estoques.cdProduto }}</th>
                         <td class='maxCarch'>{{ estoques.nmProduto }}</td>
                         <td class='maxCarch'>{{ estoques.subCategoria }}</td>
                         <td class='maxCarch'>{{ estoques.qt_estoque }}</td>

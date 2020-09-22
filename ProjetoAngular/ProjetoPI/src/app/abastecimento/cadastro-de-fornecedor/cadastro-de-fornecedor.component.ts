@@ -31,6 +31,7 @@ export class CadastroDeFornecedorComponent implements OnInit {
     nr_inscricao: null,
     ds_email: null,
     nr_telefone: null,
+    nr_celular: null,
     fk_tipo_fornecedor: {
       id_tipo_fornecedor: null,
       ds_tipo_fornecedor: null
@@ -61,6 +62,7 @@ export class CadastroDeFornecedorComponent implements OnInit {
       $('#cnpj').mask('00.000.000/0000-00');
       $('#cep').mask('00000-000');
       $('#phone').mask('(00) 0000-0000');
+      $('#cell').mask('(00) 00000-0000');
       $('#numeroInscricao').mask('000.000.000.000');
     });
   }

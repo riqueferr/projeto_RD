@@ -1,5 +1,5 @@
 import { EntradasService } from './shared/entrada.service';
-import { Entradas, ResponseEntradas, ResponseEntradaItens } from './shared/entrada.model';
+import { Entradas, ResponseEntradas, ResponseEntradaItens, Produto } from './shared/entrada.model';
 import { ResponseProdutos } from '../lista-produtos/shared/produtos.model';
 import { ProdutosService } from '../lista-produtos/shared/produtos.service';
 import { ResponseFornecedores } from '../cadastro-de-fornecedor/shared/fornecedores.model';
@@ -29,6 +29,7 @@ export class EntradaDeProdutoComponent implements OnInit {
   loading: boolean;
 
   @ViewChild('it', { static: true }) it: NgForm;
+  @ViewChild('itItens', { static: true }) itItens: NgForm;
 
   pr: any;
 
@@ -47,12 +48,14 @@ export class EntradaDeProdutoComponent implements OnInit {
     itens: []
   };
 
+  itemSelec: any;
+
   item: ResponseEntradaItens = new ResponseEntradaItens();
 
-  teste: ResponseEntradaItens[];
   responseEntradas: ResponseEntradas[];
   responseProdutos: ResponseProdutos[];
   responseFornecedores: ResponseFornecedores[];
+  responseProduto: Produto;
 
   constructor(
     private http: HttpClient,
@@ -105,16 +108,26 @@ export class EntradaDeProdutoComponent implements OnInit {
   //Famosa gambiarra
   i: number;
 
-  itens(): void {
-    this.item.nrItemDocumento = this.i;
-    this.request.itens.push(this.item);
-    console.log(this.request.itens);
-    this.item = new ResponseEntradaItens();
-    this.i++;
+  selecionarItem(itemSelecionado: any) {
+    this.itemSelec = itemSelecionado
   }
 
-  pegarProdutos(produtos): void{
-    console.log("Cod: " + produtos)
+  cancelarProduto(){
+    console.log("item selecionado cancelar: " + this.itemSelec);
+    this.request.itens.splice(this.itemSelec, 1);
+  }
+
+  itens(): void {
+    this.entradaService.getProduto(this.item.cdProduto).subscribe(response => {
+    this.responseProduto = response
+      // console.log(this.responseProduto)
+      this.item.nmProduto = this.responseProduto.nm_fantasia;
+      this.item.nrItemDocumento = this.i;
+      this.request.itens.push(this.item);
+      console.log(this.request.itens);
+      this.item = new ResponseEntradaItens();
+      this.i++;
+    })
   }
 
   register(): void {
@@ -122,6 +135,33 @@ export class EntradaDeProdutoComponent implements OnInit {
       console.log(this.request);
       this.entradaService.createEntrada(this.request).subscribe();
       this.router.navigate(['/listaEntradaProdutos']);
+    }
+  }
+
+  validarDataEmissao(){
+    if (this.request.emissao != null) {
+      var e = this.request.emissao.toString();
+      var arrDataExclusao = e.split('/');
+      var stringFormatada = arrDataExclusao[1] + '-' + arrDataExclusao[0] + '-' +
+        arrDataExclusao[2];
+      var dataEmissao = new Date(stringFormatada);
+    }
+
+    let dataAtual = new Date();
+
+    if(dataEmissao > dataAtual){
+      return false;
+    }else{
+      return true;
+    }
+
+  }
+
+  validacaoFornecedorProduto(){
+    if(this.request.itens.length > 0){
+      return true;
+    }else{
+      return false;
     }
   }
 

@@ -33,6 +33,7 @@ public class FornecedorBO {
         dto.setNr_inscricao(f.getNr_inscricao());
         dto.setDs_email(f.getDs_email());
         dto.setNr_telefone(f.getNr_telefone());
+        dto.setNr_celular(f.getNr_celular());
         dto.setFk_tipo_fornecedor(f.getFk_tipo_fornecedor());
 
         List<EnderecoDTO> endereco = new ArrayList<>();
@@ -71,6 +72,7 @@ public class FornecedorBO {
         f.setNr_inscricao(dto.getNr_inscricao());
         f.setDs_email(dto.getDs_email());
         f.setNr_telefone(dto.getNr_telefone());
+        f.setNr_celular(dto.getNr_celular());
         f.setFk_tipo_fornecedor(tipoFornecedorRepository.getOne(dto.getFk_tipo_fornecedor().getId_tipo_fornecedor()));
 
         List<EnderecoEntity> itemsEndereco = new ArrayList<>();

@@ -100,6 +100,10 @@ export class TransferenciaDeProdutoComponent implements OnInit {
      this.i ++;
    }
 
+   pegar(){
+      console.log(this.request.itens);
+   }
+
   listarTodasFiliais() {
     this.transferenciaService.getFiliais().subscribe(response => {
       this.responseFiliais = response;
@@ -114,6 +118,25 @@ export class TransferenciaDeProdutoComponent implements OnInit {
       this.router.navigate(['/listaTransferenciaProduto']);
       alert("Transferência registrada com sucesso!");
     }
+  }
+
+  validarDataEmissao(){
+    if (this.request.emissao != null) {
+      var e = this.request.emissao.toString();
+      var arrDataExclusao = e.split('/');
+      var stringFormatada = arrDataExclusao[1] + '-' + arrDataExclusao[0] + '-' +
+        arrDataExclusao[2];
+      var dataEmissao = new Date(stringFormatada);
+    }
+
+    let dataAtual = new Date();
+
+    if(dataEmissao > dataAtual){
+      return false;
+    }else{
+      return true;
+    }
+
   }
 
   validarData() {

@@ -21,6 +21,7 @@ public class FornecedorDTO {
     private String nr_inscricao;
     private String ds_email;
     private String nr_telefone;
+    private String nr_celular;
 
     private TipoFornecedorEntity fk_tipo_fornecedor;
     private List<EnderecoDTO> endereco;

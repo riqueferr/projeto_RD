@@ -6,6 +6,7 @@ export interface Fornecedores {
   nr_inscricao: string;
   ds_email: string;
   nr_telefone: string;
+  nr_celular: string;
   fk_tipo_fornecedor: {
     id_tipo_fornecedor: number;
     ds_tipo_fornecedor: string;
