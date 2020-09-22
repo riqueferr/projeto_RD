@@ -1,0 +1,77 @@
+<div class='row'>
+    <div class='col-md-3'>
+      <!-- SideBar -->
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class='col-md-9'>
+      <div class="container">
+        <br>
+        <div class="container">
+          <h2>Lista de Produtos</h2>
+        </div>
+        <br>
+        <div class="container">
+          <div class='row justify-content-start marginTabela justify-content-between'>
+            <form class="form-inline comMarginBottom">
+              <input id="search" name="search" class="form-control mr-sm-2"
+                placeholder="Pesquisar produto" [(ngModel)]='idProduto'>
+                <button class="btn btn botaoConfirmar my-2 my-sm-0" type="submit" (click)="register()">
+                  <i class="fa fa-search"></i>
+                </button>
+            </form>
+            <form class="form-inline">
+              <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+              <a type='submit' routerLink='/cadastroDeProduto' class='btn btn-default botaoCadastrar centralizar'>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                  <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                </svg>
+                Cadastrar
+              </a>
+            </form>
+          </div>
+          <div class='row' style='text-align: center'>
+            <table class="table table-hover">
+              <thead class="thead-default tituloTabela">
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Sub Categoria</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"> {{ request.codigo }} </th>
+                  <td class="maxCarch">{{ request.nm_fantasia }}</td>
+                  <td>{{ request.subCategoria.dsSubCategoria }}</td>
+                  <td>{{ request.tipo_produto.dsTipoProduto }}</td>
+                  <td _ngcontent-ytp-c40="">
+                    <abbr _ngcontent-ytp-c40="" title="Editar">
+                      <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar"
+                        [routerLink]="['/produtos/editar', request.codigo]">
+                        <i _ngcontent-ytp-c40="" class="fa fa-pencil">
+                        </i>
+                      </button>
+                    </abbr>&nbsp;
+                    <abbr _ngcontent-ytp-c40="" title="Visualizar">
+                      <button _ngcontent-ytp-c40="" type="button" data-toggle="modal" data-target="#exampleModal"
+                        class="btn btn-secondary">
+                        <i _ngcontent-ytp-c40="" class="fa fa-eye">
+                        </i>
+                      </button>
+                    </abbr>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

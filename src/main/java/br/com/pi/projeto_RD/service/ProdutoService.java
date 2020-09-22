@@ -80,20 +80,17 @@ public class ProdutoService {
 
 
     public List<ProdutoDto> listarTodas() {
-        // namedQuery
-//        List<ConsultaProdutosEntity> list = em.createNamedQuery("buscarProdutos", ConsultaProdutosEntity.class).getResultList();
-
-        //nativeNamedQuery
         Map<BigInteger, ProdutoDto> map = new HashMap<>();
 
         Query query = manager.createNativeQuery("SELECT P.CD_PRODUTO, P.NM_FANTASIA, F.CD_FORNECEDOR, F.NM_RAZAO_SOCIAL, S.ID_STATUS_PRODUTO, " +
-                "S.DS_STATUS_PRODUTO, SC.ID_SUB_CATEGORIA, SC.DS_SUB_CATEGORIA, TP.ID_TIPO_PRODUTO, TP.DS_TIPO_PRODUTO, P.NM_FABRICANTE, P.VL_UNIDADE, P.DS_PRODUTO  " +
-                "from TB_PRODUTO P, TB_FORNECEDOR_PRODUTO FP, TB_FORNECEDOR F, TB_STATUS_PRODUTO S, TB_SUB_CATEGORIA_PRODUTO SC, TB_TIPO_PRODUTO TP " +
-                "where P.CD_PRODUTO = FP.CD_PRODUTO " +
-                "AND FP.CD_FORNECEDOR = F.CD_FORNECEDOR " +
-                "AND P.ID_STATUS_PRODUTO = S.ID_STATUS_PRODUTO " +
-                "AND P.ID_SUB_CATEGORIA = SC.ID_SUB_CATEGORIA " +
-                "AND P.ID_TIPO_PRODUTO = TP.ID_TIPO_PRODUTO");
+                "S.DS_STATUS_PRODUTO, SC.ID_SUB_CATEGORIA, SC.DS_SUB_CATEGORIA, TP.ID_TIPO_PRODUTO, " +
+                "TP.DS_TIPO_PRODUTO, P.NM_FABRICANTE, P.VL_UNIDADE, P.DS_PRODUTO FROM TB_PRODUTO P " +
+                "LEFT OUTER JOIN TB_FORNECEDOR_PRODUTO FP ON P.CD_PRODUTO = FP.CD_PRODUTO " +
+                "LEFT OUTER JOIN TB_FORNECEDOR F ON FP.CD_FORNECEDOR = F.CD_FORNECEDOR " +
+                "LEFT OUTER JOIN TB_STATUS_PRODUTO S ON P.ID_STATUS_PRODUTO = S.ID_STATUS_PRODUTO " +
+                "LEFT OUTER JOIN TB_SUB_CATEGORIA_PRODUTO SC ON P.ID_SUB_CATEGORIA = SC.ID_SUB_CATEGORIA " +
+                "LEFT OUTER JOIN TB_TIPO_PRODUTO TP ON  P.ID_TIPO_PRODUTO = TP.ID_TIPO_PRODUTO " +
+                "GROUP BY P.CD_PRODUTO  ORDER BY P.CD_PRODUTO ");
 
         List<Object []> listEntity = query.getResultList();
         for(Object [] produto : listEntity){
@@ -187,72 +184,6 @@ public class ProdutoService {
         }
         return map.values().stream().collect(Collectors.toList());
     }
-
-//    public List<ProdutoDto> buscarPorId(BigInteger cdProduto) {
-//        Map<BigInteger, ProdutoDto> map = new HashMap<>();
-//
-//        Query query = manager.createNativeQuery("SELECT P.CD_PRODUTO, P.NM_FANTASIA, F.CD_FORNECEDOR, F.NM_RAZAO_SOCIAL, S.ID_STATUS_PRODUTO, " +
-//                "S.DS_STATUS_PRODUTO, SC.ID_SUB_CATEGORIA, SC.DS_SUB_CATEGORIA, TP.ID_TIPO_PRODUTO, TP.DS_TIPO_PRODUTO, P.NM_FABRICANTE, P.VL_UNIDADE, P.DS_PRODUTO  " +
-//                "from TB_PRODUTO P, TB_FORNECEDOR_PRODUTO FP, TB_FORNECEDOR F, TB_STATUS_PRODUTO S, TB_SUB_CATEGORIA_PRODUTO SC, TB_TIPO_PRODUTO TP " +
-//                "where P.CD_PRODUTO = FP.CD_PRODUTO " +
-//                "AND FP.CD_FORNECEDOR = F.CD_FORNECEDOR " +
-//                "AND P.ID_STATUS_PRODUTO = S.ID_STATUS_PRODUTO " +
-//                "AND P.ID_SUB_CATEGORIA = SC.ID_SUB_CATEGORIA " +
-//                "AND P.CD_PRODUTO = "+ cdProduto +" " +
-//                "AND P.ID_TIPO_PRODUTO = TP.ID_TIPO_PRODUTO");
-//
-//        List<Object []> listEntity = query.getResultList();
-//        for(Object [] produto : listEntity){
-//            Integer codigo = ((BigInteger) produto [0]).intValue();
-//            ProdutoDto dto = null;
-//            if(!map.containsKey(codigo)){
-//                dto = new ProdutoDto();
-//                dto.setCodigo((BigInteger) produto[0]);
-//
-//                dto.setNm_fantasia( (String) produto [1]);
-//
-//                //FORNECEDOR
-//                FornecedorProdutoDTO fornecedorProdutoDTO = new FornecedorProdutoDTO();
-//                fornecedorProdutoDTO.setCd_fornecedor((BigInteger) produto[2]);
-//                fornecedorProdutoDTO.setNm_razao_social((String) produto[3]);
-//
-//                //STATUS PRODUTO
-//                StatusProdutoEntity status = new StatusProdutoEntity();
-//                status.setIdStatusProduto((BigInteger) produto[4]);
-//                status.setDsStatusProduto((String) produto[5]);
-//                dto.setStatusProduto(status);
-//
-//                //SUB CATEGORIA
-//                SubCategoriaEntity sc = new SubCategoriaEntity();
-//                sc.setIdSubCategoria((BigInteger) produto[6]);
-//                sc.setDsSubCategoria((String) produto[7]);
-//                dto.setSubCategoria(sc);
-//
-//                //TIPO PRODUTO
-//                TipoProdutoEntity tp = new TipoProdutoEntity();
-//                tp.setIdTipoProduto((BigInteger) produto[8]);
-//                tp.setDsTipoProduto((String) produto[9]);
-//                dto.setTipo_produto(tp);
-//
-//                dto.setNm_fabricante((String) produto[10]);
-//                dto.setVl_unidade((BigDecimal) produto[11]);
-//                dto.setDsProduto((String) produto[12]);
-//
-//                if(dto.getFornecedor() == null)
-//                    dto.setFornecedor(new ArrayList<>());
-//                dto.getFornecedor().add(fornecedorProdutoDTO);
-//
-//            }else{
-//                dto = map.get(codigo);
-//                FornecedorProdutoDTO fornecedorProdutoDTO = new FornecedorProdutoDTO();
-//                fornecedorProdutoDTO.setCd_fornecedor((BigInteger) produto[2]);
-//                fornecedorProdutoDTO.setNm_razao_social((String) produto[3]);
-//                dto.getFornecedor().add(fornecedorProdutoDTO);
-//            }
-//            map.put(dto.getCodigo(), dto);
-//        }
-//        return map.values().stream().collect(Collectors.toList());
-//    }
 
     public ProdutoEntity inserir(ProdutoDto dto) throws Exception {
         ProdutoEntity entity = produtoBO.parseToEntity(dto, null);

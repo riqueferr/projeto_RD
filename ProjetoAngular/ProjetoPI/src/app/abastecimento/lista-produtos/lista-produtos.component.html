@@ -13,11 +13,11 @@
       <div class="container">
         <div class='row justify-content-start marginTabela justify-content-between'>
           <form class="form-inline comMarginBottom">
-            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
-            <input type='search' placeholder='Pesquisar' class='form-inline form-control mr-sm-1'>
-            <button class="btn btn botaoConfirmar my-2 my-sm-0" type="submit">
-              <i class="fa fa-search"></i>
-            </button>
+            <input id="search" name="search" class="form-control mr-sm-2"
+              placeholder="Pesquisar produto" [(ngModel)]='idProduto'>
+              <button class="btn btn botaoConfirmar my-2 my-sm-0" type="submit" (click)="register()">
+                <i class="fa fa-search"></i>
+              </button>
           </form>
           <form class="form-inline">
             <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
@@ -33,7 +33,7 @@
             </a>
           </form>
         </div>
-        <div class='row' style='text-align: center'>
+        <div class='row marginTabela' style='text-align: center'>
           <table class="table table-hover">
             <thead class="thead-default tituloTabela">
               <tr>
