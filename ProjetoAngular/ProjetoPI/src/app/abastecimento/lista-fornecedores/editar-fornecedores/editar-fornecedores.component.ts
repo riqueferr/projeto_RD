@@ -57,6 +57,7 @@ export class EditarFornecedoresComponent implements OnInit {
       $('#cnpj').mask('00.000.000/0000-00');
       $('#cep').mask('00000-000');
       $('#phone').mask('(00) 0000-0000');
+      $('#cell').mask('(00) 00000-0000');
       $('#numeroInscricao').mask('000.000.000.000');
     });
     this.cd_fornecedor = this.route.snapshot.paramMap.get('cd_fornecedor');

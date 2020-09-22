@@ -44,6 +44,9 @@ public class FornecedorEntity implements Serializable {
     @Column(name = "NR_TELEFONE")
     private String nr_telefone;
 
+    @Column(name = "NR_CELULAR")
+    private String nr_celular;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_TIPO_FORNECEDOR")
     private TipoFornecedorEntity fk_tipo_fornecedor;

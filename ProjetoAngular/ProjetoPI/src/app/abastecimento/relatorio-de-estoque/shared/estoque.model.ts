@@ -1,7 +1,7 @@
 export interface Produtos {
     cdFilial: number;
     nmFilial: String;
-    codProduto: number;
+    cdProduto: number;
     // produto: Produtos;
 }
 

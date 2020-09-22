@@ -72,7 +72,7 @@ public class FilialEstoqueService {
 
 
                 //PRODUTO
-                dto.setCodProduto((BigInteger) produto[3]);
+                dto.setCdProduto((BigInteger) produto[3]);
                 dto.setNmProduto((String) produto[4]);
 
                 //SUB CATEGORIA
@@ -113,7 +113,7 @@ public class FilialEstoqueService {
                 dto.setNmFilial((String) produto[2]);
 
                 //PRODUTO
-                dto.setCodProduto((BigInteger) produto[3]);
+                dto.setCdProduto((BigInteger) produto[3]);
                 dto.setNmProduto((String) produto[4]);
 
 
@@ -127,14 +127,58 @@ public class FilialEstoqueService {
         return pfBO.parseToDTO(repository.getOne(codigo));
     }
 
+//    public List<ProdutoFilialEstoqueDTO> buscarCdFilial(Long cdFilial) {
+//        List<ProdutoFilialEstoqueEntity> pfEntity = repository.findByFilialCdFilial(cdFilial);
+//        List<ProdutoFilialEstoqueDTO> filialDTO = new ArrayList<>();
+//        for (ProdutoFilialEstoqueEntity entity : pfEntity) {
+//            ProdutoFilialEstoqueDTO dto = pfBO.parseToDTO(entity);
+//            filialDTO.add(dto);
+//        }
+//        return filialDTO;
+//    }
+
     public List<ProdutoFilialEstoqueDTO> buscarCdFilial(Long cdFilial) {
-        List<ProdutoFilialEstoqueEntity> pfEntity = repository.findByFilialCdFilial(cdFilial);
-        List<ProdutoFilialEstoqueDTO> filialDTO = new ArrayList<>();
-        for (ProdutoFilialEstoqueEntity entity : pfEntity) {
-            ProdutoFilialEstoqueDTO dto = pfBO.parseToDTO(entity);
-            filialDTO.add(dto);
+        Map<Integer, ProdutoFilialEstoqueDTO> map = new HashMap<>();
+
+        Query query = manager.createNativeQuery("SELECT PE.CD_ESTOQUE, FI.CD_FILIAL, FI.NM_FILIAL, PR.CD_PRODUTO, " +
+                "PR.NM_FANTASIA, SC.DS_SUB_CATEGORIA, PE.QT_ESTOQUE, PE.QT_BASE " +
+                "FROM TB_PRODUTO_FILIAL_ESTOQUE PE " +
+                "LEFT OUTER JOIN TB_PRODUTO PR ON PR.CD_PRODUTO = PE.CD_PRODUTO " +
+                "LEFT OUTER JOIN TB_SUB_CATEGORIA_PRODUTO SC ON SC.ID_SUB_CATEGORIA = PR.ID_SUB_CATEGORIA " +
+                "LEFT OUTER JOIN TB_FILIAL FI ON FI.CD_FILIAL = PE.CD_FILIAL " +
+                " WHERE FI.CD_FILIAL = "+ cdFilial + "");
+
+        List<Object []> listEntity = query.getResultList();
+        for(Object [] produto : listEntity){
+            Integer codigo = ((BigInteger) produto [0]).intValue();
+            ProdutoFilialEstoqueDTO dto = null;
+            if(!map.containsKey(codigo)){
+                dto = new ProdutoFilialEstoqueDTO();
+                dto.setCdEstoque((BigInteger) produto[0]);
+
+                //FILIAL
+                dto.setCdFilial((BigInteger) produto[1]);
+                dto.setNmFilial((String) produto[2]);
+
+
+                //PRODUTO
+                dto.setCdProduto((BigInteger) produto[3]);
+                dto.setNmProduto((String) produto[4]);
+
+                //SUB CATEGORIA
+                dto.setSubCategoria((String) produto[5]);
+
+                //QTDE ESTOQUE
+                dto.setQt_estoque((Integer) produto[6]);
+
+                //QTDE BASE
+                dto.setQt_base((Integer) produto[7]);
+
+
+            }
+            map.put(dto.getCdEstoque().intValue(), dto);
         }
-        return filialDTO;
+        return map.values().stream().collect(Collectors.toList());
     }
 
 
@@ -163,7 +207,7 @@ public class FilialEstoqueService {
 
 
                 //PRODUTO
-                dto.setCodProduto((BigInteger) produto[3]);
+                dto.setCdProduto((BigInteger) produto[3]);
                 dto.setNmProduto((String) produto[4]);
 
                 //SUB CATEGORIA

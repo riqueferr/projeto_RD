@@ -10,18 +10,28 @@ export interface Entradas {
     emissao: String,
     entrada: Date,
     vlDocumentoFiscal: number,
-    itens: ResponseEntradaItens []
+    itens: ResponseEntradaItens[]
 }
-
 
 export class ResponseEntradas {
-  entradas: Entradas[];
+    entradas: Entradas[];
 }
 
-export class ResponseEntradaItens{
+export class ResponseEntradaItens {
+    // constructor(
+    //     public nrItemDocumento: number,
+    //     public cdProduto: number,
+    //     public qtItem: number,
+    //     public nmProduto: String
+    // ){}
     nrItemDocumento: number;
     cdProduto: number;
     qtItem: number;
     nmProduto: String;
 }
 
+export interface Produto {
+    codigo: number,
+    nm_fantasia: String
+
+}

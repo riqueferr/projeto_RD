@@ -90,15 +90,20 @@
         </div>
 
         <div class="form-row justify-content-around">
-          <div class="form-group col-md-5">
+          <div class="form-group col-md-3">
             <label for="inputEmail">E-mail</label>
             <input type="email" name="email" required #Email="ngModel" class="form-control"
               placeholder="Insira um e-mail válido" [(ngModel)]='request.ds_email' disabled>
           </div>
-          <div class="form-group col-md-5">
+          <div class="form-group col-md-3">
             <label for="telefone">Telefone</label>
             <input name="telefone" required #telefone="ngModel" class="form-control"
               placeholder="Insira um número de telefone" [(ngModel)]='request.nr_telefone' disabled>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="celular">Celular</label>
+            <input name="celular" required #celular="ngModel" class="form-control"
+              placeholder="null" [(ngModel)]='request.nr_celular' disabled>
           </div>
         </div>
         <div class="form-row justify-content-around">

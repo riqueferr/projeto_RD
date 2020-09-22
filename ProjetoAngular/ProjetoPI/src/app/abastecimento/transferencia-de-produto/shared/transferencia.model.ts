@@ -18,6 +18,12 @@ export class ResponseTransferencia {
 }
 
 export class ResponseEntradaItens{
+    // constructor(
+    //     public nrItemDocumento: number,
+    //     public cdProduto: number,
+    //     public qtItem: number,
+    //     public nmProduto: String
+    //       ){}
     nrItemDocumento: number;
     cdProduto: number;
     qtItem: number;
