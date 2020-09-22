@@ -1,0 +1,79 @@
+<div class='row'>
+    <div class='col-md-3'>
+      <!-- SideBar -->
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class='col-md-9'>
+      <div class="container">
+        <br>
+        <div class="container">
+          <h2>Fornecedores</h2>
+        </div>
+        <br>
+        <div class="container">
+          <div class='row justify-content-start marginTabela justify-content-between'>
+            <form class="form-inline comMarginBottom">
+              <input id="search" name="search" class="form-control mr-sm-2"
+                placeholder="Pesquisar fornecedor" [(ngModel)]='idFornecedor'>
+                <button class="btn btn botaoConfirmar my-2 my-sm-0" type="submit" (click)="register()">
+                  <i class="fa fa-search"></i>
+                </button>
+            </form>
+            <form class="form-inline">
+              <a type='submit' routerLink='/cadastroDeFornecedor' class='btn btn-default botaoCadastrar centralizar'>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                  <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                </svg>
+                Cadastrar
+              </a>
+            </form>
+          </div>
+  
+            <div class='row marginTabela' style='text-align: center'>
+              <table class="table">
+                <thead class="thead-default tituloTabela">
+                  <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Fornecedor</th>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">Contato</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <!-- <th scope="row">001</th>
+              <td>Johnson & Johnson</td>
+              <td>66.666.865/0240-93</td>
+              <td>needs.contato@rd.com.br | (11) 3765-2376</td> -->
+              <tr>
+                <th scope="row"> {{ request.cd_fornecedor }} </th>
+                <td>{{ request.nm_razao_social }}</td>
+                <td>{{ request.nr_cnpj }}</td>
+                <td>{{ request.nr_telefone}}</td>
+              <td _ngcontent-ytp-c40="">
+                <abbr _ngcontent-ytp-c40="" title="Editar">
+                  <button _ngcontent-ytp-c40="" type="button" class="btn botaoConfirmar" [routerLink]="['/fornecedores/editar', request.cd_fornecedor]">
+                    <i _ngcontent-ytp-c40="" class="fa fa-pencil">
+                    </i>
+                  </button>
+                </abbr>&nbsp;
+                <abbr _ngcontent-ytp-c40="" title="Visualizar">
+                  <button _ngcontent-ytp-c40="" type="button" data-toggle="modal" data-target="#exampleModal"
+                    class="btn btn-secondary" [routerLink]="['/visualizar/fornecedor', request.cd_fornecedor]">
+                    <i _ngcontent-ytp-c40="" class="fa fa-eye">
+                    </i>
+                  </button>
+                </abbr>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

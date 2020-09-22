@@ -35,15 +35,15 @@ public class RelatorioProdutoController {
 
     @GetMapping("/relatorioproduto/status/{ID_STATUS_PRODUTO}")
     @ApiOperation(value = "Listar todas os produtos por ID STATUS")
-    public ResponseEntity<Object> buscarNfPoridStatusProduto(@PathVariable("ID_STATUS_PRODUTO") Long idStatusProduto) {
+    public ResponseEntity<Object> buscarNfPoridStatusProduto(@PathVariable("ID_STATUS_PRODUTO") BigInteger idStatusProduto) {
         return ResponseEntity.ok().body(service.buscarNfPoridStatusProduto(idStatusProduto));
     }
 
-    @GetMapping("/relatorioproduto/statusProduto/{DS_STATUS_PRODUTO}")
-    @ApiOperation(value = "Listar todas os produtos por DS STATUS")
-    public ResponseEntity<Object> buscarNfPordsStatusProduto(@PathVariable("DS_STATUS_PRODUTO") String dsStatusProduto) {
-        return ResponseEntity.ok().body(service.buscarNfPordsStatusProduto(dsStatusProduto));
-    }
+//    @GetMapping("/relatorioproduto/statusProduto/{DS_STATUS_PRODUTO}")
+//    @ApiOperation(value = "Listar todas os produtos por DS STATUS")
+//    public ResponseEntity<Object> buscarNfPordsStatusProduto(@PathVariable("DS_STATUS_PRODUTO") String dsStatusProduto) {
+//        return ResponseEntity.ok().body(service.buscarNfPordsStatusProduto(dsStatusProduto));
+//    }
 
     @GetMapping("/relatorioproduto/nmproduto/{Nm_Fantasia}")
     @ApiOperation(value = "Listar todas os produtos por NOME PRODUTO")

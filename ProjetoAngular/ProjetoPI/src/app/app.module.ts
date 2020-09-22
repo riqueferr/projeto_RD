@@ -47,6 +47,8 @@ import { ListaStatusProdutoRelatorioComponent } from './abastecimento/relatorio-
 import { ListaIdTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-id-transferencia/lista-id-transferencia.component';
 import { ListaFilialdestinoTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-filialdestino-transferencia/lista-filialdestino-transferencia.component';
 import { ListarFilialDfComponent } from './financeiro/cupom-de-venda/listar-filial-df/listar-filial-df.component';
+import { ListaIdProdutoComponent } from './abastecimento/lista-produtos/lista-id-produto/lista-id-produto.component';
+import { ListaIdFornecedorComponent } from './abastecimento/lista-fornecedores/lista-id-fornecedor/lista-id-fornecedor.component';
 
 
 
@@ -87,6 +89,8 @@ import { ListarFilialDfComponent } from './financeiro/cupom-de-venda/listar-fili
     ListaIdTransferenciaComponent,
     ListaFilialdestinoTransferenciaComponent,
     ListarFilialDfComponent,
+    ListaIdProdutoComponent,
+    ListaIdFornecedorComponent,
   ],
   imports: [
     BrowserModule,

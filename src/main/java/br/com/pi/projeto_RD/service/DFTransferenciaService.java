@@ -113,15 +113,85 @@ public class DFTransferenciaService {
         return map.values().stream().collect(Collectors.toList());
     }
 
-    public List<DFTransferenciaDTO> buscarPorFilial(String filial) {
-        List<DocumentoFiscalEntity> dfEntity = repository.findByOperacaoDsOperacaoAndDestinoNmFilialContaining("TRANSFERENCIA", filial);
-        List<DFTransferenciaDTO> transferenciaDTO = new ArrayList<>();
+//    public List<DFTransferenciaDTO> buscarPorFilial(String filial) {
+//        List<DocumentoFiscalEntity> dfEntity = repository.findByOperacaoDsOperacaoAndDestinoNmFilialContaining("TRANSFERENCIA", filial);
+//        List<DFTransferenciaDTO> transferenciaDTO = new ArrayList<>();
+//
+//        for (DocumentoFiscalEntity entity : dfEntity) {
+//            DFTransferenciaDTO dto = bo.parseToDTO(entity);
+//            transferenciaDTO.add(dto);
+//        }
+//        return transferenciaDTO;
+//    }
 
-        for (DocumentoFiscalEntity entity : dfEntity) {
-            DFTransferenciaDTO dto = bo.parseToDTO(entity);
-            transferenciaDTO.add(dto);
+    public List<DFTransferenciaDTO> buscarPorFilial(String filial) {
+        Map<Integer, DFTransferenciaDTO> map = new HashMap<>();
+
+        Query query = manager.createNativeQuery("SELECT DISTINCT DC.ID_DOCUMENTO_FISCAL, O.CD_OPERACAO, O.DS_OPERACAO, " +
+                "DC.CD_FILIAL_DESTINO, FD.NM_FILIAL AS NM_FILIAL_DESTINO, F.CD_FILIAL, F.NM_FILIAL, DC.NR_CHAVE_ACESSO, " +
+                "DC.NR_NF, DC.NR_SERIE, DC.DT_EMISSAO, DC.DT_ENTRADA, DC.VL_DOCUMENTO_FISCAL, " +
+                "DI.NR_ITEM_DOCUMENTO, DI.CD_PRODUTO, P.NM_FANTASIA, DI.QT_ITEM " +
+                "FROM TB_DOCUMENTO_FISCAL DC, TB_OPERACAO O, TB_FILIAL F, TB_FILIAL FD, TB_FORNECEDOR FO, " +
+                "TB_DOCUMENTO_ITEM DI, TB_PRODUTO P " +
+                "WHERE DC.CD_OPERACAO = O.CD_OPERACAO " +
+                "AND DC.CD_FILIAL = F.CD_FILIAL " +
+                "AND DC.ID_DOCUMENTO_FISCAL = DI.ID_DOCUMENTO_FISCAL " +
+                "AND DI.CD_PRODUTO = P.CD_PRODUTO " +
+                "AND DC.CD_FILIAL_DESTINO = FD.CD_FILIAL " +
+                "AND O.DS_OPERACAO = 'TRANSFERENCIA' " +
+                "AND F.NM_FILIAL LIKE'%"+ filial +"%'");
+
+        List<Object []> listEntity = query.getResultList();
+        for(Object [] produto : listEntity){
+            Integer codigo = ((BigInteger) produto [0]).intValue();
+            DFTransferenciaDTO dto = null;
+            if(!map.containsKey(codigo)){
+                dto = new DFTransferenciaDTO();
+                dto.setIdDocumento((BigInteger) produto[0]);
+
+                //OPERAÇÃO
+                OperacaoEntity o = new OperacaoEntity();
+                o.setCdOperacao((BigInteger) produto[1]);
+                o.setDsOperacao((String) produto[2]);
+                dto.setOperacao(o);
+
+                dto.setIdFilialDestino((BigInteger) produto[3]);
+                dto.setNmFilialDestino((String) produto[4]);
+
+                //FILIAL
+                dto.setIdFilial((BigInteger) produto[5]);
+                dto.setNmFilial((String) produto[6]);
+
+                dto.setChaveAcesso((BigInteger) produto[7]);
+                dto.setNrNF((BigInteger) produto[8]);
+                dto.setNrSerie((BigInteger) produto[9]);
+                dto.setDtEmissao((Date) produto[10]);
+                dto.setDtEntrada((Date) produto[11]);
+                dto.setVlDocumentoFiscal((BigDecimal) produto[12]);
+
+                //ITENS
+                ItensDfDTO itensDfDTO = new ItensDfDTO();
+                itensDfDTO.setNrItemDocumento((BigInteger) produto[13]);
+                itensDfDTO.setCdProduto((BigInteger) produto[14]);
+                itensDfDTO.setNmProduto((String) produto[15]);
+                itensDfDTO.setQtItem((Integer) produto[16]);
+
+                if(dto.getItens() == null)
+                    dto.setItens(new ArrayList<>());
+                dto.getItens().add(itensDfDTO);
+
+            }else{
+                dto = map.get(codigo);
+                ItensDfDTO itensDfDTO = new ItensDfDTO();
+                itensDfDTO.setNrItemDocumento((BigInteger) produto[13]);
+                itensDfDTO.setCdProduto((BigInteger) produto[14]);
+                itensDfDTO.setNmProduto((String) produto[15]);
+                itensDfDTO.setQtItem((Integer) produto[16]);
+                dto.getItens().add(itensDfDTO);
+            }
+            map.put(dto.getIdDocumento().intValue(), dto);
         }
-        return transferenciaDTO;
+        return map.values().stream().collect(Collectors.toList());
     }
 
     public DFTransferenciaDTO buscarPorId(BigInteger codigo) {

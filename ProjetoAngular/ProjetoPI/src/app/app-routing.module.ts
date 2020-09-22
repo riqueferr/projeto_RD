@@ -32,6 +32,8 @@ import { ListaNomeProdutoRelatorioComponent } from './abastecimento/relatorio-de
 import { ListaStatusProdutoRelatorioComponent } from './abastecimento/relatorio-de-produto/lista-status-produto-relatorio/lista-status-produto-relatorio.component';
 import { ListaIdTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-id-transferencia/lista-id-transferencia.component';
 import { ListaFilialdestinoTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-filialdestino-transferencia/lista-filialdestino-transferencia.component';
+import { ListaIdProdutoComponent } from './abastecimento/lista-produtos/lista-id-produto/lista-id-produto.component';
+import { ListaIdFornecedorComponent } from './abastecimento/lista-fornecedores/lista-id-fornecedor/lista-id-fornecedor.component';
 
 
 export const routes: Routes = [
@@ -122,6 +124,11 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'listaFornecedores/:idFornecedor',
+    component: ListaIdFornecedorComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'listaEntradaProdutos',
     component: ListaEntradaComponent,
     canActivate: [AuthGuard]
@@ -141,10 +148,14 @@ export const routes: Routes = [
     component: ListarPageFornecedoresComponent,
     canActivate: [AuthGuard]
   },
-
   {
     path: 'listaProdutos',
     component: ListaProdutosComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'listaProdutos/:idProduto',
+    component: ListaIdProdutoComponent,
     canActivate: [AuthGuard]
   },
   {

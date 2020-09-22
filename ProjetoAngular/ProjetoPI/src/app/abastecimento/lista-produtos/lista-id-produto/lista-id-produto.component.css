@@ -1,0 +1,55 @@
+.botaoCadastrar {
+    color: #29754E !important;
+    background-color: #FFFFFF !important;
+    border-color: #29754E !important;
+    width: 120px !important;
+    /* height: 28px !important; */
+    padding: 4px;
+    margin-bottom: 5px;
+  }
+  
+  .botaoCadastrar:hover {
+    background-color: #29754E !important;
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+    width: 120px !important;
+    /* height: 28px !important; */
+    padding: 4px;
+    margin-bottom: 5px;
+  }
+  
+  .botaoConfirmar {
+    background-color: #29754e;
+    color: #fff;
+    margin-left: 0px !important;
+  }
+  
+  .botaoConfirmar:hover {
+    background-color: #174d31;
+    color: #fff;
+    margin-left: 0px !important;
+    border: 1px solid #29754e;
+  }
+  
+  .semPaddingLeftRight{
+    padding-left:0px;
+    padding-right:0px;
+  }
+  
+  .semPaddingLeft{
+    padding:0px 0px 0px 5px !important;
+    margin: 0px !important;
+  }
+  
+  .semMarginRight{
+    padding-left: 65px;
+  }
+  
+  .comMarginBottom{
+    margin-bottom: 5px;
+  }
+  
+  .maxCarch{
+    max-width: 15ch;
+  }
+  
