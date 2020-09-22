@@ -94,10 +94,11 @@ public class FilialEstoqueService {
     public List<ProdutoFilialEstoqueDTO> buscarFilialProduto(Integer idFilial) {
         Map<Integer, ProdutoFilialEstoqueDTO> map = new HashMap<>();
 
-        Query query = manager.createNativeQuery("SELECT FE.CD_ESTOQUE, F.CD_FILIAL, F.NM_FILIAL, P.CD_PRODUTO, P.NM_FANTASIA " +
+        Query query = manager.createNativeQuery("SELECT FE.CD_ESTOQUE, F.CD_FILIAL, F.NM_FILIAL, P.CD_PRODUTO, P.NM_FANTASIA, FE.QT_ESTOQUE " +
                 "FROM TB_PRODUTO_FILIAL_ESTOQUE FE " +
                 "LEFT OUTER JOIN TB_FILIAL F ON F.CD_FILIAL = FE.CD_FILIAL " +
                 "LEFT OUTER JOIN TB_PRODUTO P ON P.CD_PRODUTO = FE.CD_PRODUTO " +
+
                 " WHERE F.CD_FILIAL = "+ idFilial + "");
 
         List<Object []> listEntity = query.getResultList();
@@ -115,6 +116,8 @@ public class FilialEstoqueService {
                 //PRODUTO
                 dto.setCdProduto((BigInteger) produto[3]);
                 dto.setNmProduto((String) produto[4]);
+
+                dto.setQt_estoque((Integer) produto[5]);
 
 
             }

@@ -139,7 +139,7 @@ public class DFTransferenciaService {
                 "AND DI.CD_PRODUTO = P.CD_PRODUTO " +
                 "AND DC.CD_FILIAL_DESTINO = FD.CD_FILIAL " +
                 "AND O.DS_OPERACAO = 'TRANSFERENCIA' " +
-                "AND F.NM_FILIAL LIKE'%"+ filial +"%'");
+                "AND FD.NM_FILIAL LIKE'%"+ filial +"%'");
 
         List<Object []> listEntity = query.getResultList();
         for(Object [] produto : listEntity){
