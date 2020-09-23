@@ -43,7 +43,7 @@
                       <th scope="col">Produtos</th>
                       <th scope="col">Filial</th>
                       <th scope="col">Data Entrada</th>
-      
+                      <th scope="col">Valor DF</th>
                     </tr>
                   </thead>
       
@@ -68,7 +68,7 @@
                         </td>
                       <td>{{ request.nmFilialDestino }}</td>
                       <td ng-model-options="{timezone: 'America/Sao_Paulo'}" >{{ request.dtEntrada}}</td>
-      
+                      <td>R$ {{ request.vlDocumentoFiscal }}</td>
                     </tr>
                   </tbody>
                 </table>

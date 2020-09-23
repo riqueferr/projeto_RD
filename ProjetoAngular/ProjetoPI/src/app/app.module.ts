@@ -52,6 +52,7 @@ import { ListaIdProdutoComponent } from './abastecimento/lista-produtos/lista-id
 import { ListaIdFornecedorComponent } from './abastecimento/lista-fornecedores/lista-id-fornecedor/lista-id-fornecedor.component';
 import { SharedModule } from './abastecimento/shared/shared.module';
 import { OrderModule } from 'ngx-order-pipe';
+import { DetalhamentoProdutosComponent } from './abastecimento/lista-produtos/detalhamento-produtos/detalhamento-produtos.component';
 
 
 
@@ -94,6 +95,7 @@ import { OrderModule } from 'ngx-order-pipe';
     ListarFilialDfComponent,
     ListaIdProdutoComponent,
     ListaIdFornecedorComponent,
+    DetalhamentoProdutosComponent,
   ],
   imports: [
     BrowserModule,

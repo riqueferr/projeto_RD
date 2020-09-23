@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { AlertModalService } from '../../shared/alert-modal.service';
 
 declare var $: any;
 @Component({
@@ -18,37 +19,13 @@ export class EditarFornecedoresComponent implements OnInit {
 
   cd_fornecedor: string;
   request: any;
-  // request: Fornecedores = {
-  //   cd_fornecedor: null,
-  //   nr_cnpj: null,
-  //   nm_razao_social: null,
-  //   ds_denominacao: null,
-  //   nr_inscricao: null,
-  //   ds_email: null,
-  //   nr_telefone: null,
-  //   fk_tipo_fornecedor: {
-  //     id_tipo_fornecedor: null,
-  //     ds_tipo_fornecedor: null
-  //   },
-  //   endereco: [
-  //     {
-  //       dsEndereco: null,
-  //       nrEndereco: null,
-  //       nrCep: null,
-  //       dsBairro: null,
-  //       dsCidade: null,
-  //       sgEstado: null,
-  //       nmComplemento: null
-  //     }
-  //   ]
-
-  // };
 
   constructor(
     private http: HttpClient,
     private fornecedorService: FornecedoresService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private modal: AlertModalService
   ) { }
 
   ngOnInit(): void {
@@ -71,7 +48,11 @@ export class EditarFornecedoresComponent implements OnInit {
 
   update(): void {
     if (this.it.form.valid) {
-      this.fornecedorService.updateFornecedor(this.cd_fornecedor, this.request).subscribe();
+      this.fornecedorService.updateFornecedor(this.cd_fornecedor, this.request).subscribe(
+        success => this.modal.showAlertSuccess('Fornecedor "' + this.request.nm_razao_social + '" foi editado com sucesso!'),
+        error => this.modal.showAlertDanger('Erro ao editar o produto ' + this.request.nm_razao_social + '!'),
+        () => console.log('request completo')
+      );
       this.router.navigate(['/listaFornecedores']);
     }
   }
