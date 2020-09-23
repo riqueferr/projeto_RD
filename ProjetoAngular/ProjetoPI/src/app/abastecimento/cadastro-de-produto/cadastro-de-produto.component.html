@@ -97,8 +97,7 @@
         <div class="form-row">
           <div class="form-group col-md-12">
             <label for="dsProduto">Descrição Produto</label>
-            <input name="dsProduto" ngModel #dsProduto="ngModel" class="form-control" placeholder="Descrição produto"
-              required>
+              <textarea name="dsProduto" ngModel #dsProduto="ngModel" class="form-control" [(ngModel)]='request.dsProduto' id="dsProduto" rows="3" required></textarea>
             <div *ngIf="dsProduto.errors && dsProduto.dirty" class="invalid-tooltip d-block">
               <div [hidden]="!dsProduto.errors.required">
                 Digite a descrição, por favor.

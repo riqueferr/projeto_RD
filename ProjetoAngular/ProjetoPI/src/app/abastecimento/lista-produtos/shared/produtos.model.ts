@@ -12,6 +12,7 @@ export interface Produtos {
     },
     nm_fabricante: String,
     vl_unidade: number,
+    dsProduto: String,
     fornecedor: [
         {
             cd_fornecedor: number

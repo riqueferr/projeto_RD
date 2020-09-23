@@ -1,0 +1,78 @@
+<div class='row'>
+    <div class='col-md-3'>
+      <!-- SideBar -->
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class='col-md-9'>
+      <div class="container">
+        <br>
+        <div class="container">
+          <h2>Visualização detalhada do Produto</h2>
+        </div>
+        <br>
+        <form #formProduto="ngForm" novalidate>
+          <div class="form-row ">
+            <div class="form-group col-md-4">
+              <label for="nm_fantasia"> Nome Fantasia </label>
+              <input name="nm_fantasia" ngModel #nm_fantasia="ngModel" class="form-control" disabled placeholder="Nome Fantasia"
+                [(ngModel)]='request.nm_fantasia'>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="nm_fabricante"> Fabricante </label>
+              <input name="nm_fabricante" ngModel #nm_fabricante="ngModel" class="form-control" disabled
+                placeholder="Nome Fabricante" [(ngModel)]='request.nm_fabricante'>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputFabricante">Valor Unidade</label>
+              <input name="Fabricante" ngModel #vl_unidade="ngModel" class="form-control" disabled placeholder="R$ 00,00"
+                [(ngModel)]='request.vl_unidade'>
+            </div>
+  
+          </div>
+          <div class="form-row ">
+            <div class="form-group col-md-3">
+              <label for="inputStatus">Status</label>
+              <input name="inputStatus" ngModel #idStatusProduto="ngModel" class="form-control" disabled placeholder="Ativo"
+                [(ngModel)]='request.statusProduto.dsStatusProduto'>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputSubCategoria">SubCategoria</label>
+              <input name="inputSubCategoria" ngModel #idSubCategoria="ngModel" class="form-control" disabled
+                placeholder="SubCategoria" [(ngModel)]='request.subCategoria.dsSubCategoria'>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputTipo">Tipo</label>
+              <input name="inputTipo" ngModel #idTipoProduto="ngModel" class="form-control" disabled placeholder="Tipo produto"
+                [(ngModel)]='request.tipo_produto.dsTipoProduto'>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputFornecedor">Fornecedor</label>
+              <input name="inputFornecedor" ngModel #cd_fornecedor="ngModel" class="form-control" disabled placeholder="Fornecedor"
+                [(ngModel)]='request.fornecedor[0].nm_razao_social'>
+            </div>
+          </div>
+  
+  
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputDescricao">Descrição Produto</label>
+              <textarea name="dsProduto" ngModel #dsProduto="ngModel" class="form-control" disabled [(ngModel)]='request.dsProduto' id="dsProduto" rows="3" required></textarea>
+            </div>
+          </div>
+          <div class="form-row justify-content-around">
+            <div class="form-group col-md-4">
+            </div>
+            <div class="form-group col-md-4">
+            </div>
+            <!-- <div class="form-group col-md-4">
+              <button type="submit" class="btn btn-default botaoConfirmar" (click)="update()">Confirmar</button>
+  
+              <a routerLink='/listaProdutos'> <button type="reset" class="btn btn-default botaoCancelar">Cancelar</button>
+              </a>
+            </div> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

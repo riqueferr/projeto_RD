@@ -113,6 +113,7 @@ export class CadastroDeFornecedorComponent implements OnInit {
       numeroInscricao: form.value.numeroInscricao,
       email: form.value.email,
       telefone: form.value.telefone,
+      celular: form.value.celular,
       logradouro: dados.logradouro,
       cep: dados.cep,
       numero: '',
@@ -127,7 +128,7 @@ export class CadastroDeFornecedorComponent implements OnInit {
     if (this.it.form.valid) {
       console.log(this.request);
       this.fornecedorService.createFornecedor(this.request).subscribe(
-        success => this.modal.showAlertSuccess('Fornecedor ' + this.request.nm_razao_social +  ' cadastrado com sucesso!'),
+        success => this.modal.showAlertSuccess('Fornecedor "' + this.request.nm_razao_social +  '" cadastrado com sucesso!'),
         error => this.modal.showAlertDanger('Erro ao cadastrar o fornecedor!'),
         () => console.log('request completo')
       );

@@ -23,41 +23,64 @@
               placeholder="Nome Fabricante" [(ngModel)]='request.nm_fabricante'>
           </div>
           <div class="form-group col-md-4">
-            <label for="inputFabricante">Valor Unidade</label>
-            <input name="Fabricante" ngModel #vl_unidade="ngModel" class="form-control" placeholder="R$ 00,00"
-              [(ngModel)]='request.vl_unidade'>
+            <label for="vl_unidade">Valor Unidade</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">R$</span>
+              </div>
+              <input name="vl_unidade" currencyMask ngModel #vl_unidade="ngModel" class="form-control"
+                placeholder="R$ 00,00" [(ngModel)]='request.vl_unidade' id='vl_unidade'
+                [options]="{ prefix: '', thousands: ',', decimal: '.' }" required>
+              <div *ngIf="vl_unidade.errors && vl_unidade.dirty" class="invalid-tooltip d-block">
+                <div [hidden]="!vl_unidade.errors.required">
+                  Digite o valor, por favor.
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
         <div class="form-row ">
           <div class="form-group col-md-3">
-            <label for="inputStatus">Status</label>
-            <input name="inputStatus" ngModel #idStatusProduto="ngModel" class="form-control" placeholder="Ativo"
-              [(ngModel)]='request.statusProduto.idStatusProduto'>
+            <label for="idStatusProduto">Status</label>
+            <select [(ngModel)]='request.statusProduto.idStatusProduto' class="form-control" name="idStatusProduto"
+              required>
+              <option *ngFor='let status of responseStatus' value="{{ status.idStatusProduto }}">
+                {{ status.dsStatusProduto }}</option>
+            </select>
           </div>
+
           <div class="form-group col-md-3">
-            <label for="inputSubCategoria">SubCategoria</label>
-            <input name="inputSubCategoria" ngModel #idSubCategoria="ngModel" class="form-control"
-              placeholder="SubCategoria" [(ngModel)]='request.subCategoria.idSubCategoria'>
+            <label for="idSubCategoria">Sub Categoria</label>
+            <select [(ngModel)]='request.subCategoria.idSubCategoria' class="form-control" name="idSubCategoria"
+              required>
+              <option *ngFor='let sub of responseSubCategorias' value="{{ sub.idSubCategoria }}">
+                {{ sub.dsSubCategoria }}</option>
+            </select>
           </div>
+          
           <div class="form-group col-md-3">
-            <label for="inputTipo">Tipo</label>
-            <input name="inputTipo" ngModel #idTipoProduto="ngModel" class="form-control" placeholder="Tipo produto"
-              [(ngModel)]='request.tipo_produto.idTipoProduto'>
+            <label for="idTipoProduto">Tipo</label>
+            <select name="idTipoProduto" class="form-control" placeholder="Tipo produto" 
+            [(ngModel)]='request.tipo_produto.idTipoProduto' id="idTipoProduto" required>
+              <option *ngFor='let tipo of responseTipoProduto' value="{{ tipo.idTipoProduto }}">
+                {{ tipo.dsTipoProduto }}</option>
+            </select>
           </div>
+
           <div class="form-group col-md-3">
-            <label for="inputFornecedor">Fornecedor</label>
-            <input name="inputFornecedor" ngModel #cd_fornecedor="ngModel" class="form-control" placeholder="Fornecedor"
-              [(ngModel)]='request.fornecedor[0].cd_fornecedor'>
-          </div>
+            <label for="cd_fornecedor">Fornecedor</label>
+          <select [(ngModel)]='request.fornecedor[0].cd_fornecedor'class="form-control" id="idFornecedor" name="idFornecedor" ngModel required #idFornecedor="ngModel">
+            <option *ngFor='let fornecedores of responseFornecedores' value="{{fornecedores.cd_fornecedor}}" >{{ fornecedores.nm_razao_social }}</option>
+          </select>
+        </div>
         </div>
 
 
         <div class="form-row">
           <div class="form-group col-md-12">
             <label for="inputDescricao">Descrição Produto</label>
-            <input name="inputDescricao" ngModel #dsProduto="ngModel" class="form-control"
-              placeholder="Descrição produto" [(ngModel)]='request.dsProduto'>
+            <textarea name="dsProduto" ngModel #dsProduto="ngModel" class="form-control" [(ngModel)]='request.dsProduto' id="dsProduto" rows="3" required></textarea>
           </div>
         </div>
         <div class="form-row justify-content-around">

@@ -167,9 +167,14 @@
             </div>
           </div>
           <div class="form-group col-md-3">
-            <label for="telefone">Celular</label>
+            <label for="celular">Celular</label>
             <input id="cell" name="celular" required #celular="ngModel" class="form-control"
               placeholder="(00)90000-0000" [(ngModel)]='request.nr_celular'>
+              <div *ngIf="celular.errors && celular.dirty" class="invalid-tooltip d-block">
+                <div [hidden]="!celular.errors.required">
+                  Insira o seu celular, por favor!
+                </div>
+              </div>
           </div>
         </div>
         <div class="form-row justify-content-around">

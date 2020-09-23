@@ -41,6 +41,7 @@ export class CadastroDeProdutoComponent implements OnInit {
     },
     nm_fabricante: null,
     vl_unidade: null,
+    dsProduto: null,
     fornecedor: [
       {
         cd_fornecedor: null
@@ -75,7 +76,7 @@ export class CadastroDeProdutoComponent implements OnInit {
   register(): void {
     if (this.formProdutos.form.valid) {
       this.produtosService.createProduto(this.request).subscribe(
-        success => this.modal.showAlertSuccess('Produto ' + this.request.nm_fantasia +  ' foi cadastrado com sucesso!'),
+        success => this.modal.showAlertSuccess('Produto "' + this.request.nm_fantasia +  '" foi cadastrado com sucesso!'),
         error => this.modal.showAlertDanger('Erro ao cadastrar o produto!'),
         () => console.log('request completo')
       );

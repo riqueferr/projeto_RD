@@ -34,6 +34,7 @@ import { ListaIdTransferenciaComponent } from './abastecimento/transferencia-de-
 import { ListaFilialdestinoTransferenciaComponent } from './abastecimento/transferencia-de-produto/lista-filialdestino-transferencia/lista-filialdestino-transferencia.component';
 import { ListaIdProdutoComponent } from './abastecimento/lista-produtos/lista-id-produto/lista-id-produto.component';
 import { ListaIdFornecedorComponent } from './abastecimento/lista-fornecedores/lista-id-fornecedor/lista-id-fornecedor.component';
+import { DetalhamentoProdutosComponent } from './abastecimento/lista-produtos/detalhamento-produtos/detalhamento-produtos.component';
 
 
 export const routes: Routes = [
@@ -186,6 +187,11 @@ export const routes: Routes = [
   {
     path: 'visualizar/fornecedor/:cd_fornecedor',
     component: DetalhamentoFornecedoresComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'visualizar/produto/:codigo',
+    component: DetalhamentoProdutosComponent,
     canActivate: [AuthGuard]
   },
   {
