@@ -14,6 +14,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 // import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
+import { AlertModalService } from '../shared/alert-modal.service';
 
 declare var $: any;
 
@@ -56,7 +57,8 @@ export class TransferenciaDeProdutoComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private transferenciaService: TransferenciaService,
-    private responseProdutoService: ProdutosService
+    private responseProdutoService: ProdutosService,
+    private modal: AlertModalService
   ) { }
 
   ngOnInit(): void {
@@ -123,9 +125,12 @@ export class TransferenciaDeProdutoComponent implements OnInit {
   register(): void {
     if (this.it.form.valid) {
       console.log(this.request);
-      this.transferenciaService.createTransferencia(this.request).subscribe();
+      this.transferenciaService.createTransferencia(this.request).subscribe(
+        success => this.modal.showAlertSuccess('Transferência de produto realizada com sucesso!'),
+        error => this.modal.showAlertDanger('Erro ao realizar a transferência!'),
+        () => console.log('request completo')
+      );
       this.router.navigate(['/listaTransferenciaProduto']);
-      alert("Transferência registrada com sucesso!");
     }
   }
 

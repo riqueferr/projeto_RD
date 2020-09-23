@@ -18,6 +18,14 @@ export class ListaFilialdestinoTransferenciaComponent implements OnInit {
   nmFilialDestino: any;
   request: any;
 
+  // Configuração da ordenação
+  key: string = 'idDocumento';
+  reverse: boolean = false;
+  sort(key) {
+      this.key = key;
+      this.reverse = !this.reverse;
+  }
+
   responseTransferencia: ResponseTransferencia[];
 
   constructor(

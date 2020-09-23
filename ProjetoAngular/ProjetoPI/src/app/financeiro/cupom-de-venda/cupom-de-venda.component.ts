@@ -16,6 +16,14 @@ export class CupomDeVendaComponent implements OnInit {
   
   public paginaAtual = 1;
 
+  // Configuração da ordenação
+  key: string = 'idDocumento';
+  reverse: boolean = false;
+  sort(key) {
+      this.key = key;
+      this.reverse = !this.reverse;
+  }
+
   responseDf: ResponseDF[];
 
   constructor(

@@ -16,6 +16,14 @@ export class ListaFornecedoresComponent implements OnInit {
 
   idFornecedor: any;
 
+    // Configuração da ordenação
+    key: string = 'cd_fornecedor';
+    reverse: boolean = false;
+    sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
+    }
+
   responseFornecedores: ResponseFornecedores[];
   constructor(
     private fornecedorService: FornecedoresService,

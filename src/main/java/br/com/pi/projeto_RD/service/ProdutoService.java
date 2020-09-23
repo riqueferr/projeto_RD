@@ -82,15 +82,15 @@ public class ProdutoService {
     public List<ProdutoDto> listarTodas() {
         Map<BigInteger, ProdutoDto> map = new HashMap<>();
 
-        Query query = manager.createNativeQuery("SELECT P.CD_PRODUTO, P.NM_FANTASIA, F.CD_FORNECEDOR, F.NM_RAZAO_SOCIAL, S.ID_STATUS_PRODUTO, " +
+        Query query = manager.createNativeQuery("SELECT P.CD_PRODUTO, P.NM_FANTASIA, F.CD_FORNECEDOR, " +
+                "F.NM_RAZAO_SOCIAL, S.ID_STATUS_PRODUTO, " +
                 "S.DS_STATUS_PRODUTO, SC.ID_SUB_CATEGORIA, SC.DS_SUB_CATEGORIA, TP.ID_TIPO_PRODUTO, " +
                 "TP.DS_TIPO_PRODUTO, P.NM_FABRICANTE, P.VL_UNIDADE, P.DS_PRODUTO FROM TB_PRODUTO P " +
                 "LEFT OUTER JOIN TB_FORNECEDOR_PRODUTO FP ON P.CD_PRODUTO = FP.CD_PRODUTO " +
                 "LEFT OUTER JOIN TB_FORNECEDOR F ON FP.CD_FORNECEDOR = F.CD_FORNECEDOR " +
                 "LEFT OUTER JOIN TB_STATUS_PRODUTO S ON P.ID_STATUS_PRODUTO = S.ID_STATUS_PRODUTO " +
                 "LEFT OUTER JOIN TB_SUB_CATEGORIA_PRODUTO SC ON P.ID_SUB_CATEGORIA = SC.ID_SUB_CATEGORIA " +
-                "LEFT OUTER JOIN TB_TIPO_PRODUTO TP ON  P.ID_TIPO_PRODUTO = TP.ID_TIPO_PRODUTO " +
-                "GROUP BY P.CD_PRODUTO  ORDER BY P.CD_PRODUTO ");
+                "LEFT OUTER JOIN TB_TIPO_PRODUTO TP ON  P.ID_TIPO_PRODUTO = TP.ID_TIPO_PRODUTO");
 
         List<Object []> listEntity = query.getResultList();
         for(Object [] produto : listEntity){

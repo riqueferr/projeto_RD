@@ -38,7 +38,9 @@
           <table class="table table-hover">
             <thead class="thead-default tituloTabela">
               <tr>
-                <th scope="col">Código DF</th>
+                <th (click)="sort('idDocumento')" scope="col">Código DF
+                  <span *ngIf="key =='idDocumento'">{{reverse ? '▲' : '▼'}}</span>
+                </th>
                 <th scope="col">CD</th>
                 <th scope="col">Produtos</th>
                 <th scope="col">Filial</th>
@@ -48,7 +50,7 @@
             </thead>
 
             <tbody>
-              <tr *ngFor='let transferencias of responseTransferencia | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
+              <tr *ngFor='let transferencias of responseTransferencia | orderBy: key : reverse | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
                 <th scope="row"> {{ transferencias.idDocumento }} </th>
                 <td> {{ transferencias.nmFilial }} </td>
                 <td>

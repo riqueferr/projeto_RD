@@ -45,7 +45,9 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th scope="col">ID NF</th>
+                      <th (click)="sort('idDocumento')" scope="col">ID NF
+                        <span *ngIf="key =='idDocumento'">{{reverse ? '▲' : '▼'}}</span>
+                      </th>
                       <th scope="col">Data de Entrada</th>
                       <th scope="col">Filial</th>
                       <th scope="col">Operação</th>
@@ -54,7 +56,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor='let notas of responseDf | paginate: { itemsPerPage: 8, currentPage: paginaAtual }; let i = index'>
+                    <tr *ngFor='let notas of responseDf | orderBy: key : reverse | paginate: { itemsPerPage: 8, currentPage: paginaAtual }; let i = index'>
                       <th scope="row">{{ notas.idDF }}</th>
                       <td>{{ notas.dt_entrada | date: 'dd/MM/yyyy'}}</td>
                       <td>{{ notas.nmFilial }}</td>

@@ -27,7 +27,7 @@ public class ProdutoController {
 
     @GetMapping("/produtos")
     @ApiOperation(value = "Listar todas os produtos")
-    public ResponseEntity buscarTodas() {
+    public ResponseEntity<Object> listarTodas() {
         return ResponseEntity.ok().body(service.listarTodas());
     }
 

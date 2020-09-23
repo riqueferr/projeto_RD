@@ -34,3 +34,4 @@ export interface Produto {
     codigo: number,
     nm_fantasia: String
 }
+

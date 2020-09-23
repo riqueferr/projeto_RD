@@ -46,19 +46,17 @@ public class DFEntradaService {
     public List<DFEntradaDTO> buscarTodos() {
         Map<Integer, DFEntradaDTO> map = new HashMap<>();
 
-        String entrada = "ENTRADA";
-
         Query query = manager.createNativeQuery("SELECT DC.ID_DOCUMENTO_FISCAL, O.CD_OPERACAO, O.DS_OPERACAO, F.CD_FILIAL, " +
                 "F.NM_FILIAL, FO.CD_FORNECEDOR, FO.NM_RAZAO_SOCIAL, DC.NR_CHAVE_ACESSO, " +
                 "DC.NR_NF, DC.NR_SERIE, DC.DT_EMISSAO, DC.DT_ENTRADA, DC.VL_DOCUMENTO_FISCAL, " +
                 "DI.NR_ITEM_DOCUMENTO, DI.CD_PRODUTO, P.NM_FANTASIA, DI.QT_ITEM " +
-                "FROM TB_DOCUMENTO_FISCAL DC, TB_OPERACAO O, TB_FILIAL F, TB_FORNECEDOR FO, " +
-                "TB_DOCUMENTO_ITEM DI, TB_PRODUTO P " +
-                "WHERE DC.CD_OPERACAO = O.CD_OPERACAO " +
-                "AND DC.CD_FILIAL = F.CD_FILIAL " +
-                "AND DC.ID_FORNECEDOR = FO.CD_FORNECEDOR " +
-                "AND DC.ID_DOCUMENTO_FISCAL = DI.ID_DOCUMENTO_FISCAL " +
-                "AND DI.CD_PRODUTO = P.CD_PRODUTO AND O.DS_OPERACAO = 'ENTRADA'");
+                "FROM TB_DOCUMENTO_FISCAL DC " +
+                "LEFT OUTER JOIN TB_OPERACAO O ON DC.CD_OPERACAO = O.CD_OPERACAO " +
+                "LEFT OUTER JOIN TB_FILIAL F ON DC.CD_FILIAL = F.CD_FILIAL " +
+                "LEFT OUTER JOIN TB_FORNECEDOR FO ON DC.ID_FORNECEDOR = FO.CD_FORNECEDOR " +
+                "LEFT OUTER JOIN TB_DOCUMENTO_ITEM DI ON DC.ID_DOCUMENTO_FISCAL = DI.ID_DOCUMENTO_FISCAL " +
+                "LEFT OUTER JOIN TB_PRODUTO P ON DI.CD_PRODUTO = P.CD_PRODUTO " +
+                "WHERE O.DS_OPERACAO = 'ENTRADA'");
 
         List<Object []> listEntity = query.getResultList();
         for(Object [] produto : listEntity){

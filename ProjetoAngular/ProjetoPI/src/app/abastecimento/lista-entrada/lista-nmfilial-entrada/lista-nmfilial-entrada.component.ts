@@ -20,6 +20,16 @@ export class ListaNmfilialEntradaComponent implements OnInit {
   nmFilial: any;
   request: any;
 
+  public paginaAtual = 1;
+
+    // Configuração da ordenação
+    key: string = 'idDocumento';
+    reverse: boolean = false;
+    sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
+    }
+
   responseEntradas: ResponseEntradas[];
   responseItens: ResponseEntradaItens[];
 

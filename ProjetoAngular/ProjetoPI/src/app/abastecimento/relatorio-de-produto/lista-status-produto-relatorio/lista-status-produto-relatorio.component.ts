@@ -18,6 +18,14 @@ export class ListaStatusProdutoRelatorioComponent implements OnInit {
   statusProduto: any;
   request: any;
 
+  // Configuração da ordenação
+  key: string = 'cdProduto';
+  reverse: boolean = false;
+  sort(key) {
+      this.key = key;
+      this.reverse = !this.reverse;
+  }
+
   responseRelatorioProduto: ResponseRelatorioProduto[];
 
   constructor(
