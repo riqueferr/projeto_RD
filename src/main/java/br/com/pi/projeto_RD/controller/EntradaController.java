@@ -22,7 +22,7 @@ public class EntradaController {
     //BUSCAR TODOS
     @GetMapping("/entrada")
     @ApiOperation(value = "Buscar documentos fiscais por Entrada")
-    public ResponseEntity buscarTodas() {
+    public ResponseEntity<Object> buscarTodas() {
         return ResponseEntity.ok().body(service.buscarTodos());
     }
 

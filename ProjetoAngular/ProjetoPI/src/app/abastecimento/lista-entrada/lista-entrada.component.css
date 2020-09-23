@@ -34,3 +34,7 @@
   .comMarginBottom{
     margin-bottom: 5px;
   }
+
+  thead>tr>th {
+    cursor: pointer;
+}

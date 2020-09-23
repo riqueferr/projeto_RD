@@ -6,6 +6,7 @@ import { Produtos, ResponseProdutos, ResponseSubCategorias, ResponseStatus, Resp
 
 import { ResponseFornecedores } from '../cadastro-de-fornecedor/shared/fornecedores.model';
 import { FornecedoresService } from '../cadastro-de-fornecedor/shared/fornecedores.service';
+import { AlertModalService } from '../shared/alert-modal.service';
 
 declare var $: any;
 
@@ -50,7 +51,8 @@ export class CadastroDeProdutoComponent implements OnInit {
   constructor(
     private produtosService: ProdutosService,
     private responseFornecedoresService: FornecedoresService,
-    private router: Router
+    private router: Router,
+    private modal: AlertModalService
   ) { }
 
   ngOnInit(): void {
@@ -72,10 +74,13 @@ export class CadastroDeProdutoComponent implements OnInit {
 
   register(): void {
     if (this.formProdutos.form.valid) {
-      this.produtosService.createProduto(this.request).subscribe();
+      this.produtosService.createProduto(this.request).subscribe(
+        success => this.modal.showAlertSuccess('Produto ' + this.request.nm_fantasia +  ' foi cadastrado com sucesso!'),
+        error => this.modal.showAlertDanger('Erro ao cadastrar o produto!'),
+        () => console.log('request completo')
+      );
       this.router.navigate(["/listaProdutos"]);
     }
-    alert("Produto cadastrado com sucesso!");
   }
 
   listarTodasCategorias() {

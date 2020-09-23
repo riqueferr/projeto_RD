@@ -37,7 +37,9 @@
             <table class="table">
               <thead class="thead-default tituloTabela">
                 <tr>
-                  <th scope="col">Código</th>
+                  <th (click)="sort('cd_fornecedor')" scope="col">Código
+                    <span *ngIf="key =='cd_fornecedor'">{{reverse ? '▲' : '▼'}}</span>
+                  </th>
                   <th scope="col">Fornecedor</th>
                   <th scope="col">CNPJ</th>
                   <th scope="col">Contato</th>
@@ -45,12 +47,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <!-- <th scope="row">001</th>
-            <td>Johnson & Johnson</td>
-            <td>66.666.865/0240-93</td>
-            <td>needs.contato@rd.com.br | (11) 3765-2376</td> -->
-            <tr *ngFor='let fornecedor of responseFornecedores | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
+            <tr *ngFor='let fornecedor of responseFornecedores | orderBy: key : reverse | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index'>
               <th scope="row"> {{ fornecedor.cd_fornecedor }} </th>
               <td>{{ fornecedor.nm_razao_social }}</td>
               <td>{{ fornecedor.nr_cnpj }}</td>

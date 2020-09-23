@@ -22,6 +22,14 @@ export class ListaTransferenciaComponent implements OnInit {
   responseTransferencia: ResponseTransferencia[];
   responseFiliais: ResponseFiliais[];
 
+    // Configuração da ordenação
+    key: string = 'idDocumento';
+    reverse: boolean = false;
+    sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
+    }
+
   constructor(
     private responseService: TransferenciaService,
     private router: Router

@@ -52,3 +52,7 @@
 .maxCarch{
   max-width: 15ch;
 }
+
+thead>tr>th {
+  cursor: pointer;
+}

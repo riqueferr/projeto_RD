@@ -7,6 +7,7 @@ import { ChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination'; // Módulo da dependência de paginação
 import { NgxCurrencyModule } from 'ngx-currency';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,6 +50,8 @@ import { ListaFilialdestinoTransferenciaComponent } from './abastecimento/transf
 import { ListarFilialDfComponent } from './financeiro/cupom-de-venda/listar-filial-df/listar-filial-df.component';
 import { ListaIdProdutoComponent } from './abastecimento/lista-produtos/lista-id-produto/lista-id-produto.component';
 import { ListaIdFornecedorComponent } from './abastecimento/lista-fornecedores/lista-id-fornecedor/lista-id-fornecedor.component';
+import { SharedModule } from './abastecimento/shared/shared.module';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 
@@ -102,8 +105,10 @@ import { ListaIdFornecedorComponent } from './abastecimento/lista-fornecedores/l
     NgxMaskModule.forRoot(),
     NgxPaginationModule, // Paginação
     NgxCurrencyModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    ModalModule.forRoot(),
+    SharedModule,
+    OrderModule 
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
 import { validate, format, generate } from 'cnpj';
+import { AlertModalService } from '../shared/alert-modal.service';
 
 
 declare var $: any;
@@ -53,7 +54,8 @@ export class CadastroDeFornecedorComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private fornecedorService: FornecedoresService,
-    private router: Router
+    private router: Router,
+    private modal: AlertModalService
   ) { }
 
   ngOnInit(): void {
@@ -124,7 +126,11 @@ export class CadastroDeFornecedorComponent implements OnInit {
   register(): void {
     if (this.it.form.valid) {
       console.log(this.request);
-      this.fornecedorService.createFornecedor(this.request).subscribe();
+      this.fornecedorService.createFornecedor(this.request).subscribe(
+        success => this.modal.showAlertSuccess('Fornecedor ' + this.request.nm_razao_social +  ' cadastrado com sucesso!'),
+        error => this.modal.showAlertDanger('Erro ao cadastrar o fornecedor!'),
+        () => console.log('request completo')
+      );
       this.router.navigate(['/listaFornecedores']);
     }
   }

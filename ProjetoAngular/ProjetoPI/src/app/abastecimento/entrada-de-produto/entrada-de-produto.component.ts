@@ -16,6 +16,8 @@ import { NgForm, Form, FormGroup, FormControl, NgModel } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
+import { AlertModalComponent } from '../shared/alert-modal/alert-modal.component';
+import { AlertModalService } from '../shared/alert-modal.service';
 
 
 
@@ -62,8 +64,10 @@ export class EntradaDeProdutoComponent implements OnInit {
     private entradaService: EntradasService,
     private responseProdutoService: ProdutosService,
     private responseFornecedoresService: FornecedoresService,
-    private router: Router
+    private router: Router,
+    private modal: AlertModalService
   ) { }
+  
 
   ngOnInit(): void {
     this.loading = true;
@@ -133,7 +137,11 @@ export class EntradaDeProdutoComponent implements OnInit {
   register(): void {
     if (this.it.form.valid) {
       console.log(this.request);
-      this.entradaService.createEntrada(this.request).subscribe();
+      this.entradaService.createEntrada(this.request).subscribe(
+        success => this.modal.showAlertSuccess('Entrada de produto realizada com sucesso!'),
+        error => this.modal.showAlertDanger('Erro ao realizar entrada de produto!'),
+        () => console.log('request completo')
+      );
       this.router.navigate(['/listaEntradaProdutos']);
     }
   }

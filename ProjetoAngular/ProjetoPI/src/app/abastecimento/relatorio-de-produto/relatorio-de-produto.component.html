@@ -71,7 +71,9 @@
                 <thead class="thead-default tituloTabela">
                   <tr>
                   <tr>
-                    <th scope="col">Código</th>
+                    <th (click)="sort('cdProduto')" scope="col">Código
+                      <span *ngIf="key =='cdProduto'">{{reverse ? '▲' : '▼'}}</span>
+                    </th>
                     <th scope="col">Nome</th>
                     <th scope="col">Tipo</th>
                     <th scope="col">Fornecedor</th>
@@ -79,7 +81,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor='let produtos of responseRelatorioProduto | paginate: { itemsPerPage: 8, currentPage: paginaAtual }; let i = index'>
+                  <tr *ngFor='let produtos of responseRelatorioProduto | orderBy: key : reverse | paginate: { itemsPerPage: 8, currentPage: paginaAtual }; let i = index'>
                     <th scope="row">{{ produtos.cdProduto }}</th>
                     <td class='maxCarch'>{{ produtos.nmProduto }}</td>
                     <td class='maxCarch'>{{ produtos.tipoProduto }}</td>
