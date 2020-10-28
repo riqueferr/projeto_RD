@@ -8,3 +8,6 @@ Nathan Ferreira.
 
 npm install ngx-order-pipe --save
 npm install ngx-bootstrap --save
+npm install ng2-charts
+npm install chart.js
+npm install ngx-currency --save
